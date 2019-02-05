@@ -13,7 +13,8 @@ alias h='history'
 echo c:/minGW/msys/1.0$(pwd)/.profile
 
 # Setting my dev folder as a startup folder of msys.
-HOME="/c/users/${LOGNAME}/DropBox"
+# HOME="/c/users/${LOGNAME}/DropBox"
+# HOME="/c/users/${LOGNAME}/Documents/GitHub/nowicx"
 cd $HOME
 
 # @$(hostname) may be added, if necessary, after $(whoami)
