@@ -30,6 +30,8 @@ obj/
 [Dd]ebug*/
 [Rr]elease*/
 Ankh.NoLoad
+*.opendb
+*.db-shm
 
 # Compiled source #
 ###################
