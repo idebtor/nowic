@@ -1,6 +1,6 @@
-# Data Structures
-  Lecture Notes by idebtor@gmail.com
-  --------------
+# C++ for C Coder & Data Structures
+Lecture Notes by idebtor@gmail.com
+-------------------
 # About Static Library
 
 A library is a collection of pre-compiled object files that can be linked into your programs via the linker. Examples are the system functions such as printf() and sqrt(). There are two types of external libraries: static library and shared library.

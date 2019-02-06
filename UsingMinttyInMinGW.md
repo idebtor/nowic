@@ -1,6 +1,6 @@
-# Data Structures
-  Lecture Notes by idebtor@gmail.com
-  --------------
+# C++ for C Coder & Data Structures
+Lecture Notes by idebtor@gmail.com
+-------------------
 # Using Mintty in MinGW/Msys
 
 Instead of using cmd or powershell, I recommend you to use the better terminal emulators mintty available.
