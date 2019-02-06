@@ -1,9 +1,15 @@
 /****************************************************************************
  * Nowic Library 1.0 - C++ Library for Data Structures and Algorithms
- *
  * Youngsup Kim <idebtor@gmail.com>
+ * Usage:
+ *    In your source file, add the following line.
+ *      #include "nowic.h"
+ *    In your command line during the build, add the following options
+ *    when you are in ../src folder.
+ *      -I../include -L../lib -lnowic
+ *
  * Compilation:
- * > g++ -c nowic.cpp -o nowic.o -I../include
+ * > g++ -c nowic.cpp -o nowic.o
  * > ar rcs libnowic.a nowic.o
  *
  * 2019/02/05 Created
@@ -37,6 +43,27 @@ int GetInt(std::string prompt = "Enter an integer: ") {
    return keyin;
  }
 
+ /*
+ * Reads a line of text from standard input and returns the equivalent
+ * double as precisely as possible; if text does not represent a
+ * double, user is prompted to retry.  Leading and trailing whitespace
+ * is ignored.  For simplicity, overflow and underflow are not detected.
+ */
+
+double GetDouble(std::string prompt = "Enter a floating point number: ") {
+  double x;
+  std::string line;
+  std::cout << prompt;                   // display a prompt
+  while (true) {
+    if (std::getline(std::cin, line)) {  // get an input
+      std::stringstream sstr(line);      // make sstream obj
+      if (sstr >> x) break;          // scan for double
+    }
+    std::cout << "Retry: ";              // not an int, retry
+  }
+  return x;
+}
+
 /*
  * Reads a line of text from standard input and returns the first char.
  * If text does not represent a char, user is prompted to retry.
@@ -44,28 +71,27 @@ int GetInt(std::string prompt = "Enter an integer: ") {
  * It provides a default parameter, but it can be overwritten.
  */
 char GetChar(std::string prompt = "Enter a character: ") {
-  char keyin;
+  char ch;
   std::string line;
   std::cout << prompt;                  // diplay prompt
   while (true) {
     if (getline(std::cin, line)) {      // get a line
       std::stringstream sstr(line);     // create a sstream obj
-      if (sstr >> keyin) break;         // get the first char
+      if (sstr >> ch) break;            // get the first char
     }
     std::cout << "Retry: ";             // not a char, retry
   }
-  return keyin;
+  return ch;
 }
 
 /*
  * Reads a line of text from standard input and returns it as a
- * c string (char *), without trailing newline character.
- * If user inputs only "\n", he/she will be asked to retry.
- * Leading and trailing whitespace is not ignored.  Stores c string
- * on heap via malloc and returns the pointer.  The memory must be
- * freed by caller to avoid leak. Use free(), or delete [] to free it.
+ * c char array or char *, without trailing newline character.
+ * If user inputs only "\n", he/she will be asked to retry. Leading
+ * and trailing whitespace is not ignored.  It stores c char array
+ * on heap via malloc and returns the pointer. The memory must be
+ * freed by caller to avoid leak. Use free() or delete [] to free it.
  */
-
  char* GetString(std::string prompt = "Enter a string: ") {
    std::string line, str;
    std::cout << prompt;                 // display prompt
@@ -85,14 +111,17 @@ char GetChar(std::string prompt = "Enter a character: ") {
 #if 0
 int main() {
   int i = GetInt();
-  std::cout << "i=" << i << "===" << std::endl;
+  std::cout << "i=" << i << "==" << std::endl;
+
+  double x = GetDouble();
+  std::cout << "x=" << x << "==" << std::endl;
 
   char ch = GetChar();
-  std::cout << "ch=" << ch << "===" << std::endl;
+  std::cout << "ch=" << ch << "==" << std::endl;
 
   char *str = GetString();
-  std::cout << "keyin=" << str << "===" << std::endl;
-  delete[] str;
+  std::cout << "str=" << str << "==" << std::endl;
+  delete str;
 
   std::cout << "Happy Coding~~\n";
 }
