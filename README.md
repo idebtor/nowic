@@ -1,8 +1,7 @@
-
-# C++ for C Coder & Data Structures
-nowic
------------------------------------
-
+# Data Structures ECE200100/ITP20001
+# C++ for C Coders
+Lecture notes _nowic_ by idebtor@gmail.com
+----------------------------------
 
 한동대 전산전자 공학부 Data Structures(DS, 자료 구조) 강의에 오신 여러분을 주님의 이름으로 환영합니다.  본 강의는 DS뿐만 아니라 C++ 강의도 포함이 되어 있습니다. 다만, 수강자들이 기본적인 C 프로그래밍은 할 수 있다는 것을 가정합니다. 그래서, 저는 이 강의 __C++ for C Coder & Data Structures__ 라고 부릅니다.
 
