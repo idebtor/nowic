@@ -8,7 +8,7 @@ Lecture Notes by idebtor@gmail.com
   2. Read Syllabus.
   3. Read 'GettingStarted'
   4. Follow instructions in 'GettingStarted' as soon as possible(ASAP).
-  
+
   These reading materials is available at my [github.com/idebtor/nowic](https://github.com/idebtor/nowic).
 
 ## Join Piazza.
@@ -21,8 +21,8 @@ There are two ways to join Piazza, go the www.piazza.com.
   - On your request with your email address, I may register it for you.  We'll be conducting all class-related discussion here this term. The quicker you begin asking questions on Piazza (rather than via emails), the quicker you'll benefit from the collective knowledge of your classmates and instructors. We encourage you to ask questions when you're struggling to understand a concept—you can even do so anonymously.
 
 ## Install MinGW/MSYS(32bit version recommended)
-  - Follow this [good installation guide](http://holawang.blogspot.kr/2014/02/g++-installing-g++-at-windowsmingw-or.html) available.
-  - After the installtion, change (add) the following two folder names into user's PATH environment variable:
+  - Follow this [good installation guide](http://holawang.blogspot.com/2014/02/gcc-installing-gcc-at-windowsmingw-or.html) available.  For mac, [good installation guide](https://thdev.net/132)
+  - After the installation, change (add) the following two folder names into user's PATH environment variable:
       ```
       C:\MinGW\bin
       C:\MinGW\msys\1.0\bin
@@ -65,16 +65,14 @@ http://stackoverflow.com/questions/39185248/eclipse-mingw-c-cannot-find-lpthread
     5. Move your mouse (The misplaced window will follow your cursor.)
 
 ## Install Desktop GitHub
-After installation of Desktop-GitHub, be a member if already not. From Desktop GitHub, clone the following `nowic` repository into your local computer.
+After installation of Desktop-GitHub, be a member if already not.
 
-  - https://github.com/idebtor/nowic   
-
+  - Clone the GitHub `nowic` repository into your local computer:
+    - https://github.com/idebtor/nowic  
   - __How to clone a repository from GitHub:__ Refer to [this site](https://help.github.com/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-desktop/).
-
+  - Click __'watch'__ and __'star'__ at the top of the web page.
   - Then, in your computer, you may have the following github/nowic folder as shown below:
-
     - ```C:\Users\user\Documents\GitHub\nowic```
-
   - Since this `nowic` repository can be updated anytime, keep this local repository as "read-only".  Don't code yours here!.
   - Copy them into your own repository or your own local development folders in your computer you can easily access them.  They should look like the following:
     ```
@@ -91,8 +89,6 @@ After installation of Desktop-GitHub, be a member if already not. From Desktop G
     ~/pset01/hellox.exe       # a solution to compare your work
     ~/pset01/names.txt        # a list of names used in Step 5.
     ```
-
-
       __Note for Multi-screen users:__ Remove the following file if GitHub Desktop is displayed off-screen. Restart Desktop GitHub.
       ```
       C:\Users\user\AppData\Roaming\GitHub Desktop\window-state.json
