@@ -62,7 +62,31 @@ Even if C++ is slanted toward object-oriented programming (OOP), you can neverth
   }
   ```
 
-## 2.2 New/Delete
+## 2.2 Namespaces
+Namespace allows to group classes, functions and variable under a common scope name that can be referenced elsewhere.
+
+  ```
+  namespace first  { int var = 5; }
+  namespace second { int var = 3; }
+  std::cout << first::var << std::endl << second::var << std::endl;
+  ```
+
+You should obtain values 3 and 5. There exists some standard namespace in the standard template library such as `std`. If you use many names often from one name space such as _std_, you may predefine it at the top of the file. Then you may leave out _std_ through out the program as shown below.
+
+  ```
+  include <iostream>
+  using namespace std;
+
+  int main (int argc, char **argv) {
+      int i;
+      cout << "Please enter an integer value: ";
+      cin >> i;
+      cout << "The value you entered is " << i  << endl;
+      return 0;
+  }
+  ```
+
+## 2.3 New/Delete
 The `new` and `delete` keywords are used to allocate and free memory. They are "object-aware" so you'd better use them instead of `malloc` and `free`. In any case, never cross the streams (`new/free` or `malloc/delete`). Once you're used `new/delete`, you don't want to go back to `malloc/free` age.  Surely you will stay in C++ world, _not C world_^^.
 
 ```
@@ -82,7 +106,7 @@ free(s);                // deallocate 'malloc'ed memory
 
 `delete` does two things: it calls the destructor and it deallocates the memory.
 
-## 2.3 References
+## 2.4 References
 A reference allows to declare an _alias_ to another variable. As long as the aliased variable lives, you can use indifferently the variable or the alias.
 
 ```
@@ -110,11 +134,11 @@ int main() {
 ```
 References are _extremely useful_ when used with function arguments since it saves the cost of copying parameters into the stack when calling the function.
 
-## 2.4   Default parameters
+## 2.5   Default parameters
 You can specify default values for function parameters. When the function is called with fewer parameters, default values are used. This is very useful, but not flexible as Python because of the following reasons.
 - When an argument is left out of a function call (because it has default value), all the arguments that come after it must be left out too.
 - When a function has a mixture of parameters both with and without default arguments, the parameters with default arguments must be declared last.
-- A function's default arguments should be assigned in the earliest occurrence of the function name. This will ususally be the function prototype.
+- A function's default arguments should be assigned in the earliest occurrence of the function name. This will usually be the function prototype.
 
 ```
 float foo( float a=0, float b=1, float c=2 );
@@ -130,29 +154,6 @@ float foo( float a, float b, float c)
 ```
 You should obtain values 4, 5 and 6.
 
-## 2.5 Namespaces
-Namespace allows to group classes, functions and variable under a common scope name that can be referenced elsewhere.
-
-```
-namespace first  { int var = 5; }
-namespace second { int var = 3; }
-std::cout << first::var << std::endl << second::var << std::endl;
-```
-You should obtain values 3 and 5. There exists some standard namespace in the standard template library such as `std`. If you use many names often from one name space such as _std_, you may predefine it at the top of the file. Then you may leave out _std_ through out the program as shown below.
-
-  ```
-  include <iostream>
-  using namespace std;
-
-  int main (int argc, char **argv) {
-      int i;
-      cout << "Please enter an integer value: ";
-      cin >> i;
-      cout << "The value you entered is " << i  << endl;
-      return 0;
-  }
-  ```
-
 ## 2.6   Overloading
 Function overloading refers to the possibility of creating multiple functions with the same name as long as they have different parameters (type and/or number) which is called a __signature__ of function.
 
@@ -163,7 +164,7 @@ int   add( int a, int b )     { return a + b; }
 
 It is not legal to overload a function based on the `return` type (but you can do it anyway)
 
-## 2.7   Const & inline
+## 2.7   const & inline
 Defines and macros are _bad_ if not used properly as illustrated below:
 
 ```
@@ -204,9 +205,9 @@ int *const ptr = &value;
 ```
 Notice in the definition of `ptr` the word `const` appears after the astrisk.  This means that `ptr` is a `const` pointer. A compiler error will result if we write code that makes `ptr` point to anything else.
 
-- With a `const` pointer, it is the pointer itself that is constant.  Once the poiner is initialized with an address, it cannot point to anything else.
+- With a `const` pointer, it is the pointer itself that is constant.  Once the pointer is initialized with an address, it cannot point to anything else.
 
-Although the parameter is `const` pointer, we can call the function multiple times with different arguments. The following code will successfully pass the addesses of x, y and z to the `set_to_zero` function:
+Although the parameter is `const` pointer, we can call the function multiple times with different arguments. The following code will successfully pass the addresses of x, y and z to the `set_to_zero` function:
 
 ```
 // The ptr itself cannot be changed,
@@ -231,11 +232,11 @@ const int *const ptr = &value;
 In this example, `ptr` is a `const int`.  Notice the word `const` appears before `int`, indicating that `ptr` points to a `const int`, and it appears after asterisk, indicating that `ptr` is a constant pointer.  
 
 
-## 2.11  Interface and Implemenation Separation(IIS)
+## 2.11  Interface and Implementation Separation(IIS)
 
 __Example__:
 
-__Inteface__: foo.h
+__Interface__: foo.h
 
 ```
 class foo {
@@ -566,7 +567,7 @@ class Bar3 : public Bar1, public Bar2 {
 };
 ```
 
-In class Bar3, the data reference is ambiguous since it could refer to Bar1::data or Bar2::data. This problem is referred as the __diamond problem__. You can eliminete the problem by explicitely specifying the data origin (e.g. Bar1::data) or by using virtual inheritance in Bar1 and Bar2.
+In class Bar3, the data reference is ambiguous since it could refer to Bar1::data or Bar2::data. This problem is referred as the __diamond problem__. You can eliminate the problem by explicitly specifying the data origin (e.g. Bar1::data) or by using virtual inheritance in Bar1 and Bar2.
 
 ## 4.5   Exercises
 1. Write a Bar class that inherits from a Foo class and makes constructor and destructor methods to print something when called.
@@ -670,7 +671,7 @@ Creating a new exception is quite easy:
     - overflow_error
     - underflow_error
 
-## 5.5   Exercices
+## 5.5   Exercises
 
 1. How to handle a constructor that fails ?
 
@@ -689,7 +690,7 @@ Creating a new exception is quite easy:
     __solution__: [ccoders-5.4.cpp](https://GitHub.com/idebtor/nowicx/blob/master/c++cc/cc5.4.cpp)
 
 # 6.   Streams
-C++ provides input/output capability throught the iostream classes that provide the stream concept (iXXXstream for input and oXXXstream for output).
+C++ provides input/output capability throughout the iostream classes that provide the stream concept (iXXXstream for input and oXXXstream for output).
 
 ## 6.1   iostream and ios
 Screen outputs and keyboard inputs may be handled using the iostream header file:
@@ -992,7 +993,7 @@ int main( int argc, char **argv ) {
 
 ## 8.4   Exercises
 1. Write a template stack class using the STL vector class
-2. Write a generic vector class with iterators and benchmark it againt the STL vector class
+2. Write a generic vector class with iterators and benchmark it against the STL vector class
 
 ### References:
 - [C++ FAQ — Frequently Asked Questions](http://www.parashift.com/c++-faq-lite/)
