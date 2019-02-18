@@ -2,7 +2,7 @@
 Lecture Notes by idebtor@gmail.com
 -------------------
 
-# 1. C++ for C Coder
+# 1. C++ for C Coders
 This is a brief introduction to C++ for C Coders.
 - If you can't understand the code below, you'd better start with a C programming.
 
@@ -34,12 +34,12 @@ This is a brief introduction to C++ for C Coders.
 
 ## 1.1 In-house programming principles: 
   - [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)(Don't repeat yourself) 
-    - An absolute principle of software development 
+    - To make you - coders - save time. 
   - [NMN](https://softwareengineering.stackexchange.com/questions/56375/eliminating-magic-numbers-when-is-it-time-to-say-no)(No magic number) 
-    - The use of magic numbers are discouraged. 
+    - To make you - coders - code robust.  
   - [NSE](https://alvinalexander.com/scala/scala-idiom-methods-functions-no-side-effects)(No side effects) 
-    - The function should not have side effects.
-  - [IIS](https://www.researchgate.net/profile/Eun-Sun_Cho/publication/3651869_A_semantics_of_the_separation_of_interface_and_implementation_inC/links/00b7d5268df6753b24000000/A-semantics-of-the-separation-of-interface-and-implementation-inC.pdf)(Interface and Implementation Separation) 
+    - To make you - coders - code clean.
+  - [IIS](https://softwareengineering.stackexchange.com/questions/142192/why-would-a-programmer-want-to-separate-implementation-from-interface)(Interface and Implementation Separation) 
     - To give you - coders - more freedom.
   
   _compiled by idebtor@gmail.com_
@@ -76,8 +76,8 @@ delete q;
 int *r = new int[10];   // allocated for array of 10 integers
 int *s = (int *)malloc(sizeof(int) * 10); // using malloc()
 
-delete[] r;             // for allocated by int[]
-free(s);                // for malloc array
+delete[] r;             // deallocate array memory
+free(s);                // deallocate 'malloc'ed memory
 ```
 
 `delete` does two things: it calls the destructor and it deallocates the memory.
@@ -111,15 +111,22 @@ int main() {
 References are _extremely useful_ when used with function arguments since it saves the cost of copying parameters into the stack when calling the function.
 
 ## 2.4   Default parameters
-You can specify default values for function parameters. When the function is called with fewer parameters, default values are used.
+You can specify default values for function parameters. When the function is called with fewer parameters, default values are used. This is very useful, but not flexible as Python because of the following reasons.
+- When an argument is left out of a function call (because it has default value), all the arguments that come after it must be left out too.
+- When a function has a mixture of parameters both with and without default arguments, the parameters with default arguments must be declared last.
+- A function's default arguments should be assigned in the earliest occurrence of the function name. This will ususally be the function protorype.
 
 ```
-float foo( float a=0, float b=1, float c=2 )
-{ return a + b + c;
+float foo( float a=0, float b=1, float c=2 );
 
-cout << foo(1) << endl
-     << foo(1,2) << endl
-     << foo(1,2,3) << endl;
+int main() {
+  cout << foo(1) << endl
+       << foo(1,2) << endl
+       << foo(1,2,3) << endl;
+}
+
+float foo( float a, float b, float c)
+{ return a + b + c; }
 ```
 You should obtain values 4, 5 and 6.
 
@@ -177,7 +184,54 @@ int inline square(int x) {
 }
 ```
 
-## 2.8  Interface and Implemenation Separation(IIS)
+## 2.8 Pointer to const
+The pointer can be defined as a pointer to a `const` item. For example, 
+
+```
+const double *rates;
+```
+In this example, the compiler will not allow us to write code that changes the thing that rates points to since `rates` is a pointer to a `const`.
+
+- A pointer to `const` points to a constant item. The data that the pointer points to cannot change, but the pointer itself can change.
+- When you write a function that uses a pointer parameter, and the function is not intended to change the data parameter points to, it is always a good idea to make the parameter a pointer to `const`.  Not only will this protect you from writing code in the function that accidently changes the argument, but the function will be able to accept the addresses of both constant and nonconstant arguments.
+
+## 2.9 const pointer
+You can use the `const` to define a constant pointer.  For example, 
+
+```
+int value = 7;
+int *const ptr = &value;
+```
+Notice in the definition of `ptr` the word `const` appears after the astrisk.  This means that `ptr` is a `const` pointer. A compiler error will result if we write code that makes `ptr` point to anything else.
+
+- With a `const` pointer, it is the pointer itself that is constant.  Once the poiner is initialized with an address, it cannot point to anything else.
+
+Although the parameter is `const` pointer, we can call the function multiple times with different arguments. The following code will successfully pass the addesses of x, y and z to the `set_to_zero` function:
+
+```
+// The ptr itself cannot be changed, 
+// but the item the ptr points to can be changed.
+void set_to_zero(int *const ptr) { *ptr = 0; }  
+
+int main() {
+int x, y, z;
+  set_to_zero(&x);
+  set_to_zero(&y);
+  set_to_zero(&z);
+}
+```
+
+## 2.10 const pointer to const 
+You can also have constant pointers to constants.  For example,
+
+```
+int value = 7;
+const int *const ptr = &value;
+```
+In this example, `ptr` is a `const int`.  Notice the word `const` appears before `int`, indicating that `ptr` points to a `const int`, and it appears after asterisk, indicating that `ptr` is a constant pointer.  
+
+
+## 2.11  Interface and Implemenation Separation(IIS)
 
 __Example__:
 
@@ -222,7 +276,7 @@ int main(int argc, char *argv[]) {
 ```
 
 
-## 2.9   Mixing C and C++
+## 2.12   Mixing C and C++
 
 ```
 #ifdef __cplusplus
@@ -236,13 +290,13 @@ extern "C" {
 #endif
 ```
 
-## 2.10 Make and makefile
+## 2.13 Make and makefile
 Since most of our builds are simple enough, I don't think that it is worthy to learn first and use `make` and `makefile` in our class. If you want to learn it now, consider learning  `cmake`.  
 - [Is it worth?](https://www.quora.com/Is-it-worth-replacing-autotools-with-cmake)
 - [How is CMake used?](https://stackoverflow.com/questions/26007566/how-is-cmake-used)
 - [Introduction to CMake by Example](http://derekmolloy.ie/hello-world-introductions-to-cmake/)
 
-## 2.11   Exercises
+## 2.14   Exercises
 
 1. How would you declare:
     - A pointer to a char
