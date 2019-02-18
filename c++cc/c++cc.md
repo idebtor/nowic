@@ -51,7 +51,7 @@ Even if C++ is slanted toward object-oriented programming (OOP), you can neverth
   Prefer the use of `<iostream>` for input/output operations (see stream section for explanation).
 
   ```
-  include <iostream>
+  #include <iostream>
 
   int main (int argc, char **argv) {
       int i;
