@@ -6,7 +6,7 @@ Lecture Notes by idebtor@gmail.com
 
   1. Read README.
   2. Read Syllabus.
-  3. Read 'GettingStarted'
+  3. Read 'GettingStarted' - this file
   4. Follow instructions in 'GettingStarted' as soon as possible(ASAP).
 
   These reading materials is available at my [github.com/idebtor/nowic](https://github.com/idebtor/nowic).
@@ -76,6 +76,7 @@ After installation of Desktop-GitHub, be a member if already not.
   - Since this `nowic` repository can be updated anytime, keep this local repository as "read-only".  Don't code yours here!.
   - Copy them into your own repository or your own local development folders in your computer you can easily access them.  They should look like the following:
     ```
+    ~/nowic/c++cc             # c++ for c coders
     ~/nowic/include           # include files
     ~/nowic/labs              # labs
     ~/nowic/lib               # nowic.lib, libnowic.a
@@ -89,7 +90,7 @@ After installation of Desktop-GitHub, be a member if already not.
     ~/pset01/hellox.exe       # a solution to compare your work
     ~/pset01/names.txt        # a list of names used in Step 5.
     ```
-      __Note for Multi-screen users:__ Remove the following file if GitHub Desktop is displayed off-screen. Restart Desktop GitHub.
+      __Note for Multi-screen users:__ Remove the following file if GitHub Desktop is displayed off-screen. Restart Desktop GitHub. (`user` below may be different in your system.)
       ```
       C:\Users\user\AppData\Roaming\GitHub Desktop\window-state.json
       ```
@@ -101,13 +102,17 @@ After installation of Desktop-GitHub, be a member if already not.
     ```
     Atom hello.cpp
     ```
-  - Build an execuable.
+  - Build an executable. The output name depends on your OS: hello.exe, a.exe for windows; hello.out, a.out for linux
     ```
     g++ hello.cpp -o hello
+    g++ hello.cpp
     ```
-  - Run the execuable.
+  - Run the executable.
     ```
+    ./hello
+    ./a
     hello
+    a
     ```
 
 ## Write `Hello World!` program
@@ -124,7 +129,7 @@ int main() {
 ```
 
 - `//` The line begins with two slashes is not a part of source code.  This line will be excluded when the program runs.
-- `#include ` The line begins with `#` is called a `preprocessor directive`.  The prepocessor reads your program before it is compiled and only executes those lines beginning with a # sysmbol.  When you send the file to the compiler, the preprocessor substitutes the `#include` with the contents of the specified file.
+- `#include ` The line begins with `#` is called a `preprocessor directive`.  The preprocessor reads your program before it is compiled and only executes those lines beginning with a # symbol.  When you send the file to the compiler, the preprocessor substitutes the `#include` with the contents of the specified file.
 - `<iostream>` The `iostream` file must be included since this program uses `cout` to display console output. This kind of file is called a header file. In this way you can create and use __modules__ that define functions that you only add to your code when you need them. There are lots of different header files available for many different purposes.
 - `using namespace std;`  C++ uses namespaces to organize the names of program entities.  This line declares that the program will be accessing entities whose names are part of the namespace called `std`. Every name created by the `iostream` file is part of `std` namespace.  In order for a program to use the entities such as `cout` in `iostream`, it must have access to the `std` namespace.  You may rewrite hello.cpp as shown below:
 
@@ -139,27 +144,27 @@ int main() {
 Observe two versions `Hello World!` program to see the difference. The difference is whether you are using the namespace or not.
 
 ## Run hello.cpp program
-To run the program, you must make an executable from the source code file, `hello.cpp`. We use the compiler to generate an __executable__ (or runnable) file from the code in the source file.  The executable file ends with `.exe` extension as our source file ends with `.cpp` extension. We might compile the file as follows:
+To run the program, you must make an executable from the source code file, `hello.cpp`. We use the compiler to generate an __executable__ (or runnable) file from the code in the source file.  The executable file ends with `.exe` or `.out` extension as our source file ends with `.cpp` extension. We might compile the file as follows:
 
 - On the console, type the following line (without $) and press `Enter` key.
 ```
-$ g++ hello.cpp         # generates a.exe
+$ g++ hello.cpp         # generates a.exe, a.out
 $ ./a.exe               # runs a.exe
-$ ./a                   # runs a.exe
+$ ./a                   # runs a.exe, a.out
 ```
-- The line above compiles (and links) the source code and generates an execuable called `a.exe`
+- The line above compiles (and links) the source code and generates an executable called `a.exe` or `a.out`.
 - `$` is a console prompt. (You don't need to enter it.)
-- The line above compiles (and links) the source code and generates an execuable called `a.exe`  
-- `g++` is the name of our compiler, and `#` begins a command-line comment.  We can run the executable file, `a.exe`, which will run our main function. If you want to name the executable, you may provide the file name with `-.o` option as follows:
+- The line above compiles (and links) the source code and generates an executable called `a.exe`  
+- `g++` is the name of our compiler, and `#` begins a command-line comment.  We can run the executable file, `a.exe` or `a.out`, which will run our main function. If you want to name the executable, you may provide the file name with `-.o` option as follows:
 
 ```
 $ g++ hello.cpp -o hello        # generates hello.exe
 $ ./hello.exe                   # runs hello.exe
-$ ./hello                       # runs hello.exe
+$ ./hello                       # runs hello.exe, hello.out
 ```
 
   __JoyNote:__
-  - Run `hello.exe` without `./` in front, when you run it at Linux, OSX and mintty console^^.
+  - Run `hello.exe` or `hello.out` without `./` in front, when you run it at Linux, OSX and mintty console^^.
 
 ## Are ready to study more?
 For further study of C or C++ basics, the following two video lectures in YouTube are recommended.  A solid background in C will do good for C++ study in this course.
