@@ -1,4 +1,4 @@
-# C++ for C Coder & Data Structures
+# C++ for C Coders & Data Structures
 Lecture Notes by idebtor@gmail.com
 -------------------
 ## Multiple source files and compilations

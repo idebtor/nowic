@@ -1,4 +1,4 @@
-# C++ for C Coder & Data Structures
+# C++ for C Coders & Data Structures
 Lecture Notes by idebtor@gmail.com
 -------------------
 # Lab02 - Understanding a better coding in C
