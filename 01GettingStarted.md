@@ -43,9 +43,9 @@ http://stackoverflow.com/questions/39185248/eclipse-mingw-c-cannot-find-lpthread
 2. Start Atom.
 3. Install some of essential packages recommended for C/C++ programmers listed below:
     - Autosave
+      - Autosaves editor when they lose focus, are destroyed, or when the window is closed. This package is disabled by default and can be enabled via the autosave.enabled config setting or from the Autosave section of the Settings view (OS X: cmd-,, Windows & Linux: Ctrl-,).)
     - Platformio-ide-terminal
       - On successful installation, you will see a +sign at bottom-left corner of the editor. Click + sign to open a console.
-    - Atom-beautify
     - File-icons
     - Mini-maps
     - Markdown-preview
