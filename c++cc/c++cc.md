@@ -1,4 +1,4 @@
-# C++ for C Coder & Data Structures
+# C++ for C Coders & Data Structures
 Lecture Notes by idebtor@gmail.com
 -------------------
 
@@ -32,16 +32,16 @@ This is a brief introduction to C++ for C Coders.
   delete      mutable       protected  true              wchar_t
 ```
 
-## 1.1 In-house programming principles: 
-  - [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)(Don't repeat yourself) 
-    - To make you - coders - save time. 
-  - [NMN](https://softwareengineering.stackexchange.com/questions/56375/eliminating-magic-numbers-when-is-it-time-to-say-no)(No magic number) 
+## 1.1 In-house programming principles:
+  - [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)(Don't repeat yourself)
+    - To make you - coders - save time.
+  - [NMN](https://softwareengineering.stackexchange.com/questions/56375/eliminating-magic-numbers-when-is-it-time-to-say-no)(No magic number)
     - To make you - coders - code robust.  
-  - [NSE](https://alvinalexander.com/scala/scala-idiom-methods-functions-no-side-effects)(No side effects) 
+  - [NSE](https://alvinalexander.com/scala/scala-idiom-methods-functions-no-side-effects)(No side effects)
     - To make you - coders - code clean.
-  - [IIS](https://softwareengineering.stackexchange.com/questions/142192/why-would-a-programmer-want-to-separate-implementation-from-interface)(Interface and Implementation Separation) 
+  - [IIS](https://softwareengineering.stackexchange.com/questions/142192/why-would-a-programmer-want-to-separate-implementation-from-interface)(Interface and Implementation Separation)
     - To give you - coders - more freedom.
-  
+
   _compiled by idebtor@gmail.com_
 
 # 2. From C to C++
@@ -143,7 +143,7 @@ You should obtain values 3 and 5. There exists some standard namespace in the st
   ```
   include <iostream>
   using namespace std;
-  
+
   int main (int argc, char **argv) {
       int i;
       cout << "Please enter an integer value: ";
@@ -185,7 +185,7 @@ int inline square(int x) {
 ```
 
 ## 2.8 Pointer to const
-The pointer can be defined as a pointer to a `const` item. For example, 
+The pointer can be defined as a pointer to a `const` item. For example,
 
 ```
 const double *rates;
@@ -196,7 +196,7 @@ In this example, the compiler will not allow us to write code that changes the t
 - When you write a function that uses a pointer parameter, and the function is not intended to change the data parameter points to, it is always a good idea to make the parameter a pointer to `const`.  Not only will this protect you from writing code in the function that accidently changes the argument, but the function will be able to accept the addresses of both constant and nonconstant arguments.
 
 ## 2.9 const pointer
-You can use the `const` to define a constant pointer.  For example, 
+You can use the `const` to define a constant pointer.  For example,
 
 ```
 int value = 7;
@@ -209,7 +209,7 @@ Notice in the definition of `ptr` the word `const` appears after the astrisk.  T
 Although the parameter is `const` pointer, we can call the function multiple times with different arguments. The following code will successfully pass the addesses of x, y and z to the `set_to_zero` function:
 
 ```
-// The ptr itself cannot be changed, 
+// The ptr itself cannot be changed,
 // but the item the ptr points to can be changed.
 void set_to_zero(int *const ptr) { *ptr = 0; }  
 
@@ -221,7 +221,7 @@ int x, y, z;
 }
 ```
 
-## 2.10 const pointer to const 
+## 2.10 const pointer to const
 You can also have constant pointers to constants.  For example,
 
 ```
@@ -259,9 +259,9 @@ foo::foo(const foo& f) { mem = f.mem; }
 foo::operator=(foo f) { mem = f.mem; }
 foo::~foo() {}
 
-#if 0   // for test 
-int main(int argc, char *argv[]) { 
-  foo f; 
+#if 0   // for test
+int main(int argc, char *argv[]) {
+  foo f;
 }
 #endif
 ```
@@ -269,8 +269,8 @@ int main(int argc, char *argv[]) {
 __Development__: fooDriver.cpp
 
 ```
-int main(int argc, char *argv[]) { 
-  foo f; 
+int main(int argc, char *argv[]) {
+  foo f;
   // your app code here
 }
 ```
@@ -335,7 +335,9 @@ Since most of our builds are simple enough, I don't think that it is worthy to l
     __solution__: [ccoders-2.6.cpp](https://GitHub.com/idebtor/nowicx/blob/master/c++cc/cc2.6.cpp)
 
 # 3.  Classes
-A class migh be considered as an extended concept of a data structure: instead of holding only data, it can hold both data and functions. An object is an instantiation of a class. By default, all attributes and functions of a class are private (see below Access control). If you want a public default behavior, you can use keyword struct instead of keyword class in the declaration.
+A class specifies the attributes and member functions that a particular type of object may have.  Think of a class as a `blueprint` that object may be created from.  It serves a similar purpose as the blueprint for a house.  The blueprint itself is not a house, but is a detailed description of a house. We could say we are building an `instance` of the house described by the blueprint. If we so desire, we can build several identical houses from the same blueprint.  Each house is a separate `instance` of the house described by the blueprint. Each instance is called an `object`.
+
+A class might be considered as an extended concept of a data structure: instead of holding only data, it can hold both __data__ and __functions__. An object is an instantiation of a class. By default, all attributes and functions of a class are private (see below Access control). If you want a public default behavior, you can use keyword struct instead of keyword class in the declaration.
 
 ```
 class Foo {
@@ -393,12 +395,18 @@ int main( int argc, char **argv ) {
 Note that you generally never need to explicitly call a destructor.
 
 
-## 3.3   Access control
+## 3.3   Access control by access specifiers
 You can have fine control over who is granted access to a class function or attribute by specifying an explicit access policy:
 
   - __public__: Anyone is granted access
   - __protected__: Only derived classes are granted access
   - __private__: No one but friends are granted access
+
+  - A class's `private` member variables are allowed only through the `public` member functions.  The `private` member variables cannot be reference by name any place except within the definitions of the member functions of its class.
+
+  - All the items that follow the word `public:` can be referenced by name anyplace.  There are no restrictions on the use of `public` members.
+
+  __JoyNote__: A good programming practices require that __all__ member variables be `private` and that typically most member functions be `public`.  
 
 ## 3.4   Initialization list
 Object's member should be initialized using initialization lists
@@ -456,7 +464,7 @@ int main( int argc, char **argv ) {
 }
 ```
 
-## 3.7   Exercices
+## 3.7   Exercises
 1. Why the following code doesn't compile ?
 
   ```
@@ -560,7 +568,7 @@ class Bar3 : public Bar1, public Bar2 {
 
 In class Bar3, the data reference is ambiguous since it could refer to Bar1::data or Bar2::data. This problem is referred as the __diamond problem__. You can eliminete the problem by explicitely specifying the data origin (e.g. Bar1::data) or by using virtual inheritance in Bar1 and Bar2.
 
-## 4.5   Exercices
+## 4.5   Exercises
 1. Write a Bar class that inherits from a Foo class and makes constructor and destructor methods to print something when called.
 
   __solution__: [ccoders-4.1.cpp](https://GitHub.com/idebtor/nowicx/blob/master/c++cc/cc4.1.cpp)
@@ -771,7 +779,7 @@ int main( int argc, char **argv ) {
 }
 ```
 
-## 6.5   Exercices
+## 6.5   Exercises
   1. Write an `itoa` and an `atoi` function.
 
   2. Write a `foo` class with some attributes and write functions for writing to file and reading from file.
@@ -886,7 +894,7 @@ There are three possible template types:
   }
   ```
 
-## 7.5   Exercices
+## 7.5   Exercises
 1. Write a generic swap function
 2. Write a generic point structure
 3. Write templated factorial, power and exponential functions `(exp(x) = sum_n x^n/n!, exp(-x) = 1/exp(x))`
@@ -982,7 +990,7 @@ int main( int argc, char **argv ) {
 }
 ```
 
-## 8.4   Exercices
+## 8.4   Exercises
 1. Write a template stack class using the STL vector class
 2. Write a generic vector class with iterators and benchmark it againt the STL vector class
 
