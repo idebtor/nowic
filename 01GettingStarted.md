@@ -97,7 +97,7 @@ After installation of Desktop-GitHub, be a member if already not.
 
 ## Are ready for 'Hello World!' program in C++?
   - Open a console. (may use cmd or powershell)  
-    - You may use cmd or powershell at this point. Sooner or later, howeever, we are going to use a different kind of console called mintty. You may read __UsingMinttyInMinGW.md__ for the Mintty installation at `nowic` folder.
+    - You may use cmd or powershell at this point. Sooner or later, however, we are going to use a different kind of console called mintty. You may read __UsingMinttyInMinGW.md__ for the Mintty installation at `nowic` folder.
   - Open hello.cpp file with Atom
     ```
     Atom hello.cpp

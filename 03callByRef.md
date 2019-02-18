@@ -23,9 +23,9 @@ All the different terms that have to do with parameters and arguments can be con
 2. An __argument__ (or actual argument) is something that is used to fill in a formal parameter.  When you write down a function call, the arguments are listed in parentheses after the function name.  When the function call is executed, the arguments are plugged in for the formal parameters.  
 
 ## Call-by-reference in C++, but not in C
-There are two ways to dealing with parameters in function calls. They are __call-by-value__ and __call-by-reference__ parameters.  __Call-by-reference__ is a feature in c++, but not in c. However, the similar functionality of the call-by-refernce may be achieved using a pointer in c.
+There are two ways to dealing with parameters in function calls. They are __call-by-value__ and __call-by-reference__ parameters.  __Call-by-reference__ is a feature in C++, but not in c. However, the similar functionality of the call-by-reference may be achieved using a pointer in c.
 
-With the __call-by-value__, only the _value_ of the argumnet is plugged in. When a parameter is passed by value, the caller and callee have two independent variables with the same value. If the callee modifies the parameter variable, the effect is not visible to the caller.
+With the __call-by-value__, only the _value_ of the argument is plugged in. When a parameter is passed by value, the caller and callee have two independent variables with the same value. If the callee modifies the parameter variable, the effect is not visible to the caller.
 
 With the __call-by-pointer__, passing arguments to a function copies the address of an argument into the formal parameter. Inside the function, the address is used to access the actual argument used in the call. This means that changes made to the parameter affect the passed argument.
 
