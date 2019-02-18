@@ -1,7 +1,19 @@
-# C++ for C Coder & Data Structures
+# C++ for C Coders & Data Structures
 Lecture Notes by idebtor@gmail.com
 -------------------
-## Call-by-reference, Call-by-pointer and Call-by-value
+# Call-by-reference, Call-by-pointer and Call-by-value
+
+### References
+A reference is basically a short-hand for a pointer without the messiness of dereferencing or the ambiguity of ownership. Java doesn't have an analogous concept because object arguments to Java methods are passed by reference automatically. Since Java has an object class for every corresponding basic type (e.g. Integer for int), there is always a simple way to achieve pass-by-reference. In C++, the `&` character is used to indicate that a variable is a reference. For now, we'll just focus on references as parameters to functions and methods. There are some subtleties we'll get into later. The first version of `addOne()` below does not use a reference, so the variable that is passed in remains unchanged. The second version uses a reference, so the underlying variable is actually modified within the function. References can be used for basic types as well as more complex types, like classes.
+```
+void addOne(int i) {
+ i++; // has no real effect since this is a copy of the original
+}
+```
+``` void addOne(int& i) {
+ i++; // actually changes the original variable
+}
+```
 
 ### Terminology: parameters and arguments
 All the different terms that have to do with parameters and arguments can be confusing.  Let us make clear here.

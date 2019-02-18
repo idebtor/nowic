@@ -1,7 +1,6 @@
-# C++ for C Coder & Data Structures
+# C++ for C Coders & Data Structures
 Lecture Notes by idebtor@gmail.com
 -------------------
-## Function overloading
 ## Function Overloading
 Two or more functions having same name but different argument(s) are known as overloaded functions. In C++ programming, two functions can have same name if number and/or type of arguments passed are different.
 
