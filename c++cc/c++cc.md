@@ -114,7 +114,7 @@ References are _extremely useful_ when used with function arguments since it sav
 You can specify default values for function parameters. When the function is called with fewer parameters, default values are used. This is very useful, but not flexible as Python because of the following reasons.
 - When an argument is left out of a function call (because it has default value), all the arguments that come after it must be left out too.
 - When a function has a mixture of parameters both with and without default arguments, the parameters with default arguments must be declared last.
-- A function's default arguments should be assigned in the earliest occurrence of the function name. This will usually be the function prototype.
+- A function's default arguments should be assigned in the earliest occurrence of the function name. This will ususally be the function prototype.
 
 ```
 float foo( float a=0, float b=1, float c=2 );
@@ -204,9 +204,9 @@ int *const ptr = &value;
 ```
 Notice in the definition of `ptr` the word `const` appears after the astrisk.  This means that `ptr` is a `const` pointer. A compiler error will result if we write code that makes `ptr` point to anything else.
 
-- With a `const` pointer, it is the pointer itself that is constant.  Once the pointer is initialized with an address, it cannot point to anything else.
+- With a `const` pointer, it is the pointer itself that is constant.  Once the poiner is initialized with an address, it cannot point to anything else.
 
-Although the parameter is `const` pointer, we can call the function multiple times with different arguments. The following code will successfully pass the addresses of x, y and z to the `set_to_zero` function:
+Although the parameter is `const` pointer, we can call the function multiple times with different arguments. The following code will successfully pass the addesses of x, y and z to the `set_to_zero` function:
 
 ```
 // The ptr itself cannot be changed,
@@ -566,7 +566,7 @@ class Bar3 : public Bar1, public Bar2 {
 };
 ```
 
-In class Bar3, the data reference is ambiguous since it could refer to Bar1::data or Bar2::data. This problem is referred as the __diamond problem__. You can eliminate the problem by explicitly specifying the data origin (e.g. Bar1::data) or by using virtual inheritance in Bar1 and Bar2.
+In class Bar3, the data reference is ambiguous since it could refer to Bar1::data or Bar2::data. This problem is referred as the __diamond problem__. You can eliminete the problem by explicitely specifying the data origin (e.g. Bar1::data) or by using virtual inheritance in Bar1 and Bar2.
 
 ## 4.5   Exercises
 1. Write a Bar class that inherits from a Foo class and makes constructor and destructor methods to print something when called.
@@ -689,7 +689,7 @@ Creating a new exception is quite easy:
     __solution__: [ccoders-5.4.cpp](https://GitHub.com/idebtor/nowicx/blob/master/c++cc/cc5.4.cpp)
 
 # 6.   Streams
-C++ provides input/output capability throughout the iostream classes that provide the stream concept (iXXXstream for input and oXXXstream for output).
+C++ provides input/output capability throught the iostream classes that provide the stream concept (iXXXstream for input and oXXXstream for output).
 
 ## 6.1   iostream and ios
 Screen outputs and keyboard inputs may be handled using the iostream header file:
@@ -992,7 +992,7 @@ int main( int argc, char **argv ) {
 
 ## 8.4   Exercises
 1. Write a template stack class using the STL vector class
-2. Write a generic vector class with iterators and benchmark it against the STL vector class
+2. Write a generic vector class with iterators and benchmark it againt the STL vector class
 
 ### References:
 - [C++ FAQ — Frequently Asked Questions](http://www.parashift.com/c++-faq-lite/)
