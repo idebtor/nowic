@@ -35,7 +35,7 @@ This works perfectly well even if the list is empty (i.e. the head pointer is NU
 
 
 
-# push_back: Adding at the tail of the list
+# push_back: adding at the tail of the list
 Let us imagine that we have created a linked list, where head points to the head of the list and x at the last item in the list (i.e. the one with the null pointer) as shown below.
 
 ![linked list](https://github.com/idebtor/nowic/blob/master/img/class05Linked03.PNG)
