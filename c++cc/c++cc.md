@@ -191,7 +191,7 @@ The pointer can be defined as a pointer to a `const` item. For example,
 ```
 const double *rates;
 ```
-In this example, the compiler will not allow us to write code that changes the thing that rates points to since `rates` is a pointer to a `const`.
+Since `rates` is a pointer to a `const`, the compiler will not allow us to write code that changes the content that `rates` points to.
 
 - A pointer to `const` points to a constant item. The data that the pointer points to cannot change, but the pointer itself can change.
 - When you write a function that uses a pointer parameter, and the function is not intended to change the data parameter points to, it is always a good idea to make the parameter a pointer to `const`.  Not only will this protect you from writing code in the function that accidently changes the argument, but the function will be able to accept the addresses of both constant and nonconstant arguments.
@@ -317,7 +317,7 @@ Since most of our builds are simple enough, I don't think that it is worthy to l
 
     __solution__: [ccoders-2.3.cpp](https://GitHub.com/idebtor/nowicx/blob/master/c++cc/cc2.3.cpp)
 
-4. Is this legal ?
+4. Is this legal?
 
     ```
     int add( int a, int b ) { return a+b; }
@@ -997,14 +997,13 @@ int main( int argc, char **argv ) {
 
 ### References:
 - [C++ FAQ — Frequently Asked Questions](http://www.parashift.com/c++-faq-lite/)
-- [Boost free peer-reviewed portable C++ source libraries](http://www.boost.org/)
 - [Bjarne Stroustrup homepage](http://www2.research.att.com/~bs/)
 - [Complete reference on C++ Standard Library](http://en.cppreference.com/w/cpp)
 - [C++11 main features](http://en.wikipedia.org/wiki/C%2B%2B11)
-- [The definitive C++ book guide](http://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list)
-- [comp.lang.c++](http://groups.google.com/group/comp.lang.c++/topics)
-- [GNU make](http://www.gnu.org/s/make/manual/make.html)
 - [C++ Crash Course](https://www.labri.fr/perso/nrougier/teaching/c++-crash-course/index.html)
+- [Beginning C Programming by Bluefever](https://www.youtube.com/watch?v=DWWQEmyVplU)
+- [C++ Programming in One Video by Derek Banas](https://www.youtube.com/watch?v=Rub-JsjMhWY)
+- [C++ Tutorial Series by Derek Banas](https://www.youtube.com/watch?v=N5HgK1bTLOg)
 
 ----------------------------
 _One thing I know, I was blind but now I see. John 9:25_
