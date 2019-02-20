@@ -13,14 +13,15 @@ class Node  {
 ...
 Node* head, *x, *y;
 ```
-At this point head, x and y are not pointing anywhere as they have not been initialised. Let us imagine now that we have created a linked list, where head points to the head of the list and x at the last item in the list (i.e. the one with the null pointer).
+At this point head, x and y are not pointing anywhere as they have not been initialized. Let us imagine now that we have created a linked list, where head points to the head of the list and x at the last item in the list (i.e. the one with the null pointer).
 
-![linked list](https://github.com/idebtor/nowic/blob/master/img/class05Linked01.PNG)
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class05Linked01.PNG" alt="Linked reviewed" width="50%"></p>
 
 # push_front: adding at the head of the list
 Let us imagine that we have created a linked list, where head points to the head of the list and x at the last item in the list (i.e. the one with the null pointer) as shown below.
 
-![linked list](https://github.com/idebtor/nowic/blob/master/img/class05Linked02.PNG)
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class05Linked02.PNG" alt="Linked reviewed" width="50%"></p>
+
 Now, we want to add a node (n = 33) at the head of list.
 - create a node and initialized with `n = 10`.
 - let `head` point to the new node
@@ -36,7 +37,7 @@ This works perfectly well even if the list is empty (i.e. the head pointer is NU
 # push_back: adding at the tail of the list
 Let us imagine that we have created a linked list, where head points to the head of the list and x at the last item in the list (i.e. the one with the null pointer) as shown below.
 
-![linked list](https://github.com/idebtor/nowic/blob/master/img/class05Linked03.PNG)
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class05Linked03.PNG" alt="Linked reviewed" width="50%"></p>
 
 If we have a pointer to the tail node of the list, then adding a new node at the tail end is easy:
 
@@ -50,7 +51,7 @@ x->next = y;
 However, quite often the only list pointer we have access to is the head pointer.
 Now, let's add a node (n = 33) at the end of list, where only head of the list is given as shown below.
 
-![linked list](https://github.com/idebtor/nowic/blob/master/img/class05Linked04.PNG)
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class05Linked04.PNG" alt="Linked reviewed" width="50%"></p>
 
 To get to the tail we have to scroll along the list until the end. We want a pointer that will stop while still pointing at the last node. Thus our termination condition is that the node's next field is NULL. Once we have a pointer to the end of the list, we can make it point to the node we want to add:
 
@@ -66,8 +67,7 @@ x->next = y;
 # pop_front: remove the first node of the list
 We want to remove the first node or move head to the next node.
 
-![linked list](https://github.com/idebtor/nowic/blob/master/img/class05Linked05.PNG)
-<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class05Linked05.PNG" alt="Pointer reviewed" width="30%"></p>
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class05Linked05.PNG" alt="Linked reviewed" width="50%"></p>
 
 When removing a node, beware of memory leak; remember to give yourself a pointer to the node that is about to be removed before you lose your pointer to it:
 
@@ -78,8 +78,7 @@ delete zap;
 ```
 The result of the code above is shown below:
 
-![linked list](https://github.com/idebtor/nowic/blob/master/img/class05Linked06.PNG)
-<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class05Linked06.PNG" alt="Pointer reviewed" width="30%"></p>
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class05Linked06.PNG" alt="Pointer reviewed" width="50%"></p>
 
 
 # insert() - adding nodes in the middle of the list
@@ -99,9 +98,7 @@ x = x->next;
 y->next = x->next;
 x->next = y;
 ```
-
-![linked list](https://github.com/idebtor/nowic/blob/master/img/class05Linked07.PNG)
-<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class05Linked07.PNG" alt="Pointer reviewed" width="30%"></p>
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class05Linked07.PNG" alt="Linked reviewed" width="50%"></p>
 
 # Remove() - removing nodes from the middle of a list
 To remove a node from a list we have to do three things:
@@ -137,8 +134,7 @@ x->next = zap->next;
 delete zap;
 ```
 
-![linked list](https://github.com/idebtor/nowic/blob/master/img/class05Linked08.PNG)
-<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class05Linked08.PNG" alt="Pointer reviewed" width="30%"></p>
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class05Linked08.PNG" alt="Linked reviewed" width="50%"></p>
 
 ### References:
 - [C++ FAQ — Frequently Asked Questions](http://www.parashift.com/c++-faq-lite/)

@@ -97,7 +97,7 @@ Singly-linked lists are chains of nodes, each containing a pointer to the next i
 - what would be the data structure in memory?
 - What would each p and q point to ?
 
-<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class04Pointer4.PNG" alt="Pointer reviewed" width="30%"></p>
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class04Pointer4.PNG" alt="Pointer reviewed" width="50%"></p>
 
 - What would while loop output?
 - What would each p and q point to after while loop?
