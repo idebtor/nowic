@@ -15,11 +15,13 @@ int* p;        // declare an integer pointer
 p = &z;        // make p point to z by assigning it the address of z (&z)
 ```
 
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class03Pointer1.PNG" alt="Pointer reviewed" width="50%"></p>
+
 Note that the int value is held in memory in the space assigned to `z`. `p` does not contain an integer data value, but the address of the integer `z`.
 
 ```
 int* p;         // creates an integer pointer
-p = new int;   // makes it point at an uninitialised piece of memory that can hold integer data
+p = new int;    // makes p point to an uninitialized memory space for int
 ```
 Or we can do these two things in one line:
 
@@ -35,11 +37,14 @@ This code:
   - Initializes the pointer (`p`) with the address of that piece of memory (`=`)
 The value stored in this portion of memory is as yet undefined. The only way to get at it is through the pointer, and if you lose the pointer, you can't get the memory back. More about this later.
 
+<p align="center"> <img src="https://github.com/idebtor/nowic/blob/master/img/class03Pointer2.PNG" alt="Pointer reviewed" width="30%"> </p>
 
 So how do we put a value in the portion of memory that p points to? We apply the __dereferencing operator *__ on `p` and then we can assign a value to it:
 ```
 *p = 25;
 ```
+
+<p align="center"> <img src="https://github.com/idebtor/nowic/blob/master/img/class03Pointer3.PNG" alt="Pointer reviewed" width="50%"> </p>
 
 __If p is a pointer, *p is the thing it is pointing at.__
 
@@ -62,22 +67,26 @@ int* q;
 q = p;             
 cout << *q;          
 ```
-What is the output?
+Complete the data structure of the code above in memory and what is the output?
 
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class03Pointer4.PNG" alt="Pointer reviewed" width="30%"></p>
+
+Explanation:
 ```
 int* p = new int;    // declare an integer pointer p,
                      // create an integer in memory and make p point to it
 *p = 25;             // assign the value 25 to the integer p points to
-cout << *p << endl;  // print the value stored in the segment that p points to (= 25)
+cout << *p << endl;  // print the value in the memory that p points to (= 25)
 int* q;              // declare another integer pointer q
 q = p;               // make it point to the same place as p points to
-cout << *q;          // print the value stored in the segment that q points to (= 25)
+cout << *q;          // print the value in the memory that q points to (= 25)
 ```
 Answer:
 ```
 25
 25
 ```
+
 - Note that `new int;` declares an integer storage space in memory, `int *p` makes create a pointer to point an integer storage and `=` makes the pointer point at an integer storage.
 - The line `int* q;` only declares a pointer, assigning memory space for the address of an integer, but it doesn't point anywhere (it's uninitialized) and the statement doesn't assign any memory space for the integer data.
 - It is also worth noting that `q = p`; means that `q` is pointing to the same place `p` is pointing at - it does not mean that `q` is pointing at `p`. (If we wanted `q` to be a pointer to an integer pointer we would have to declare it as type `int**`.)
@@ -101,15 +110,21 @@ What is now the effect of assigning a new value to `*q` ?
 ```
 Since `p` and `q` are currently pointing at the same thing, any changes to `*q` will also affect `*p`.
 
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class03Pointer5.PNG" alt="Pointer reviewed" width="20%"></p>
+
 But `p` and `q` do not have to point at the same thing for evermore. If there was another int, we could make q point at it, or we can create a new int for q to point at:
 ```
 q = new int(56); // creates a new integer in memory,
                  // assigns the value 56 to it and then makes q point at it
 ```
+
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class03Pointer6.PNG" alt="Pointer reviewed" width="20%"></p>
+
 Finally, we can create another integer = 78 in memory and make `p` point at it:
 ```
 p = new int(78);
 ```
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class03Pointer7.PNG" alt="Pointer reviewed" width="20%"></p>
 
 Unfortunately by moving `p` from `34` to `78` we have no way of getting back hold of `34`. We have in effect 'let go of the balloon' which is now floating in memory, taking up space which we can't re-use. This effect is known as __memory leakage__, and the piece of memory containing the `34` is known as __garbage__. The runtime systems of some languages have garbage collection built in, but C++ doesn't and you have to be careful. If you leak too much memory, the system will run out of RAM and crash!
 
@@ -120,6 +135,8 @@ delete p;        // Release the space that p is pointing to so it can be re-used
                  // by the operating system
 p = new int(78); // make p point to a new variable
 ```
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class03Pointer8.PNG" alt="Pointer reviewed" width="30%"></p>
+
 If you delete the object that is being pointed at, then, unless you immediately give the pointer a new value, it is a good idea also to set the pointer to `NULL` or `nullptr` - undefined pointers are a common source of program bugs.
 
 ```

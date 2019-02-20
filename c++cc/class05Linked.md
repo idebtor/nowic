@@ -33,8 +33,6 @@ head = y;
 ```
 This works perfectly well even if the list is empty (i.e. the head pointer is NULL).
 
-
-
 # push_back: adding at the tail of the list
 Let us imagine that we have created a linked list, where head points to the head of the list and x at the last item in the list (i.e. the one with the null pointer) as shown below.
 
@@ -69,6 +67,7 @@ x->next = y;
 We want to remove the first node or move head to the next node.
 
 ![linked list](https://github.com/idebtor/nowic/blob/master/img/class05Linked05.PNG)
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class05Linked05.PNG" alt="Pointer reviewed" width="30%"></p>
 
 When removing a node, beware of memory leak; remember to give yourself a pointer to the node that is about to be removed before you lose your pointer to it:
 
@@ -80,6 +79,7 @@ delete zap;
 The result of the code above is shown below:
 
 ![linked list](https://github.com/idebtor/nowic/blob/master/img/class05Linked06.PNG)
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class05Linked06.PNG" alt="Pointer reviewed" width="30%"></p>
 
 
 # insert() - adding nodes in the middle of the list
@@ -101,6 +101,7 @@ x->next = y;
 ```
 
 ![linked list](https://github.com/idebtor/nowic/blob/master/img/class05Linked07.PNG)
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class05Linked07.PNG" alt="Pointer reviewed" width="30%"></p>
 
 # Remove() - removing nodes from the middle of a list
 To remove a node from a list we have to do three things:
@@ -137,6 +138,7 @@ delete zap;
 ```
 
 ![linked list](https://github.com/idebtor/nowic/blob/master/img/class05Linked08.PNG)
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class05Linked08.PNG" alt="Pointer reviewed" width="30%"></p>
 
 ### References:
 - [C++ FAQ — Frequently Asked Questions](http://www.parashift.com/c++-faq-lite/)

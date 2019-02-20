@@ -26,8 +26,13 @@ int main( ) {
 ```
 __JoyQuiz__: Draw a memory diagram for this code.
 
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class04Pointer1.PNG" alt="Pointer reviewed" width="30%"></p>
 
-Now, how can we initialise the data members of the `Node *p`? The code snippet like
+This notation can be simplified as shown below:
+
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class04Pointer2.PNG" alt="Pointer reviewed" width="30%"></p>
+
+Now, how can we initialize the data members of the `Node *p`? The code snippet like
 ```
 *p.n = 5;
 ```
@@ -56,6 +61,7 @@ p->next = q;        // *p's link field now points to *q
 ```
 This is the situation in memory:
 
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class04Pointer3.PNG" alt="Pointer reviewed" width="30%"></p>
 
 By stringing many of these Node objects together we can create a structure called a __singly-linked list__.
 
@@ -90,6 +96,8 @@ int main( ) {
 Singly-linked lists are chains of nodes, each containing a pointer to the next item in the list. Assuming the input A B C D to the above program and before executing of while loop,
 - what would be the data structure in memory?
 - What would each p and q point to ?
+
+<p align="center"><img src="https://github.com/idebtor/nowic/blob/master/img/class04Pointer4.PNG" alt="Pointer reviewed" width="30%"></p>
 
 - What would while loop output?
 - What would each p and q point to after while loop?
