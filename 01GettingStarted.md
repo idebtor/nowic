@@ -15,7 +15,7 @@ Lecture Notes by idebtor@gmail.com
 There are two ways to join Piazza, go the www.piazza.com.
   - To join Piazza, you may need the following information and
     - School: __Handong Global University__
-    - Course: __Data Structures by idebtor__
+    - Course: __Data Structures and C++ for C Coders__
   - If you have an email address that ends with __~.hgu.edu__ or __~.handong.edu__ domain and use it everyday, go the www.piazza.com and follow the instructions in the website.
 
   - On your request with your email address, I may register it for you.  We'll be conducting all class-related discussion here this term. The quicker you begin asking questions on Piazza (rather than via emails), the quicker you'll benefit from the collective knowledge of your classmates and instructors. We encourage you to ask questions when you're struggling to understand a concept—you can even do so anonymously.
