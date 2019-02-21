@@ -174,7 +174,8 @@ For further study of C or C++ basics, the following two video lectures in YouTub
   - [C++ Tutorial by Derek Banas](https://www.youtube.com/watch?v=DamuE8TM3xo&list=PLGLfVvz_LVvQ9S8YSV0iDsuEU8v11yP9M)
 
 ## What's Next?
-- Go to Lab01.
+- Watch Derek's lecture such as: [C++ Programming in One Video by Derek Banas](https://www.youtube.com/watch?v=Rub-JsjMhWY)
+- Read __ArgcArgv.md__. It may help you do the first problem set(pset).
 - Read __UsingMinttyInMinGW.md__ at `nowic` and install `Mintty` console.
 ----------------------------
 _One thing I know, I was blind but now I see. John 9:25_
