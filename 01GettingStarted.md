@@ -6,7 +6,7 @@ Lecture Notes by idebtor@gmail.com
 
   1. Read README.
   2. Read Syllabus.
-  3. Read 'GettingStarted' - this file
+  3. Read 'GettingStarted' - this file 
   4. Follow instructions in 'GettingStarted' as soon as possible(ASAP).
 
   These reading materials is available at my [github.com/idebtor/nowic](https://github.com/idebtor/nowic).
