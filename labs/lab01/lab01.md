@@ -50,12 +50,13 @@ $g++ greet_func.c greet.c -o greet     # generates greet.exe
 
 ## More GCC Compiler Options
 There are some flags available for compiler options:
+```
 $g++ -std=c++11 -Wall -g file1.cpp file2.cpp -o prog   # generates prog.exe
-
-- -o : specifies the output executable filename.
-- -std=c++11 : to explicitly specify the C++ standard, c++11, c++14, c++17, c++2a
-- -Wall : enables most warning messages.
-- -g : generates additional symbolic debugging information for use with gdb debugger.
+```
+  - -o : specifies the output executable filename.
+  - -std=c++11 : to explicitly specify the C++ standard, c++11, c++14, c++17, c++2a
+  - -Wall : enables most warning messages.
+  - -g : generates additional symbolic debugging information for use with gdb debugger.
 
 ## A Good Guideline for GCC and Make
 - [Compiling, Linking and Building C/C++ Applications](https://www3.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html)
