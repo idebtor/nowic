@@ -475,8 +475,7 @@ int main( int argc, char **argv ) {
       Foo foo;
   }
   ```
-
-    __solution__: [ccoders-3.1.cpp](https://GitHub.com/idebtor/nowicx/blob/master/c++cc/cc3.1.cpp)
+  __solution__: [ccoders-3.1.cpp](https://GitHub.com/idebtor/nowicx/blob/master/c++cc/cc3.1.cpp)
 
 2. Write a `Foo` class with default and copy constructors and add also an assignment operator. Write some code to highlight the use of each of them.
 
