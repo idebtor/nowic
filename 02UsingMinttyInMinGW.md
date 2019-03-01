@@ -49,7 +49,7 @@ mingw-get install mintty.
 ## Configure MSYS.  
 Next, you need to __edit the shortcut__ you use to run the MinGW shell.  Right-click the `msys` shortcut and select Properties. Wherever you find your link, the Target should be `C:\MinGW\msys\1.0\msys.bat`, potentially with some command-line arguments following it. If an argument selecting a shell is already present (such as `--rxvt`), remove it.  
 
-Finally, add `--mintty` as the first argument after `` C:\MinGW\msys\1.0\msys.bat` in the shortcut.
+Finally, add `--mintty` as the first argument after ` C:\MinGW\msys\1.0\msys.bat` in the shortcut.
 
 Now, when launching the MinGW shell through that short-cut, mintty will be used instead of the Windows terminal emulator.  Refer to the complete instructions in [this site](
 https://sites.google.com/site/axusdev/tutorials/installminttyformsys).
