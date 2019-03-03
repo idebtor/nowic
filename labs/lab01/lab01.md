@@ -4,7 +4,7 @@ Lecture Notes by idebtor@gmail.com
 ## Multiple source files and compilations
 As our programs get more complicated, we want to store the source code into separate files.  For example, let's suppose we have `greet_func()` defined in `greet_func.cpp` and it is invoked in `greet_func()` as shown below:
 
-```
+```C++
 // file: greet_func.cpp
 #include <iostream>
 
@@ -19,7 +19,8 @@ $g++ -c greet_func.cpp     # generates greet_func.o
 ```
 
 To generate an executable with the following file, `greet.cpp`, we must tell the compiler where to find all of the code we use.  
-```
+
+```C++
 // file: greet.cpp
 #include <iostream>
 extern greet_func();   // lets the compiler know it from external sources
@@ -30,7 +31,8 @@ int main() {
 }
 ```
 
-We might compile these files as follows.  
+We might compile these files as follows.
+
 ```
 $g++ greet.cpp greet_func.cpp -o greet     # generates greet.exe
 $./greet                                   # runs greet.exe
@@ -92,7 +94,7 @@ A header file only has to be written once, and it can be included in as many fil
 
 Header files consist of two parts. The first part is called a `header guard`, it prevents a given header file from being #included more than once in the same file. The second part is the actual content of the `.h` file, which should be the declarations for all of the functions we want other files to be able to see. Our header files should all have a `.h` extension, so we will call our new header file `lab01.h`:
 
-```
+```C++
 // This is start of the header guard.  
 // LAB01_H can be any unique name.  
 // By convention, we use the name of the header file.

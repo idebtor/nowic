@@ -23,12 +23,15 @@ Write a function to avoid DRY violation.
 
 ### Task III:
 First of all, comment out the following two lines you coded in __Task I__.
-```
+
+```C++
 // int list[] = { 3, 4, 1, 7, 9, 6, 5, 2, 8, 0 };
 // const int N = 10;
 ```
+
 Then, set a magic number N = 50 for the time being. Use a pointer `int *list` and `malloc()` which allocates `*list` to store `N` integers to replace an array of the fixed size.   
-```
+
+```C++
   int *list;
   int N;
 ```

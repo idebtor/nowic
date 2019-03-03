@@ -38,12 +38,13 @@ Or
 cout << "Some String";
 ```
 The extraction operator can be used more than once with a combination of variables, strings and manipulators (like `endl`):
+
 ```
 cout << var1 << "Some String" << var2 << endl;
 ```
 
 ### Example: cin and cout with extraction operator:
-```
+```C++
 #include <iostream>
 using namespace std;
 
@@ -62,6 +63,7 @@ int main() {
 	return 0;
 }
 ```
+
 ### new and delete operators in C++ for dynamic memory
 Dynamic memory allocation in C/C++ refers to performing memory allocation manually by programmer. Dynamically allocated memory is allocated on Heap, while non-static and local variables get memory allocated on Stack.
 
@@ -79,31 +81,27 @@ Example:
 // Combine declaration of pointer and their assignment
 int *p = new int;       // one int memory allocated
 int *q = new int(7);    // initialized with 7
-
 int *r = new int[10];   // allocated for array of 10 integers
-int *s = (int *)malloc(sizeof(int) * 10); // using malloc()
-
+int *s = (int *) malloc(sizeof(int) * 10);
 ```
+
 ### Normal Array Declaration vs Using new or malloc()
+
 There is a difference between declaring a normal array and allocating a block of memory using new. The most important difference is, normal arrays are deallocated automatically. If array is local, then deallocated when function returns or completes. However, dynamically allocated arrays always remain there until either they are deallocated by programmer or program terminates.
 
 ### What if enough memory is not available during runtime?
 If enough memory is not available in the heap to allocate, the new returns a NULL pointer. Therefore, it may be good idea to check for the pointer variable produced by new before using it program.
-```
-int *r = new int[10];
-if (!r) {
-  cout << "Memory allocation failed\n";
-}
-```
-Or
-```
+
+```C++
 int *r = new int[10];
 assert(r !== NULL);
 ```
+
 ### delete operator or free() function
 Since it is programmer’s responsibility to deallocate dynamically allocated memory, programmers are provided delete operator by C++ language. To free the dynamically allocated array pointed by pointer-variable, use delete [].
 
 Syntax:
+
 ```
 // Release memory pointed by pointer-variable
 delete pointer-variable;
