@@ -21,7 +21,7 @@ __JoyNote__: Coders prefer `std::getline()` to `cin` to get user input. Stay tun
 __JoyNote__: The previous stored value in the string object `str` will be replaced by the input string if any.
 
 ### Example:
-```
+```C++
 #include <iostream>
 #include <string>
 using namespace std;
@@ -49,7 +49,8 @@ Hello, C Coders, Welcome to C++CC!
 
 ## Using std::getline() and stringstream object
 In C++, you may use `getline()` and `stringstream` object that works like `sscanf()` in C. A `stringstream` associates a `string` object with a stream allowing you to read from the `string` as if it were a stream.  This example tokenizes a line of string into tokens with respect to a delimiter.
-```
+
+```C++
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -94,7 +95,7 @@ The `cin` object can also be used with other member functions such as `getline()
   - `cin.eof()`: Returns a nonzero value if the end of file `eof` is reached.
 
 ### Example
-```
+```C++
 #include <iostream>
 using namespace std;
 

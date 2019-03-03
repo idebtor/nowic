@@ -108,15 +108,15 @@ After installation of Desktop-GitHub, be a member if already not.
     ```
   - Build an executable. The output name depends on your OS: hello.exe, a.exe for windows; hello.out, a.out for linux
     ```
-    g++ hello.cpp -o hello
-    g++ hello.cpp
+    g++ hello.cpp -o hello            # hello.exe or hello.out
+    g++ hello.cpp                     # a.exe or a.out
     ```
   - Run the executable.
     ```
-    ./hello
-    ./a
-    hello
-    a
+    ./hello                           # PowerShell
+    ./a                               # PowerShell
+    hello                             # Cmd, Linux, OSX
+    a                                 # Cmd, Linux, OSX
     ```
 
 ## Write `Hello World!` program
