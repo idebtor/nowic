@@ -125,7 +125,7 @@ Using `cin` to get user input is convenient sometimes since we can specify a pri
 
 Another disadvantage of using `cin >> stringvar;` is that `cin` has no checks for length, and it will break on a space. So you enter something that is more than one word, only the first word is going to be loaded. Leaving the space, and following word still in the input stream.
 
-__JoyNode__: A more elegant solution, and __much easier to use is the `std::getline()` function__.
+__JoyNote__: A more elegant solution, and __much easier to use is the `std::getline()` function__.
 
 The example below shows getting user input using `std::getline()`, and convert it between types.
 
