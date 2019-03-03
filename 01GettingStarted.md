@@ -6,7 +6,7 @@ Lecture Notes by idebtor@gmail.com
 
   1. Read README.
   2. Read Syllabus.
-  3. Read 'GettingStarted' - this file 
+  3. Read 'GettingStarted' - this file
   4. Follow instructions in 'GettingStarted' as soon as possible(ASAP).
 
   These reading materials is available at my [github.com/idebtor/nowic](https://github.com/idebtor/nowic).
@@ -57,14 +57,18 @@ http://stackoverflow.com/questions/39185248/eclipse-mingw-c-cannot-find-lpthread
       - To compile C or C++, press F5 or right click the file in tree view and click Compile and Run.
       - To compile C or C++ and attach the GNU Debugger, press F6 or right click the file in tree view and click Compile and Debug.
 
-    __Note for Multi-screen users:__ If Atom is displayed off-screen, do the following:
-    1. Alt + Tab to choose the atom window
-    2. Alt + Space to open the context menu
-    3. Press 'm' to select move
-    4. Press any arrow key once
-    5. Move your mouse (The misplaced window will follow your cursor.)
+    __Themes of my personal preference__:
+      - UI Theme - Atom Dark,
+      - Syntax Theme - Oceanic Next
 
-## Install GitHub Desktop
+    __Note for Multi-screen users:__ If Atom is displayed off-screen, do the following:
+      1. Alt + Tab to choose the atom window
+      2. Alt + Space to open the context menu
+      3. Press 'm' to select move
+      4. Press any arrow key once
+      5. Move your mouse (The misplaced window will follow your cursor.)
+
+## Install Desktop GitHub
 After installation of Desktop-GitHub, be a member if already not.
 
   - Clone the GitHub `nowic` repository into your local computer:

@@ -1,9 +1,9 @@
 # C++ for C Coders & Data Structures
 Lecture Notes by idebtor@gmail.com
 -------------------
-There are many ways to get user input such as `cin`, `cin.getline()`, `std::getline()` and more, including the command line arguments as well.
+There are many ways to get user input such as `cin`, `cin.get()`, `cin.getline()`, `std::getline()` and more, including the command line arguments as well.
 
-## Using getline()
+## Using std::getline()
 It is a standard library function in C++ and is used to read a string or a line from input stream. It is defined in <string> header file.
 
 The general syntax is:
@@ -16,9 +16,9 @@ The second declaration is almost same as that of the first one. The only differe
 
 So basically, what the getline function does is extracts characters from the input stream and appends it to the string object until the delimiting character is encountered.
 
-__JoyNote__: Coders prefer `getline()` to `cin` to get user input. Stay tune and keep on reading for the reason behind.
+__JoyNote__: Coders prefer `std::getline()` to `cin` to get user input. Stay tune and keep on reading for the reason behind.
 
-__JoyNote__: The previous stored value in the string object str will be replaced by the input string if any.
+__JoyNote__: The previous stored value in the string object `str` will be replaced by the input string if any.
 
 ### Example:
 ```
@@ -47,7 +47,7 @@ __Output__:
 Hello, C Coders, Welcome to C++CC!
 ```
 
-## Using getline() and stringstream object
+## Using std::getline() and stringstream object
 In C++, you may use `getline()` and `stringstream` object that works like `sscanf()` in C. A `stringstream` associates a `string` object with a stream allowing you to read from the `string` as if it were a stream.  This example tokenizes a line of string into tokens with respect to a delimiter.
 ```
 #include <iostream>
@@ -119,12 +119,12 @@ Enter 2 numbers: 1 5
 Sum = 15
 ```
 
-## Avoid using cin << if you can
-Using `cin` to get user input is convenient sometimes since we can specify a primitive data type. However, it is __notorious__ at causing input issues because it doesn't remove the newline character from the stream or do type-checking. So anyone using `cin >> var;` and following it up with another `cin >> stringtype;` or `getline();` will receive empty inputs. It's best practice to NOT MIX the different types of input methods from `cin`.
+## Avoid using cin >> if you can
+Using `cin` to get user input is convenient sometimes since we can specify a primitive data type. However, it is __notorious__ at causing input issues because it doesn't remove the newline character from the stream or do type-checking. So anyone using `cin >> var;` and following it up with another `cin >> stringtype;` or `std::getline();` will receive empty inputs. It's the best practice __not__ to mix the different types of input methods from `cin`.
 
 Another disadvantage of using `cin >> stringvar;` is that `cin` has no checks for length, and it will break on a space. So you enter something that is more than one word, only the first word is going to be loaded. Leaving the space, and following word still in the input stream.
 
-__JoyNode__: A more elegant solution, and __much easier to use is the `getline()` function__.
+__JoyNode__: A more elegant solution, and __much easier to use is the `std::getline()` function__.
 
 The example below shows getting user input using `std::getline()`, and convert it between types.
 
@@ -176,7 +176,7 @@ The input operator `>>` is for reading __formatted input__.  It will get input i
 int i;
 std::cin >> i;
 ```
-it will try to convert the input into an integer whereas the `getline()`  will read its characters as a string.
+it will try to convert the input into an integer whereas the `std::getline()` will read its characters as a string.
 
 By the way, the another stream `cin.getline()` function takes as a parameter a `char*` array into which it reads the characters and the max number of characters. The free function `std::getline()` takes as a parameter a `std::string` so it resizes the string when it is needed. Both functions can take optionally a third parameter, which is a delimiter ('\n' by default).
 
