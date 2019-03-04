@@ -68,8 +68,8 @@ http://stackoverflow.com/questions/39185248/eclipse-mingw-c-cannot-find-lpthread
       4. Press any arrow key once
       5. Move your mouse (The misplaced window will follow your cursor.)
 
-## Install Desktop GitHub
-After installation of Desktop-GitHub, be a member if already not.
+## Install GitHub Desktop
+After installation of GitHub Desktop, be a member if already not.
 
   - Clone the GitHub `nowic` repository into your local computer:
     - https://github.com/idebtor/nowic  
