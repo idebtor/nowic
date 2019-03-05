@@ -11,35 +11,30 @@
 using namespace std;
 
 class Scores {
-  int num;
-  double *ptr;
+  int		num;
+  double	*ptr;
 
 public:
   Scores() {
-    num = GetInt("Enter total number of students: ");
-    ptr = new double[num]; // allocating num number of doubles
-
-    cout << "Enter quiz scores of students." << endl;
-    for (int i = 0; i < num; ++i) {
-      std::stringstream prompt;
-      prompt << "Student " <<  i + 1 << ": ";
-      *(ptr + i) = GetDouble(prompt.str());
-    }
+	cout << "...constructor...\n"
   }
   ~Scores() {
+	  cout << "...destructor...\n"
     delete[] ptr;
   }
 
+  acquire() {
+	  cout << "your code here\n";
+  }
+
   display() {
-    cout << "\nDisplaying scores of students." << endl;
-    for (int i = 0; i < num; ++i) {
-        cout << "Student " << i + 1 << " :" << *(ptr + i) << endl;
-    }
+	  cout << "your code here\n";
   }
 };
 
 int main() {
   Scores quiz;
+  quiz.acquire();
   quiz.display();
   return 0;
 }

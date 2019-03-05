@@ -17,15 +17,15 @@ int main() {
 
     cout << "Enter quiz scores of students." << endl;
     for (int i = 0; i < num; ++i) {
-        cout << "Student " << i + 1 << ": ";
-        cin >> *(ptr + i);
+        // your code here
     }
 
     cout << "\nDisplaying scores of students." << endl;
-    for (int i = 0; i < num; ++i)
-        cout << "Student " << i + 1 << " :" << *(ptr + i) << endl;
+	for (int i = 0; i < num; ++i)
+		;
+        // your code here
 
-    delete [] ptr;   // ptr memory is released
+    delete [] ptr;  
     cout << "Happy Coding~~\n";
     return 0;
 }

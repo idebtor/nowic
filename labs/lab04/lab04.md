@@ -23,8 +23,12 @@ Do the coding using cin, cout, new and delete. Name this file as `lab04a.cpp`.
 ```
 
 ### Task II:
-Do the coding using `GetInt()` and `GetDouble()` defined `nowic.h`. Name this file as `lab04b.cpp`.
+  - Do the coding using `GetInt()` and `GetDouble()` defined `nowic.h`. Name this file as `lab04b.cpp`.
+  - Read `include\nowic.h` and get familiar with its usage.
+
 #### A possible build command:
+This command line specifies a user-defined static library and include.  For include, you set the include folder only. For library, you set its folder as well as the name of the library to link with. `-lnowic` means to link with a library called `libnowic.a`.
+
 ```
   g++ lab04b.cpp -I../../include -L../../lib -lnowic -o lab04b
 ```
