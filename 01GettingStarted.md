@@ -99,6 +99,25 @@ After installation of GitHub Desktop, be a member if already not.
       C:\Users\user\AppData\Roaming\GitHub Desktop\window-state.json
       ```
 
+      __JoyNote__: How do I force `git pull` to overwrite local files?
+
+      - Go to the ~/nowic folder.
+      - Open a console and run the following two commands.
+      ```
+      git fetch --all
+      git reset --hard origin/master
+      ```
+      __Explanation:__ `git fetch` downloads the latest from remote without trying to merge or rebase anything. Then the `git reset` resets the master branch to what you just fetched. The `--hard` option changes all the files in your working tree to match the files in origin/master
+      __Causion:__ If you have any local changes, they will be lost. With or without --hard option, any local commits that haven't been pushed will be lost.
+
+      __JoyNote__: How do I keep my local files clean after trials?
+      - Go to the ~/nowic folder.
+      - Open a console and run the following command.
+      ```
+      git clean -f
+      ```
+      __Explanation:__ To delete all untracked files.
+
 ## Are ready for 'Hello World!' program in C++?
   - Open a console. (may use cmd or powershell)  
     - You may use cmd or powershell at this point. Sooner or later, however, we are going to use a different kind of console called mintty. You may read __UsingMinttyInMinGW.md__ for the Mintty installation at `nowic` folder.
