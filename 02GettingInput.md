@@ -120,6 +120,23 @@ Enter 2 numbers: 1 5
 Sum = 15
 ```
 
+
+## Differences between `cin >>`, `std::getline()` and `cin.getline()`
+
+`std::getline()` reads till a newline is found and `cin >>` operator of `std::istream` reads till a space (as defined by `std::isspace`) and is found. Both remove their respective delimiter (separator) from the stream but don't put it in the output buffer. The default separator of `std::getline()` is `\n`.
+
+The input operator `>>` is for reading __formatted input__.  It will get input in any primitive data types that you define, but it will stop at the first non data type char encountered such as ` ` or `\n` . For example, if you run
+
+```
+int i;
+std::cin >> i;
+```
+it will try to convert the input into an integer whereas the `std::getline()` will read its characters as a string.
+
+By the way, the another stream `cin.getline()` function takes as a parameter a `char*` array into which it reads the characters and the max number of characters. The free function `std::getline()` takes as a parameter a `std::string` so it resizes the string when it is needed. Both functions can take optionally a third parameter, which is a delimiter ('\n' by default).
+
+In conclusion, use `std::getline()` instead of 'cin >>'.
+
 ## Avoid using cin >> if you can
 Using `cin` to get user input is convenient sometimes since we can specify a primitive data type. However, it is __notorious__ at causing input issues because it doesn't remove the newline character from the stream or do type-checking. So anyone using `cin >> var;` and following it up with another `cin >> stringtype;` or `std::getline();` will receive empty inputs. It's the best practice __not__ to mix the different types of input methods from `cin`.
 
@@ -169,24 +186,24 @@ int main() {
 }
 ```
 
-## Differences between `cin >>`, `std::getline()` and `cin.getline()`
+## Convert string to int, long int, or double etc.
 
-`std::getline()` reads till a newline is found and `cin >>` operator of `std::istream` reads till a space (as defined by `std::isspace`) and is found. Both remove their respective delimiter (separator) from the stream but don't put it in the output buffer. The default separator of `std::getline()` is `\n`.
-
-The input operator `>>` is for reading __formatted input__.  It will get input in any primitive data types that you define, but it will stop at the first non data type char encountered such as ` ` or `\n` . For example, if you run
+The following functions convert string or char array into numeric number types.
 
 ```
-int i;
-std::cin >> i;
+// C++ std function and string based:
+int stoi (const string&  str, size_t* idx = 0, int base = 10);
+long stol (const string&  str, size_t* idx = 0, int base = 10);
+long int strtol (const char* str, char** endptr, int base);
+
+// char array based
+long int strtol (const char* str, char** endptr, int base);
+double strtod (const char* str, char** endptr);
 ```
-it will try to convert the input into an integer whereas the `std::getline()` will read its characters as a string.
 
-By the way, the another stream `cin.getline()` function takes as a parameter a `char*` array into which it reads the characters and the max number of characters. The free function `std::getline()` takes as a parameter a `std::string` so it resizes the string when it is needed. Both functions can take optionally a third parameter, which is a delimiter ('\n' by default).
 
-In conclusion, use `std::getline()` instead of 'cin >>'.
-
-## Getting an integer input from an argument.
-You can convert command line arguments from string to integer using `strtol()` or to floating-point using `strtod()`. They are defined in `<stdlib.h>`. For example,
+## Getting an integer input from an argument (char array).
+You can convert the command line arguments (char array) to integer using `strtol()` or to floating-point using `strtod()`. They are defined in `<stdlib.h>`. For example,
 
 ```
 a=strtol(argv[1], NULL, 0);
