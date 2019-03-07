@@ -31,8 +31,6 @@ int main(int argc, char *argv[]) {
 
 	cout << "Hello World!\n";
 
-
-
     // Use system("pause") to prevent the terminal from disappearing
     // as soon as the program terminates such as Visual Studio sometimes.
     // system("pause");
