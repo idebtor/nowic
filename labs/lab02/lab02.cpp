@@ -41,24 +41,25 @@ void selectionSort(int *list, int n) {
 	}
 }
 
-#if 1
+#if 0
+void printList(int *list, int N); // prototype
+
 int main() {
-	int list[] = { 3, 4, 1, 7, 9, 6, 5, 2, 8, 0 };
-	const int N = 10;
+	int list[] = { 3, 4, 1, 7, 9, 6, 5, 2, 8, 0, 10, -1 };
+	const int N = sizeof(list)/sizeof(list[0]);
 
 	printf("UNSORTED: \n");
-  for (int i = 0; i < N; i++)
-    printf("%d ", list[i]);
-  printf("\n");
-
+  printList(list, N);
 	selectionSort(list, N);
-
 	printf("SORTED: \n");
-  for (int i = 0; i < N; i++)
+  printList(list, N);
+
+  printf("Happy Coding~~\n");
+}
+
+void printList(int *list, int N) {
+	for (int i = 0; i < N; i++)
 		printf("%d ", list[i]);
 	printf("\n");
-
-	// system("pause");
-  printf("Happy Coding~~\n");
 }
 #endif

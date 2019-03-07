@@ -15,7 +15,7 @@ using namespace std;
 int main() {
     // Invoke GetInt() with "Enter total number of students: "
     // your code here
-    num = 3;
+    int num = 3;
     double *ptr = new double[num];  // allocating num number of doubles
 
     cout << "Enter quiz scores of students." << endl;
