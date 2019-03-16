@@ -76,7 +76,7 @@ int main(int argc, char *argv[]) {
 	cout << endl;
 
 	// randomly generate numbers to search between
-	// list[0] = 4 and list[size-1] = 20, inclusviely. 
+	// list[0] = 3 and list[size-1] = 20, inclusviely. 
 	// do this by 'size' times.
 	// print the results as shown in binsearchx.exe.
 
