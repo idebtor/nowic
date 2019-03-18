@@ -12,12 +12,12 @@ A library is a collection of pre-compiled object files that can be linked into y
 Let's suppose that you have a source file (`nowic.cpp`) to turn it into a static library (`libnowic.a`). Assume that you keep `lib/nowic.cpp` and `~/include/nowic.h`.
 
 ```
-g++ -c nowic.cpp -o nowic.o -I../include
+g++ -c nowic.cpp -I../include   // produces nowic.o
 ar rcs libnowic.a nowic.o
-ar 				         // list all the options available
-ar t libnowic.a 	 // list ~.o files archived
-ar x libnowic.a 	 // extract ~.o files archived
-nm nowic.o 		     // list the actual function names in .o file
+ar 				// list all the options available
+ar t libnowic.a 	        // list ~.o files archived
+ar x libnowic.a 	        // extract ~.o files archived
+nm nowic.o 		        // list the actual function names in .o file
 ```
 #### ar flags: 		
   - -r: Insert the files member... into archive (with replacement).
