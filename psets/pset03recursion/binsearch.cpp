@@ -50,7 +50,7 @@ using namespace std;
 #define DPRINT(func) ;
 #endif
 
-int _binary_search(int *data, int key, int lo, int end) {
+int _binary_search(int *data, int key, int lo, int hi) {
 	DPRINT(cout << "key=" << key << " lo=" << lo << " hi=" << hi << endl;);
 
 	cout << "your code here \n";
