@@ -61,7 +61,7 @@ int main(int argc, char *argv[]) {
 		int r = (rand() * (RAND_MAX + 1) + rand()) % N;
 		std::cout << r << std::endl;
 
-		DPRINT(if (r > max) max = r; else if (r < min) min = r;));
+		DPRINT(if (r > max) max = r; else if (r < min) min = r;);
 	}
 
 	DPRINT(std::cout << min << "~" << max << std::endl;);
