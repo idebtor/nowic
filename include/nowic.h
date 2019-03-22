@@ -55,6 +55,6 @@ char GetChar(std::string prompt = "Enter a character: ");
  * on heap via malloc and returns the pointer.  The memory must be
  * freed by caller to avoid leak. Use free(), or delete [] to free it.
  */
- char* GetString(std::string prompt = "Enter a string: ");
+string GetString(std::string prompt = "Enter a string: ");
 
 #endif
