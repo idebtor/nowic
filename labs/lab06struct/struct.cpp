@@ -113,7 +113,7 @@ void step2(const int nCars) {
 // Don't use the array notation [], but use -> to access members
 void step3(const int nCars) {
 	DPRINT(cout << "Step 3: nCars=" << nCars << endl;);
-	// use malloc() to allocate an array structure to a pointer
+	// use new to allocate an array structure to a pointer
 
 	cout << "Your code here\n";
 
