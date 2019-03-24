@@ -27,7 +27,7 @@
 #include <sstream>
 #include <string>
 #include <cassert>
-#include <cstring>
+#include <ctime>
 
 #include "nowic.h"
 using namespace std;
@@ -152,23 +152,24 @@ pCar step5(const int nCars) {
 
 
 // Step 6:
-// Copy step4() and rename it as step6().
-// Copy set_model() and set_speed() as they are, but change the parameter
-// such that each one uses call-by-reference. Place them above step6(). 
+// Copy step4() and rename it as step6() below these comments.
+// - Copy set_model() and set_speed() as they are and place 
+//   below these comments, but above step6() function.
+// - change the model names into all capital letters
+// - change the parameter such that each one uses call-by-reference. 
+// 
 // There are multiple function definitions but with different signatures. 
 // This technology is called a function overloading available in C++.
 // Randomly get a model and a speed, use call-by-reference.
+// Now do the same thing as Step 4~5 except using call-by-reference.
 
-// 	cout << "Your code here\n";
-
-// Get a speed randomly in the range[1..MAX_AGE] inclusively.
-// Use call-by-reference. 
-
-// 	cout << "Your code here\n";
-
+// your code here for set_model()
+// your code here for set_speed()
 
 void step6(int nCars) {
-	DPRINT(cout << "Step 5: nCars=" << nCars << endl;);
+	DPRINT(cout << "Step 6: nCars=" << nCars << endl;);
+
+	// Use call-by-reference. 
 
 	cout << "Your code here\n";
 
