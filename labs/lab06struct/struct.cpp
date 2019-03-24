@@ -168,6 +168,7 @@ pCar step5(const int nCars) {
 
 void step6(int nCars) {
 	DPRINT(cout << "Step 6: nCars=" << nCars << endl;);
+<<<<<<< HEAD
 
 	// Use call-by-reference. 
 
