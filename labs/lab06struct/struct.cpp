@@ -78,8 +78,8 @@ void step1() {
 	cout << "Your code here\n";
 
 	for (int i = 0; i < NCARS; i++) {
-		// To set model and speed, 
-		// use GetString() and GetDouble() in libnowic.a or nowic.lib 
+		// To set model and speed,
+		// use GetString() and GetDouble() in libnowic.a or nowic.lib
 		cout << "[" << i + 1 << "/" << NCARS << "]\n";
 		cout << "Your code here\n";
 	}
@@ -102,7 +102,7 @@ void step2(const int nCars) {
 		cout << "Your code here\n";
 	}
 
-	// use for loop to print the car list
+	// use for loop to print the car list. don't use print_cars().
 	cout << "Your code here\n";
 
 	// deallocate
@@ -120,18 +120,18 @@ void step3(const int nCars) {
 	// get a copy of the pointer list; save the original pointer to use later.
 	cout << "Your code here\n";
 
-	// use for loop to print the car list
+	// use for loop to print the car list. don't use print_cars().
 	// recover the original pointer to print the list from the first
 	cout << "Your code here\n";
 }
 
 // Step 4:
 // set models and speeds randomly
-// Use "using pCar = car*" instead of typedef 
+// Use "using pCar = car*" instead of typedef
 // Implement a function called print_cars() which takes two arguments
 // as shown below:
 //     print_cars(pCar list, int nCars)
-// Implement functions, set_model() and set-speed(), 
+// Implement functions, set_model() and set_speed(),
 // which radomly set both model and speed.
 void step4(const int nCars) {
 	DPRINT(cout << "Step 4: nCars=" << nCars << endl;);
@@ -150,14 +150,15 @@ pCar step5(const int nCars) {
 	return NULL;
 }
 
+
 // Step 6:
 // Copy step4() and rename it as step6() below these comments.
-// - Copy set_model() and set_speed() as they are and place 
+// - Copy set_model() and set_speed() as they are and place
 //   below these comments, but above step6() function.
 // - change the model names into all capital letters
-// - change the parameter such that each one uses call-by-reference. 
-// 
-// There are multiple function definitions but with different signatures. 
+// - change the parameter such that each one uses call-by-reference.
+//
+// There are multiple function definitions but with different signatures.
 // This technology is called a function overloading available in C++.
 // Randomly get a model and a speed, use call-by-reference.
 // Now do the same thing as Step 4~5 except using call-by-reference.
@@ -168,7 +169,7 @@ pCar step5(const int nCars) {
 void step6(int nCars) {
 	DPRINT(cout << "Step 6: nCars=" << nCars << endl;);
 
-	// Use call-by-reference. 
+	// Use call-by-reference.
 
 	cout << "Your code here\n";
 
