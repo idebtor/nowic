@@ -150,7 +150,6 @@ pCar step5(const int nCars) {
 	return NULL;
 }
 
-
 // Step 6:
 // Copy step4() and rename it as step6() below these comments.
 // - Copy set_model() and set_speed() as they are and place 
@@ -168,11 +167,8 @@ pCar step5(const int nCars) {
 
 void step6(int nCars) {
 	DPRINT(cout << "Step 6: nCars=" << nCars << endl;);
-<<<<<<< HEAD
 
 	// Use call-by-reference. 
-=======
->>>>>>> 472cf9c9255ac215ad07110bb50b75f6e9842e61
 
 	cout << "Your code here\n";
 
