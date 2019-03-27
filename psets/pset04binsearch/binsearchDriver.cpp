@@ -41,7 +41,6 @@ int main(int argc, char *argv[]) {
 	setvbuf(stdin,  NULL, _IONBF, 0);		// read input immediately if any
 
 	vector<int> list;
-	string line;
 	int keyin;
 	cout << "Enter numbers to sort(q to quit): ";
 	while (cin >> keyin) {
