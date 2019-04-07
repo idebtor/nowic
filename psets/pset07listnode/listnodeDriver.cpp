@@ -9,48 +9,53 @@
 #include <string>
 #include <ctime>
 #include "nowic.h"
-#include "nodelist.h"
+#include "listnode.h"
 using namespace std;
 
 int main(int argc, char **argv) {
 	char c;
-	int item;
+	int val;
 	clock_t begin;
 	pNode p = nullptr;
-	bool show_all = true;
+	bool show_all = true;  // toggle the way of showing values 
 	
 	// Use setvbuf() to prevent the output from buffered on console.
 	setvbuf(stdin,  NULL, _IONBF, 0);
 	setvbuf(stdout, NULL, _IONBF, 0);
 
 	do {
-		cout << "\n\tLinked Nodes MENU\n";
+		cout << "\n\tLinked List of Nodes(" << size(p) << ") MENU\n";
 		cout << "\tf - push front O(1)\n";
-		cout << "\tb - push back O(n)\n";
-		cout << "\tp - pop front O(1)\n";
-		cout << "\ty - pop back O(n)\n";
-		cout << "\td - pop an item O(n)\n"; 
+		cout << "\tb - push back  O(n)\n";
+		cout << "\ti - push*      O(n)\n";
+		cout << "\tp - pop front  O(1)\n";
+		cout << "\ty - pop back   O(n)\n";
+		cout << "\td - pop*       O(n)\n"; 
+		cout << "\tc - clear      O(n)\n\n";			
 		if (show_all)
-			cout << "\ts - show [ALL]\n";
+			cout << "\tt - show* [ALL]\n";
 		else
-			cout << "\ts - show [HEAD/TAIL]\n";
-		cout << "\tc - clear O(n)\n\n";
-		cout << "\tT - stress test: push back, O(n)\n";
-		cout << "\tY - stress test: pop  back, O(n)\n";
+			cout << "\tt - show* [HEAD/TAIL]\n";
+		cout << "\tB - stress test: push back O(n^2)\n";
+		cout << "\tY - stress test: pop  back O(n^2)\n";
 		c = GetChar("\tCommand[q to quit]: ");
 
 		// execute the command
 		switch (c) {
 		case 'f':
 		case 'b':
-			item = GetInt("\tEnter a number to push: ");
+		case 'i':
+			val = GetInt("\tEnter a number to push: ");
 			switch (c) {
 			case 'f':
-				p = push_front(p, item);
+				p = push_front(p, val);
 				break;
 			case 'b':
-				p = push_back(p, item);
+				p = push_back(p, val);
 				break;
+			case 'i':
+				int x = GetInt("\tChoose a position node: ");
+				p = push(p, val, x);
 			}
 			break;
 
@@ -62,35 +67,36 @@ int main(int argc, char **argv) {
 			if (empty(p)) break;
 			p = pop_back(p);
 			break;
-		case 'd':  // deletes node by item
+		case 'd':  // deletes the first node with val
 			if (empty(p)) break;
-			item = GetInt("\tEnter a number to delete: ");
-			p = remove(p, item);
+			val = GetInt("\tEnter a number to delete: ");
+			p = pop(p, val);
 			break;
 
+
+		case 't': // toggle the way of showing
+			show_all ? show_all = false : show_all = true; 
+			break;		
 		case 'c':
 			if (empty(p)) break;
 			p = clear(p);
 			break;
 
-		case 's':
-			show_all ? show_all = false : show_all = true; 
-			break;
-
-		case 'T':
-			item = GetInt("\tEnter number of nodes to push back?: ");
+		case 'B':
+			val = GetInt("\tEnter number of nodes to push back?: ");
 			begin = clock();
-			p = push_backN(p, item);
+			p = push_backN(p, val);
 			break;
 		case 'Y':
-			item = GetInt("\tEnter number of nodes to pop back?: ");
+			if (empty(p)) break;
+			val = GetInt("\tEnter number of nodes to pop back?: ");
 			begin = clock();
-			p = pop_backN(p, item);
+			p = pop_backN(p, val);
 			break;
 		}
 
 		switch (c) {
-		case 'T':
+		case 'B':
 		case 'Y':
 			cout << "\tcpu: "
 				<< double(clock() - begin) / CLOCKS_PER_SEC << " sec\n";

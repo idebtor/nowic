@@ -1,4 +1,4 @@
-//  nodelist.cpp
+//  listnode.cpp
 //  Created by idebtor@gmail.com on December 12, 2018.
 /*
 * Description:	This program implements a simple linked list of nodes
@@ -9,10 +9,10 @@
 * may be changed inside of the function.
 */
 #include <iomanip>
-#include "nodelist.h"
+#include "listnode.h"
 
-// Removes all elements from the list container(which are destroyed),
-// and leaving the container with a size of 0.
+// removes all the nodes from the list (which are destroyed),
+// and leaving the container nullptr or its size to 0.
 pNode clear(pNode p) {
 	if (empty(p)) return nullptr;
 	DPRINT(cout << "clear: ";);
@@ -24,12 +24,11 @@ pNode clear(pNode p) {
 		cout << prev->item << " ";
 		delete prev;
 	}
-	cout << " cleared" << endl;
-	cout << "\tHappy Coding~~\n";
+	cout << "\tcleard \tHappy Coding~~\n";
 	return nullptr;
 }
 
-// Returns the number of elements in the list container.
+// returns the number of nodes in the list.
 int size(pNode p) {
 	if (empty(p)) return 0;
 	int count = 0;
@@ -37,55 +36,66 @@ int size(pNode p) {
 	return count;
 }
 
-// Returns the last element of in the list
+// returns the last node of in the list.
 pNode last(pNode p) {
 	if (empty(p)) return nullptr;
 	while (p->next != nullptr) p = p->next;
 	return p;
 }
 
-// Test whether container is empty
-// Returns whether the list container is empty (i.e. whether its size is 0).
-// This function does not modify the container in any way. To clear the
-// content of a List container, see List::clear.
+// returns true if the list is empty or no nodes.
+// To remove all the nodes of a list, see clear().
 bool empty(pNode p) {
 	return p == nullptr;
 }
 
-// Insert element at beginning
-// Inserts a new element at the beginning of the list, right before its
-// current first element.The content of item is copied(or moved) to the
-// inserted element. This effectively increases the list size by one.
-pNode push_front(pNode p, int item) {
-	DPRINT(cout << "><push_front item=" << item << endl;);
+// inserts a new node with val at the beginning of the list.
+// This effectively increases the list size by one.
+pNode push_front(pNode p, int val) {
+	DPRINT(cout << "><push_front val=" << val << endl;);
 
 	cout << "your code here \n";
 
 	return p;
 }
 
-// Add element at the end
-// Adds a new element at the end of the list, after its current
-// last element. The content of val is copied (or moved) to the
-// new element. This effectively increases the list size by one.
-pNode push_back(pNode p, int item) {
-	DPRINT(cout << "><push_back item=" << item << endl;);
+// adds a new node with val at the end of the list and returns the 
+// first node of the list. This effectively increases the list size by one.
+pNode push_back(pNode p, int val) {
+	DPRINT(cout << "><push_back val=" << val << endl;);
 
 	cout << "your code here \n";
 
 	return p;
 }
 
-// inserts N nodes at the end, O(n)
+// inserts a new node with val at the position of the node with x.
+// The new node is actually inserted in front of the node with x.
+// It returns the first node of the list. 
+// This effectively increases the container size by one.
+pNode push(pNode p, int val, int x) {
+	if (empty(p)) return push_front(p, val);
+	if (p->item == x) return push_front(p, val);
+
+	pNode curr = p;
+	pNode prev = nullptr;
+	cout << "your code here \n";
+	return p;
+}
+
+// adds N number of new nodes at the end of the list, O(n)
+// Values of new nodes are randomly generated in the range of
+// [0..(N + size(p))].
+// Since it simply calls push_back() repeatedly, it is O(N^2).
 pNode push_backN(pNode p, int N) {
 	DPRINT(cout << "<push_backN N=" << size(p) << endl;);
 
 	int range = N + size(p);
 	srand((unsigned)time(NULL));
 	for (int i = 0; i < N; i++) {
-		int item = rand() % range;
-		p = push_back(p, item);
-		cout << setw(7) << "\r\tinserting in [" << i << "]=" << item;
+		int val = rand() % range;
+		p = push_back(p, val);
+		cout << setw(7) << "\r\tinserting in [" << i << "]=" << val;
 	}
 	cout << "\n";
 
@@ -93,9 +103,8 @@ pNode push_backN(pNode p, int N) {
 	return p;
 }
 
-// Delete first element
-// Removes the first element in the list, effectively reducing
-// its size by one. This destroys the removed element.
+// removes the first node in the list and returns the new first node.
+// This destroys the removed node, effectively reduces its size by one. 
 pNode pop_front(pNode p) {
 	DPRINT(cout << ">pop_front size=" << size(p) << endl;);
 
@@ -104,9 +113,8 @@ pNode pop_front(pNode p) {
 	return p;
 }
 
-// Delete last element
-// Removes the last element in the list, effectively reducing the
-// container size by one. This destroys the removed element.
+// removes the last node in the list, effectively reducing the
+// container size by one. This destroys the removed node.
 pNode pop_back(pNode p) {
 	DPRINT(cout << ">pop_back size=" << size(p) << endl;);
 	if (empty(p)) return nullptr;
@@ -117,9 +125,10 @@ pNode pop_back(pNode p) {
 	return p;
 }
 
-// delete N nodes from the end, O(N)
-// if N is zero which is the default or out of the range of the list, 
-// delete all the nodes in the list.
+// deletes N number of nodes, starting from the end. 
+// It deletes all the nodes if N is zero which is the default or out of 
+// the range of the list.
+// Since it simply calls pop_back() which is O(n) repeatedly, it is O(N^2).
 pNode pop_backN(pNode p, int N) {
 	DPRINT(cout << ">pop_backN N=" << N << endl;);
 	
@@ -129,22 +138,23 @@ pNode pop_backN(pNode p, int N) {
 	return p;
 }
 
-// Remove an element with specific value
-// Removes from the list the first occurrence of the element
-// that compares equal to val.
-pNode remove(pNode p, int item) {
-	DPRINT(cout << ">remove item=" << item << endl;);
+// removes the first occurrence of the node with val from the list 
+pNode pop(pNode p, int val) {
+	DPRINT(cout << ">pop val=" << val << endl;);
+	if (empty(p)) return nullptr;    // nothing to delete
+
+	if (p->item == val) return pop_front(p);
 
 	cout << "your code here \n";
 
-	DPRINT(cout << "<remove size=" << size(p) << endl;);
+	DPRINT(cout << "<pop size=" << size(p) << endl;);
 	return p;
 }
 
-// shows all items in the list container if all is true or 
-// the list size is less than pmax * 2.
-// if there are more than pmax * 2 nodes, then it shows pmax
-// number of nodes each from the beginning and the end in the list.
+// shows the values of all the nodes in the list if all is true or 
+// the list size is less than pmax * 2. If there are more than 
+// (pmax * 2) nodes, then it shows only pmax number of nodes from 
+// the beginning and the end in the list.
 void show(pNode p, bool all) {
 	DPRINT(cout << "show(" << size(p) << ")\n";);
 	if (empty(p)) {
