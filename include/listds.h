@@ -37,12 +37,9 @@ struct List{
 	Node*	tail;	// sentinel node
 	// constructor instantiates a list, sets doubly-linked head and tail
 	List() {
-		head = new Node;
-		tail = new Node;
-		head->prev = nullptr;
-		head->next = tail;
-		tail->prev = head;
-		tail->next = nullptr;
+		head = new Node;		tail = new Node;
+		head->prev = nullptr;   head->next = tail;
+		tail->prev = head; 		tail->next = nullptr;
 	}
 	~List() {}
 };
@@ -53,10 +50,13 @@ pNode begin(pList p);			// returns the first node, not header
 pNode end(pList p);				// returns the tail which is sentinel node
 pNode last(pList p);			// returns the last node
 pNode half(pList p);            // returns the node in the middle 
-pNode find(pList p, int val);	// returns the first node with val found
 void clear(pList p);			// frees nodes, not list
 bool empty(pList p);			// true if empty, false if no empty
 int size(pList p);				// returns the number of nodes in the list
+
+// returns the first node with val found
+// returns the tail or end(p) node if no node with val is found.
+pNode find(pList p, int val);	
 
 //////////////////////////////////////////////////////////////////////////
 /////////// Make the best use of the following two fucntions  ////////////
@@ -148,9 +148,11 @@ int ascending(int a, int b);
 int descending(int a, int b);
 
 // returns the node of which value is larger than x encountered firstly.
-pNode _more(pList p, int x);
+// returns the tail or end(p) node if no node is more than val x. 
+pNode _more(pList p, int x);  
 
 // returns the node of which value is smaller than x encountered firstly. 
+// returns the tail or end(p) node if no node is less than val x. 
 pNode _less(pList p, int x);
 
 bool sorted(pList p);				// returns true if sorted by up or down

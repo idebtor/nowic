@@ -51,12 +51,12 @@ pNode half(pList p) {
 // returns the first node with a value found, nullptr otherwise.
 pNode find(pList p, int val) {
 	DPRINT(cout << ">find val=" << val << endl;);
-
-	for (pNode c = begin(p); c != end(p); c = c->next)
+	pNode c = begin(p);
+	for (; c != end(p); c = c->next)
 		if (c->item == val) return c;
 
 	DPRINT(cout << "<find - not found\n";);
-	return nullptr;
+	return c;
 }
 
 // Removes all elements from the list container(which are destroyed),
@@ -285,22 +285,23 @@ int descending(int a, int b) { return b - a; };
 
 // returns the node of which val is greater than x firstly encountered.
 pNode _more(pList p, int x) {
-	for (pNode c = begin(p); c != end(p); c = c->next)
+	pNode c = begin(p);
+	for (; c != end(p); c = c->next)
 		if (c->item > x) return c;
-	return nullptr;
+	return c;
 }
 
 // returns the node of which val is smaller than x firstly encountered
 pNode _less(pList p, int x) {
-	for (pNode c = begin(p); c != end(p); c = c->next)
+	pNode c = begin(p);
+	for (; c != end(p); c = c->next)
 		if (c->item < x) return c;
-	return nullptr;
+	return c;
 }
 
 // returns true if the list is sorted either ascending or descending.
 bool sorted(pList p) {
 	DPRINT(cout << ">sorted up or dn\n";);
-	if (size(p) <= 1) return true;
 	return sorted(p, ascending) || sorted(p, descending);
 }
 
@@ -308,6 +309,7 @@ bool sorted(pList p) {
 // com() function may be either ascending or descending.
 bool sorted(pList p, int(*comp)(int a, int b)) {
 	DPRINT(cout << ">sorted?\n";);
+	if (size(p) <= 1) return true;
 
 	cout << "your code here\n";
 
@@ -324,9 +326,16 @@ void push_sorted(pList p, int val) {
 
 // inserts N number of nodes in sorted order
 // don't invoke push_sort() by N times, but invoke sorted() once
-// and implement the rest like push_sort().
+// and implement the rest like push_sort(). 
+// The values for new nodes are randomly generated in the range of
+// [0..(N + size(p))].
 void push_sortedN(pList p, int N) {
 	DPRINT(cout << "<push_sortedN N=" << N << endl;);
+
+	int psize = size(p);
+	int range = N + psize;
+	bool upsorted = sorted(p, ascending);
+	srand((unsigned)time(NULL));	// initialize random seed
 
 	cout << "your code here\n";
 

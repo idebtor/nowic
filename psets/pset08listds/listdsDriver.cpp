@@ -23,38 +23,30 @@ using namespace std;
 int main(int argc, char **argv) {
 	char c;
 	int val, x;
-	clock_t begin;
-	bool show_all = true;   // toggle the way of showing values 
-	DPRINT(cout << ">main-HappyCoding^^\n";);
-
+	clock_t start = 0;
+	bool show_all = false;  // toggle the way of showing values 
 	pList p = new List;		// create an empty list with two sentinel nodes
 
 	do {
-		cout << "\n\tLinked List(N=" << size(p) << ") MENU\n";
-		cout << "\tf - push front   O(1)\n";
-		cout << "\tb - push back    O(1)\n";
-		cout << "\ti - push         O(n)\n";
-		cout << "\tz - push sorted* O(n)\n";
-		cout << "\tp - pop  front   O(1)\n";
-		cout << "\ty - pop  back    O(1)\n";
-		cout << "\td - pop          O(n)\n";
-		cout << "\te - pop  vals*   O(n)\n";
+		cout << "\n\tDoubly Linked List(N=" << size(p) << ")\n";
+		cout << "\tf - push front   O(1)\t";		cout << "\tp - pop front   O(1)\n";		
+		cout << "\tb - push back    O(1)\t"; 		cout << "\ty - pop back    O(1)\n";		
+		cout << "\ti - push         O(n)\t"; 		cout << "\td - pop         O(n)\n";
+		cout << "\tz - push sorted* O(n)\t";		cout << "\te - pop vals*   O(n)\n";
 		cout << "\n";
-		cout << "\ts - sort*        O(n log n)\n";
-		cout << "\tu - unique*      O(n)\n";
-		cout << "\tr - reverse**    O(n)\n";
-		cout << "\tS - stress test: push sorted O(n log n)\n";
-		cout << "\tB - stress test: push back   O(n)\n";
-		cout << "\tY - stress test: pop  back   O(n)\n";
+		cout << "\ts - sort*        O(n^2)\t";		cout << "\tu - unique*     O(n)\n";
+		cout << "\tr - reverse**    O(n)\t"; 		cout << "\tx - shuffle***  O(n)\n";
+		cout << "\tc - clear        O(n)\t";
 		if (show_all)
 			cout << "\tt - show [ALL]\n";
 		else
 			cout << "\tt - show [HEAD/TAIL]\n";
-		cout << "\tc - clear list   O(n)\n";
+		cout << endl;
+		cout << "\tB - push backN   O(n)\t";  		cout << "\tS - push sortedN O(nlogn)\n";
+		cout << "\tY - pop  backN   O(n)\n";
 		c = GetChar("\tCommand[q to quit]: ");
-
-		// execute the command
-		switch (c) {
+		
+		switch (c) {	// execute the command
 		case 'f':
 		case 'b':
 		case 'i':
@@ -101,23 +93,38 @@ int main(int argc, char **argv) {
 			break;
 		case 's':
 			if (empty(p)) break;
-			begin = clock();
-			p = sort(p);
+			start = clock();
+			if (sorted(p)) 
+				reverse(p);
+			else {
+				char ch = GetChar("\tEnter b for bubble, q for quick, s for selection sort: ");
+				switch(ch) {
+				case 'b': bubbleSort(p); break;
+				case 'q': quickSort(p); break;
+				case 's': selectionSort(p); break;
+				}
+			}
 			break;
 		case 'u':
 			if (empty(p)) break;
 			if (!sorted(p)) {
-				cout << "\t Run sort first and try it again\n";
+				cout << "\t*****sort first and try it again****\n";
 				break;
 			}
-			begin = clock();
+			start = clock();
 			unique(p);
 			break;
 
 		case 'r':
 			if (empty(p)) break;
-			begin = clock();
+			start = clock();
 			reverse(p);
+			break;
+
+		case 'x':
+			if (empty(p)) break;
+			start = clock();
+			shuffle(p);
 			break;
 
 		case 't': // toggle the way of showing
@@ -126,24 +133,24 @@ int main(int argc, char **argv) {
 		
 		case 'c':
 			if (empty(p)) break;
-			begin = clock();
+			start = clock();
 			clear(p);
 			break;
 
 		case 'S':
 			val = GetInt("\tEnter number of nodes to push sorted?: ");
-			begin = clock();
+			start = clock();
 			push_sortedN(p, val);
 			break;
 		case 'B':
 			val = GetInt("\tEnter number of nodes to push back?: ");
-			begin = clock();
+			start = clock();
 			push_backN(p, val);
 			break;
 		case 'Y':
 			if (empty(p)) break;
 			val = GetInt("\tEnter number of nodes to pop back?: ");
-			begin = clock();
+			start = clock();
 			pop_backN(p, val);
 			break;
 		}
@@ -156,8 +163,9 @@ int main(int argc, char **argv) {
 		case 'S':
 		case 'B':
 		case 'Y':
+			if (empty(p)) break;
 			cout << "\tcpu: "
-				 << double(clock() - begin) / CLOCKS_PER_SEC << " sec\n";
+				 << ((clock_t) clock() - start) / CLOCKS_PER_SEC << " sec\n";
 		default:
 			break;
 		}
@@ -165,6 +173,6 @@ int main(int argc, char **argv) {
 	} while (c != 'q');
 
 	clear(p);
-	cout << "\n\t--Happy Coding!--\n";
+	cout << "\n\tJoyful Coding!\n";
 	return EXIT_SUCCESS;
 }
