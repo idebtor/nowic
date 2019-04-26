@@ -345,7 +345,7 @@ void push_sorted(pList p, int val) {
 // like push_sort(), its time complexity will be O(n^2) or larger. 
 // The values for new nodes are randomly generated in the range of 
 // [0..(N + size(p))]. For mac users, you use rand(). For pc, use 
-// (rand() * (RAND_MAX + 1) + rand()) instead of rand(). 
+// (rand() * RAND_MAX + rand()) instead of rand(). 
 void push_sortedN(pList p, int N) {
 	DPRINT(cout << "<push_sortedN N=" << N << endl;);
 
@@ -381,7 +381,7 @@ void push_sortedN(pList p, int N) {
 //    most famous "mergesort" algorithm except recursion. 
 // The values for new nodes are randomly generated in the range of 
 // [0..(N + size(p))]. For mac users, you use rand(). For pc, use 
-// (rand() * (RAND_MAX + 1) + rand()) instead of rand(). 
+// (rand() * RAND_MAX + rand()) instead of rand(). 
 void push_sortedNlog(pList p, int N) {
 	DPRINT(cout << "<push_sortedNlog N=" << N << endl;);
 
