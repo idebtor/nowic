@@ -52,7 +52,7 @@ pNode half(pList p) {
 }
 
 // returns the first node with val found, the tail sentinel node 
-// returned by end(p) if not found. 
+// returned by end(p) if not found. O(n)
 pNode find(pList p, int val) {
 	DPRINT(cout << ">find val=" << val << endl;);
 	pNode c = begin(p);
@@ -104,7 +104,7 @@ int size(pList p) {
 //////////////////////////////////////////////////////////////////////////
 // inserts a new node with val at the position of the node x.
 // The new node is actually inserted in front of the node x.
-// This effectively increases the list size by one.
+// This effectively increases the list size by one. O(1)
 void insert(pNode x, int val) {
 	DPRINT(cout << ">insert val=" << val << endl;);
 	pNode node = new Node{ val, x->prev, x };
@@ -116,14 +116,14 @@ void insert(pNode x, int val) {
 // This effectively reduces the container by one which is destroyed.
 // It is specifically designed to be efficient inserting and removing 
 // a node regardless of its positions in the list such as front, back 
-// or in the middle of the list.
+// or in the middle of the list. O(1)
 void erase(pNode x) {
 	x->prev->next = x->next;
 	x->next->prev = x->prev;
 	delete x;
 }
 
-void erase(pList p, pNode x) {	// checks if x is neither tail nor head
+void erase(pList p, pNode x) {	// checks if x is either tail or head
 	if (x == p->tail || x == p->head || x == nullptr) return;
 	x->prev->next = x->next;
 	x->next->prev = x->prev;
@@ -132,16 +132,14 @@ void erase(pList p, pNode x) {	// checks if x is neither tail nor head
 ///////////////////////////////////////////////////////////////////////////
 
 /////////////////////// pop ///////////////////////////////////////////////
-// removes the first node in the list.
-// This destroys the removed node, and reduces its size by one. 
+// removes the first node in the list. O(1)
 void pop_front(pList p) {
 	DPRINT(cout << ">pop_front\n";);
 	if (!empty(p)) erase(begin(p));
 	DPRINT(cout << "<pop_front\n";);
 }
 
-// removes the last node in the list, and reduces the list size 
-// by one. This destroys the removed node.
+// removes the last node in the list. O(1)
 void pop_back(pList p) {
 	DPRINT(cout << ">pop_back\n";);
 	if (!empty(p)) erase(end(p)->prev);
@@ -159,12 +157,11 @@ void pop(pList p, int val) {
 	DPRINT(cout << "<pop\n";);
 }
 
-// removes from the list all the nodes with the same value given.
-// This calls the destructor of these objects and reduces the 
-// list size by the number of nodes removed.  Unlike erase(), 
-// which erases a node by its position node, this function 
-// removes nodes by its value. Unlike pop_all(), pop() removes 
-// the first node with the value given. 
+// removes all the nodes with the same value given. O(n)
+// This goes through the list once, not multiple times. Unlike 
+// erase(), which erases a node by its position node, this function 
+// removes nodes by its value. Unlike pop_all(), pop() removes the
+// first node with the value given. 
 void pop_all(pList p, int val) {
 	DPRINT(cout << ">pop_all val=" << val << endl;);
 	cout << "your code here\n";
@@ -180,8 +177,8 @@ void pop_backN(pList p, int N) {
 	int psize = size(p);
 	if (N <= 0 || N > psize) N = psize;
 	for (int i = 0; i < N; i++) {
-		cout << setw(7) 
-			 << "\r\tdeleting in [" << psize - i - 1 << "]        ";
+		if (i % 10000 == 0)
+			cout << setw(7) << "\r\tdeleting in [" << psize - i - 1 << "]        ";
 		pop_back(p);
 	}
 	cout << "\n";
@@ -189,8 +186,7 @@ void pop_backN(pList p, int N) {
 }
 
 /////////////////////// push ///////////////////////////////////////////////
-// inserts a new node with val at the beginning of the list.
-// This effectively increases the list size by one.
+// inserts a new node with val at the beginning of the list. O(1)
 void push_front(pList p, int val) {		// inserts a node at front of list
 	DPRINT(cout << ">push_front val=" << val << endl;);
 	insert(begin(p), val);
@@ -198,7 +194,7 @@ void push_front(pList p, int val) {		// inserts a node at front of list
 }
 
 // adds a new node with val at the end of the list and returns the 
-// first node of the list. This effectively increases the list size by one.
+// first node of the list. O(1)
 void push_back(pList p, int val) {
 	DPRINT(cout << ">push_back val=" << val << endl;);
 	insert(end(p), val);
@@ -225,9 +221,10 @@ void push_backN(pList p, int N) {
 	int range = N + psize;
 	srand((unsigned)time(NULL));
 	for (int i = 0; i < N; i++) {
-		int val = rand() % range;
+		int val = (rand() * RAND_MAX + rand()) % range;
 		push_back(p, val);
-		cout << setw(7) << "\r\tinserting in [" << i + psize << "]=" << val << "        ";
+		if (i % 10000 == 0)
+			cout << setw(7) << "\r\tinserting in [" << i + psize << "]=" << val << "        ";
 	}
 	cout << "\n";
 
@@ -332,7 +329,7 @@ bool sorted(pList p, int(*comp)(int a, int b)) {
 	return true;
 }
 
-// inserts a node with val in sorted in the "sorted" list. 
+// inserts a node with val in sorted in the "sorted" list. O(n)
 void push_sorted(pList p, int val) {
 	DPRINT(cout << "<push_sorted val=" << val << endl;);
 	cout << "your code here\n";
@@ -351,7 +348,7 @@ void push_sortedN(pList p, int N) {
 
 	int psize = size(p);
 	int range = N + psize;
-	bool upsorted = sorted(p, ascending);
+
 	srand((unsigned)time(NULL));	// initialize random seed
 
 	cout << "your code here\n";

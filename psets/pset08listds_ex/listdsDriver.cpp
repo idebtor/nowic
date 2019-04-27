@@ -68,6 +68,7 @@ int main(int argc, char **argv) {
 					cout << "\t Run sort first and try it again\n";
 					break;
 				}
+				start = clock();
 				push_sorted(p, val);
 				break;
 			}
@@ -75,6 +76,7 @@ int main(int argc, char **argv) {
 
 		case 'p':  // deletes the first node in the list
 			if (empty(p)) break;
+			start = clock();
 			pop_front(p);
 			break;
 		case 'y':  // deletes the last node in the list, O(n)
@@ -84,20 +86,25 @@ int main(int argc, char **argv) {
 		case 'd':  // deletes one node with the value
 			if (empty(p)) break;
 			val = GetInt("\tEnter a number to pop: ");
+			start = clock();
 			pop(p, val);
 			break;
 		case 'e':  // deletes all the nodes with the value given
 			if (empty(p)) break;
 			val = GetInt("\tEnter a number to pop all: ");
+			start = clock();
 			pop_all(p, val);
 			break;
 		case 's':  // sort
 			if (empty(p)) break;
-			start = clock();
-			if (sorted(p)) 
+
+			if (sorted(p)) {
+				start = clock();
 				reverse(p);
+			}
 			else {
 				char ch = GetChar("\tEnter b for bubble, q for quick, s for selection sort: ");
+				start = clock();
 				switch(ch) {
 				case 'b': bubbleSort(p); break;
 				case 'q': quickSort(p); break;
@@ -164,12 +171,17 @@ int main(int argc, char **argv) {
 
 		switch (c) {
 		case 'c':
+		case 'd':
+		case 'e':
+		case 'p':
+		case 'r':
 		case 's':
 		case 'u':
-		case 'r':
-		case 'S':
+		case 'x':
+		case 'z':
 		case 'B':
 		case 'Y':
+		case 'S':
 		case 'Z':
 			if (empty(p)) break;
 			cout << "\tcpu: "
