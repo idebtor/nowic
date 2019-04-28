@@ -115,7 +115,7 @@ int main(int argc, char **argv) {
 		case 'u':  // unique
 			if (empty(p)) break;
 			if (!sorted(p)) {
-				cout << "\t*****sort first and try it again****\n";
+				cout << "\n\tsort first and try it again\n";
 				break;
 			}
 			start = clock();
@@ -145,12 +145,20 @@ int main(int argc, char **argv) {
 			break;
 
 		case 'S': // push_sortedN  O(n^2)
+			if (!empty(p) && !sorted(p)) {
+				cout << "\n\tsort first and try it again\n";
+				break;
+			}
 			N = GetInt("\tEnter number of nodes to push sorted?: ");
 			start = clock();
 			push_sortedN(p, N);
 			break;
 
 		case 'Z': // push_sortedNlog  O(n log n)
+			if (!empty(p) && !sorted(p)) {
+				cout << "\n\tsort first and try it again\n";
+				break;
+			}
 			N = GetInt("\tEnter number of nodes to push sorted?: ");
 			start = clock();
 			push_sortedNlog(p, N);
