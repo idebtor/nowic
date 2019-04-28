@@ -96,9 +96,10 @@ void push_back(pList p, int val);
 void push(pList, int val, int x);  
 
 // adds N number of new nodes at the end of the list. O(n)
-// Values of new nodes are randomly generated in the range of
-// [0..(N + size(p))].
-void push_backN(pList p, int N);  
+// if val == 0, the values for new nodes are randomly generated in the 
+// range of [0..(N + size(p))]. Otherwise, simply insert the same val 
+// for N times.
+void push_backN(pList p, int N, int val = 0);  
 
 ////////////////////////// pop ///////////////////////////////////
 // removes the first node in the list. O(1)
@@ -182,7 +183,7 @@ void push_sortedN(pList p, int N);
 // 2. Sort vals using quicksort() of which time complexity 
 //    is O(n log n), in ascending or descending depending on 
 //    the list. .
-// 3. Merge two lists. 
+// 3. Merge two lists. - This process is O(n).
 //    Compare two values from the list and vals one by one. 
 //    For example, if sorted ascending and vals is smaller, 
 //    insert the vals into the list and go for the next val.

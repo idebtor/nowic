@@ -22,7 +22,7 @@ using namespace std;
 
 int main(int argc, char **argv) {
 	char c;
-	int val, x;
+	int val, x, N;
 	clock_t start = 0;
 	bool show_all = false;  // toggle the way of showing values 
 	pList p = new List;		// create an empty list with two sentinel nodes
@@ -145,27 +145,28 @@ int main(int argc, char **argv) {
 			break;
 
 		case 'S': // push_sortedN  O(n^2)
-			val = GetInt("\tEnter number of nodes to push sorted?: ");
+			N = GetInt("\tEnter number of nodes to push sorted?: ");
 			start = clock();
-			push_sortedN(p, val);
+			push_sortedN(p, N);
 			break;
 
 		case 'Z': // push_sortedNlog  O(n log n)
-			val = GetInt("\tEnter number of nodes to push sorted?: ");
+			N = GetInt("\tEnter number of nodes to push sorted?: ");
 			start = clock();
-			push_sortedNlog(p, val);
+			push_sortedNlog(p, N);
 			break;
 
 		case 'B':
-			val = GetInt("\tEnter number of nodes to push back?: ");
+			N = GetInt("\tEnter number of nodes to push back?: ");
+			val = GetInt("\tEnter a value to push back?(0 for random): ");
 			start = clock();
-			push_backN(p, val);
+			push_backN(p, N, val);
 			break;
 		case 'Y':
 			if (empty(p)) break;
-			val = GetInt("\tEnter number of nodes to pop back?: ");
+			N = GetInt("\tEnter number of nodes to pop back?: ");
 			start = clock();
-			pop_backN(p, val);
+			pop_backN(p, N);
 			break;
 		}
 
@@ -183,9 +184,8 @@ int main(int argc, char **argv) {
 		case 'Y':
 		case 'S':
 		case 'Z':
-			if (empty(p)) break;
 			cout << "\tcpu: "
-				 << ((clock_t) clock() - start) / CLOCKS_PER_SEC << " sec\n";
+				 << ((clock_t) clock() - start) / (double) CLOCKS_PER_SEC << " sec\n";
 		default:
 			break;
 		}

@@ -165,6 +165,20 @@ void pop(pList p, int val) {
 void pop_all(pList p, int val) {
 	DPRINT(cout << ">pop_all val=" << val << endl;);
 	cout << "your code here\n";
+#if 0
+	// O(n) 
+	for (pNode c = begin(p); c != end(p); c = c->next) {
+
+
+	}
+#endif
+
+#if 1
+	// O(n^2)
+	while (find(p, val) != end(p)) {
+		pop(p, val);
+	}
+#endif
 	DPRINT(cout << "<pop_all\n";);
 }
 
@@ -211,20 +225,30 @@ void push(pList p, int val, int x) {
 	DPRINT(cout << "<push\n";);
 }
 
-// adds N number of new nodes at the end of the list, O(1)
-// Values of new nodes are randomly generated in the range of
-// [0..(N + size(p))].
-void push_backN(pList p, int N) {
+// adds N number of new nodes at the end of the list. O(n)
+// if val == 0, the values for new nodes are randomly generated in the 
+// range of [0..(N + size(p))]. Otherwise, simply insert the same val 
+// for N times.
+void push_backN(pList p, int N, int val) {
 	DPRINT(cout << ">push_backN N=" << N;);
-
 	int psize = size(p);
-	int range = N + psize;
-	srand((unsigned)time(NULL));
-	for (int i = 0; i < N; i++) {
-		int val = (rand() * RAND_MAX + rand()) % range;
-		push_back(p, val);
-		if (i % 10000 == 0)
-			cout << setw(7) << "\r\tinserting in [" << i + psize << "]=" << val << "        ";
+
+	if (val == 0) {
+		int range = N + psize;
+		srand((unsigned)time(NULL));
+		for (int i = 0; i < N; i++) {
+			int val = (rand() * RAND_MAX + rand()) % range;
+			push_back(p, val);
+			if (i % 10000 == 0)
+				cout << setw(7) << "\r\tinserting in [" << i + psize << "]=" << val << "        ";
+		}
+	}
+	else {
+		for (int i = 0; i < N; i++) {
+			push_back(p, val);
+			if (i % 10000 == 0)
+				cout << setw(7) << "\r\tinserting in [" << i + psize << "]=" << val << "        ";
+		}
 	}
 	cout << "\n";
 
@@ -352,7 +376,26 @@ void push_sortedN(pList p, int N) {
 	srand((unsigned)time(NULL));	// initialize random seed
 
 	cout << "your code here\n";
+#if 0
+	// O(n^2) implment your code here for O(n^2)
+	// Refer to push_sorted(), but don't invoke push_sorted().
 
+#endif
+
+#if 1
+	// O(n^3) Don't implement somethig like this, but in O(n^2).
+	for (int i = 0; i < N; i++) {
+		int val = (rand() * RAND_MAX + rand()) % range;
+		if (sorted(p, ascending)) {
+			pNode node = _more(p, val);
+			insert(node, val);
+		}
+		else {
+			pNode node = _less(p, val);
+			insert(node, val);
+		}
+	}
+#endif
 	DPRINT(cout << "<push_sortedN\n";);
 }
 
@@ -363,7 +406,7 @@ void push_sortedN(pList p, int N) {
 // 2. Sort vals using quicksort() of which time complexity 
 //    is O(n log n), in ascending or descending depending on 
 //    the list. .
-// 3. Merge two lists. 
+// 3. Merge two lists. - This process is O(n).
 //    Compare two values from the list and vals one by one. 
 //    For example, if sorted ascending and vals is smaller, 
 //    insert the vals into the list and go for the next val.
