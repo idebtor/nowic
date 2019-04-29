@@ -144,7 +144,7 @@ void reverse(pList p);
 // returns so called "perfectly shuffled" list. 
 // The first half and the second half are interleaved each other. 
 // The shuffled list begins with the second half of the original.
-// For example, 1234567890 returns 617283940.
+// For example, 1234567890 returns 6172839405.
 void shuffle(pList p); 
 
 ///////////////////////// sort //////////////////////////////////
