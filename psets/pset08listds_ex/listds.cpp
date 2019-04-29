@@ -290,7 +290,7 @@ void reverse(pList p) {
 // returns so called "perfectly shuffled" list. 
 // The first half and the second half are interleaved each other. 
 // The shuffled list begins with the second half of the original p.
-// For example, 1234567890 returns 617283940.
+// For example, 1234567890 returns 6172839405.
 void shuffle(pList p) {
 	DPRINT(cout << ">shuffle\n";);
 	if (size(p) <= 1) return;    // nothing to shuffle
