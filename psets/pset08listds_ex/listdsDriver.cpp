@@ -10,6 +10,22 @@ Author      : Youngsup Kim, idebtor@gmail.com
 Description :
 : This implements a doubly linked list with two sentinel nodes
 : including interactive stress test options.
+
+Note: For quicksort with a large dataset with the repetition of the same
+value, the algorithm requires a large stack.
+For example, if there are 50,000 of the same value repeated in the container,
+I had to set the stack size to 16M (or 16777216)
+
+For visual studio: Project Properties->Linkers->System->Stack Reserve Size
+
+For g++/MinGW cmd windows, the following command set the stack size to 16M.
+  g++ -Wl,--stack,16777216 listdsDriver.cpp listdsx.cpp .......
+To check the stack size on Windows, you may use dumpbin that comes with VS
+
+For Mac OSX
+  g++ -Wl,-stack_size,0x1000000 listdsDriver.cpp listdsx.cpp .......
+To check the stack size on OSX
+  otool -lv _exefile_name | grep stack
 */
 
 #include <iostream>
