@@ -72,18 +72,19 @@ void treeprint_mode(tree root, int mode) {
 int main(int argc, char **argv) {
 	string menuBST = "Binary Search Tree[BST]: ";
 	string menuAVL = "Adelson-Velskii&Landis[AVL]: ";
+	string printMenu[] = { "[Tree]", "[Level]", "[Tree/Level]" };
+	int printMode = 2;    // by default, display both [Tree/Level]
 	tree node;
 	vector<int> vec;
 	bool AVLtree = false;
 	int item, key;
 	char c;
-	string printMenu[] = { "[Tree]", "[Level]", "[Tree/Level]" };
-	int printMode = 2;
 
 	tree root = argc < 2 ? nullptr : build_tree_by_args(argc, argv, AVLtree);
-	treeprint_mode(root, printMode);
 
 	do {
+		treeprint_mode(root, printMode);
+
 		cout << "\n\t" << (AVLtree ? menuAVL : menuBST) << treespecs(root) << endl;
 		cout << "\tg - grow\t"; 				
 		(AVLtree ? cout << "\tb - rebalance\n": cout << "\ta - add a child(Use with caution)\n");
@@ -218,10 +219,6 @@ int main(int argc, char **argv) {
 		case 'q':
 			break;
 		}
-		cout << endl; 
-
-		treeprint_mode(root, printMode);
-
 	} while (c != 'q');
 
 	clear(root);
