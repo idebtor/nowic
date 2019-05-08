@@ -58,8 +58,8 @@ struct PrintTree {    // treeprint structure
 	int height;
 	int lablen;
 	int parent_dir;  //-1=I am left, 0=I am root, 1=right   
-	std::string label;
 	//char label[11];  //max supported unit32 in dec, 10 digits max
+	std::string label;
 };
 using ptree = PrintTree*;
 
@@ -238,6 +238,17 @@ void print_level(ptree node, int x, int level) {
 	}
 }
 
+// Compute the max depth of a tree. It is the number of nodes along
+// the longest path from the root node down to the farthest leaf node.
+// height: 0 (undefined) for empty tree, 1 for root only tree
+int treeprint_height(tree node) {
+	if (node == nullptr) return 0;
+	int left = treeprint_height(node->left);
+	int right = treeprint_height(node->right);
+	DPRINT(cout << " height: left=" << left << " right=" << right << endl;);
+	return (left > right) ? 1 + left : 1 + right;
+}
+
 //prints ascii tree for given Tree structure
 void treeprint(tree t) {
 	DPRINT(std::cout << ">treeprint\n";);
@@ -283,7 +294,7 @@ void treeprint_levelorder(tree root, int level) {
 void treeprint_levelorder(tree root) {
 	DPRINT(cout << ">treeprint_levelorder";);
 	if (root == nullptr) return;
-	int h = height(root);
+	int h = treeprint_height(root);
 
 	for (int i = 1; i <= h; i++) {
 		treeprint_levelorder(root, i);

@@ -72,13 +72,14 @@ void treeprint_mode(tree root, int mode) {
 int main(int argc, char **argv) {
 	string menuBST = "Binary Search Tree[BST]: ";
 	string menuAVL = "Adelson-Velskii&Landis[AVL]: ";
-	string printMenu[] = { "[Tree]", "[Level]", "[Tree/Level]" };
-	int printMode = 2;    // by default, display both [Tree/Level]
+	string printMenu[] = { "[tree]", "[level]", "[tree/level]" };
+	int printMode = 0;  // by default, display both [tree] only
 	tree node;
 	vector<int> vec;
 	bool AVLtree = false;
 	int item, key;
 	char c;
+	DPRINT(cout << "\t>Joyful Coding\n";);
 
 	tree root = argc < 2 ? nullptr : build_tree_by_args(argc, argv, AVLtree);
 
