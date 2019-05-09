@@ -1,5 +1,5 @@
 /**
-* File: bstreeDriver.cpp
+* File: treeDriver.cpp
 * tests the implementation of a binary search tree(BST).* and
 * AVL(Adelson - Velskii and Landis) tree.
 *
