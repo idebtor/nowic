@@ -19,9 +19,9 @@
  * 2. TreeNode structure must have left/right nodes and int key as 
  *    its members. For example, 
  *    struct TreeNode {
-  *		int		key;
- *		tree	left;			// left child
- *		tree	right;			// right child
+  *		int			key;
+ *		TreeNode*	left;		
+ *		TreeNode*	right;
  *    };
  *    using tree = TreeNode*;
  *
