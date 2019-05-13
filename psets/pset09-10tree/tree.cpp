@@ -35,8 +35,8 @@
 #include <iostream>
 #include <cassert>
 #include <vector>
+#include <queue>
 #include "tree.h"
-#include "treeque.h"		    // used only in levelorder
 using namespace std;
 
 void treeprint(tree t);        // print the tree on console graphically
