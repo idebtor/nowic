@@ -176,6 +176,7 @@ int main(int argc, char **argv) {
 										for (int i : vec) cout << i << " ";
 			cout << "\n\tlevelorder: "; vec.clear(); levelorder(root, vec); 
 										for (int i : vec) cout << i << " ";		
+										cout << endl;
 			break;
 		case 'o': // BT/BST/AVL
 			if (empty(root)) break;
