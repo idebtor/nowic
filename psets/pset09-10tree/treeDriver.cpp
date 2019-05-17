@@ -21,6 +21,7 @@
 #include <sstream>
 #include <cassert>
 #include <vector>
+#include <ctime>
 #include "nowic.h"
 #include "tree.h"
 using namespace std;
@@ -57,28 +58,43 @@ string treespecs(tree root) {
 }
 
 void treeprint_mode(tree root, int mode) {
+	enum   printEnum { TREE_MODE, LEVEL_MODE, LOUD_MODE, SILENT_MODE };
 	if (root == nullptr) return;
-	if (mode == 0) 
+
+	if (size(root) > 1000) {
+		cout << "\tThere are over 1,000 nodes, the print mode goes into ...\n";
+		mode = SILENT_MODE;
+	}
+	switch (mode) {
+	case TREE_MODE:
 		treeprint(root);
-	else if (mode == 1)
+		break;
+	case LEVEL_MODE:
 		treeprint_levelorder(root);
-	else {
-		treeprint(root); 
+		break;
+	case LOUD_MODE:
+		treeprint(root);
 		cout << endl;
 		treeprint_levelorder(root);
+		break;
+	default:
+		cout << "\t......[silent]......\n";
+		cout << endl;
 	}
 }
 
 int main(int argc, char **argv) {
 	string menuBST = "Binary Search Tree[BST]: ";
 	string menuAVL = "Adelson-Velskii&Landis[AVL]: ";
-	string printMenu[] = { "[tree]", "[level]", "[tree/level]" };
-	int printMode = 0;  // by default, display both [tree] only
+	enum   printEnum { TREE_MODE, LEVEL_MODE, LOUD_MODE, SILENT_MODE };
+	string printMenu[] = { "[tree]", "[level]", "[tree/level]", "[silent]" };
+	int printMode = TREE_MODE;  // by default, display both [tree] only
 	tree node;
 	vector<int> vec;
 	bool AVLtree = false;
 	int item, key;
 	char c;
+	clock_t start = 0;
 	DPRINT(cout << "\t>Joyful Coding\n";);
 
 	tree root = argc < 2 ? nullptr : build_tree_by_args(argc, argv, AVLtree);
@@ -87,13 +103,12 @@ int main(int argc, char **argv) {
 		treeprint_mode(root, printMode);
 
 		cout << "\n\t" << (AVLtree ? menuAVL : menuBST) << treespecs(root) << endl;
-		cout << "\tg - grow\t"; 				
-		(AVLtree ? cout << "\tb - rebalance\n": cout << "\ta - add a child(Use with caution)\n");
-		cout << "\tt - trim\t"; 				cout << "\tf - find\n";
-		if (!AVLtree) cout << "\t/ - trim plus\n";
+		cout << "\tg - grow\t"; 				cout << "\tb - rebalance tree\n";
+		cout << "\tt - trim\t"; 				AVLtree ? (cout << endl) : (cout << "\t/ - trim plus\n");
+		cout << "\tf - find\t";					cout << "\ta - add a child(Use with caution)\n";
 		cout << "\tl - traverse\t"; 			cout << "\tp - predecessor, successor\n";
 		cout << "\to - BST or AVL?\t";	 		cout << "\ts - switch to [BST/AVL]\n";
-		cout << "\tx - grow N\t";				cout << "\tm - printMode:" << printMenu[printMode] << endl;
+		cout << "\tx - grow N\t";				cout << "\tm - print mode:" << printMenu[printMode] << endl;
 		cout << "\ty - trim N\t";				cout << "\tc - clear\n";
 		c = GetChar("\tCommand(q to quit): ");
 		switch (c) {
@@ -122,13 +137,17 @@ int main(int argc, char **argv) {
 				grow(node, item);
 			break;
 
-		case 'b':  // rebalance - only for AVL
+		case 'b':  // rebalance 
 			if (isAVL(root)) {
 				cout << "\n\tIt is already an AVL Tree\n";
 			}
 			else {
-				cout << "\tRebalancing it at root...\n";
+				start = clock();
 				root = rebalanceTree(root);
+				// item = GetInt("\tEnter a node to rebalance: ");
+				// root = rebalance(root, item);
+				cout << "\tCPU Time: " << ((clock_t)clock() - start) / 
+					(double)CLOCKS_PER_SEC << " sec " << endl;
 			}
 			break;
 
@@ -196,13 +215,15 @@ int main(int argc, char **argv) {
 				AVLtree = false;
 			else {
 				if (!isBST(root)) {
-					cout << "\n\tIt is not a BST, can not be changed to AVL tree.\n";
+					cout << "\n\tIt is not a BST, cannot change to AVL tree.\n";
 					break;
 				}
 				if (!isAVL(root)) {
-					cout << "\n\tIt is unbalanced AVL Tree\n";
-					cout << "\tRebalancing it at root...\n";
+					cout << "\n\tRebalancing at root...\n";
+					start = clock();
 					root = rebalanceTree(root);
+					cout << "\tCPU Time: " << ((clock_t)clock() - start) /
+						(double)CLOCKS_PER_SEC << " sec " << endl;
 				}
 				if (isAVL(root)) AVLtree = true;
 			}
@@ -210,12 +231,18 @@ int main(int argc, char **argv) {
 
 		case 'x':
 			item = GetInt("\tEnter a number of nodes to grow: ");
+			start = clock();
 			root = growN(root, item, AVLtree);
+			cout << "\tCPU Time: " << ((clock_t)clock() - start) /
+				(double)CLOCKS_PER_SEC << " sec " << endl;
 			break;
 
 		case 'y':
 			item = GetInt("\tEnter a number of nodes to trim: ");
+			start = clock();
 			root = trimN(root, item, AVLtree);
+			cout << "\tCPU Time: " << ((clock_t)clock() - start) /
+				(double)CLOCKS_PER_SEC << " sec " << endl;
 			break;
 
 		case 'q':

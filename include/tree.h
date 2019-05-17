@@ -66,7 +66,8 @@ tree maximum(tree t);					// returns the right most leaf
 tree pred(tree t);						// returns max node in left subtree
 tree succ(tree t);						// returns min node in right subtree 
 
-void inorder(tree t, std::vector<int>& v);	 // traverses tree in inorder
+void inorder(tree t, std::vector<int>& v);	 // traverses tree in inorder & returns keys
+void inorder(tree t, std::vector<tree>& v);	 // traverses tree in inorder & returns nodes
 void postorder(tree t, std::vector<int>& v); // traverses tree in postorder 
 void preorder(tree t, std::vector<int>& v);	 // traverses tree in preorder 
 void levelorder(tree t, std::vector<int>& v);// traverses tree in level-order 
