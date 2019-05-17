@@ -227,7 +227,13 @@ void postorder(tree node, vector<int>& v) {
 	cout << "your code here\n";
 	DPRINT(cout << "<postorder key=" << node->key << endl;);
 }
-
+// returns a vector that has tree nodes in inorder instead of keys.
+void inorder(tree node, vector<tree>& v) {
+	if (node == nullptr) return;
+	inorder(node->left, v);
+	v.push_back(node);
+	inorder(node->right, v);
+}
 // Given a binary tree, its node values in preorder are passed
 // back through the argument v which is passed by reference. 
 void preorder(tree node, vector<int>& v) {
