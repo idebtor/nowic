@@ -84,6 +84,8 @@ bool balanced(tree t);				// checks the balance factor
 int balanceFactor(tree t);			// height diff(left - right)
 tree growAVL(tree t, int key);		// inserts a node with key
 tree trimAVL(tree t, int key);		// deletes a node with key
+tree buildAVL(int* v, int n);		// builds AVL from an array of keys sorted
+tree buildAVL(tree* v, int n);		// builds AVL from an array of nodes sorted
 tree rebalance(tree t);				// rebalances at a node
 tree rebalanceTree(tree root);	    // rebalances a tree repeatedly
 
