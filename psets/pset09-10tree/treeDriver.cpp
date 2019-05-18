@@ -16,6 +16,21 @@
 *   root = grow(root, 7);	// a new node is added
 *   root = trim(root, 5);	// if first node is removed,
 *                           // the new root is returned
+* Note:
+* Creating or rebalancing tree with a lot of nodes requires a large stack.
+* For example, with 16M (or 16777216) stack, I was able to create a tree 
+* with two million nodes and rebalance it. 
+*
+* For visual studio: Project Properties->Linkers->System->Stack Reserve Size
+*
+* For g++/MinGW cmd windows, the following command set the stack size to 16M.
+*   g++ -Wl,--stack,16777216 listdsDriver.cpp listdsx.cpp .......
+* To check the stack size on Windows, you may use dumpbin that comes with VS
+*
+* For Mac OSX
+*    g++ -Wl,-stack_size,0x1000000 listdsDriver.cpp listdsx.cpp .......
+* To check the stack size on OSX
+*    otool -lv _exefile_name | grep stack
 */
 #include <iostream>
 #include <sstream>
@@ -138,14 +153,16 @@ int main(int argc, char **argv) {
 			break;
 
 		case 'b':  // rebalance 
+			if (!isBST(root)) {
+				cout << "\n\tSince it is not a BST, we cannot rebalance it.\n";
+				break;
+			}
 			if (isAVL(root)) {
 				cout << "\n\tIt is already an AVL Tree\n";
 			}
 			else {
 				start = clock();
 				root = rebalanceTree(root);
-				// item = GetInt("\tEnter a node to rebalance: ");
-				// root = rebalance(root, item);
 				cout << "\tCPU Time: " << ((clock_t)clock() - start) / 
 					(double)CLOCKS_PER_SEC << " sec " << endl;
 			}
