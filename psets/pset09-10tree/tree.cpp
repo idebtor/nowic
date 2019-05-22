@@ -519,7 +519,7 @@ tree trimAVL(tree node, int key) {
 
 	cout << "your code here\n";
 
-	// step 2 - get the balance factor of this node
+	// step 2 - get balanced at this node
 	DPRINT(if (node != nullptr)
 		cout << "<trimAVL key=" << key << " is done, now rebalance at " << node->key << endl;);
 	return rebalance(node);
