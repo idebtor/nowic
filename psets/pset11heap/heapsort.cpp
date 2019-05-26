@@ -41,7 +41,7 @@ typedef char Key;
 #define DPRINT(func) ;
 #endif
 
-// define a function pointer that accepts a Key array, int, int as arguments
+// define a function pointer that accepts a key array, int, int as arguments
 bool (*comp)(Key*, int, int);
 
 //////////// helper functions to restore the PQ invariant ///////////
@@ -111,8 +111,8 @@ void show(Key * a, int N) {
 // The first element(a[0]) is excluded.
 int main(int argc, char* argv[]) {
 #if 1
-	char a[] = { ' ', 'H', 'A', 'P', 'P', 'Y', 'C', 'O', 'D', 'I', 'N', 'G', NULL };
-	int N = sizeof(a) / sizeof(a[0]) - 2;   // -2 because of 1st ' ' and last NULL.
+	char a[] = { ' ', 'H', 'A', 'P', 'P', 'Y', 'C', 'O', 'D', 'I', 'N', 'G', '\0', '\0' };
+	int N = sizeof(a) / sizeof(a[0]) - 3;   // -3 because of 1st ' ' and last two'\0'.
 #else
 	char a[1024], line[1024];
 	if (argc < 2) {
