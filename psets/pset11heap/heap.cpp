@@ -277,6 +277,7 @@ void heapify(heap p) {
 // returns an int array that has randomly mixed numbers
 // between start to start + N
 void randomN(int start, int N, int *arr) {
+	if (N <= 1) return;
 	for (int i = 0; i < N; i++) arr[i] = start + i;
 	// shuffle the array contents
 	for (int i = 0; i < N; i++) {
