@@ -1,0 +1,43 @@
+# Graph file format example:
+# To represent a graph: 
+# The number of vertex in the graph comes at the first line.
+# The number of edges comes In the following line, 
+# Then list a pair of vertices connected each other in each line.
+# The order of a pair of vertices should not be a matter.
+# Blank lines and the lines which begins with # or ; are ignored. 
+#
+# The lines that begins with . will be read into graph data structure
+# and displayed on request.
+#
+# create the graph (DFS PPT Example)
+. [0] ----------------[6]          [7]--------[8]
+.  | \------------[2]  |
+.  |  \--------[1]     |           [9]--------[10]
+.  |                  /             | \
+.  |    [3]       ---/              |   \
+.  |   /   \     /                  |     \
+.  |  /     \   /                  [11]----[12]
+. [5]--------[4]
+#
+#        DFS[0..12] =  0  6  4  5  3  2  1  7  8  9 11 12 10
+#       CCID[0..12] =  1  1  1  1  1  1  1  2  2  3  3  3  3
+# DFS parent[0..12] = -1  0  0  5  6  4  0 -1  7 -1  9  9 11
+#        BFS[0..12] =  0  6  2  1  5  4  3  7  8  9 11 10 12
+#     distTo[0..12] =  0  1  1  2  2  1  1 -1 -1 -1 -1 -1 -1
+# BFS parent[0..12] = -1  0  0  5  6  0  0 -1  7 -1  9  9 11 
+#       
+13
+13
+0 5
+4 3
+0 1
+9 12
+6 4
+5 4
+0 2
+11 12
+9 10
+0 6
+7 8
+9 11
+5 3
