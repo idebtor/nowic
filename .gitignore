@@ -43,7 +43,7 @@ Ankh.NoLoad
 *.com
 *.class
 *.dll
-*.o
+# *.o
 *.so
 
 # Packages #
