@@ -7,7 +7,7 @@
 *.DS_Store
 
 #Visual Studio files
-*.[Oo]bj
+#*.[Oo]bj
 #*.exe
 *.pdb
 *.user
