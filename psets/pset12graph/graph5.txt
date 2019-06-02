@@ -9,7 +9,7 @@
 # The lines that begins with . will be read into graph data structure
 # and displayed on request.
 #
-# create the graph 
+# create the graph - bigraph(0,3,4,5,6)(1,2,7)
 .          [0]
 .         /   \
 .        /     \

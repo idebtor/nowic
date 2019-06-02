@@ -103,18 +103,37 @@ void cyclic_check() {
 }
 
 /*********************** pset-graph step 4 ****************************/
+// runs two-coloring using DFS recursively 
+void DFSbigraph(graph g, int v) {	// DFS 
+	DPRINT(cout << ">DFSbigraph visits v=" << v << " color=" << g->color[v] << endl;);
+	g->marked[v] = true;			// v is visited now
+
+	for (gnode w = g->adj[v].next; w; w = w->next) {// runs for [v]'s vertices
+												    // if the vertex is not visited
+													// flip the color !g->color[v]
+		DPRINT(cout << "  set vertex=" << w->item << " color=" << !g->color[v] << endl;);
+													// recur DFSbigraph() at the vertex
+	}
+}
+
 // checks the two-coloring to determine if it is bipartite or not.
-// if a graph is bipartite, it adj[v]'s color is different from all nodes connected to it. 
-bool bigraph_check(graph g) {         // graph5.txt and graph6.txt are bigraphs.
+// if a graph is bipartite, it adj[v]'s color is different from all 
+// nodes connected to it. 
+bool bigraph_check(graph g) {         // graph5~9.txt are bigraphs.
 	DPRINT(cout << ">bigraph_check\n";);
 	if (empty(g)) return true;
 
+	// run DFS for two-coloring
+	for (int v = 0; v < V(g); v++) g->marked[v] = false;
+	g->color[0] = BLACK;	// set starting at v=0, BLACK=0, WHITE=1 
+	DFSbigraph(g, 0);		// DFS starting at v=0
+
+	// check the validity of two-coloring which is saved in g->color[].
 	cout << "your code here \n";
 
 	DPRINT(cout << "<bigraph_check true\n";);
 	return true;
 }
-
 
 // a helper function to get a valid vertex number
 int getVertex(graph g) {
