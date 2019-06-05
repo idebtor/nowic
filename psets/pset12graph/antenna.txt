@@ -11,14 +11,14 @@
 #
 .  [0]----[1]----[2]----[3]
 .   |      \      |     /
-.
+-
 #
-#        DFS[0..8] =  
-#       CCID[0..8] =  
-# DFS parent[0..8] = 
-#        BFS[0..8] =  
-#     distTo[0..8] =  
-# BFS parent[0..8] = 
+#        DFS[0..7] =  
+#       CCID[0..7] =  
+# DFS parent[0..7] = 
+#        BFS[0..7] =  
+#     distTo[0..7] =  
+# BFS parent[0..7] = 
 ## V and E ##
 8
 9
