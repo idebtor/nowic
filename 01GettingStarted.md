@@ -20,42 +20,59 @@ There are two ways to join Piazza, go the www.piazza.com.
 
   - On your request with your email address, I may register it for you.  We'll be conducting all class-related discussion here this term. The quicker you begin asking questions on Piazza (rather than via emails), the quicker you'll benefit from the collective knowledge of your classmates and instructors. We encourage you to ask questions when you're struggling to understand a concept—you can even do so anonymously.
 
-## Install MinGW/MSYS(32bit version recommended)
-  - Follow this [good installation guide](http://holawang.blogspot.com/2014/02/gcc-installing-gcc-at-windowsmingw-or.html) available.  For mac, [good installation guide](https://thdev.net/132)
-  - After the installation, change (add) the following two folder names into user's PATH environment variable:
-      ```
-      C:\MinGW\bin
-      C:\MinGW\msys\1.0\bin
-      ```
-  - To check your installation, do the following in cmd windows or in PowerShell;
-      ```
-      g++ --version
-      ```
-  - If you encounter the following error message during the first compilation of your program such as 'HelloWorld.cpp', Refer to [this site](
-http://stackoverflow.com/questions/39185248/eclipse-mingw-c-cannot-find-lpthread).
+## Install GCC (GNU Compiler Collection) for Mac OS X
+  - For mac, [good installation guide](https://thdev.net/132)
 
+## Install GCC (GNU Compiler Collection) for Windows
+  - To use gcc in Windows, we need to install two packages:
+    - MinGW-w64
+    - MSYS2
+
+#### Install MinGW-w64 (64 bit version recommended) for Windows
+  - For MinGW-w64, follow this [good installation guide](https://brunch.co.kr/@mystoryg/56) available.
+    - During the installation, select the following option:
     ```
-    c:/mingw/bin/../lib/g++/mingw3 ........ mingw32/bin/ld.exe: cannot find -lpthread
+      Architecture  x86_64
+    ```
+    instead of
+    ```
+      Architecture  xi686
+    ```
+    - After installation, don't forget the installation path to the system or user environment. In my case, the installation path was:
+    ```
+    C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin
     ```
 
+#### Install MSYS2 for Windows
+  - Installing MSYS2 is relatively simple.
+  - Connect this [website](http://www.msys2.org/) http://www.msys2.org/ and select this __msys2-x86_64-20190524.exe__ for 64 bit version.
+  - You may follow this [good installation guide](http://blog.naver.com/PostView.nhn?blogId=adapriest&logNo=220981281896&parentCategoryNo=&categoryNo=&viewDate=&isShowPopularPosts=false&from=postView)
+
+
+## Using Mintty instead of cmd or PowerShell.
+  - To use Mintty, follow instructions in "UsingMintty.md" file stored in this folder.
+
+## Checking GCC installation:
+  - Start a console through Mintty if available, otherwise use `cmd` or `PowerShell` in Windows.
+  - Enter a following command on a console. If you see a description of gcc version, it is done.
+  ```
+  g++ --version
+  ```
+
+-----------------------------------
 ## Install Atom.
 1. Atom is a text editor that most professional programmers love nowadays.
 2. Start Atom.
 3. Install some of essential packages recommended for C/C++ programmers listed below:
-    - Autosave
-      - It automatically saves files when the editors loses focus, are destroyed, or when the window is closed. Believe or not, it is disabled by default. __You must check `enabled`__ in config setting or from the Autosave section of the Settings view.
+
     - Platformio-ide-terminal
       - On successful installation, you will see a +sign at the bottom-left corner of the editor. Click + sign to open a console.
     - File-icons
-    - Mini-maps
+    - Minimap
     - Markdown-preview
       - Open a rendered version of the Markdown in the current editor with `ctrl-shift-m`.
-    - language-c
-       - Adds syntax highlighting and snippets to C/C++ files
-    - gpp-compiler
-      - Allows you to compile and run C++ and C within the editor.
-      - To compile C or C++, press F5 or right click the file in tree view and click Compile and Run.
-      - To compile C or C++ and attach the GNU Debugger, press F6 or right click the file in tree view and click Compile and Debug.
+    - Autosave
+      - It automatically saves files when the editors loses focus, are destroyed, or when the window is closed. Believe or not, it is disabled by default. __You must check `enabled`__ in config setting or from the Autosave section of the Settings view.
 
     __Themes of my personal preference__:
       - UI Theme - Atom Dark,
@@ -68,15 +85,19 @@ http://stackoverflow.com/questions/39185248/eclipse-mingw-c-cannot-find-lpthread
       4. Press any arrow key once
       5. Move your mouse (The misplaced window will follow your cursor.)
 
-## Install GitHub Desktop
-After installation of GitHub Desktop, be a member if already not.
+## Install "GitHub Desktop" and "Git"
+- Install __git__ from [this site](https://git-scm.com/downloads) for your computer.
+- Install __GitHub Desktop__
 
+After installation of GitHub Desktop, be a member if already not.
   - Clone the GitHub `nowic` repository into your local computer:
     - https://github.com/idebtor/nowic  
   - __How to clone a repository from GitHub:__ Refer to [this site](https://help.github.com/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-desktop/).
   - Click __'watch'__ and __'star'__ at the top of the web page.
   - Then, in your computer, you may have the following github/nowic folder as shown below:
-    - ```C:\Users\user\Documents\GitHub\nowic```
+  
+    ```C:\GitHub\nowic```
+   
   - Since this `nowic` repository can be updated anytime, keep this local repository as "read-only".  Don't code yours here!.
   - Copy them into your own repository or your own local development folders in your computer you can easily access them.  They should look like the following:
     ```
@@ -108,7 +129,7 @@ After installation of GitHub Desktop, be a member if already not.
       git reset --hard origin/master
       ```
       __Explanation:__ `git fetch` downloads the latest from remote without trying to merge or rebase anything. Then the `git reset` resets the master branch to what you just fetched. The `--hard` option changes all the files in your working tree to match the files in origin/master
-      __Causion:__ If you have any local changes, they will be lost. With or without --hard option, any local commits that haven't been pushed will be lost.
+      __Caution:__ If you have any local changes, they will be lost. With or without --hard option, any local commits that haven't been pushed will be lost.
 
       __JoyNote__: How do I keep my local files clean after trials?
       - Go to the ~/nowic folder.
@@ -199,7 +220,7 @@ For further study of C or C++ basics, the following two video lectures in YouTub
 ## What's Next?
 - Watch [Derek's lecture](https://www.youtube.com/watch?v=Rub-JsjMhWY) or more.
 - Read __ArgcArgv.md__. It may help you do the first problem set(pset).
-- Read __UsingMinttyInMinGW.md__ at `nowic` and install `Mintty` console.
+- Read __UsingMintty.md__ at `nowic` and install `Mintty` console.
 ----------------------------
 _One thing I know, I was blind but now I see. John 9:25_
 
