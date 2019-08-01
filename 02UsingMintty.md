@@ -16,24 +16,27 @@ Instead of using cmd or PowerShell, I recommend you to use the better terminal e
     - Atom .bash_profile
   - Add the following contents at the end of .bash_profile
 ```  
-alias ls='ls -aGp --color=auto'
+alias ls='ls -Gp --color=auto'
 alias ll='ls -alkF'
 alias rm='rm -i'
 alias c='clear'
 alias h='history'
-LS_COLORS=$LS_COLORS':no=00:di=01;36'
-LS_COLORS=$LS_COLORS':*.h=0;33:*.exe=31:*.o=1;32:*.md=1;33'
+LS_COLORS=$LS_COLORS':no=00:di=36;01'
+LS_COLORS=$LS_COLORS':*.h=1;33:*.exe=31:*.o=1;32:*.md=1;33'
+export LS_COLORS
 
 #echo c:/msys64/home/user/.bash_profile
 echo C:/msys64/home/user/.bash_profile
 
-# Setting my dev folder as a startup folder as you wish.
+# Setting my dev folder as a startup folder of msys.
 # HOME="/c/users/${LOGNAME}/DropBox"
-HOME="/c/GitHub/nowic"
+HOME="/c/GitHub/nowicx"
 cd $HOME
 
-# $(hostname) and/or $(whoami) may be added, if necessary.
-PS1='$(pwd -W)> '
+# @$(hostname) may be added, if necessary, after $(whoami)
+GREEN="$(tput setaf 2)"
+RESET="$(tput sgr0)"
+PS1='${GREEN}$(pwd -W) > ${RESET}'
 ```
 
 ----------------------------
