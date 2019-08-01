@@ -32,7 +32,7 @@ echo C:/msys64/home/user/.bash_profile
 
 # Setting my dev folder as a startup folder of msys.
 # HOME="/c/users/${LOGNAME}/DropBox"
-HOME="/c/GitHub/nowicx"
+HOME="/c/GitHub/nowic"
 cd $HOME
 
 # @$(hostname) may be added, if necessary, after $(whoami)
