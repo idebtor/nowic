@@ -24,15 +24,15 @@ alias h='history'
 LS_COLORS=$LS_COLORS':no=00:di=36;01'
 LS_COLORS=$LS_COLORS':*.h=1;33:*.exe=31:*.o=1;32:*.md=1;33'
 export LS_COLORS
-export PATH=$PATH:C:\msys64\usr\bin
 export PATH=$PATH:"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin"
+export PATH=$PATH:"C:\Users\user\AppData\Local\atom\bin"
 
 #echo c:/msys64/home/user/.bash_profile
 echo C:/msys64/home/user/.bash_profile
 
 # Setting my dev folder as a startup folder of msys.
 # HOME="/c/users/${LOGNAME}/DropBox"
-HOME="/c/GitHub/nowicx"
+HOME="/c/GitHub/nowic"
 cd $HOME
 
 # @$(hostname) may be added, if necessary, after $(whoami)
