@@ -63,12 +63,12 @@ Lecture Notes by idebtor@gmail.com
      - Modify the code such that it uses `print_strs()` and works like `hello4x`.
 
   6. Duplicate `hello5.cpp` and name it `hello6.cpp`
-      - Move `print_strs()` function into a new file called `print_strs1.cpp`.
+      - Move `print_strs()` function into a new file called `print_strs.cpp`.
           - Don't define `print_strs()` in `hello6.cpp`, but keep the prototype.
       - Modify the code such that it uses `print_strs()` and works like `hello4x`.
-      - Build an executable with two files, `hello6.cpp` and `print_strs1.cpp`
+      - Build an executable with two files, `hello6.cpp` and `print_strs.cpp`
         ```
-        $ g++ hello6.cpp print_strs1.cpp -o hello6
+        $ g++ hello6.cpp print_strs.cpp -o hello6
         $ ./hello6 john paul
         ```
 
@@ -84,7 +84,7 @@ void print_strs() {
     std::cout << "my strings";
 }
 ```
-To allow programs to be written in logical parts, c++ supports __separate compilation__.  It lets us split our program into several files, each of which can be compiled independently. Since `print_strs.cpp` does not have `main()`, __the compiler cannot generate an executable.__  But it can generates an __object__ file with `.o` extension instead of `.exe`.
+To allow programs to be written in logical parts, C++ supports __separate compilation__.  It lets us split our program into several files, each of which can be compiled independently. Since `print_strs.cpp` does not have `main()`, __the compiler cannot generate an executable.__  But it can generates an __object__ file with `.o` extension instead of `.exe`.
 
 ```
 $ g++ -c print_strs.cpp     # generates print_strs.o
@@ -138,7 +138,7 @@ $ g++ -std=c++11 -Wall -g file1.cpp file2.cpp -o prog   # generates prog.exe
 ----------------------------
 # File(s) to submit for this Lab:
     - hello6.cpp
-    - print_strs1.cpp
+    - print_strs.cpp
 
 ----------------------------
 _One thing I know, I was blind but now I see. John 9:25_

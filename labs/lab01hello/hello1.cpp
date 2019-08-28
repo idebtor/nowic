@@ -18,7 +18,7 @@
 
 #include <stdio.h>
 
-// c code works in c++ as well
+// write c code that prints "Hello World!" twice, one per line.
 
 int main() {
 	// your code here
