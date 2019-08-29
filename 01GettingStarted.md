@@ -1,4 +1,4 @@
-# C++ for C Coders & Data Structures
+# Data Structures & C++ for C Coders
 Lecture Notes by idebtor@gmail.com
 -------------------
 # Getting Started
@@ -50,7 +50,7 @@ There are two ways to join Piazza, go the www.piazza.com.
 
 
 ## Using Mintty instead of cmd or PowerShell.
-  - To use Mintty, follow instructions in "UsingMintty.md" file stored in this folder.
+  - To use Mintty, follow instructions in ["UsingMintty.md" file](https://github.com/idebtor/nowic/blob/master/02UsingMintty.md) stored in this folder.
 
 ## Checking GCC installation:
   - Start a console through Mintty if available, otherwise use `cmd` or `PowerShell` in Windows.
@@ -85,6 +85,10 @@ There are two ways to join Piazza, go the www.piazza.com.
       4. Press any arrow key once
       5. Move your mouse (The misplaced window will follow your cursor.)
 
+    __Problem in platformio-ide-terminal:__ If the prompt does not show up in the terminal, you may look Issues #765 and #760 at github/platformio/platformio-atom-ide-terminal.
+      1. #760 is a solution for Windows users.
+      2. #765 includes a comment I posted. What I found is to follow the #760 solution except one item. Use apm instead of npm.
+
 ## Install "GitHub Desktop" and "Git"
 - Install __git__ from [this site](https://git-scm.com/downloads) for your computer.
 - Install __GitHub Desktop__
@@ -95,9 +99,9 @@ After installation of GitHub Desktop, be a member if already not.
   - __How to clone a repository from GitHub:__ Refer to [this site](https://help.github.com/desktop/guides/contributing-to-projects/cloning-a-repository-from-github-desktop/).
   - Click __'watch'__ and __'star'__ at the top of the web page.
   - Then, in your computer, you may have the following github/nowic folder as shown below:
-  
+
     ```C:\GitHub\nowic```
-   
+
   - Since this `nowic` repository can be updated anytime, keep this local repository as "read-only".  Don't code yours here!.
   - Copy them into your own repository or your own local development folders in your computer you can easily access them.  They should look like the following:
     ```

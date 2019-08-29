@@ -21,5 +21,6 @@
 // write c code that prints "Hello World!" twice, one per line.
 
 int main() {
-	// your code here
+	printf("Hello World!\n");
+  printf("Hello World!\n");
 }

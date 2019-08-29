@@ -53,7 +53,7 @@ export PATH=$PATH:"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\
 export PATH=$PATH:"C:\Users\user\AppData\Local\atom\bin"
 
 #echo c:/mingw64/home/user/.bash_profile
-echo c:/msys64/home/user/.bash_profile
+#echo c:/msys64/home/user/.bash_profile
 
 # Setting my dev folder as a startup folder of msys.
 # HOME="/c/users/${LOGNAME}/DropBox"
