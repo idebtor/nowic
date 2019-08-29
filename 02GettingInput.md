@@ -191,16 +191,15 @@ int main() {
 The following functions convert string or char array into numeric number types.
 
 ```
-// C++ std function and string based:
+// C++ std functions and string based:
 int stoi (const string&  str, size_t* idx = 0, int base = 10);
 long stol (const string&  str, size_t* idx = 0, int base = 10);
-long int strtol (const char* str, char** endptr, int base);
+Note: stoll(), stoul()
 
 // char array based
 long int strtol (const char* str, char** endptr, int base);
 double strtod (const char* str, char** endptr);
 ```
-
 
 ## Getting an integer input from an argument (char array).
 You can convert the command line arguments (char array) to integer using `strtol()` or to floating-point using `strtod()`. They are defined in `<stdlib.h>`. For example,
@@ -236,6 +235,30 @@ int main(int argc, char *argv[]) {
   }
   // On success, do something with N
 }
+```
+
+## Convert int to string
+
+1. Using C standard library sprintf()
+```
+char out_string[MAX_BUFFER_SIZE];
+sprintf(out_string, "%s%d", "using sprintf: ", 123);
+```
+
+2. Using C++ standard  library std::stringstream
+```
+#include <sstream>
+std::string out_string;
+std::stringstream ss;
+ss << 123;
+out_string = ss.str();
+```
+
+3. Using C++ standard library std::to_string() since C++11
+```
+#include <iostream>
+#include <string>
+std::string out_string = std::to_string(123);
 ```
 
 ### Reference:
