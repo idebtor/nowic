@@ -10,7 +10,7 @@ Lecture Notes by idebtor@gmail.com
   - Compiling multiple source files
 
 ## Instructions
-  1. Use hello1.cpp provided in the labs/lab01 folder.
+  1. Use hello1.cpp provided in the `lab01` folder.
       - Add a line of code in C such that it prints "Hello World!" twice, one per line.
       - Build an executable.
       ```
@@ -31,8 +31,8 @@ Lecture Notes by idebtor@gmail.com
       - Simplify the code using `using namespace std;`
       - Build an executable and run it.
 
-  4. Duplicate `hello3.cpp` and name it `hello4.cpp`
-      - Change the main function as shown below:
+  4. Use `hello4.cpp` provided in the `lab01` folder.
+      - Change the `main` function as shown below:
         ```
         int main(int argc, char *argv[])
         ```
@@ -41,6 +41,7 @@ Lecture Notes by idebtor@gmail.com
         ```
         $ ./hello4x
         argv[0] = C:\GitHub\nowicx\labs\lab01\hello4x.exe
+        Hello World!
 
         $ ./hello4x john paul david
         argv[0] = C:\GitHub\nowicx\labs\lab01\hello4x.exe
@@ -77,7 +78,7 @@ Lecture Notes by idebtor@gmail.com
 As our programs get more complicated, we want to store the source code into separate files.  For example, let's suppose we have `print_strs()` defined in `print_strs.cpp` and it is invoked in `print_strs()` as shown below:
 
 ```C++
-// file: print_strs1.cpp
+// file: print_strs.cpp
 #include <iostream>
 
 void print_strs() {
