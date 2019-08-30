@@ -10,11 +10,11 @@ Instead of using cmd or PowerShell, I recommend you to use the better terminal e
   - Click the shortcut and you will see a console. Execute the following commands at the console.
     - ls
     - pwd
-  - Now when we open a new console, we want to make it start at the folder we often use and do something more.  This can be done using __.bash_profile__.
+  - Now when we open a new console, we want to make it start at the folder we often use and do something more.  This can be done using `.bash_profile`
   - Go to the `c:/msys64/home/user/` and start Atom editor.
     - cd c:/msys64/home/user
     - Atom .bash_profile
-  - Add the following contents at the end of .bash_profile
+  - Add the following contents at the end of `.bash_profile`
 ```  
 alias ls='ls -Gp --color=auto'
 alias ll='ls -alkF'
@@ -25,13 +25,14 @@ LS_COLORS=$LS_COLORS':no=00:di=36;01'
 LS_COLORS=$LS_COLORS':*.h=1;33:*.exe=31:*.o=1;32:*.md=1;33'
 export LS_COLORS
 export PATH=$PATH:"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin"
+
+### replace 'user' with your own user name in the following line:
 export PATH=$PATH:"C:\Users\user\AppData\Local\atom\bin"
 
-#echo c:/msys64/home/user/.bash_profile
-echo C:/msys64/home/user/.bash_profile
+### print the present working directory
+echo $PWD
 
 # Setting my dev folder as a startup folder of msys.
-# HOME="/c/users/${LOGNAME}/DropBox"
 HOME="/c/GitHub/nowic"
 cd $HOME
 
