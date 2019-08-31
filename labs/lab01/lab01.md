@@ -73,11 +73,24 @@ Lecture Notes by idebtor@gmail.com
         $ ./hello6 john paul
         ```
 
+      - Sample runs:
+      ```
+      PS C:\GitHub\nowicx\labs\lab01hello> ./hello6 john peter
+      argv[0] = C:\GitHub\nowicx\labs\lab01hello\hello6.exe
+      john
+      peter
+      ```
+
+      ```
+      PS C:\GitHub\nowicx\labs\lab01hello> ./hello6
+      argv[0] = C:\GitHub\nowicx\labs\lab01hello\hello6.exe
+      Hello World!
+      ```
 -------------------
 ## Multiple source files and compilations
 As our programs get more complicated, we want to store the source code into separate files.  For example, let's suppose we have `print_strs()` defined in `print_strs.cpp` and it is invoked in `print_strs()` as shown below:
 
-```C++
+```
 // file: print_strs.cpp
 #include <iostream>
 
