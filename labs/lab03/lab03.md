@@ -32,7 +32,7 @@ Lecture Notes by idebtor@gmail.com
       const int N = 10;
       ```
 4. Find some repeated code blocks and replace them with a better code.
-    - Consider making a function called `void print_list(int *list, int n)`.
+    - Consider making a function called `void printList(int *list, int n)`.
 
 ## Task II: Using malloc()
 
@@ -64,7 +64,7 @@ Lecture Notes by idebtor@gmail.com
     - Build an executable and test it.
     - A sample run:
 
-## Task III: Conding in C++
+## Task III: Coding in C++
     - Convert C code into C++
     - Using new and delete
     - Getting user's input
@@ -263,7 +263,7 @@ Lecture Notes by idebtor@gmail.com
   ```
 ----------------------------
 # File(s) to submit for this Lab:
-  - app_aps4.cpp
+  - selection4.cpp
 ----------------------------
 _One thing I know, I was blind but now I see. John 9:25_
 ----------------------------

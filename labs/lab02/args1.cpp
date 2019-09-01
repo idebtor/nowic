@@ -3,8 +3,8 @@
 //
 // Lab 2:
 //	1. Using vector class in c++
-//  2, ranged-for loop
-//  3. function overloading
+//	2. ranged-for loop
+//	3. function overloading
 //	4. include file
 
 #include<iostream>
@@ -24,6 +24,6 @@ int main(int argc, char *argv[]) {
 	cout << "Copy *argv[] using vector<string> \n";
 	// your code here
 
-	cout << "Print args using indexing \n";
+	cout << "Print argv using indexing \n";
 	// your code here
 }

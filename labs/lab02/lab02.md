@@ -25,7 +25,7 @@ Lecture Notes by idebtor@gmail.com
       hello
       world
       Copy *argv[] using vector<string>
-      Print args using indexing
+      Print argv using indexing
       hello
       world
       ```
@@ -44,7 +44,7 @@ Lecture Notes by idebtor@gmail.com
         hello
         world
         Copy *argv[] using vector<string>
-        Print args using print_strs()
+        Print argv using print_strs()
         hello
         world
         ```
@@ -81,10 +81,10 @@ Lecture Notes by idebtor@gmail.com
         hello
         world
         Copy *argv[] using vector<string>
-        Print args using print_strs()
+        Print argv using print_strs()
         hello
         world
-        Print args using ranged-for
+        Print argv using ranged-for
         hello
         world
         ```
