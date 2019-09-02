@@ -2,18 +2,19 @@
 Lecture Notes by idebtor@gmail.com
 -------------------
 # Lab02
-  1. Using vector class objects in C++
+  1. Learning to use vector class objects in C++
   2. ranged-for loop
   3. function overloading
   4. include file
 
 ## Instructions
   1. Duplicate `lab01/print_strs.cpp` and name it `lab02/print_strs2.cpp`
-      - Study about vector class in your own. It is one of the most used classes in C++.
+      - Study about `vector` class in your own.
+          - It is one of the most used classes in C++.
+          - Refer to __Hints and Tips__ section provided in this page.
       - Use the file `args1.cpp` provided and code copying the contents of `*argv[]` to a `vector<string>` object;
-          - Use `push_back()` method (or member function) in the vector class.
-      - Once you have a `vector<string>` object, you may access the contents
-        just like an array as well.
+          - Use `push_back()` method (or member function) in the `vector` class.
+      - Once you have a `vector<string>` object, you may access the contents just like an array as well.
       - Print contents stored in the `vector<string>` object.
       - Build and run an executable.
       - A sample run:
@@ -89,7 +90,21 @@ Lecture Notes by idebtor@gmail.com
         world
         ```
 -------------------
-## Tips and instructions:
+## Hints and Tips:
+
+### Learning vector and its push_back() function
+
+The `vector` class is a sort of a smart array type class. The data type you want to store can be specified with `<>`. The `vector` class and its functions(or methods) can be used for any data type only if you specify it using `<>` as shown below. This is called a generic programming.
+
+    ```
+      vector<int> myintarray;
+      vector<string> mystrarray;
+    ```
+
+    - Learn how to use `vector` class [here](http://www.cplusplus.com/reference/vector/vector/) and its `push_back()` function [here](http://www.cplusplus.com/reference/vector/vector/push_back/).
+    - Practice this good [example](http://www.cplusplus.com/reference/vector/vector/push_back/).
+
+### Using -I Option in g++ compiler
 The following command line compiles two source files, and looks for any include file necessary in `include` folder to build an executable `args.exe`. The files required to build are `args3.cpp, print_strs2.cpp`, and `print_strs.h`.  Therefore, you pay attention to specify where the include folder is from where you are compiling the source code.  We keep the files like in nowic, this compilation command may be as shown below.
 
 ```
@@ -99,7 +114,7 @@ The following command line compiles two source files, and looks for any include 
 
 When the compiler compiles the `#include "print_strs.h"` line, it copies the contents of `print_strs.h` into the current file at that point. Because our `print_strs.h` contains a function prototype for `print_strs()`, this prototype is now being used as a forward declaration of `print_strs()`. Consequently, our program will compile and link correctly.
 
-### #include:
+### Creating an include file and using #include:
 When you `#include` a file, the entire content of the included file is inserted at the point of inclusion. This is called __preprocessing__ which happens at the beginning of compilation.
 
 A header file only has to be written once, and it can be included in as many files as needed. This also helps with maintenance by minimizing the number of changes that need to be made if a function prototype ever changes (eg. by adding a new parameter).

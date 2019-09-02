@@ -22,6 +22,7 @@ int main(int argc, char *argv[]) {
 	// member function) in the vector class
 
 	cout << "Copy *argv[] using vector<string> \n";
+	vector<string> args;
 	// your code here
 
 	cout << "Print argv using indexing \n";
