@@ -96,13 +96,17 @@ Lecture Notes by idebtor@gmail.com
 
 The `vector` class is a sort of a smart array type class. The data type you want to store can be specified with `<>`. The `vector` class and its functions(or methods) can be used for any data type only if you specify it using `<>` as shown below. This is called a generic programming.
 
-    ```
-      vector<int> myintarray;
-      vector<string> mystrarray;
-    ```
+  ```
+      // the following code prints "HelloWorld".
+      vector<string> str_arr;
+      str_arr.push_back("Hello");
+      str_arr.push_back("World");
+      std::cout << str_arr[0] << str_arr[1] << std::endl;
+  ```
+- Learn how to use `vector` class [here](http://www.cplusplus.com/reference/vector/vector/) and its `push_back()` function [here](http://www.cplusplus.com/reference/vector/vector/push_back/).  
 
-    - Learn how to use `vector` class [here](http://www.cplusplus.com/reference/vector/vector/) and its `push_back()` function [here](http://www.cplusplus.com/reference/vector/vector/push_back/).
-    - Practice this good [example](http://www.cplusplus.com/reference/vector/vector/push_back/).
+- Practice this good [example](http://www.cplusplus.com/reference/vector/vector/push_back/).
+
 
 ### Using -I Option in g++ compiler
 The following command line compiles two source files, and looks for any include file necessary in `include` folder to build an executable `args.exe`. The files required to build are `args3.cpp, print_strs2.cpp`, and `print_strs.h`.  Therefore, you pay attention to specify where the include folder is from where you are compiling the source code.  We keep the files like in nowic, this compilation command may be as shown below.
