@@ -61,7 +61,21 @@ Lecture Notes by idebtor@gmail.com
 
        }
        ```
-     - Modify the code such that it uses `print_strs()` and works like `hello4x`.
+     - Modify the code such that it uses `print_strs(). But you should __not__ print `Hello` in `print_strs()`, but just arguments passed in `strs` as shown in Sample runs.
+
+     - Sample runs:
+     ```
+     PS C:\GitHub\nowicx\labs\lab01hello> ./hello5 john peter
+     argv[0] = C:\GitHub\nowicx\labs\lab01hello\hello5.exe
+     john
+     peter
+     ```
+
+     ```
+     PS C:\GitHub\nowicx\labs\lab01hello> ./hello5
+     argv[0] = C:\GitHub\nowicx\labs\lab01hello\hello5.exe
+     Hello World!
+     ```
 
   6. Duplicate `hello5.cpp` and name it `hello6.cpp`
       - Move `print_strs()` function into a new file called `print_strs.cpp`.
