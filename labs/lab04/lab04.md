@@ -10,7 +10,6 @@ Lecture Notes by idebtor@gmail.com
     - DEBUG
 
 ## Step 1: Understand sorting algorithms
-
   - A source code for bubble-sort algorithm is provided.
   - Study the algorithms by your own and Understand how each algorithm works.
   - Build it with or without `-DDEBUG` option and run it to see the difference.
@@ -52,13 +51,8 @@ Lecture Notes by idebtor@gmail.com
   - Use one of the following functions. For example, `less(x, y)` returns `true` if `x < y`, `false` otherwise.
 
   ```
-    bool less(int x, int y) {
-      return x < y;
-    }
-
-    bool more(int x, int y) {
-      return x > y;
-    }
+    bool less(int x, int y) {   return x < y;   }
+    bool more(int x, int y) {   return x > y;   }
   ```
 
   - By the way, `less()` is already defined in `std` namespace. To use `less()` we defined here, we must add the scope resolution operator such as `::less()`.
@@ -70,7 +64,6 @@ Lecture Notes by idebtor@gmail.com
   - Build an executable and test it.
 
 ## Step 4: Use a function pointer
-
   - Observe that we may use the same code (or algorithm) to sort the list either in ascending or in descending __iff__ we could pass the function (`less()` or `more()`) as an argument.
   - For this purpose, fortunately, we can use a __function pointer__ or a pointer to a function.
   - Read the "Function Pointer" section at the end of this lecture note.
@@ -96,13 +89,12 @@ Lecture Notes by idebtor@gmail.com
 
 ------------------------------------------
 # Hints and Tips
-
 ## Function pointer (or Pointer to a function)
-
 Function Pointers provide some extremely interesting, efficient and elegant programming techniques. You can use them to replace switch/if-statements, to realize your own late-binding or to implement callbacks. Unfortunately - probably due to their complicated syntax - they are treated quite carelessly in most computer books and documentations. If at all, they are addressed quite briefly and superficially. They are less error prone than normal pointers because you will never allocate or deallocate memory with them. All you've got to do is to understand what they are and to learn their syntax. But keep in mind: Always ask yourself if you really need a function pointer.
 
-It's nice to realize one's own late-binding but to use the existing structures of C/C++ may make your code [more readable and clearer](http://www.newty.de/fpt/intro.html#why).
-You may watch [this lecture]( https://dojang.io/mod/page/view.php?id=592) about the function pointer in Korean.
+- It's nice to realize one's own late-binding but to use the existing structures of C/C++ may make your code [more readable and clearer](http://www.newty.de/fpt/intro.html#why).
+
+- You may watch [this lecture]( https://dojang.io/mod/page/view.php?id=592) about the function pointer in Korean.
 
 ### Definition
 Function Pointer is a pointer, i.e. a variable, which points to the address of a function. You must keep in mind, that a running program gets a certain space in the main-memory. Both, the executable compiled program code and the used variables, are put inside this memory. Thus, a function in the program code is, like e.g. a character field, nothing else than an address. It is only important how you, or better your compiler/processor, interpret the memory a pointer point to.
@@ -114,7 +106,6 @@ Function pointers can be used to simplify code by providing a simple way to sele
 A function pointer always points to a function with a specific signature! Thus all functions, you want to use with the same function pointer, must have the same parameters and return-type!
 
 ### Simple Example
-
 Suppose that we have a very simple function to print out the sum of two numbers and returns the sum. Let us see how we can create a function pointer from there.
 
 ```
@@ -149,7 +140,6 @@ fp() returns 8
 ### Facts About Function pointers
 
 #### Differences from normal pointers:
-
   - A function pointer points to code, not data. Typically, a function pointer stores the start of executable code.
   - We do not allocate nor de-allocate memory using function pointers.
 
@@ -165,7 +155,6 @@ fp() returns 8
   }
   ```
   - A function pointer can be passed as an argument and can also be returned from a function.  This feature of the function pointer is extremely useful.  In OOP, class methods are another example implemented using function pointers.
-
 -------------------------------------
 # File(s) to submit for this Lab:
   - bubble4.cpp
