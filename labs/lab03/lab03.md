@@ -2,7 +2,7 @@
 Lecture Notes by idebtor@gmail.com
 -------------------
 # Lab03 - Understanding a better coding in C/C++
-
+## Subjects
   - NMN(No magic number)
   - DRY(Don't repeat yourself)
   - malloc(), free()
