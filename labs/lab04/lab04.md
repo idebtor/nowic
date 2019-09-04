@@ -2,7 +2,7 @@
 Lecture Notes by idebtor@gmail.com
 -------------------
 # Lab04 - Bubble sort and Function pointer
-
+## Subjects
     - bubble sort
     - ascending or descending sort
     - the first class function
