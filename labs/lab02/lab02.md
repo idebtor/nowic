@@ -2,7 +2,6 @@
 Lecture Notes by idebtor@gmail.com
 -------------------
 # Lab02
-
 ## Subjects
   1. Learning to use vector class objects in C++
   2. ranged-for loop
@@ -35,10 +34,14 @@ Lecture Notes by idebtor@gmail.com
 
   2.  Duplicate `args1.cpp` and name it `args2.cpp`.
       - Make the printing code you coded in `args1.cpp` into a function called `print_strs()` that takes a `vector<string>` object and prints its contents.
+      ```
+            print_strs(vector<string> strs)
+      ```      
+      - Use `size()` method of the `vector` class to go through all elements.
       - Now, we have two `print_strs()` functions in `print_strs2.cpp`.
           - The name of two functions are the same, but different arguments.
           - This kind of capability is called a __method overloading__.
-      - Add a prototype of the newly added function in `args2.cpp`.
+      - Add the prototype of the newly added function in `args2.cpp`.
       - Build an executable and test it.
         ```
         $ g++ args2.cpp print_strs2.cpp -o args           # generates args.exe
@@ -76,9 +79,15 @@ Lecture Notes by idebtor@gmail.com
   4. Duplicate `arg3.cpp` and name it `arg4.cpp`.
       - Add __ranged-for__ loop to print the `vector<string>` object.
       - Build an executable and test it.
+      - __Mac users__ may add the following compiling option `-std=c++11` as shown below since the old compiler does not support `ranged-for`.
+        ```
+        $ g++ -std=c++11 args4.cpp print_strs2.cpp -I../../include -o args
+        ```
+
       - A sample run:
         ```
         $ g++ args4.cpp print_strs2.cpp -I../../include -o args
+
         $ ./args hello world
         Using char arrays
         hello
@@ -94,7 +103,7 @@ Lecture Notes by idebtor@gmail.com
 -------------------
 ## Hints and Tips:
 
-### Learning `vector` class and its `push_back()` function in C++
+### Learning `vector` class and its `push_back()` and `size()` functions
 
 The `vector` class is a sort of a smart array type class. The data type you want to store can be specified with `<>`. The `vector` class and its functions(or methods) can be used for any data type only if you specify it using `<>` as shown below. This is called a generic programming.
 
@@ -105,7 +114,7 @@ The `vector` class is a sort of a smart array type class. The data type you want
       str_arr.push_back("World");
       std::cout << str_arr[0] << str_arr[1] << std::endl;
   ```
-- Learn how to use `vector` class [here](http://www.cplusplus.com/reference/vector/vector/) and its `push_back()` function [here](http://www.cplusplus.com/reference/vector/vector/push_back/).  
+- Learn how to use `vector` class [here](http://www.cplusplus.com/reference/vector/vector/) and its `push_back()` function [here](http://www.cplusplus.com/reference/vector/vector/push_back/) and `size()` function [here](http://www.cplusplus.com/reference/vector/vector/size/).
 
 - Practice this good [example](http://www.cplusplus.com/reference/vector/vector/push_back/).
 
