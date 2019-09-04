@@ -2,6 +2,8 @@
 Lecture Notes by idebtor@gmail.com
 -------------------
 # Lab02
+
+## Subjects
   1. Learning to use vector class objects in C++
   2. ranged-for loop
   3. function overloading
