@@ -7,7 +7,7 @@ Lecture Notes by idebtor@gmail.com
     - ascending or descending sort
     - the first class function
     - function pointer
-    - `DEBUG`
+    - DEBUG
 
 ## Step 1: Understand sorting algorithms
 
@@ -95,14 +95,16 @@ Lecture Notes by idebtor@gmail.com
   - Build an executable and test it.
 
 ------------------------------------------
-# Function pointer (or Pointer to a function)
+# Hints and Tips
+
+## Function pointer (or Pointer to a function)
 
 Function Pointers provide some extremely interesting, efficient and elegant programming techniques. You can use them to replace switch/if-statements, to realize your own late-binding or to implement callbacks. Unfortunately - probably due to their complicated syntax - they are treated quite carelessly in most computer books and documentations. If at all, they are addressed quite briefly and superficially. They are less error prone than normal pointers because you will never allocate or deallocate memory with them. All you've got to do is to understand what they are and to learn their syntax. But keep in mind: Always ask yourself if you really need a function pointer.
 
 It's nice to realize one's own late-binding but to use the existing structures of C/C++ may make your code [more readable and clearer](http://www.newty.de/fpt/intro.html#why).
 You may watch [this lecture]( https://dojang.io/mod/page/view.php?id=592) about the function pointer in Korean.
 
-## Definition
+### Definition
 Function Pointer is a pointer, i.e. a variable, which points to the address of a function. You must keep in mind, that a running program gets a certain space in the main-memory. Both, the executable compiled program code and the used variables, are put inside this memory. Thus, a function in the program code is, like e.g. a character field, nothing else than an address. It is only important how you, or better your compiler/processor, interpret the memory a pointer point to.
 
 Instead of referring to data values, a function pointer points to executable code within memory. When dereferenced, a function pointer can be used to invoke the function it points to and pass its arguments just like a normal function call.  [from Wikipedia]
@@ -111,7 +113,7 @@ Function pointers can be used to simplify code by providing a simple way to sele
 
 A function pointer always points to a function with a specific signature! Thus all functions, you want to use with the same function pointer, must have the same parameters and return-type!
 
-## Simple Example
+### Simple Example
 
 Suppose that we have a very simple function to print out the sum of two numbers and returns the sum. Let us see how we can create a function pointer from there.
 
@@ -144,7 +146,7 @@ void main() {                   // using function pointer
 fp() returns 7
 fp() returns 8
 ```
-## Facts About Function pointers
+### Facts About Function pointers
 
 #### Differences from normal pointers:
 
