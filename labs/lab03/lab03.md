@@ -99,6 +99,7 @@ Lecture Notes by idebtor@gmail.com
 
     ```
     $ g++ selection3.cpp -o selection
+
     $ ./selection
     Enter a number of samples to sort: -5
     The number must be greater than 1.
@@ -163,7 +164,7 @@ Lecture Notes by idebtor@gmail.com
 
 -------------------------------------------
 
-# References
+# Tips and Hints
 
 ## cin
   The `cin` object in C++ is an object of class `istream`. It is defined in `<iostream>` header file. It is used to accept the input from the standard input device i.e. keyboard. It is associated with the standard C input stream `stdin`.
@@ -213,6 +214,18 @@ Lecture Notes by idebtor@gmail.com
   }
   ```
 
+## Convert a char array into an int - `strtol()`
+  The [strtol](http://www.cplusplus.com/reference/cstdlib/strtol/?kw=strtol) function parses the C-string str as an `int` of the specified base, which is returned as a `long` int value.
+
+  Example:
+  ```
+  char* p;
+  N = strtol(argv[1], &p, 10);
+  if (*p != '\0' || N <= 1)
+     // this is an error.
+
+  // N is greater than 1 and it is an int.
+  ```
 ## `new` and `delete` operators in C++
   Dynamic memory allocation in C/C++ refers to performing memory allocation manually by programmer. Dynamically allocated memory is allocated on Heap, while non-static and local variables get memory allocated on Stack.
 
