@@ -50,7 +50,7 @@ Lecture Notes by idebtor@gmail.com
       ```
 
     - Instead of sorting data a fixed size of an array, we want to implement data in a dynamically allocated array.
-    - First, set a magic number N = 50 for the time being.
+    - First, set a magic number N = 20 for the time being.
     - Use a pointer `int *list` and `malloc()`.   
     - Use malloc() and allocate `*list` to store `N` integers.
 
