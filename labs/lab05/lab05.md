@@ -2,7 +2,7 @@
 Lecture Notes by idebtor@gmail.com
 -------------------
 # Lab05 - Sorting and Function pointer
-
+## Subjects
   - selection sort
   - bubble sort
   - insertion sort
