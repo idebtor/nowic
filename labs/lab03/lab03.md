@@ -146,7 +146,7 @@ Lecture Notes by idebtor@gmail.com
   ```
 
   ```
-    $ ./selection 10
+    $ ./sort 10
     UNSORTED(10):
     1 7 4 0 9 4 8 8 2 4
     SORTED(10):
