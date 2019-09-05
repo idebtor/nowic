@@ -133,8 +133,8 @@ Lecture Notes by idebtor@gmail.com
 
 2. Sample runs:
   ```
-    $ g++ selection4.cpp -o selection
-    $ ./selection
+    $ g++ selection4.cpp -o sort
+    $ ./sort
     Enter a number of samples: -30
     Retry...
     Enter a number of samples: 5
@@ -155,9 +155,9 @@ Lecture Notes by idebtor@gmail.com
   ```
 
   ```
-  $ ./selection -30
+  $ ./sort -30
   Usage: selection [N]
-  $./selection xxx
+  $./sort xxx
   Usage: selection [N]
   ```
 -----------------------------------
