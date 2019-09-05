@@ -23,8 +23,17 @@ Lecture Notes by idebtor@gmail.com
   - Duplicate `bubble.cpp` and name it `bubble2.cpp`.
   - Modify one line in `bubbleSort()` function such that it sorts the list in __descending__ order.
   - Build an executable and test it.
-  - Sample run:
-  ```
+
+### Sample runs:
+```
+  $ g++ bubble2x.cpp -o sort
+  $ ./sort
+  UNSORTED(10):
+  3 4 1 7 0 9 6 5 2 8
+  BUBBLE SORTED(10):
+  9 8 7 6 5 4 3 2 1 0
+  Happy Coding~~
+
   $ g++ bubble2.cpp -o sort -DDEBUG
   $ ./sort
   UNSORTED(10):
@@ -42,7 +51,7 @@ Lecture Notes by idebtor@gmail.com
   BUBBLE SORTED(10):
   9 8 7 6 5 4 3 2 1 0
   Happy Coding~~
-  ```
+```
 
 ## Step 3: Use a function to compare
   - In this step, we want to sort the list in descending order with a better way eventually.
@@ -55,13 +64,35 @@ Lecture Notes by idebtor@gmail.com
     bool more(int x, int y) {   return x > y;   }
   ```
 
-  - By the way, `less()` is already defined in `std` namespace. To use `less()` we defined here, we must add the scope resolution operator such as `::less()`.
+  - By the way, `less()` is already defined in `std` namespace. To use `less()` which we defined in this file `bubble3.cpp`, we must add the global scope resolution operator(`::`) such as `::less()`.
 
   ```
   if (::less(list[j], list[j + 1]))
     swap(list[j], list[j + 1]);
   ```
   - Build an executable and test it.
+
+### Sample Run:
+
+```
+$ g++ bubble3x.cpp -o sort -DDEBUG
+$ ./sort
+UNSORTED(10):
+3 4 1 7 0 9 6 5 2 8
+BUBBLE SORTING...
+3 1 4 0 7 6 5 2 8 9
+1 3 0 4 6 5 2 7 8 9
+1 0 3 4 5 2 6 7 8 9
+0 1 3 4 2 5 6 7 8 9
+0 1 3 2 4 5 6 7 8 9
+0 1 2 3 4 5 6 7 8 9
+0 1 2 3 4 5 6 7 8 9
+0 1 2 3 4 5 6 7 8 9
+0 1 2 3 4 5 6 7 8 9
+BUBBLE SORTED(10):
+0 1 2 3 4 5 6 7 8 9
+Happy Coding~~
+```
 
 ## Step 4: Use a function pointer
   - Observe that we may use the same code (or algorithm) to sort the list either in ascending or in descending __iff__ we could pass the function (`less()` or `more()`) as an argument.
@@ -86,6 +117,28 @@ Lecture Notes by idebtor@gmail.com
   }
   ```
   - Build an executable and test it.
+
+### Sample Run:
+
+```
+    $ g++ bubble4x.cpp -o sort -DDEBUG
+    $ ./sort
+    UNSORTED(10):
+    3 4 1 7 0 9 6 5 2 8
+    BUBBLE SORTING...
+    3 1 4 0 7 6 5 2 8 9
+    1 3 0 4 6 5 2 7 8 9
+    1 0 3 4 5 2 6 7 8 9
+    0 1 3 4 2 5 6 7 8 9
+    0 1 3 2 4 5 6 7 8 9
+    0 1 2 3 4 5 6 7 8 9
+    0 1 2 3 4 5 6 7 8 9
+    0 1 2 3 4 5 6 7 8 9
+    0 1 2 3 4 5 6 7 8 9
+    BUBBLE SORTED(10):
+    0 1 2 3 4 5 6 7 8 9
+    Happy Coding~~
+```
 
 ------------------------------------------
 # Hints and Tips

@@ -95,18 +95,20 @@ Lecture Notes by idebtor@gmail.com
     - Rewrite `malloc()` and `free()` to use `new` and `delete`.
     - Build an executable and test it.
 
-3. Sample runs:
+3. Replace some code in selectionSort() using swap() in C++.
+
+4. Sample runs:
 
     ```
-    $ g++ selection3.cpp -o selection
+    $ g++ selection3.cpp -o sort
 
-    $ ./selection
+    $ ./sort
     Enter a number of samples to sort: -5
     The number must be greater than 1.
     ```
 
     ```
-    $ ./selection
+    $ ./sort
     Enter a number of samples to sort: 5
     UNSORTED(5):
     1 2 4 0 4
@@ -116,7 +118,6 @@ Lecture Notes by idebtor@gmail.com
     ```
 
 ## Task IV: Interaction with users
-
     - `strtol()` vs. `atoi()`
     - Good interaction with users
     - Good use of `Usage:`
@@ -125,6 +126,7 @@ Lecture Notes by idebtor@gmail.com
     - In `selection4.cpp`, read user's input from the command line argument if any.
     - Use it if user enters a number as a command line argument
         - Use `strtol()` instead of `atoi()` to convert `argv[1]` to an int.
+          For more information about `strtol()`, refer to __Hints and Tips__ section in this page.
         - Do a bit of error checking as shown below in sample runs.
     - Ask user to enter a number if nothing is passed through the command line.
         - Keep on asking until the user enters a proper number which is greater than 1.
