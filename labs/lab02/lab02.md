@@ -15,6 +15,7 @@ Lecture Notes by idebtor@gmail.com
           - Refer to __Hints and Tips__ section provided in this page.
       - Use the file `args1.cpp` provided and code copying the contents of `*argv[]` to a `vector<string>` object;
           - Use `push_back()` method (or member function) in the `vector` class.
+          - Use `size()` method of the `vector` class to go through all elements in for loop.
       - Once you have a `vector<string>` object, you may access the contents just like an array as well.
       - Print contents stored in the `vector<string>` object.
       - Build and run an executable.
@@ -37,7 +38,7 @@ Lecture Notes by idebtor@gmail.com
       ```
             print_strs(vector<string> strs)
       ```      
-      - Use `size()` method of the `vector` class to go through all elements.
+      - Use `size()` method of the `vector` class to go through all elements in this new `print_strs()`.
       - Now, we have two `print_strs()` functions in `print_strs2.cpp`.
           - The name of two functions are the same, but different arguments.
           - This kind of capability is called a __method overloading__.
