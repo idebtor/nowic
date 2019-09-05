@@ -111,10 +111,14 @@ Happy Coding~~
   void bubbleSort(int *list, int n, bool (*comp)(int, int)) {
     ...
     ...
-    bubbleSort(list, N, ::less);
+  }
+
+  int main(int agrgc, char *argv[]) {
     ...
+          bubbleSort(list, N, ::less);
     ...
   }
+
   ```
   - Build an executable and test it.
 
