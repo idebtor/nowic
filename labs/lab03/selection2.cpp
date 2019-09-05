@@ -13,23 +13,29 @@
     - #if macro
     - Learn about __a better coding__ after all.
 ***************************************************************/
-#include <stdio.h>
+#include <iostream>
+#include <cassert>
 
-void sort(int *list, int n) {
+void selectionSort(int *list, int n) {
 	int i, j, min, temp;
 	for (i = 0; i < n - 1; i++) {
 		min = i;
-		for (j = i + 1; j < n; j++)
+		for (j = i + 1; j < n; j++) {
 			if (list[j] < list[min]) min = j;
-			temp = list[i];
-			list[i] = list[min];
-			list[min] = temp;
+		swap(list[i], list[min]);
 	}
 }
 
 int main(int argc, char *argv[]) {
-	int list[] = { 3, 4, 1, 7, 0, 9, 6, 5, 2, 8};
-	const int N = sizeof(list)/sizeof(list[0]);
+	// int list[] = { 3, 4, 1, 7, 0, 9, 6, 5, 2, 8};
+	// const int N = sizeof(list)/sizeof(list[0]);
+
+  int = 10;
+	int *list = new int[N];
+
+	for (int i = 0; i < N; i++) {
+		list[i] = rand() % N;
+	}
 
 	printf("UNSORTED(%d): \n", N);
   for (int i = 0; i < N; i++)
@@ -43,5 +49,6 @@ int main(int argc, char *argv[]) {
 		printf("%d ", list[i]);
 	printf("\n");
 
+  delete[] list;
   printf("Happy Coding~~\n");
 }
