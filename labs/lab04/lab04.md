@@ -54,20 +54,21 @@ Lecture Notes by idebtor@gmail.com
 ```
 
 ## Step 3: Use a function to compare
-  - In this step, we want to sort the list in descending order with a better way eventually.
+  - In this step, we want to sort the list using one of two comparison functions such as less() or more().
+      - Later, this will help us easily to sort the list either __descending__ or __ascending order.
   - Duplicate `bubble.cpp` which has a bubble-sort algorithm and name it `bubble3.cpp`.
   - The line you modified in Step 2 compares two items using a comparison operator. Modify the line such that it uses a function to compare two items instead of a comparison operator.
   - Use one of the following functions. For example, `less(x, y)` returns `true` if `x < y`, `false` otherwise.
 
   ```
-    bool less(int x, int y) {   return x < y;   }
-    bool more(int x, int y) {   return x > y;   }
+    bool less(int x, int y) {   return x < y;   }   // use this for ascending
+    bool more(int x, int y) {   return x > y;   }   // use this for descending
   ```
 
   - By the way, `less()` is already defined in `std` namespace. To use `less()` which we defined in this file `bubble3.cpp`, we must add the global scope resolution operator(`::`) such as `::less()`.
 
   ```
-  if (::less(list[j], list[j + 1]))
+  if (::less(list[j + 1], list[j]))
     swap(list[j], list[j + 1]);
   ```
   - Build an executable and test it.
@@ -90,12 +91,12 @@ BUBBLE SORTING...
 0 1 2 3 4 5 6 7 8 9
 0 1 2 3 4 5 6 7 8 9
 BUBBLE SORTED(10):
-0 1 2 3 4 5 6 7 8 9
+9 8 7 6 5 4 3 2 1 0
 Happy Coding~~
 ```
 
 ## Step 4: Use a function pointer
-  - Observe that we may use the same code (or algorithm) to sort the list either in ascending or in descending __iff__ we could pass the function (`less()` or `more()`) as an argument.
+  - Observe that we may use the same code (or algorithm) to sort the list either in ascending or in descending __iff__ we could pass the function (`less` or `more`) as an argument.
   - For this purpose, fortunately, we can use a __function pointer__ or a pointer to a function.
   - Read the "Function Pointer" section at the end of this lecture note.
   - Duplicate `bubble3.cpp` which has a bubble-sort algorithm and name it `bubble4.cpp`.
@@ -113,9 +114,13 @@ Happy Coding~~
     ...
   }
 
+  - Invoke `bubbleSort()` function twice, one with `less` function and the other with `more` function as shown below:
+
   int main(int agrgc, char *argv[]) {
     ...
-          bubbleSort(list, N, ::less);
+    bubbleSort(list, N, ::less);    // ascending
+    ...
+    bubbleSort(list, N, more);      // descending
     ...
   }
 
@@ -127,8 +132,6 @@ Happy Coding~~
 ```
     $ g++ bubble4x.cpp -o sort -DDEBUG
     $ ./sort
-    UNSORTED(10):
-    3 4 1 7 0 9 6 5 2 8
     BUBBLE SORTING...
     3 1 4 0 7 6 5 2 8 9
     1 3 0 4 6 5 2 7 8 9
@@ -141,6 +144,18 @@ Happy Coding~~
     0 1 2 3 4 5 6 7 8 9
     BUBBLE SORTED(10):
     0 1 2 3 4 5 6 7 8 9
+    BUBBLE SORTING...
+    1 2 3 4 5 6 7 8 9 0
+    2 3 4 5 6 7 8 9 1 0
+    3 4 5 6 7 8 9 2 1 0
+    4 5 6 7 8 9 3 2 1 0
+    5 6 7 8 9 4 3 2 1 0
+    6 7 8 9 5 4 3 2 1 0
+    7 8 9 6 5 4 3 2 1 0
+    8 9 7 6 5 4 3 2 1 0
+    9 8 7 6 5 4 3 2 1 0
+    BUBBLE SORTED(10):
+    9 8 7 6 5 4 3 2 1 0
     Happy Coding~~
 ```
 
