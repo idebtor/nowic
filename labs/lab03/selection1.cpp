@@ -14,6 +14,8 @@
     - Learn about __a better coding__ after all.
 ***************************************************************/
 #include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
 
 void sort(int *list, int n) {
 	int i, j, min, temp;
@@ -28,8 +30,16 @@ void sort(int *list, int n) {
 }
 
 int main(int argc, char *argv[]) {
-	int list[] = { 3, 4, 1, 7, 0, 9, 6, 5, 2, 8};
-	const int N = sizeof(list)/sizeof(list[0]);
+	// int list[] = { 3, 4, 1, 7, 0, 9, 6, 5, 2, 8};
+	// const int N = sizeof(list)/sizeof(list[0]);
+
+	int N = 15;
+	int *list = (int *)malloc(sizeof(int) * N);
+	assert(list != nullptr);
+
+	for (int i = 0; i < N; i++) {
+		list[i] = rand() % N;
+	}
 
 	printf("UNSORTED(%d): \n", N);
   for (int i = 0; i < N; i++)
@@ -43,5 +53,6 @@ int main(int argc, char *argv[]) {
 		printf("%d ", list[i]);
 	printf("\n");
 
+  free(list);
   printf("Happy Coding~~\n");
 }
