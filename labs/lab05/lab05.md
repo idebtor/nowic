@@ -33,76 +33,55 @@ Lecture Notes by idebtor@gmail.com
 
   - Place a copy of `printList()` into its own file and name it `printList.cpp`.
       - add a prototype for `printList()` in `sort.cpp`.
-  - For testing purpose, build a skeleton code, `sort.cpp` along with the file `printList.cpp` together.
-  - Sample run:
+  - Include prototypes for 4 sorting functions if necessary.
+  - Build `sort.cpp` along with the file `printList.cpp` together.
+
+Sample run:
     ```
-    $ g++ sort.cpp printList.cpp -o sort -DDEBUG
+    $ g++ sort.cpp bubble.cpp insertion.cpp quicksort.cpp selection.cpp printList.cpp -o sort -DDEBUG
     $ ./sort
     b for bubble, i for insertion, q for quick, s for selection
     Enter an algorithm to sort(x to exit): b
-    your code here - one line
-    b: your code here
     UNSORTED(10):
     3 4 1 7 0 9 6 5 2 8
-    your code here - one line
     SORTED(10):
-    3 4 1 7 0 9 6 5 2 8
+    0 1 2 3 4 5 6 7 8 9
     b for bubble, i for insertion, q for quick, s for selection
     Enter an algorithm to sort(x to exit): x
     ```
 
 ## Step 4: Create include/sort.h
 
-  - In `sort.cpp`, we want to invoke sorting functions as defined in sorting files (`bubble.cpp, inserttion.cpp, quicksort.cpp, selection.cpp`), then we need to exclude `main()` and `printList()` in sorting files. Otherwise, it causes errors because of a multiply defined functions.
-  - In every sorting files, set the following macro `#if 0`. This code will exclude all codes between `#if 0` and `#endif`.
+  - In `sort.cpp`, we want to invoke sorting functions as defined in sorting files (`bubble.cpp, inserttion.cpp, quicksort.cpp, selection.cpp`), then we need to exclude `main()` and `printList()` in each sorting file. Otherwise, it causes errors because of a multiply defined functions.
+  - In each sorting file, set the following macro `#if 0`. This code will exclude all codes between `#if 0` and `#endif`.
   - Create `nowic/include/sort.h` file that contains all four sorting function
-    prototypes. Notice that your lab folder is located at `nowic/labs/lab05`.
+    prototypes.
   - Add a line to include `sort.h` in `sort.cpp`.
-  - For this step, uncomment the following 4 lines of code only in `sort.cpp`.
-
-  ```
-  // Uncomment the next 4 line for Step 4 ///////////////////
-  // bubbleSort(list, N);
-  // insertionSort(list, N);
-  // quickSort(list, N);
-  // selectionSort(list, N);
-  // Remove 4 lines above after Step 4 //////////////////////
-  ```
+  - Remove 4 sorting function prototypes in `sort.cpp`
   - Build an executable and test it.
-  - A sample run:
 
+A sample run:
   ```
   $ g++ sort.cpp bubble.cpp insertion.cpp quicksort.cpp selection.cpp printList.cpp -I../../include -o sort
   $ ./sort
   b for bubble, i for insertion, q for quick, s for selection
   Enter an algorithm to sort(x to exit): q
-  your code here - one line
-  q: your code here
   UNSORTED(10):
   3 4 1 7 0 9 6 5 2 8
-  your code here - one line
   SORTED(10):
   0 1 2 3 4 5 6 7 8 9
   b for bubble, i for insertion, q for quick, s for selection
   Enter an algorithm to sort(x to exit): x
   ```
 
-## Step 5: Complete sort.cpp
+## Step 5: Using a function pointer.
+  - Begin with the skeleton code, `sort5.cpp`.
+    Once you complete it, it should work just like `sortx.cpp`.
+  - Follow the instructions in the skeleton code itself.
 
-  - Remove the following lines of code in `sort.cpp`.
+A sample run:
   ```
-    // Uncomment the next 4 line for Step 4 ///////////////////
-    bubbleSort(list, N);
-    insertionSort(list, N);
-    quickSort(list, N);
-    selectionSort(list, N);
-    // Remove 4 lines above after Step 4 //////////////////////
-  ```
-  - Make `sort.cpp` work just like `sortx.cpp`.
-  - A sample run:
-  ```
-    $ g++ sortx.cpp bubble.cpp insertion.cpp quicksort.cpp selection.cpp printList.cpp
-      -I../../include -o sort
+    $ g++ sortx.cpp bubble.cpp insertion.cpp quicksort.cpp selection.cpp printList.cpp -I../../include -o sort
     $ ./sort
     b for bubble, i for insertion, q for quick, s for selection
     Enter an algorithm to sort(x to exit): b
@@ -122,7 +101,7 @@ Lecture Notes by idebtor@gmail.com
 ---------------------------------------------
 # File(s) to submit for this Lab:
     - sort.cpp
-
+    - sort5.cpp
 
 ----------------------------
 

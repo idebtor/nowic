@@ -4,17 +4,14 @@
 // sort.cpp - This brute force version of bubble Sort that takes O(n^2).
 //
 // Compilation:
-// g++ bubble.cpp printList.cpp -o sort
-// g++ bubble.cpp printList.cpp -o sort -DDEBUG
+// g++ bubble.cpp -o sort
+// g++ bubble.cpp -o sort -DDEBUG
 // To use DEBUG or test it, compile with -D option and turn #if 1 on.
 // To make the function included in other program, turn #if 0 off.
-//
-// To compile all sort files
-// g++ sort.cpp bubble.cpp insertion.cpp quicksort.cpp selection.cpp
-//     printList.cpp -I../../include -o sort -DDEBUG
 
 #include <iostream>
 #include <cassert>
+#include "sort.h"
 using namespace std;
 
 #ifdef DEBUG
@@ -51,13 +48,20 @@ int main(int argc, char *argv[]) {
 		cout << "UNSORTED(" << N << "):\n";
 		printList(list, N);
 
+		// set the function pointer based on user's choice.
+		// 1. declare a function pointer
+		cout << "your one-line code here"
+		// 2. switch statements to set the function pointer to a function
 		switch(algo) {
 			case 'b':
 			case 'i':
 			case 'q':
-			case 's': cout << "your code here";	break;
+			case 's': cout << "your code here";
 			default: break;
 		}
+
+		// 3. invoke a sort function using the function pointer.
+		cout << "your one-line code here"
 
 		cout << "SORTED(" << N << "):\n";
 	  printList(list, N);
