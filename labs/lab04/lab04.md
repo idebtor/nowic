@@ -54,8 +54,8 @@ Lecture Notes by idebtor@gmail.com
 ```
 
 ## Step 3: Use a function to compare
-  - In this step, we want to sort the list using one of two comparison functions such as less() or more().
-      - Later, this will help us easily to sort the list either __descending__ or __ascending order.
+  - In this step, we want to sort the list using one of two comparison functions such as `less()` or `more()`.
+      - Later, this will help us easily to sort the list either __descending__ or __ascending order__.
   - Duplicate `bubble.cpp` which has a bubble-sort algorithm and name it `bubble3.cpp`.
   - The line you modified in Step 2 compares two items using a comparison operator. Modify the line such that it uses a function to compare two items instead of a comparison operator.
   - Use one of the following functions. For example, `less(x, y)` returns `true` if `x < y`, `false` otherwise.
