@@ -37,6 +37,7 @@ Lecture Notes by idebtor@gmail.com
   - Build `sort.cpp` along with the file `printList.cpp` together.
 
 Sample run:
+
     ```
     $ g++ sort.cpp bubble.cpp insertion.cpp quicksort.cpp selection.cpp printList.cpp -o sort -DDEBUG
     $ ./sort
