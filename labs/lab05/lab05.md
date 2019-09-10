@@ -17,7 +17,6 @@ Lecture Notes by idebtor@gmail.com
   - Read a skeleton code, `sort.cpp`.
 
 ## Step 2: Understand sorting algorithms
-
   - Each file shown below contains a specific sorting algorithm.
       - `bubble.cpp, insertion.cpp, quicksort.cpp, selection sort`
   - Build and run each file separately. Study the algorithms by your own and
@@ -30,14 +29,12 @@ Lecture Notes by idebtor@gmail.com
     ```
 
 ## Step 3: External file - printList.cpp
-
   - Place a copy of `printList()` into its own file and name it `printList.cpp`.
       - add a prototype for `printList()` in `sort.cpp`.
   - Include prototypes for 4 sorting functions if necessary.
   - Build `sort.cpp` along with the file `printList.cpp` together.
 
 Sample run:
-
     ```
     $ g++ sort.cpp bubble.cpp insertion.cpp quicksort.cpp selection.cpp printList.cpp -o sort -DDEBUG
     $ ./sort
@@ -98,6 +95,29 @@ A sample run:
     0 1 2 3 4 5 6 7 8 9
     b for bubble, i for insertion, q for quick, s for selection
     Enter an algorithm to sort(x to exit):
+  ```
+
+  ```
+  $ g++ sortx.cpp bubble.cpp selection.cpp insertion.cpp quicksort.cpp printList.cpp -I../../include -o sortx -DDEBUG
+  $ ./sortx
+  b for bubble, i for insertion, q for quick, s for selection
+  Enter an algorithm to sort(x to exit): b
+  UNSORTED(10):
+  3 4 1 7 0 9 6 5 2 8
+  BUBBLE SORTING...
+  3 1 4 0 7 6 5 2 8 9
+  1 3 0 4 6 5 2 7 8 9
+  1 0 3 4 5 2 6 7 8 9
+  0 1 3 4 2 5 6 7 8 9
+  0 1 3 2 4 5 6 7 8 9
+  0 1 2 3 4 5 6 7 8 9
+  0 1 2 3 4 5 6 7 8 9
+  0 1 2 3 4 5 6 7 8 9
+  0 1 2 3 4 5 6 7 8 9
+  SORTED(10):
+  0 1 2 3 4 5 6 7 8 9
+  b for bubble, i for insertion, q for quick, s for selection
+  Enter an algorithm to sort(x to exit):
   ```
 ---------------------------------------------
 # File(s) to submit for this Lab:
