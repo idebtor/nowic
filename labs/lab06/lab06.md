@@ -103,7 +103,7 @@ For all the GNU utilities, you can use `command --help` to list the help menu;
   - `nm` - List Symbol Table of Object Files
 
     The utility "nm" lists symbol table of object files. Since it lists so many symbols, we often use it with pipe(`|`) and  `grep` command as shown below:
-    
+
     ```
     $ nm hello.exe | grep main
     0000000000402b98 T __getmainargs
@@ -122,10 +122,12 @@ For all the GNU utilities, you can use `command --help` to list the help menu;
 ### Step 7: Make your own libnowic.a and libsort.a for your machine.
   - To build an archive file, refer to `UsingStaticLib.pdf` provided.
 
+### Step 8: Build sort.exe using newly created libsort.a
+  - Copy ../lab05/sort.cpp here and build sort.exe using libsort.a
 ---------------------------------
 # File(s) to submit for this Lab:
-    - libnowic.a
-    - libsort.a
+  - libnowic.a
+  - libsort.a
 
 ----------------------------
 
