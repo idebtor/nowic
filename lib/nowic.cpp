@@ -11,7 +11,7 @@
 * Compilation:
 * > g++ -c nowic.cpp -o nowic.o
 * > ar rcs libnowic.a nowic.o
-*
+*  
 * 2019/02/05 Created
 *
 * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License
@@ -22,6 +22,9 @@
 #include <string>
 #include <cstring>
 
+#include <ctime>
+#include <chrono>
+
 /*
  * Reads a line of text from standard input and returns it as an int in
  * the range of [-2^31 + 1, 2^31 - 2], if possible; if text does not
@@ -29,7 +32,7 @@
  * whitespace is ignored.  For simplicity, overflow is not detected.
  * It provides a default parameter, but it can be overwritten.
  */
- int GetInt(std::string prompt = "Enter an integer: ") {
+int GetInt(std::string prompt = "Enter an integer: ") {
    int keyin;
    std::string line;
    std::cout << prompt;                   // display a prompt
@@ -112,6 +115,7 @@ std::string GetString(std::string prompt = "Enter a string: ") {
   * on heap via malloc and returns the pointer. The memory must be
   * freed by caller to avoid leak. Use free() or delete [] to free it.
   */
+#if 0
  char* GetCString(std::string prompt = "Enter a string: ") {
    std::string line, str;
    std::cout << prompt;                 // display prompt
@@ -126,6 +130,45 @@ std::string GetString(std::string prompt = "Enter a string: ") {
    strcpy (cstr, str.c_str());          // copy the contents
    return cstr;                         // C string - char array
  }
+#endif
+
+ /*
+  * Reliably measuring the exact running time of a given program can be 
+  * difficult. Fortunately, we are usually satisified with estimates. 
+  * The following two classes simply measures an elapsed time. 
+  * To use a timer or stopwatch, instantiate an object right before code 
+  * that you want to measure an elapsed time. Then invoke elpasedTime()
+  * method right after the code that you're timing. 
+  * For example: 
+  *    Timer t1;	
+  *    ..... your code to measure an elapsed time......
+  *    cout << t1.elapsedTime() << endl;
+  *
+  */
+class Stopwatch {  // measures clock in Windows, processor time on Linux
+private:
+	clock_t begin;
+public:
+	Stopwatch() { begin = clock(); }
+	double elapsedTime() {
+		return (double)(clock() - begin) / CLOCKS_PER_SEC;
+	}
+	void reset() { begin = clock(); }
+};
+
+using namespace std::chrono;;
+class Timer {  // measures elapsed time
+private:
+	high_resolution_clock::time_point begin;
+public:
+	Timer() { begin = high_resolution_clock::now(); }
+	double elapsedTime() {
+		high_resolution_clock::time_point end = high_resolution_clock::now();
+		return (double)duration_cast<milliseconds>(end - begin).count() / 1000;
+	}
+	void start() { begin = high_resolution_clock::now(); }
+};
+
 
 // For the sake of a simple testing
 #if 0
