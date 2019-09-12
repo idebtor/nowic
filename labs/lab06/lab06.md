@@ -76,6 +76,7 @@ $ g++ -v hello.cpp -o hello
 For all the GNU utilities, you can use `command --help` to list the help menu;
 
   - `file` - list file type
+
     The utility "file" can be used to display the type of object files and executable files. For example,
   ```
     $ file hello.cpp
@@ -87,6 +88,7 @@ For all the GNU utilities, you can use `command --help` to list the help menu;
   ```
 
   - `ldd` - list dynamic link libraries
+
     It examines an executable and displays a list of the shared libraries that it needs. For example,
 
     ```
@@ -99,7 +101,9 @@ For all the GNU utilities, you can use `command --help` to list the help menu;
     ```
 
   - `nm` - List Symbol Table of Object Files
+
     The utility "nm" lists symbol table of object files. Since it lists so many symbols, we often use it with pipe(`|`) and  `grep` command as shown below:
+    
     ```
     $ nm hello.exe | grep main
     0000000000402b98 T __getmainargs
