@@ -64,15 +64,21 @@ void randomize(int list[], int n) {
 // For example:
 // Case 1) N = 12, max_print = 100, per_line = 20
 //		0	1	2	3	4	5
-//		6	7	8	9  10  11
+//		6	7	8	9 10 11
 // Case 2) N = 12, max_print = 100, per_line = 4
-//		0	1	2	3
-//		4	5
-//		6	7	8	9
-//	   10  11
+// 		0	1	2	3
+// 		4	5
+// 		6	7	8	9
+// 	  10 11
 // Case 3) N = 12, max_print = 4, per_line = 6
-//		0	1	2	3
-//		8	9  10  11
+// 		0	1	2	3
+// 		8	9 10 11
+// Case 4) N = 100, max_print = 10, per_line = 6
+// 		0	1	2	3	4	5
+// 		6 7	8	9
+// 	  90 91 92 93 94 95
+// 	  96 97 98 99
+//
 // There should be a line feed between the front part and
 // the rear part.
 // Observe the sample runs using sortx.exe provided with you.
