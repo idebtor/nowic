@@ -99,9 +99,9 @@ void printList(int *list, int N, int max_print, int per_line) {
 
 // sortDriver to test sort functions or algorithms.
 int main(int argc, char *argv[]) {
-	int N = 0;						// default sample size
+	int N = 0;								// default sample size
 	int keyin;
-	int *list = NULL;				// input and output buffer
+	int *list = nullptr;			// input and output buffer
 	int max_print = 10;				// default max_print(=front_part+last_part)
 	int per_line = max_print / 2;	// default samples per line to print
 	clock_t start, end;
