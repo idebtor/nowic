@@ -202,7 +202,7 @@ int main(int argc, char *argv[]) {
 		}
 	} while (option_char != 'q');
 
-	if (list != NULL) free(list);
+	if (list != nullptr) delete[] list;
 	// system("pause");
 	DPRINT(cout << ">main" << endl;)
 	return EXIT_SUCCESS;
