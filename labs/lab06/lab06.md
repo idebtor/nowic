@@ -119,11 +119,30 @@ For all the GNU utilities, you can use `command --help` to list the help menu;
     ```
     It also is commonly-used to check if a particular function is defined in an object file. A `T` in the second column indicates a function that is defined, while a `U` indicates a function which is undefined and should be resolved by the linker.
 
-### Step 7: Make your own libnowic.a and libsort.a for your machine.
-  - To build an archive file, refer to `UsingStaticLib.pdf` provided.
+### Step 7: Make your own `libnowic.a` and `libsort.a` for your machine.
+  - To build an archive file, refer to [UsingStaticLib.pdf](https://github.com/idebtor/nowic/blob/master/03UsingStaticLib.md) provided.
+  - To create or update .o's in an archive file, use `ar rcs archive_name.a my_obj.o`
+  - To list .o's in an archive file, use `ar t archive_name.a` command.
 
-### Step 8: Build sort.exe using newly created libsort.a
-  - Copy ../lab05/sort.cpp here and build sort.exe using libsort.a
+### Step 8: Make your own `libnowic.a` and `libsort.a` for your machine.
+  - To test your `libnowic.a`, build `nowicx.cpp` and run it. The build script would be something like below:
+  ```
+  $ g++ nowic_test.cpp -I../../include -L./ -lnowic -o nowicx
+  ./nowicx        # cmd/PowerShell
+  ./nowicx.exe    # mintty
+  ```
+
+  - To test your `libsort.a`, build `sortx.cpp` and run it. The build script would be something like below:
+
+  ```
+  $ g++ sortx.cpp printList.cpp -I../../include -L./ -lsort -o sortx
+  ./sortx        # cmd/PowerShell
+  ./sortx.exe    # mintty
+  ```
+
+### Last step:
+You may copy or move `libnowic.a` and `libsort.a` in ../../lib folder _if you wish_.
+
 ---------------------------------
 # File(s) to submit for this Lab:
   - libnowic.a
