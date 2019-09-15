@@ -124,7 +124,7 @@ For all the GNU utilities, you can use `command --help` to list the help menu;
   - To create or update .o's in an archive file, use `ar rcs archive_name.a my_obj.o`
   - To list .o's in an archive file, use `ar t archive_name.a` command.
 
-### Step 8: Make your own `libnowic.a` and `libsort.a` for your machine.
+### Step 8: Test your own `libnowic.a` and `libsort.a` for your machine.
   - To test your `libnowic.a`, build `nowicx.cpp` and run it. The build script would be something like below:
   ```
   $ g++ nowic_test.cpp -I../../include -L./ -lnowic -o nowicx
