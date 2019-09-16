@@ -140,6 +140,24 @@ For all the GNU utilities, you can use `command --help` to list the help menu;
   ./sortx.exe    # mintty
   ```
 
+### Step 9: Understanding compiling and linking process
+The build process mainly consists of compiling and linking. Compiling produces ~.o's from source files and linking produces ~.exe from ~.o's. For example:
+
+#### compiling
+```
+$ g++ -c sortx.cpp -I../../include
+$ g++ -c printList.cpp
+```
+#### linking
+```
+$ g++ sortx.o printList.o -L./lib -lsort -o sortx
+```
+
+#### building: compiling and linking all together
+```
+$ g++ sortx.cpp printList.cpp -I../../include -L./lib -lsort -o sortx
+```
+
 ### Last step:
 You may copy or move `libnowic.a` and `libsort.a` in ../../lib folder _if you wish_.
 
