@@ -59,7 +59,7 @@ int main(int argc, char *argv[]) {
 			"\t10. Recursive Binary Search\n";
 
 		switch (option = GetInt("\tCommand(0 to quit): ")) {
-		case 0: 
+		case 0:
 			cout << "Happy Coding~~\n";
 			exit(EXIT_SUCCESS);
 
@@ -107,11 +107,11 @@ int main(int argc, char *argv[]) {
 			}
 			break;
 		case 4:
-			cout << "\tbunnyEars(0) = 0";
-			cout << "\tbunnyEars(1) = 2"; 
-			cout << "\tbunnyEars(2) = 4";
-			cout << "\tbunnyEars(3) = 6";
-			cout << "\tbunnyEars(234) = 468";
+			cout << "\tbunnyEars(0) = 0\n";
+			cout << "\tbunnyEars(1) = 2\n";
+			cout << "\tbunnyEars(2) = 4\n";
+			cout << "\tbunnyEars(3) = 6\n";
+			cout << "\tbunnyEars(234) = 468\n";
 			while (1) {
 				N = GetInt("\tEnter a number of bunnies(0 to quit): ");
 				if (N <= 0) break;
@@ -134,20 +134,21 @@ int main(int argc, char *argv[]) {
 			cout << "your code here\n";
 			break;
 
-		case 10:   
+		case 10:
 			cout << "\tRecursive Binary Search\n ";
 			while (1) {
 				N = GetInt("\tEnter a list size to generate(0 to quit) : ");
 				if (N <= 0) break;
 
 				int *list = new (nothrow) int[N];
-				assert(list != NULL);
+				assert(list != nullptr);
 
 				for (int i = 0; i < N; i++)
 					list[i] = rand() % N;
 
 				quickSort(list, N);
-				for (int i = 0; i < N; i++)
+				cout << "\t";
+				for (int i = 0; i < N; i++) 
 					cout << list[i] << " ";
 				cout << endl;
 
@@ -157,7 +158,7 @@ int main(int argc, char *argv[]) {
 				cout << "index=" << index << endl;
 				cout << "your code here to replace the line above.\n";
 
-				delete list;
+				delete[] list;
 			}
 		default:
 			break;
