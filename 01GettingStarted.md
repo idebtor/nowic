@@ -24,40 +24,67 @@ There are two ways to join Piazza, go the www.piazza.com.
   - For mac, [good installation guide](https://thdev.net/132)
 
 ## Install GCC (GNU Compiler Collection) for Windows
-  - To use gcc in Windows, we need to install two packages:
-    - MinGW-w64
+  - To use g++ in Windows, we need to install two packages:
     - MSYS2
+    - MinGW-w64
+
+#### Install MSYS2 for Windows
+  - Installing MSYS2 is relatively simple.
+  - Connect this [website](http://www.msys2.org/) http://www.msys2.org/
+  - Select this __msys2-x86_64-20190524.exe__ for 64 bit version.
+  - You may follow this [good installation guide](http://blog.naver.com/PostView.nhn?blogId=adapriest&logNo=220981281896&parentCategoryNo=&categoryNo=&viewDate=&isShowPopularPosts=false&from=postView)
 
 #### Install MinGW-w64 (64 bit version recommended) for Windows
   - For MinGW-w64, follow this [good installation guide](https://brunch.co.kr/@mystoryg/56) available.
-    - During the installation, select the following option:
+    - __IMPORTANT NOTE__ During the installation, select the following option:
     ```
       Architecture  x86_64
     ```
-    instead of
+    __instead of__
     ```
       Architecture  xi686
     ```
-    - After installation, don't forget the installation path to the system or user environment. In my case, the installation path was:
+    - After installation, don't forget the installation path to `PATH` environment variable. In my case, the installation path was:
     ```
     C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin
     ```
 
-#### Install MSYS2 for Windows
-  - Installing MSYS2 is relatively simple.
-  - Connect this [website](http://www.msys2.org/) http://www.msys2.org/ and select this __msys2-x86_64-20190524.exe__ for 64 bit version.
-  - You may follow this [good installation guide](http://blog.naver.com/PostView.nhn?blogId=adapriest&logNo=220981281896&parentCategoryNo=&categoryNo=&viewDate=&isShowPopularPosts=false&from=postView)
+## Checking GCC installation:
+- Start a console through Mintty if available, otherwise use `cmd` or `PowerShell` in Windows.
+- To test installation, run the command `g++ --version` and  see the following:
 
+    ```
+    $ g++ --version
+    g++.exe (x86_64-posix-seh-rev0, Built by MinGW-W64 project) 8.1.0
+    Copyright (C) 2018 Free Software Foundation, Inc.
+    This is free software; see the source for copying conditions.  There is NO
+    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    ```
+    or (if you installed it through MSYS2)
+    ```
+    g++ --version
+    g++.exe (Rev2, Built by MSYS2 project) 9.2.0
+    Copyright (C) 2019 Free Software Foundation, Inc.
+    This is free software; see the source for copying conditions.  There is NO
+    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    ```
+- If you see something different from `x86_64-posix-seh-rev0` or `Built by MSYS2 project`, you have chosen a wrong version. Go through the installation process with caution again.
+
+#### MinGW-w64 [installation Problem](https://stackoverflow.com/questions/57894158/mingw-w64-installation-fails-with-error-res-in-windows-10): ERROR res
+  - In some PC Windows, we have experienced a difficulty during MinGW-w64 installation.
+  - It fails with __`ERROR res`__ during the installation. I posted [this question](https://stackoverflow.com/questions/57894158/mingw-w64-installation-fails-with-error-res-in-windows-10) in the __stackoverflow__ and got [this answer](https://stackoverflow.com/questions/30069830/how-to-install-mingw-w64-and-msys2/30071634#30071634). You may go their recommendation.
+  - In summary, you install __MSYS2__ first, and then install __MinGW-w64__ as part of __MSYS2__.
+    - __MSYS2__ installation is really easy and rarely fails.
+    - It comes with a command-line package manager (`pacman`).
+    - It offers always the newest `MinGW-w64/GCC` combo available.
+    - You can also install many other packages compatible with this toolchain.
+    - For details see [this answer](https://stackoverflow.com/questions/30069830/how-to-install-mingw-w64-and-msys2/30071634#30071634).
+  - Don't forget adding the path `<your MSYS2 root>/mingw64/bin` to your __PATH__ environment variable.
+
+---------------------------------
 
 ## Using Mintty instead of cmd or PowerShell.
   - To use Mintty, follow instructions in ["UsingMintty.md" file](https://github.com/idebtor/nowic/blob/master/02UsingMintty.md) stored in this folder.
-
-## Checking GCC installation:
-  - Start a console through Mintty if available, otherwise use `cmd` or `PowerShell` in Windows.
-  - Enter a following command on a console. If you see a description of gcc version, it is done.
-  ```
-  g++ --version
-  ```
 
 -----------------------------------
 ## Install Atom.
@@ -128,6 +155,10 @@ After installation of GitHub Desktop, be a member if already not.
 
       - Go to the ~/nowic folder.
       - Open a console and run the following two commands.
+      ```
+      git stash
+      ```
+      or
       ```
       git fetch --all
       git reset --hard origin/master

@@ -1,4 +1,4 @@
- /*
+/*
  * This program implements a recurisve binary_search():
  *
  * The binary search algorithm is a method of searching a sorted array for a single
@@ -9,7 +9,7 @@
  * greater than the data being searched for, or the data at the midpoint is less
  * than the data being searched for.
  * Recursion is used in this algorithm because with each pass a new array is
- * created by cutting the old one in half.The binary search procedure is then
+ * created by cutting the old one in half. The binary search procedure is then
  * called recursively, this time on the new (and smaller) array.
  * Typically, the array's size is adjusted by manipulating a beginning and
  * ending index. The algorithm exhibits a logarithmic order of growth because
@@ -18,7 +18,7 @@
  * In this example, you need an extra function at user's convenience since a
  * user may want to simply call the function with three parameters such as
  * binary_search(data, key, size).  Once you get the user's initial call,
- * then you call _binary_search(data, key, low, high) recursively.
+ * then you call _binary_search(data, key, lo, hi) recursively.
  *
  * @author: idebtor@gmail.com
  * 2018/03/08	Creation
@@ -33,15 +33,20 @@
  * OUTPUT:
  *		returns the array index of `key` in the list'
  *		returns -1 or something else?
- * NOTE:
- * If the key is not found, low is the insertion point where a key would be
+ *
+ * If the key is not found, lo is the insertion point where a key would be
  * inserted to maintain the order of the list.  It is more useful to return
  * the insertion point than -1.  The method must return a negative value to
- * indicate that the key is not in the list. Can it simply return -low?
+ * indicate that the key is not in the list. Can it simply return -lo? No.
+ * If key is less than list[0], lo would be 0. -0 is 0. This would indicate
+ * that key matches list[0]. A good choice is to let the method return -lo-1
+ * if the key is not in the list. Returning -lo-1 indicate not only that key
+ * is not in the list, but also where the key would be inserted.
  */
 
 #include <iostream>
 #include <iomanip>
+
 using namespace std;
 
 #ifdef DEBUG
@@ -51,17 +56,24 @@ using namespace std;
 #endif
 
 int _binary_search(int *data, int key, int lo, int hi) {
-	DPRINT(cout << "key=" << key << " lo=" << lo << " hi=" << hi << endl;);
+	DPRINT(cout << "key=" << key << " lo=" << lo << " hi=" << hi << endl;)
 
-	cout << "your code here \n";
+	int mid = lo + (hi - lo) / 2;   //Integer division
 
-	return 0;
+	if (lo > hi)
+		return -lo - 1;          // Not found!
+	else if (data[mid] == key)   // Found!
+		return mid;
+	else if (data[mid] > key)    //Data is greater than key, search lower half
+		return _binary_search(data, key, lo, mid - 1);
+	else                         //Data is less than key, search upper half
+		return _binary_search(data, key, mid + 1, hi);
 }
 
 int binary_search(int *list, int key, int size) {
-	DPRINT(cout << ">binary_search: key=" << key << " size=" << size << endl;);
+	DPRINT(cout << ">binary_search: key=" << key << " size=" << size << endl;)
 	int answer = _binary_search(list, key, 0, size);
-	DPRINT(cout << "<binary_search: answer=" << answer << endl;);
+	DPRINT(cout << "<binary_search: answer=" << answer << endl;)
 	return answer;
 }
 
@@ -82,9 +94,15 @@ int main(int argc, char *argv[]) {
 	// do this by 'size' times.
 	// print the results as shown in binsearchx.exe.
 	// srand((unsigned)time(nullptr));    // turn off this line during debugging
+	srand((unsigned)time(nullptr));
 	for (int i = 0; i < size; i++) {
-		cout << "your code here \n";
-	}
+		int key = rand() % (list[size - 1] + 1 - list[0]) + list[0];
+		int index = binary_search(list, key, size);
 
+		if (index >= 0)
+			cout << "\t" << key << "\t is @[" << index << "]" << endl;
+		else
+			cout << "\t" << key << "\t is not @[" << -index - 1 << "]" << endl;
+	}
 }
 #endif
