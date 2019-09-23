@@ -49,14 +49,17 @@ using namespace std;
 #endif
 
 // a helper function
-// Compute the number of digit first.
-// For example, 1 for [0..9], 2 for [10..99], 3 for [100..999] and so on.
-// Then compute the step: 1 for 1, 10 for 2, 100 for 3 and so on.
+// Compute the number of digit first and return step size such as
+// 100, 1000, 10000 etc.
+// Refer to some instructions provided in pset pdf file.
 int getStep(int n) {
 	int digit = 1;
 	int step = 1;
 
-	// your code here
+	// compute 'digit' the number of digits
+
+
+	// compute 'step' based on 'digit'
 	step = 100;
 
 	return step;
