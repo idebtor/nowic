@@ -5,7 +5,8 @@
 #OS junk files
 [Tt]humbs.db
 *.DS_Store
-
+#ipython notebook file
+.ipynb_checkpoints/
 #Visual Studio files
 #*.[Oo]bj
 #*.exe
