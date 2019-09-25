@@ -12,12 +12,13 @@
 *
 * Before Compilation, you must have some files (static library and
 * include file) ready as shown below:
-*   src/selection.cpp, bubble.cpp ...
 *   include/nowic.h
-*	lib/libnowic.a        (nowic.lib for Visual Studio)
+*		include/sort.h
+*		lib/libnowic.a        (nowic.lib for Visual Studio)
+* 	lib/sort.a            (sort.lib for Visual Studio)
 * Compilation:
 *	g++ selection.cpp insertion.cpp quicksort.cpp bubble.cpp
-*       sortDriver1.cpp -I../include -L../lib -lnowic -o sort
+*       sortDriver.cpp -I../include -L../lib -lnowic -lsort -o sort
 */
 
 #include <cstdlib>
@@ -40,7 +41,7 @@ int main(int argc, char *argv[]) {
 	int *list = nullptr;				// input and output buffer
 	int max_print = 10;				// default max_print(=front_part+last_part)
 	int per_line = max_print / 2;	// default samples per line to print
-	clock_t start, end;
+	clock_t start;
 	char randomized = 'N';
 	char option_char;
 	char option_str[512];
@@ -80,7 +81,6 @@ int main(int argc, char *argv[]) {
 			break;
 
 		case 'n': DPRINT(cout << "case = " << option_char;);
-
 			keyin = GetInt("\tEnter input sample size: ");
 			if (keyin < 1) {
 				cout << "\tExpecting a number larger than 0";
@@ -113,7 +113,7 @@ int main(int argc, char *argv[]) {
 			printList(list, N, max_print, per_line);
 			break;
 
-		case 'o': DPRINT(cout << "case = " << option_char << endl;);
+		case 'v': DPRINT(cout << "case = " << option_char << endl;);
 			if (N <= 0) {
 				cout << "\tSet sample size first\n";
 				break;
@@ -137,14 +137,13 @@ int main(int argc, char *argv[]) {
 			cout << "\tThe clock ticks and " << algorithm_list[algorithm_chosen] << " begins...\n";
 			start = clock();
 
-			cout << "your code here" << endl;
+			cout << "your one-line code here: use a function pointer" << endl;
 
 			printList(list, N, max_print, per_line);
 			randomized = 'N';
 			//////////////////
 
-			end = clock();
-			cout << "\tDuration: " << (end - start) / (double)CLOCKS_PER_SEC << " seconds\n";
+			cout << "\tDuration: " << (clock() - start)/(double)CLOCKS_PER_SEC << " seconds\n";
 			break;
 
 		case 'm': DPRINT(cout << "case = " << option_char << endl;);

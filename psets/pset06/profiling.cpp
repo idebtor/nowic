@@ -56,10 +56,7 @@ int getStep(int n) {
 	int digit = 1;
 	int step = 1;
 
-	// compute 'digit' the number of digits
-
-
-	// compute 'step' based on 'digit'
+	// your code here
 	step = 100;
 
 	return step;
@@ -77,7 +74,7 @@ void randomize(int list[], int size) {
 	DPRINT(cout << "RAND_MAX = " << RAND_MAX << endl;);
 	srand((unsigned)time(nullptr));	    // initialize random seed
 	for (int i = 0; i < size; i++) {
-		int x = (rand() * (RAND_MAX + 1) + rand()) % size;     // for PC
+		int x = (rand() * RAND_MAX + rand()) % size;     // for PC
 		// int x = rand() % size;                              // for mac
 		swap(list[x], list[i]);     // swap list[i] with randomly selected list[x]
 	}
@@ -146,7 +143,7 @@ int main(int argc, char *argv[]) {
 
   // replace the following line for dynamic memory allocation by N
   int list[100];                            // Use new & N here
-	for (int i = 0; i < N; i++) list[i] = i;	// unsorted data ready
+	for (int i = 0; i < N; i++) list[i] = i;	// sorted data ready
 
 	cout << "\n\tinsertionSort(): already sorted - best case." << endl;
 	profiling(insertionSort, list, N, false);  // keep the data sorted
