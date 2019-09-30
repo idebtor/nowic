@@ -18,6 +18,17 @@ using namespace std;
 #define DPRINT(func) ;
 #endif
 
+// Stay tuned since we are going to use C++ Template to make them into 
+// one or a generic function.
+// prints stack items from botton to top recursively.
+void printStack(stack<int> s) {
+	cout << "stack<int>: your code here\n";
+}
+
+void printStack(stack<char> s) {
+	cout << "stack<char>: your code here\n";
+}
+
 // performs arithmetic operations. 
 int apply_op(int a, int b, char op) {
 	switch (op) {
@@ -47,9 +58,10 @@ int evaluate(string tokens) {
 
 	for (int i = 0; i < tokens.length(); i++) {
 		DPRINT(cout << " tokens[" << i << "]=" << tokens[i] << endl;);
-		
+
 		// current token is a whitespace or an opening brace, skip it. 
-		if (tokens[i] == ' ' || tokens[i] == '(') continue;
+		if (tokens[i] == ' ') continue;
+		if (tokens[i] == '(') continue;
 
 		// current token is a value(or operand), push it to va_stack. 
 		if (isdigit(tokens[i])) { 
@@ -69,6 +81,9 @@ int evaluate(string tokens) {
 			DPRINT(cout << " op_stack.push: " << tokens[i] << endl;);
 		}
 	}
+
+	printStack(va_stack);
+	printStack(op_stack);
 
 	DPRINT(cout << " Parsing finished...clear va_stack and op_stack if any." << endl;);
 	// The whole expression has been parsed at this point, 
