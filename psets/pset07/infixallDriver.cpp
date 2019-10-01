@@ -33,7 +33,7 @@ int main() {
 	cout << "Step 1: Simple cases" << endl;
 	cout << "   [-1] = " << evaluate("1 + 2 - 4") << endl;
 	cout << "   [-6] = " << evaluate("1 - 2 * 5 + 3") << endl;
-	cout << "    [6] = " << evaluate("(3 - 1) * 5 - 4") << endl;
+	cout << "   [13] = " << evaluate("3 + 4*5/2") << endl;
 	cout << "   [41] = " << evaluate("(1 + 2^ 3 ) * 5 - 4") << endl;
 
 	cout << "Step 2: Multi-digits operand(or value)" << endl;
