@@ -72,7 +72,7 @@ pNode top(pNode hp) {
 // the list size is less than or equal to pmax * 2. If there are more than
 // (pmax * 2) nodes, then it shows only pmax number of nodes from
 // the beginning and the end in the list.
-void show(pNode hp, bool all) {
+void show(pNode hp, bool all, int pmax) {
 	DPRINT(cout << "show(" << size(hp) << ")\n";);
 	if (empty(hp)) {
 		cout << "\n\tThe list is empty.\n";
