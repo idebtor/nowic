@@ -45,5 +45,8 @@ pNode pop(pNode p, int N = 1);
 // returns the top node of the stack or the first node in the list
 pNode top(pNode p);
 
-void show(pNode p, bool all = true);// shows values of nodes in list
+// shows values of nodes in list.
+// prints pmax * 2 items if all is false.
+// prints all items in p if all is true.
+void show(pNode p, bool all = true, int pmax = 10);
 #endif

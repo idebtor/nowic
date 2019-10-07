@@ -69,7 +69,7 @@ pNode top(pNode hp) {
 }
 
 // shows the values of all the nodes in the list if all is true or
-// the list size is less than pmax * 2. If there are more than
+// the list size is less than or equal to pmax * 2. If there are more than
 // (pmax * 2) nodes, then it shows only pmax number of nodes from
 // the beginning and the end in the list.
 void show(pNode hp, bool all) {
