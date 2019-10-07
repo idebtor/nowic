@@ -37,9 +37,9 @@ bool empty(pNode p) {
 }
 
 // inserts a new node with val at the beginning of the list.
-// This effectively increases the list size by one.
+// This effectively increases the list size by N.
 pNode push(pNode top, int val, int N) {
-	DPRINT(cout << ">push val=" << val << endl;);
+	DPRINT(cout << ">push val=" << val << " N="<< N << endl;);
 
 	cout << "your code here\n";
 
@@ -48,9 +48,9 @@ pNode push(pNode top, int val, int N) {
 }
 
 // removes the first node in the list and returns the new first node.
-// This destroys the removed node, effectively reduces its size by one.
+// This destroys the removed node, effectively reduces its size by N.
 pNode pop(pNode top, int N) {
-	DPRINT(cout << ">pop size=" << size(top) << endl;);
+	DPRINT(cout << ">pop size=" << size(top) << " N="<< N << endl;);
 	if (empty(top)) return nullptr;
 
 	cout << "your code here\n";
@@ -62,6 +62,7 @@ pNode pop(pNode top, int N) {
 // returns the first node in the list. This does not destroy the node.
 pNode top(pNode p) {
 	DPRINT(cout << ">top size=" << size(p) << endl;);
+	if (empty(top)) return nullptr;
 
   cout << "your code here\n";
 	return p;
