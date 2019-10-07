@@ -38,43 +38,43 @@ bool empty(pNode p) {
 
 // inserts a new node with val at the beginning of the list.
 // This effectively increases the list size by N.
-pNode push(pNode top, int val, int N) {
+pNode push(pNode hp, int val, int N) {
 	DPRINT(cout << ">push val=" << val << " N="<< N << endl;);
 
 	cout << "your code here\n";
 
-	DPRINT(cout << "<push size=" << size(top) << endl;);
-	return top;
+	DPRINT(cout << "<push size=" << size(hp) << endl;);
+	return hp;
 }
 
 // removes the first node in the list and returns the new first node.
 // This destroys the removed node, effectively reduces its size by N.
-pNode pop(pNode top, int N) {
-	DPRINT(cout << ">pop size=" << size(top) << " N="<< N << endl;);
-	if (empty(top)) return nullptr;
+pNode pop(pNode hp, int N) {
+	DPRINT(cout << ">pop size=" << size(hp) << " N="<< N << endl;);
+	if (empty(hp)) return nullptr;
 
 	cout << "your code here\n";
 
-	DPRINT(cout << "<pop size=" << size(top) << endl;);
-	return top;
+	DPRINT(cout << "<pop size=" << size(hp) << endl;);
+	return hp;
 }
 
 // returns the first node in the list. This does not destroy the node.
-pNode top(pNode p) {
-	DPRINT(cout << ">top size=" << size(p) << endl;);
-	if (empty(top)) return nullptr;
+pNode top(pNode hp) {
+	DPRINT(cout << ">top size=" << size(hp) << endl;);
+	if (empty(hp)) return nullptr;
 
   cout << "your code here\n";
-	return p;
+	return hp;
 }
 
 // shows the values of all the nodes in the list if all is true or
 // the list size is less than pmax * 2. If there are more than
 // (pmax * 2) nodes, then it shows only pmax number of nodes from
 // the beginning and the end in the list.
-void show(pNode p, bool all) {
-	DPRINT(cout << "show(" << size(p) << ")\n";);
-	if (empty(p)) {
+void show(pNode hp, bool all) {
+	DPRINT(cout << "show(" << size(hp) << ")\n";);
+	if (empty(hp)) {
 		cout << "\n\tThe list is empty.\n";
 		return;
 	}
