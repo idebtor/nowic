@@ -18,14 +18,15 @@ int main(int argc, char **argv) {
 	clock_t begin;
 	pNode stack = nullptr;
 	pNode node;
-	bool show_all = true;  // toggle the way of showing values
-
+	int pmax = 10;			// print max item number - a magic number
+	bool show_all = true;   // toggle the way of showing values
+	
 	// Use setvbuf() to prevent the output from buffered on console.
 	setvbuf(stdin,  NULL, _IONBF, 0);
 	setvbuf(stdout, NULL, _IONBF, 0);
 
 	do {
-		cout << "\n\tStack(nodes:" << size(stack) << ") MENU\n";
+		cout << "\n\tStack(nodes:" << size(stack) << ", pmax:" << pmax << ") MENU\n";
 		cout << "\tf - push   O(1)\n";
 		cout << "\tp - pop    O(1)\n";
 		cout << "\tt - top    O(1)\n";
@@ -34,8 +35,8 @@ int main(int argc, char **argv) {
 			cout << "\ts - show [ALL]\n";
 		else
 			cout << "\ts - show [HEAD/TAIL]\n";
-		cout << "\tF - stress test: push N\n";
-		cout << "\tP - stress test: pop  N\n";
+		cout << "\tF - stress test: push N   O(n)\n";
+		cout << "\tP - stress test: pop  N   O(n)\n";
 		c = GetChar("\tCommand[q to quit]: ");
 
 		// execute the command
@@ -53,7 +54,7 @@ int main(int argc, char **argv) {
 		case 't':  // show the top of the stack
 			if (empty(stack)) break;
 			node = top(stack);
-			cout << "Top: " << node->item;
+			cout << "Top: " << node->item << endl;
 			break;
 
 		case 's': // toggle the way of showing
