@@ -151,7 +151,9 @@ pNode pop(pNode p, int val) {
 	return p;
 }
 
-// reverses the list. O(n)
+// reverses a singly-linked list and returns the new head. The last node
+// becomes the head node. Since it goes through the list once, the time 
+// complexity of this function is O(n). 
 pNode reverse(pNode head) {
 	if (empty(head)) return nullptr;    // nothing to reverse
 
