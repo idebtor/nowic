@@ -161,7 +161,7 @@ pNode reverse(pNode head) {
 	pNode curr = head;
 	cout << "your code here \n";
 
-	return prev;
+	return nullptr;
 }
 
 // shows the values of all the nodes in the list if all is true or 
