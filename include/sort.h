@@ -27,5 +27,11 @@ void selectionSort(int *list, int n);
 
 void bubbleSort(int *list, int n, int *(comp)(int, int));
 
+int ascending(int a, int b);
+int descending(int a, int b);
+
+// for initial samples 
+const int STARTING_SAMPLES = 500;
+
 // This is the end of the header guard
 #endif
