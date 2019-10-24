@@ -1,5 +1,5 @@
-/**
-* File: listdsx.cpp, listds.h
+﻿/**
+* File: listdbl.cpp, listdbl.h
 *       implements a doubly linked list with sentinel nodes
 *       and test it interactively
 * Author: Youngsup Kim, idebtor@gmail.com
@@ -11,6 +11,15 @@
 *    provide with benifits of coding consistency and easy maintenance.
 * 2. It does not implment C++ iterator (which is deprecated), but simulated
 *    most of memeber functions defined in std::List.
+* 
+* The following command removes some invisible bad character in the code file.
+*    iconv -f utf-8 -t utf-8 -c file.txt
+* will clean up UTF-8 file, skipping all the invalid characters in the cpp file.
+*    -f is the source format
+*    -t is the target format
+*    -c skips any invalid sequence
+*    -o sets for different output file
+*
 */
 
 #include <iostream>
@@ -44,20 +53,34 @@ pNode last(pList p) {
 // If the number of nodes are odd, it returns the one at the center.
 // For even numbers, it returns the first node of the second half.
 // For example, for list [0, 1, 2, 3, 4, 5, 6, 7], it returns 4.
-pNode half(pList p) {
+pNode half(pList p) {  // method 1
 
 	cout << "your code here. ";
 
 	return nullptr;
 }
 
-pNode half(pNode lo, pNode hi) {
-	if (lo == hi || lo->next == hi) return hi;
+#if 0
+pNode half(pList p) {  // method 2 - rabbit and turtle
+
 	cout << "your code here. ";
+
+	return nullptr;
+}
+#endif 
+
+// Using the same logic in half() as shown above, but use two input 
+// nodes as arguments. This function is useful when you want to find 
+// the mid elements in the linked list with nodes only.
+pNode half(pNode lo, pNode hi) {  // method 3 - rabbit and turtle
+	if (lo == hi || lo->next == hi) return hi;
+	cout << "your code here. \n";
 	return lo;
 	// return slow;
 }
 
+// The following code is an iterative version of the binary search algorithm.
+// Optionally, you may replace it with recursive algorithm. 
 pNode _binary_search(pNode lo, pNode hi, int key) {
 	do {
 		DPRINT(cout << "key=" << key << " lo=" << lo->item << " hi=" << hi->item;);
@@ -75,6 +98,10 @@ pNode _binary_search(pNode lo, pNode hi, int key) {
 	return nullptr;
 }
 
+// searches the key using binary search algorithm. The input sequence
+// is not an array, but a linked list. The algorithm is the same, but 
+// the parameters are a bit different since we must pass nodes around
+// instead of index since the elements are in linked list, not an array.
 pNode binary_search(pList p, int key) {
 	pNode mid = _binary_search(begin(p), end(p)->prev, key);
 	return mid;
