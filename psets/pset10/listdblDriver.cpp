@@ -62,6 +62,7 @@ int main(int argc, char **argv) {
 		cout << endl;
 		cout << "\tB - push backN   O(n)\t";  		cout << "\tS - push sortedN O(n^2)\n";
 		cout << "\tY - pop  backN   O(n)\t";		cout << "\tZ - push sortedN O(n log n)***\n";
+		cout << "\tF - binary search O(log n)\n";
 		c = GetChar("\tCommand[q to quit]: ");
 
 		switch (c) {	// execute the command
@@ -198,21 +199,17 @@ int main(int argc, char **argv) {
 
 		case 'F':
 			if (empty(p)) break;
+			if (!empty(p) && !sorted(p)) {
+				cout << "\n\tsort first for binary search and try it again\n";
+				break;
+			}
 			val = GetInt("\tEnter a value to search?: ");
 			start = clock();
-			node = find(p, val);
-			cout << "\tfind - cpu: " << ((clock_t)clock() - start) / (double)CLOCKS_PER_SEC << " sec ";
-			if (node != end(p))
-				cout << "\t found " << val << endl;
-			else
-				cout << "\t could not find " << val << endl;
-			start = clock();
 			node = binary_search(p, val);
-			cout << "\tbins - cpu: " << ((clock_t)clock() - start) / (double)CLOCKS_PER_SEC << " sec ";
 			if (node != nullptr)
-				cout << "\t found " << val << endl;
+				cout << "\tbinary_search: " << val << " found " << endl;
 			else
-				cout << "\t could not find " << val << endl;
+				cout << "\tbinary_search: " << val << " not found " << endl;
 			break;
 		}
 
@@ -228,6 +225,7 @@ int main(int argc, char **argv) {
 		case 'z':
 		case 'B':
 		case 'Y':
+		case 'F':
 		case 'S':
 		case 'Z':
 			cout << "\tcpu: "
