@@ -226,14 +226,11 @@ void pop_all(pList p, int val) {
 	for (pNode c = begin(p); c != end(p); c = c->next) {
 
 
-	}
-#endif
-
-#if 1
-	// O(n^2)
+	} // faster version
+#else
 	while (find(p, val) != end(p)) {
 		pop(p, val);
-	}
+	} // slower version
 #endif
 	DPRINT(cout << "<pop_all\n";);
 }
@@ -334,9 +331,9 @@ void reverse(pList p) {
 	DPRINT(cout << ">reverse\n";);
 	if (size(p) <= 1) return;
 
-	// hint: swap prev and next in every node including head & tail  
-	// then, swap head and tail.  
-	// hint: use while/for loop, but don't use begin()/end()
+	// Using a loop, swap prev and next in every node in the list
+	// including two sentinel nodes.
+	// Once finished, then, swap two sentinel nodes.  
 
 	cout << "your code here\n";
 	

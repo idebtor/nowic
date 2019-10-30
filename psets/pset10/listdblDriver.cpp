@@ -50,7 +50,7 @@ int main(int argc, char **argv) {
 		cout << "\tf - push front   O(1)\t";		cout << "\tp - pop front   O(1)\n";
 		cout << "\tb - push back    O(1)\t"; 		cout << "\ty - pop back    O(1)\n";
 		cout << "\ti - push         O(n)\t"; 		cout << "\td - pop         O(n)\n";
-		cout << "\tz - push sorted* O(n)\t";		cout << "\te - pop vals*   O(n)\n";
+		cout << "\tz - push sorted* O(n)\t";		cout << "\te - pop all v*  O(n)\n";
 		cout << "\n";
 		cout << "\ts - sort*        O(n^2)\t";		cout << "\tu - unique*     O(n)\n";
 		cout << "\tr - reverse**    O(n)\t"; 		cout << "\tx - shuffle***  O(n)\n";
