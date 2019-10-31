@@ -79,22 +79,26 @@ pNode half(pNode lo, pNode hi) {  // method 3 - rabbit and turtle
 	// return slow;
 }
 
-// The following code is an iterative version of the binary search algorithm.
-// Optionally, you may replace it with recursive algorithm. 
-pNode _binary_search(pNode lo, pNode hi, int key) {
+// This is an iterative version of the binary search algorithm for 
+// It works for a singly-linked list as well as doubly-linked list. 
+// Notice that the argument "last" is not used in the code, but I kept it 
+// for the compatability with the current proto-type defined in listdbl.h.
+pNode _binary_search(pNode start, pNode last, int key) {  // last is not used in the code
+	DPRINT(cout << "key= " << key << endl;);
+	pNode lo = start;
+	pNode hi = nullptr;
 	do {
-		DPRINT(cout << "key=" << key << " lo=" << lo->item << " hi=" << hi->item;);
-		pNode mid = half(lo, hi);
-		DPRINT(cout << "  mid=" << mid->item << endl;);
-		if (mid->item == key) return mid;
-		if (key > hi->item || key < lo->item) return nullptr;
+		pNode mid = half(lo, hi);           // find the mid element
+		if (mid == nullptr) return nullptr;	// not found
 
-		if (mid->item > key)
-			hi = mid;
-		else
-			lo = mid;
-	} while (lo != hi && lo->next != hi);
-	DPRINT(cout << "key=" << key << " not found " << endl;);
+		DPRINT(cout << "mid lo=" << lo->item << "  mid=" << mid->item << endl;);
+		if (mid->item == key) return mid;	// found the key
+
+		// set the new boundary(lo, hi) for search
+		mid->item < key ? lo = mid->next : hi = mid;
+	} while (hi == nullptr || hi != lo);
+
+	DPRINT(cout << "not found: lo=" << lo->item << " hi=" << hi->item << endl;);
 	return nullptr;
 }
 
@@ -484,7 +488,7 @@ void push_sortedN(pList p, int N) {
 //    together once. This is the same concept used in the 
 //    most famous "mergesort" algorithm except recursion. 
 // The values for new nodes are randomly generated in the range of 
-// [0..(N + size(p))]. For mac users, you use rand(). For pc, use 
+// [0..(N + size(p))). For mac users, you use rand(). For pc, use 
 // (rand() * RAND_MAX + rand()) instead of rand(). 
 void push_sortedNlog(pList p, int N) {
 	DPRINT(cout << "<push_sortedNlog N=" << N << endl;);
