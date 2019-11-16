@@ -92,6 +92,10 @@ tree rebalanceTree(tree root);	    // rebalances a tree repeatedly
 ///////////////// AVL/BST Tree Testing ////////////////////////////////////
 tree growN(tree t, int N, bool AVLtree);	// grow N nodes
 tree trimN(tree t, int N, bool AVLtree);	// trim N nodes
+
+// rebuilds an AVL/BST tree using a sorted list of nodes or keys
+tree buildAVL(tree* v, int n);              // v:a sorted list of nodes, n:size
+tree buildAVL(int* v, int n);               // v:a sorted array of keys, n:size
 											  
 void randomN(int *arr, int N, int start);	// returns N random ints
 void shuffle(int *arr, int N);				// shuffles the array
