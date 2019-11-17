@@ -123,7 +123,8 @@ int main(int argc, char* argv[]) {
 		sline = string{ line };
 	}
 	else {
-		string sline{ argv[1] };
+		cout << "argv[1]=" << argv[1] << endl;
+		sline = argv[1];
 	}
 	int N = (int)sline.length();
 	a[0] = ' ';
