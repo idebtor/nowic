@@ -83,4 +83,7 @@ void heapify(heap p);				// converts a CBT into a heap
 heap newCBT(int *a, int size);		// makes a complete binary tree
 void growCBT(heap p, int key);		// grows a node next to the last
 void trimCBT(heap p);				// trims a node at the last
+
+void heapprint(heap p);
+void heapprint_level(heap p);
 #endif
