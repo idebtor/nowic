@@ -79,7 +79,6 @@ int minimum(heap p) {
 
 int maximum(heap p) {
 	int key = p->nodes[1];
-	// if (heapOrdered(p)) return key;
 
 	for (int i = 2; i <= p->N; i++) {
 		if (key < p->nodes[i]) key = p->nodes[i];

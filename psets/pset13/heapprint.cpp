@@ -32,20 +32,49 @@
 
 void treeprint(tree t);
 
+// frees all nodes while traversing the tree like postorder
+tree clear(tree t) {
+	if (t) {
+		clear(t->left);
+		clear(t->right);
+		delete t;
+	}
+	return nullptr;
+}
+
+tree buildBT(int* nodes, int i, int n) {
+	DPRINT(std::cout << " buildBT i=" << i << " n=" << n << std::endl;);
+	if (i > n) return nullptr;
+
+	std::cout << "your code here\n";
+
+	return  nullptr;
+}
+
+tree buildBT(heap p) {
+	DPRINT(std::cout << " buildBT p" << std::endl;);
+
+	std::cout << "your code here\n";
+
+	return  nullptr;
+}
+
 void heapprint(heap p) {
 	DPRINT(std::cout << ">heapprint\n";);
 	if (empty(p)) return;
 
-	std::cout << "your code here\n";
+#if 0
+	tree root = buildBT(p->nodes, 1, size(p));
+#else
+	tree root = buildBT(p);
+#endif
 
-	// treeprint(root);
-
-	// treeprint_levelorder(root);  // may use this instead of heapprint_levelorder()
+	clear(root);
 	DPRINT(std::cout << "<heapprint\n";);
 }
 
-void heapprint_levelorder(heap p) {
-	DPRINT(std::cout << ">heapprint_levelorder\n";);
+void heapprint_level(heap p) {
+	DPRINT(std::cout << ">heapprint_level\n";);
 	if (empty(p)) return;
 	int N = size(p);                   // number of nodes, N is the last index
 	int max_level = height(N);         // total number of levels, starting at 1
@@ -58,5 +87,5 @@ void heapprint_levelorder(heap p) {
 			std::cout << std::endl;
 		}
 	}
-	DPRINT(std::cout << "<heapprint_levelorder\n";);
+	DPRINT(std::cout << "<heapprint_level\n";);
 }

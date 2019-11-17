@@ -25,9 +25,6 @@
 #include "heap.h"
 using namespace std;
 
-void heapprint(heap p);
-void heapprint_levelorder(heap p);
-
 heap build_heap_by_args(int argc, char* argv[]) {
 	DPRINT(cout << ">build_heap_by_args\n";);
 	if (argc <= 1) return nullptr;
@@ -58,11 +55,11 @@ void heapprint_mode(heap hp, int mode) {
 	if (mode == 0)
 		heapprint(hp);
 	else if (mode == 1)
-		heapprint_levelorder(hp);
+		heapprint_level(hp);
 	else {
 		heapprint(hp);
 		cout << endl;
-		heapprint_levelorder(hp);
+		heapprint_level(hp);
 	}
 }
 
