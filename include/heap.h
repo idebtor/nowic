@@ -42,7 +42,8 @@ struct Heap {						// heap or min/max priority queue
 
 	Heap(int capa = 2) {
 		capacity = capa;
-		nodes = new int[capacity];
+		nodes = (int *)malloc(capa * sizeof(int)); // works with realloc() & free()
+		//nodes = new int[capacity]; // unsafe use with realloc() & free()        
 		N = 0;
 		comp = nullptr;
 	};
