@@ -11,6 +11,19 @@ Lecture Notes by idebtor@gmail.com
 
   These reading materials is available at my [github.com/idebtor/nowic](https://github.com/idebtor/nowic).
 
+### How to view markdown(.md) files in Chrome (or rendering in HTML)
+  0. View them always in github website automatically and better.
+  - and/or
+  1. Install `Markdown Viewer` extension.
+  2. Navigate to `chrome://extensions` and
+      - Locate `Markdown Viewer` and click on the `DETAILS` button
+      - Check the option `Allow access to file URLs`
+  2. 크롬에서 `chrome://extensions` 접속 한 후,
+      - `Markdown Viewer` `세부정보`에서
+      - "파일 URL에 대한 액세스 허용"을 체크한다.
+  3. Open local or remote .md file in Chrome.
+  4. Enjoy nicely formatted HTML!
+
 ## Join Piazza.
 There are two ways to join Piazza, go the www.piazza.com.
   - To join Piazza, you may need the following information and
@@ -21,21 +34,87 @@ There are two ways to join Piazza, go the www.piazza.com.
   - On your request with your email address, I may register it for you.  We'll be conducting all class-related discussion here this term. The quicker you begin asking questions on Piazza (rather than via emails), the quicker you'll benefit from the collective knowledge of your classmates and instructors. We encourage you to ask questions when you're struggling to understand a concept—you can even do so anonymously.
 
 ## Install GCC (GNU Compiler Collection) for Mac OS X
-  - For mac, [good installation guide](https://thdev.net/132)
-
+  - For mac, it is really simple.
+  - Start a terminal and run the following command. Follow instructions if needed.
+      ```
+        $ xcode-select --install    
+      ```
+  - Check GCC installation with the following command. It has been installed if you see some version numbers.
+      ```
+        $ g++ -v  
+      ```
 ## Install GCC (GNU Compiler Collection) for Windows
   - To use g++ in Windows, we need to install two packages:
-    - MSYS2
+    - MSYS2    (__important note:__ install MSYS2 first)
     - MinGW-w64
 
-#### Install MSYS2 for Windows
-  - Installing MSYS2 is relatively simple.
+### Install MSYS2 for Windows _"first"_.
+  - Installing __MSYS2__ is relatively simple.
   - Connect this [website](http://www.msys2.org/) http://www.msys2.org/
   - Select this __msys2-x86_64-20190524.exe__ for 64 bit version.
+  - Download and install it while accept all the default setting.
+    - At the end, you will see a console opened when you accept all the default.
+    - If not, open a console `MSYS2` console or run `C:\msys64\msys2.exe`.
+  - At the console, run the following command to update the package database and core system packages with: (__$__ in the command line below is a console prompt: don't type it.)
+  ```
+    $ pacman -Syu     
+  ```    
+  - If you see some _failure messages_ during installation, run it __a couple of times__ until you see a very long list of downloads. Even you may need to restart a console. To restart a console, run `C:\msys64\msys2.exe`.
   - You may follow this [good installation guide](http://blog.naver.com/PostView.nhn?blogId=adapriest&logNo=220981281896&parentCategoryNo=&categoryNo=&viewDate=&isShowPopularPosts=false&from=postView)
 
-#### Install MinGW-w64 (64 bit version recommended) for Windows
-  - For MinGW-w64, follow this [good installation guide](https://brunch.co.kr/@mystoryg/56) available.
+### Install MinGW-w64 (64 bit version recommended) for Windows
+  - Open a console MSYS2 console and run the following command. Accept the default as they are. If some packages fail, run it again.  
+
+  ```
+    $ pacman -S mingw-w64-x86_64-gcc
+  ```
+
+### Add the following two paths to the user's environment `PATH` variable.
+  - The following two paths may be differen in your system. Check and copy them instead of typing.
+    - `c:\msys2\mingw64\bin`     
+    - `C:\msys64\usr\bin`
+  - If you want to use it in `mintty`, add them to your `.bash_profile`.
+    - Follow instructions in ["UsingMintty.md" file](https://github.com/idebtor/nowic/blob/master/02UsingMintty.md) stored in this folder.
+
+### Check GCC (MSYS2 and MinGW64-w64) installation:
+  - Start a console(`cmd` or `Powershell` in Windows) or open a `mintty` console.
+  - To check installation, run the following command:
+
+  ```
+  g++ --version
+  ```
+  - You may see something like below:
+    ```
+    g++ --version
+    g++.exe (Rev2, Built by MSYS2 project) 9.2.0
+    Copyright (C) 2019 Free Software Foundation, Inc.
+    This is free software; see the source for copying conditions.  There is NO
+    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    ```
+  - If you installed it in a different way, you may see .
+    ```
+    $ g++ --version
+    g++.exe (x86_64-posix-seh-rev0, Built by MinGW-W64 project) 8.1.0
+    Copyright (C) 2018 Free Software Foundation, Inc.
+    This is free software; see the source for copying conditions.  There is NO
+    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    ```
+
+  - If you see something different from `x86_64-posix-seh-rev0` or `Built by MSYS2 project`, you have chosen a wrong version. Go through the installation process with caution again.
+
+#### MinGW-w64 [installation Problem](https://stackoverflow.com/questions/57894158/mingw-w64-installation-fails-with-error-res-in-windows-10): ERROR res
+    - In some PC Windows, we have experienced a difficulty during MinGW-w64 installation.
+    - It fails with __`ERROR res`__ during the installation. I posted [this question](https://stackoverflow.com/questions/57894158/mingw-w64-installation-fails-with-error-res-in-windows-10) in the __stackoverflow__ and got [this answer](https://stackoverflow.com/questions/30069830/how-to-install-mingw-w64-and-msys2/30071634#30071634). You may go their recommendation.
+    - In summary, you install __MSYS2__ first, and then install __MinGW-w64__ as part of __MSYS2__.
+      - __MSYS2__ installation is really easy and rarely fails.
+      - It comes with a command-line package manager (`pacman`).
+      - It offers always the newest `MinGW-w64/GCC` combo available.
+      - You can also install many other packages compatible with this toolchain.
+      - For details see [this answer](https://stackoverflow.com/questions/30069830/how-to-install-mingw-w64-and-msys2/30071634#30071634).
+    - Don't forget adding the path `C:/mingw64/bin` to your __PATH__ environment variable.
+
+#### This is another way to install MinGW-w64. (Not recommended)
+This method fails when the user uses __KoreanUserName__. For MinGW-w64, follow this [good installation guide](https://brunch.co.kr/@mystoryg/56) available.
     - __IMPORTANT NOTE__ During the installation, select the following option:
     ```
       Architecture  x86_64
@@ -48,39 +127,6 @@ There are two ways to join Piazza, go the www.piazza.com.
     ```
     C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin
     ```
-
-## Checking GCC installation:
-- Start a console through Mintty if available, otherwise use `cmd` or `PowerShell` in Windows.
-- To test installation, run the command `g++ --version` and  see the following:
-
-    ```
-    $ g++ --version
-    g++.exe (x86_64-posix-seh-rev0, Built by MinGW-W64 project) 8.1.0
-    Copyright (C) 2018 Free Software Foundation, Inc.
-    This is free software; see the source for copying conditions.  There is NO
-    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    ```
-    or (if you installed it through MSYS2)
-    ```
-    g++ --version
-    g++.exe (Rev2, Built by MSYS2 project) 9.2.0
-    Copyright (C) 2019 Free Software Foundation, Inc.
-    This is free software; see the source for copying conditions.  There is NO
-    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-    ```
-- If you see something different from `x86_64-posix-seh-rev0` or `Built by MSYS2 project`, you have chosen a wrong version. Go through the installation process with caution again.
-
-#### MinGW-w64 [installation Problem](https://stackoverflow.com/questions/57894158/mingw-w64-installation-fails-with-error-res-in-windows-10): ERROR res
-  - In some PC Windows, we have experienced a difficulty during MinGW-w64 installation.
-  - It fails with __`ERROR res`__ during the installation. I posted [this question](https://stackoverflow.com/questions/57894158/mingw-w64-installation-fails-with-error-res-in-windows-10) in the __stackoverflow__ and got [this answer](https://stackoverflow.com/questions/30069830/how-to-install-mingw-w64-and-msys2/30071634#30071634). You may go their recommendation.
-  - In summary, you install __MSYS2__ first, and then install __MinGW-w64__ as part of __MSYS2__.
-    - __MSYS2__ installation is really easy and rarely fails.
-    - It comes with a command-line package manager (`pacman`).
-    - It offers always the newest `MinGW-w64/GCC` combo available.
-    - You can also install many other packages compatible with this toolchain.
-    - For details see [this answer](https://stackoverflow.com/questions/30069830/how-to-install-mingw-w64-and-msys2/30071634#30071634).
-  - Don't forget adding the path `<your MSYS2 root>/mingw64/bin` to your __PATH__ environment variable.
-
 ---------------------------------
 
 ## Using Mintty instead of cmd or PowerShell.
@@ -94,12 +140,13 @@ There are two ways to join Piazza, go the www.piazza.com.
 
     - Platformio-ide-terminal
       - On successful installation, you will see a +sign at the bottom-left corner of the editor. Click + sign to open a console.
-    - File-icons
-    - Minimap
+    - atom-file-icons
+    - minimap
     - Markdown-preview
       - Open a rendered version of the Markdown in the current editor with `ctrl-shift-m`.
     - Autosave
-      - It automatically saves files when the editors loses focus, are destroyed, or when the window is closed. Believe or not, it is disabled by default. __You must check `enabled`__ in config setting or from the Autosave section of the Settings view.
+      - It automatically saves files when the editors loses focus, are destroyed, or when the window is closed.
+      - Believe or not, it is disabled by default. __You must check `enabled`__ in config setting or from the Autosave section of the Settings view.
 
     __Themes of my personal preference__:
       - UI Theme - Atom Dark,
@@ -132,10 +179,9 @@ After installation of GitHub Desktop, be a member if already not.
   - Since this `nowic` repository can be updated anytime, keep this local repository as "read-only".  Don't code yours here!.
   - Copy them into your own repository or your own local development folders in your computer you can easily access them.  They should look like the following:
     ```
-    ~/nowic/c++cc             # c++ for c coders
     ~/nowic/include           # include files
     ~/nowic/labs              # labs
-    ~/nowic/lib               # nowic.lib, libnowic.a
+    ~/nowic/lib               # nowic.lib, libnowic.a, libnowic_mac.a
     ~/nowic/src               # all source files except labs
     ~/nowic/psets             # problem sets - homework
     ```
@@ -156,12 +202,12 @@ After installation of GitHub Desktop, be a member if already not.
       - Go to the ~/nowic folder.
       - Open a console and run the following two commands.
       ```
-      git stash
+      git fetch --all
+      git reset --hard origin/master
       ```
       or
       ```
-      git fetch --all
-      git reset --hard origin/master
+      git stash
       ```
       __Explanation:__ `git fetch` downloads the latest from remote without trying to merge or rebase anything. Then the `git reset` resets the master branch to what you just fetched. The `--hard` option changes all the files in your working tree to match the files in origin/master
       __Caution:__ If you have any local changes, they will be lost. With or without --hard option, any local commits that haven't been pushed will be lost.
