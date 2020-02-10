@@ -39,7 +39,7 @@ There are two ways to join Piazza, go the www.piazza.com.
       ```
         $ xcode-select --install    
       ```
-  - Check GCC installation with the following command. It has been installed if you see some version numbers.
+  - Check GCC installation with the following command. It has been installed successfully if you see some version numbers.
       ```
         $ g++ -v  
       ```
@@ -48,7 +48,7 @@ There are two ways to join Piazza, go the www.piazza.com.
     - MSYS2    (__important note:__ install MSYS2 first)
     - MinGW-w64
 
-### Install MSYS2 for Windows _"first"_.
+### Install MSYS2 _"first"_.
   - Installing __MSYS2__ is relatively simple.
   - Connect this [website](http://www.msys2.org/) http://www.msys2.org/
   - Select this __msys2-x86_64-20190524.exe__ for 64 bit version.
@@ -62,7 +62,7 @@ There are two ways to join Piazza, go the www.piazza.com.
   - If you see some _failure messages_ during installation, run it __a couple of times__ until you see a very long list of downloads. Even you may need to restart a console. To restart a console, run `C:\msys64\msys2.exe`.
   - You may follow this [good installation guide](http://blog.naver.com/PostView.nhn?blogId=adapriest&logNo=220981281896&parentCategoryNo=&categoryNo=&viewDate=&isShowPopularPosts=false&from=postView)
 
-### Install MinGW-w64 (64 bit version recommended) for Windows
+### Install MinGW-w64 (64 bit version recommended)
   - Open a console MSYS2 console and run the following command. Accept the default as they are. If some packages fail, run it again.  
 
   ```
@@ -81,11 +81,11 @@ There are two ways to join Piazza, go the www.piazza.com.
   - To check installation, run the following command:
 
   ```
-  g++ --version
+  $ g++ --version
   ```
   - You may see something like below:
     ```
-    g++ --version
+    $ g++ --version
     g++.exe (Rev2, Built by MSYS2 project) 9.2.0
     Copyright (C) 2019 Free Software Foundation, Inc.
     This is free software; see the source for copying conditions.  There is NO
