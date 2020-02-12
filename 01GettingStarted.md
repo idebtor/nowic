@@ -227,9 +227,10 @@ After installation of GitHub Desktop, be a member if already not.
     ```
     Atom hello.cpp
     ```
-  - Build an executable. The output name depends on your OS: hello.exe, a.exe for windows; hello.out, a.out for linux
+  - Build an executable. The output name depends on your OS: hello.exe, a.exe for windows; hello.out, a.out for linux and macOS. Mac users may need to add -std=c++11 option to compile as shown below:
     ```
-    g++ hello.cpp -o hello            # hello.exe or hello.out
+    g++ hello.cpp -o hello            # hello.exe
+    g++ -std=c++11 hello.cpp -o hello # hello.out for macOS
     g++ hello.cpp                     # a.exe or a.out
     ```
   - Run the executable.
@@ -272,10 +273,13 @@ Observe two versions `Hello World!` program to see the difference. The differenc
 To run the program, you must make an executable from the source code file, `hello.cpp`. We use the compiler to generate an __executable__ (or runnable) file from the code in the source file.  The executable file ends with `.exe` or `.out` extension as our source file ends with `.cpp` extension. We might compile the file as follows:
 
 - On the console, type the following line (without $) and press `Enter` key.
+- Mac users may need to add -std=c++11 option to compile as shown below:
 ```
-$ g++ hello.cpp         # generates a.exe, a.out
-$ ./a.exe               # runs a.exe
-$ ./a                   # runs a.exe, a.out
+$ g++ hello.cpp              # generates a.exe, a.out
+$ g++ -std=c++11 hello.cpp   # for macOS
+$ ./a.exe                    # runs a.exe            for PowerShell
+$ ./a                        # runs a.exe, a.out     for PowerShell and macOS
+$ a                          # for Cmd Windows
 ```
 - The line above compiles (and links) the source code and generates an executable called `a.exe` or `a.out`.
 - `$` is a console prompt. (You don't need to enter it.)
@@ -285,7 +289,8 @@ $ ./a                   # runs a.exe, a.out
 ```
 $ g++ hello.cpp -o hello        # generates hello.exe
 $ ./hello.exe                   # runs hello.exe
-$ ./hello                       # runs hello.exe, hello.out
+$ ./hello                       # runs hello.exe, hello.out for macOS & PS
+$ hello                         # for Cmd Windows
 ```
 
   __JoyNote:__
