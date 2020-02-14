@@ -24,7 +24,7 @@ int main(int argc, char **argv) { /* ... */ }
 Argv[0] is the name of the program , After that till argv[argc-1] every element is command -line arguments.
 
 ```
-// Name of program argcargv.cpp
+// Name of program args.cpp
 #include <iostream>
 using namespace std;
 
@@ -40,7 +40,7 @@ int main(int argc, char** argv) {
 
 Input:
 ```
-$ g++ argcargv.cpp -o arg
+$ g++ args.cpp -o arg
 $ ./arg command line args
 ```
 Output:
