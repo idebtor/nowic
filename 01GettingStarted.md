@@ -51,7 +51,7 @@ There are two ways to join Piazza, go the www.piazza.com.
 ### Install MSYS2 _"first"_.
   - Installing __MSYS2__ is relatively simple.
   - Connect this [website](http://www.msys2.org/) http://www.msys2.org/
-  - Select this __msys2-x86_64-20190524.exe__ for 64 bit version.
+  - Select this __msys2-x86_64-20190524.exe__ for 64 bit version.(the second button, usually)
   - Download and install it while accept all the default setting.
     - At the end, you will see a console opened when you accept all the default.
     - If not, open a console `MSYS2` console or run `C:\msys64\msys2.exe`.
@@ -69,11 +69,15 @@ There are two ways to join Piazza, go the www.piazza.com.
     $ pacman -S mingw-w64-x86_64-gcc
   ```
 
-### Add the following two paths to the user's environment `PATH` variable.
-  - The following two paths may be differen in your system. Check and copy them instead of typing.
-    - `c:\msys2\mingw64\bin`     
-    - `C:\msys64\usr\bin`
-  - If you want to use it in `mintty`, add them to your `.bash_profile`.
+### Add the following two paths to the user's (or system's) environment `PATH` variable.
+  - The first one we want to add to the PATH is the path where `g++.exe` exists.
+  - The second one is the path where some utility commands such as `ls`, `cat` and `cp` exist.
+  - By default, the paths are:
+      - `c:\msys64\mingw64\bin`  
+      - `c:\msys64\usr\bin`                         
+  - But it is a good idea to check and copy the folders instead of typing.
+
+  - If you want to use it in `mintty` or `MSYS2/Mingw64` consoles, add them to your `.bash_profile` as well.
     - Follow instructions in ["UsingMintty.md" file](https://github.com/idebtor/nowic/blob/master/02UsingMintty.md) stored in this folder.
 
 ### Check GCC (MSYS2 and MinGW64-w64) installation:
@@ -129,8 +133,8 @@ This method fails when the user uses __KoreanUserName__. For MinGW-w64, follow t
     ```
 ---------------------------------
 
-## Using Mintty instead of cmd or PowerShell.
-  - To use Mintty, follow instructions in ["UsingMintty.md" file](https://github.com/idebtor/nowic/blob/master/02UsingMintty.md) stored in this folder.
+## Using Mintty/MSYS2 console instead of cmd or PowerShell.
+  - To use Mintty or MSYS2 console, follow instructions in ["UsingMintty.md" file](https://github.com/idebtor/nowic/blob/master/02UsingMintty.md) stored in this folder.
 
 -----------------------------------
 ## Install Atom.

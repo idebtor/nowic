@@ -50,19 +50,20 @@ LS_COLORS=$LS_COLORS':no=00:di=36;01'
 LS_COLORS=$LS_COLORS':*.h=1;33:*.exe=31:*.o=1;32:*.md=1;33'
 export LS_COLORS
 #export PATH=$PATH:"C:\Program Files\mingw-w64\x86_64-8.1.0-win32-seh-rt_v6-rev0\mingw64\bin"
-export PATH=$PATH:"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin"
+#export PATH=$PATH:"C:\Program Files\mingw-w64\x86_64-8.1.0-posix-seh-rt_v6-rev0\mingw64\bin"
+export PATH=$PATH:"C:\msys64\mingw64\bin"
+export PATH=$PATH:"C:\msys64\usr\bin"
+export PATH=$PATH:"C:\Users\$USER\AppData\Local\atom\bin"
 
-### replace 'user' with your own user name in the following line:
-export PATH=$PATH:"C:\Users\user\AppData\Local\atom\bin"
-
-### print the present working directory
+#echo c:/mingw64/home/user/.bash_profile
+echo c:/msys64/home/$USER/.bash_profile
 echo $PWD
 
 # Setting my dev folder as a startup folder of msys.
+# HOME="/c/users/${LOGNAME}/DropBox"
 HOME="/c/GitHub/nowic"
 cd $HOME
 
-echo $PWD
 # @$(hostname) may be added, if necessary, after $(whoami)
 GREEN="$(tput setaf 2)"
 RESET="$(tput sgr0)"
