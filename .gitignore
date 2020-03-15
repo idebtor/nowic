@@ -1,5 +1,5 @@
-# Use the following command if an item is already in the tracing. 
-# For example, to remove *.db-shm 
+# Use the following command if an item is already in the tracing.
+# For example, to remove *.db-shm
 # git rm -r --cached *.db-shm
 #
 #OS junk files
@@ -26,7 +26,7 @@
 *.[Cc]ache
 *.ilk
 *.log
-*.lib
+#*.lib
 *.sbr
 *.sdf
 ipch/
@@ -44,7 +44,8 @@ Ankh.NoLoad
 *.com
 *.class
 *.dll
-# *.o
+*.o
+*.d
 *.so
 
 # Packages #
