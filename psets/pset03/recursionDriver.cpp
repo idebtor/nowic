@@ -35,7 +35,7 @@ int triangle(int a);
 int sumDigits(int n);
 int count8(int n);
 long long powerN(int base, int n);
-void quickSort(int *lsit, int N);
+void mergeSort(int *lsit, int N);
 int binary_search(int *list, int key, int size);
 
 int main(int argc, char *argv[]) {
