@@ -36,8 +36,18 @@ int sumDigits(int n);
 int count8(int n);
 long long powerN(int base, int n);
 
-void mergeSort(int *list, int N);
-int binary_search(int *list, int key, int size);
+int binary_search(int* list, int key, int N);
+int mergeSort(int* list, int* aux, int N, int lo, int hi);
+
+// merge_sort interface with mergeSort() described in the lecture PPT.
+void merge_sort(int* list, int N) {
+	int* aux = new (nothrow) int[N];
+	assert(aux != nullptr);
+
+	mergeSort(list, aux, N, 0, N - 1);
+
+	delete[] aux;
+}
 
 int main(int argc, char *argv[]) {
 	int option;
@@ -147,7 +157,7 @@ int main(int argc, char *argv[]) {
 				for (int i = 0; i < N; i++)
 					list[i] = rand() % N;
 
-				mergeSort(list, N);
+				merge_sort(list, N);
 				cout << "\t";
 				for (int i = 0; i < N; i++) 
 					cout << list[i] << " ";
