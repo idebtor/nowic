@@ -57,7 +57,6 @@ struct stack {
 
 // Stay tuned since we are going to use C++ Template to make them into
 // one or a generic function.
-// prints stack items from botton to top recursively.
 void printStack(stack<int> s) {
 	cout << "stack<int>: your code here\n";
 }
