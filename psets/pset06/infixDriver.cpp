@@ -39,7 +39,7 @@ int main() {
 
 #if 1
 	int out;
-	cout << "Step 1: Simple cases[-2, 9, 6]" << endl;
+	cout << "Step 1: Simple cases[-2, -9, 6]" << endl;
 	string infix1[] = {"1 - 3", "1 - (2 * 5)", "( ( 3 - 1 ) * 5 ) - 4)"};
 	for (auto exp: infix1) {
 		out = evaluate(exp);
