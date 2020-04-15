@@ -24,7 +24,11 @@ struct Node {
 	Node(int i = 0, Node* n = nullptr) {
 		item = i, next = n;
 	}
-	// Node(int i, Node* n): item(i), next(nullptr) {}
+	/* initializer list
+	Node() : item(0), next(nullptr) {};
+	Node(int i) : item(i), next(nullptr) {};
+	Node(int i, Node* n): item(i), next(n) {}
+	*/
 	~Node() {}
 };
 using pNode = Node*;

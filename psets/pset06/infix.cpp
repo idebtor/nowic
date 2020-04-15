@@ -14,6 +14,7 @@
 //
 #include <iostream>
 #include <cassert>
+#include <cmath>
 // #include <stack>
 using namespace std;
 
@@ -35,7 +36,7 @@ struct stack {
 	bool empty() const {
 		return item.empty();
 	}
-	auto size() const {
+	int size() const {
 		return item.size();
 	}
 	void push(T const& data) {
