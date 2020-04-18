@@ -1,6 +1,9 @@
-//  listnode.h
-//  Created by idebtor@gmail.com on December 12, 2018.
-//  This header file contains a simple linked list of nodes.
+//  
+// listnode.h
+// contains structures and functions for a simply-linked list of nodes.
+// 
+// 2018.12.12 Created by idebtor@gmail.com 
+// 2020.04.15 Added reverse functions and push_N()
 
 #ifndef LISTNODE_H
 #define LISTNODE_H
@@ -16,62 +19,50 @@
 
 using namespace std;
 
-// Node structs contain data and a pointer to the next node.
+// Node struct contains data and a pointer to the next node.
 struct Node {
-	int		item;
+	int		data;
 	Node*	next;
-	// constructor instantiates a node with default arguments
-	Node(int i = 0, Node* n = nullptr) {
-		item = i, next = n;
+	// constructor with default arguments
+	Node(int i = 0, Node* n = nullptr) { 
+		data = i, next = n;
 	}
-	/* initializer list
-	Node() : item(0), next(nullptr) {};
-	Node(int i) : item(i), next(nullptr) {};
-	Node(int i, Node* n): item(i), next(n) {}
-	*/
+	/* initializer list /////////////////////
+	Node() : data(0), next(nullptr) {};
+	Node(int i) : data(i), next(nullptr) {};
+	Node(int i, Node* n): data(i), next(n) {};
+	*////////////////////////////////////////
 	~Node() {}
 };
+
 using pNode = Node*;
 
-// removes all the nodes from the list (which are destroyed),
-// and leaving the container nullptr or its size to 0.
-pNode clear(pNode p);	// free linked nodes and returns nullptr
+Node* clear(Node* p);	// free linked nodes and returns nullptr
+Node* last(Node* p);	// returns the last node
+bool empty(Node* p);	// true if empty, otherwise false
+int size(Node* p);		// returns size in the list
 
-pNode last(pNode p);	// returns the last node
-bool empty(pNode p);	// true if empty, otherwise false
-int size(pNode p);		// returns size in the list
+Node* push_front(Node* p, int x);	// pushes a new node at the front
+Node* push_back(Node* p, int x);	// pushes a new node at the back
+Node* push(Node* p, int val, int x);// pushes a new node at the position x
+Node* push_backN(Node *p, int N);	// pushes N nodes to the back, O(n^2)
+Node* push_frontN(Node* p, int N);  // pushes N nodes to the front, O(n)
+// pushes N nodes using either push_back or push_front function pointer.
+Node* push_N(Node* p, int N, Node* (*push_fp)(Node *, int));
 
-// inserts a new node with val at the beginning of the list and 
-// returns the new first node.
-// This effectively increases the list size by one.
-pNode push_front(pNode p, int x);	
+Node* pop_front(Node* p);			// pops the first node in the list
+Node* pop_back(Node* p);			// pops the last node in the list, O(n)
+Node* pop(Node* p, int val);	    // pops the node with the val
+Node* pop_backN(Node* p, int N);    // pops N nodes from the end, O(n^2)
+Node* pop_frontN(Node* p, int N);   // pops N nodes from the front, O(n)
+// pops N nodes using either pop_back or pop_front function pointer.
+Node* pop_N(Node* p, int N, Node* (*pop_fp)(Node*));
 
-// inserts a new node with val at the end of the list and 
-// returns the first node.
-// This effectively increases the container size by one.
-pNode push_back(pNode p, int x);	
+Node* reverse_using_stack(Node* p); // reverses list using stack, O(n), O(n)
+Node* reverse_in_place(Node* p);	// reverses list in-place, O(n), O(1)
+Node* reverse_odd2(Node* p);		// reverses nodes in subgroups of odds in O(n^2)
+Node* reverse_oddn(Node* p);		// reverses nodes in subgroups of odds in O(n)
 
-// inserts a new node with val at the position of the node with x.
-// The new node is actually inserted in front of the node with x.
-// It returns the first node of the list. 
-// This effectively increases the container size by one.
-pNode push(pNode p, int val, int x);
-
-// adds N number of new nodes at the end of the list, O(n)
-// Values of new nodes are randomly generated in the range of
-// [0..(N + size(p))].
-// Since it simply calls push_back() repeatedly, it is O(N^2).
-pNode push_backN(pNode p, int N);	
-
-pNode pop_front(pNode p);			// deletes the first node in the list
-pNode pop_back(pNode p);			// deletes the last node in the list, O(n)
-pNode pop(pNode p, int val);	    // deletes the node with the val
-pNode pop_backN(pNode p, int N = 0);// deletes N nodes from the end, O(N^2)
-                                    // deletes all nodes by default (N = 0)
-pNode reverse(pNode p);				// reverses the list O(n)
-
-// shows values of nodes in list.
-// prints pmax * 2 items if all is false.
-// prints all items in p if all is true.
-void show(pNode p, bool all = true, int pmax = 10);
+// if all is true, show all nodes; otherwise, show_n * 2 nodes from front & back. 
+void show(Node* p, bool all = true, int show_n = 12);  // 12: a default magic number
 #endif
