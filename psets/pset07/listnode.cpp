@@ -247,19 +247,6 @@ pNode pop(pNode p, int val) {
 	return p;
 }
 
-// reverses a singly-linked list and returns the new head. The last node
-// becomes the head node. Since it goes through the list once, the time
-// complexity of this function is O(n).
-pNode reverse(pNode head) {
-	if (empty(head)) return nullptr;    // nothing to reverse
-
-	pNode prev = nullptr;
-	pNode curr = head;
-	cout << "your code here \n";
-
-	return nullptr;
-}
-
 // reverses a singly-linked list using stack and returns the new head. 
 // The last node becomes the head node. This function pushes all of its 
 // nodes onto a stack. Then top/pop stack and relink the nodes again. 
