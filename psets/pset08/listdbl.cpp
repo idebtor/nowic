@@ -241,9 +241,8 @@ unsigned long rand_extended(int range) {
 }
 
 // adds N number of new nodes at the end of the list. O(n)
-// If the value is given, randomly generated numbers are pushed in the 
-// range of [0..(N + size(p))]. Otherwise, simply insert the same value 
-// for N times.
+// Randomly generated numbers in the range of [0..(N + size(p))]
+// are pushed to the end of the list. 
 void push_backN(pList p, int N) {
 	DPRINT(cout << ">push_backN N=" << N << endl;);
 	int psize = size(p);
@@ -254,6 +253,9 @@ void push_backN(pList p, int N) {
 	cout << "\n";
 	DPRINT(cout << "<push_backN N=" << N << endl;);
 }
+
+// adds N number of new nodes at the end of the list. O(n)
+// It simply inserts the same value given for N times.
 void push_backN(pList p, int N, int value) {
 	DPRINT(cout << ">push_backN N=" << N << "value=" << value << endl;);
 	int psize = size(p);
