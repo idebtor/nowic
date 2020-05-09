@@ -136,9 +136,9 @@ void show_timeit(int begin) { 	// display elapsed time
 }
 
 int main(int argc, char **argv) {
-	string menuBT = "[BT] ";
-	string menuBST = "[BST] ";
-	string menuAVL = "[AVL] ";
+	string menuBT = "Menu [BT] ";
+	string menuBST = "Menu [BST] ";
+	string menuAVL = "Menu [AVL] ";
 	string showMenu[] = { "[tree]", "[level]", "[tasty]" };
 	int showMode = TREE_MODE;  // by default, display both [tree] only
 	bool AVLtree = false;
@@ -154,12 +154,12 @@ int main(int argc, char **argv) {
 	if (argc > 1) {
 		int treeTypeBuilt;
 		root = build_tree_by_args(argc, argv, treeTypeBuilt);
-		if (treeTypeBuilt == BST_MODE)
-			BSTtree = true;
-		else if (treeTypeBuilt == AVL_MODE)
-			AVLtree = true;
-		else
+		if (treeTypeBuilt == BT_MODE)
 			AVLtree = BSTtree = false;
+		else if (treeTypeBuilt == AVL_MODE) 
+			AVLtree = BSTtree = true;
+		else
+			BSTtree = true;
 	}
 
 	do {
@@ -176,8 +176,8 @@ int main(int argc, char **argv) {
 		cout << "\to - BST or AVL?\t";            cout << "\tp - find path&back [BT]\n";
 		cout << "\tr - rebalance tree**";         cout << "\tl - traverse       [BT]\n";
 		cout << "\tL - LCA*       \t";            cout << "\tB - LCA*           [BT]\n";
-		cout << "\ts - switch BST<->AVL**";       cout << "\tC - convert BT to BST*\n";
-		cout << "\tc - clear\t"; 				  cout << "\tm - show mode:" << showMenu[showMode] << endl; 
+		cout << "\tm - menu [BST]/[AVL]**";       cout << "\tC - convert BT to BST*\n";
+		cout << "\tc - clear\t"; 				  cout << "\ts - show mode:" << showMenu[showMode] << endl; 
 		
 		c = GetChar("\tCommand(q to quit): ");
 		
@@ -232,7 +232,8 @@ int main(int argc, char **argv) {
 			}
 
 			// after adding a node, check and reset the tree status flag.
-			BSTtree = isBST(root);   if (BSTtree) AVLtree = isAVL(root);
+			BSTtree = isBST(root);   
+			AVLtree = isAVL(root);
 			break;
 		
 		case 'd': // delete a child (it may become an invalid BST/AVL tree)
@@ -261,7 +262,7 @@ int main(int argc, char **argv) {
 
 			// after adding a node, check and reset the tree status flag.
 			BSTtree = isBST(root);
-			if (BSTtree) AVLtree = isAVL(root);
+			AVLtree = isAVL(root);
 			break;
 
 		case 'A':
@@ -272,6 +273,9 @@ int main(int argc, char **argv) {
 				break;
 			}
 			growBT(root, key);
+			// after adding a node, check and reset the tree status flag.
+			BSTtree = isBST(root);
+			AVLtree = isAVL(root);
 			break;
 
 		case 'B':  // LCA - Lowest Common Ancestor for Binary Tree[BT]
@@ -383,7 +387,7 @@ int main(int argc, char **argv) {
 			cout << "\tAVL: " << (isAVL(root) ? "true" : "false") << endl;
 			break;
 
-		case 'm': // print mode
+		case 's': // print mode
 			showMode = ++showMode % (sizeof(showMenu) / sizeof(showMenu[0]));
 			break;
 
@@ -403,7 +407,7 @@ int main(int argc, char **argv) {
 			}
 			break;
 
-		case 's':  // switch to[BST / AVL]
+		case 'm':  // change menu to[BST]/[AVL]
 			if (!BSTtree && !AVLtree) break;
 			if (AVLtree) {
 				AVLtree = false;
@@ -446,8 +450,9 @@ int main(int argc, char **argv) {
 			BTtoBST(root);
 			show_timeit(begin);
 
-			// after convertion, check and reset the tree status flag.
+			// after conversion, check and reset the tree status flag.
 			BSTtree = isBST(root);  
+			AVLtree = false;       
 			break;
 
 		case 'q':

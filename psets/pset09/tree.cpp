@@ -423,13 +423,24 @@ void BTtoBST(tree root) {
 }
 
 ///////////////// stress test - insert, trim ////////////////////
+
+// returns an extended random number of which the range is from 0
+// to (RAND_MAX + 1)^2 - 1. // We do this since rand() returns too 
+// small range [0..RAND_MAX) where RAND_MAX is usually defined as 
+// 32767 in cstdlib. Refer to the following link for details
+// https://stackoverflow.com/questions/9775313/extend-rand-max-range
+unsigned long rand_extended(int range) {
+	if (range < RAND_MAX) return rand();
+	return rand() * RAND_MAX + rand();
+}
+
 // shuffles an int array contents
 void shuffle(int* arr, int N) {
 	DPRINT(cout << ">shuffle N=" << N << endl;);
 	if (N <= 1) return;
 	DPRINT(srand(0));    // for the same sequence of rand() for debugging
 	for (int i = 0; i < N; i++) {
-		int x = rand() % (N - 1);
+		int x = rand_extended(N) % (N - 1);
 		int t = arr[i];
 		arr[i] = arr[x];
 		arr[x] = t;
