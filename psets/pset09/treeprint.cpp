@@ -287,6 +287,7 @@ void treeprint_levelorder(tree root) {
 	int h = treeprint_height(root);
 
 	for (int i = 1; i <= h; i++) {
+		cout << "[" << i << "] ";
 		treeprint_levelorder(root, i);
 		cout << endl;
 	}
