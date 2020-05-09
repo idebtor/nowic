@@ -114,8 +114,8 @@ string treespecs(tree root) {
 void treeprint_mode(tree root, int mode) {
 	if (root == nullptr) return;
 
-	if (size(root) >= 1000) {  // a magic number
-		cout << "\tThere are 1,000 nodes and more, the print mode goes into ...\n";
+	if (size(root) > 1000) {  // a magic number
+		cout << "\tThere are over 1,000 nodes, the print mode goes into ...\n";
 		mode = TASTY_MODE;
 	}
 	switch (mode) {
