@@ -602,24 +602,28 @@ tree buildAVL(tree* v, int n) {  // recycling method
 }
 
 // reconstructs a new AVL tree in O(n), Actually it is O(n) + O(n).
+// Use the recreation method if the size is less than or equal to 10 
+// Use the recycling method if the size is greater than 10.
+// recreation method: creates all nodes again from keys 
+// recycling method: reuses all the nodes, no memory allocation needed
 tree reconstruct(tree root) {
 	DPRINT(cout << ">reconstruct " << endl;);
 	if (empty(root)) return nullptr;
 
-#if 1
-	// recycling method: reuses all the nodes, no memory allocation needed
-	vector<tree> v;       // get nodes sorted
-	inorder(root, v);     // O(n), v.data() - the array of nodes sorted by key
-#else
-	// recreation method: creates all nodes again
-	vector<int> v;        // get keys sorted
-	inorder(root, v);     // O(n), v.data() - the array of keys sorted
-	clear(root);
-#endif
-
-	tree new_root = buildAVL(v.data(), (int) v.size()); // O(n)
+	cout << "your code below" << endl;
+	if (size(root) > 10) {    // recycling method
+		                      // use new inorder() that returns nodes sorted
+		                      // O(n), v.data() - the array of nodes(tree) sorted
+		// root = buildAVL(v.data(), (int)v.size()); // O(n)
+	}
+	else {                    // recreation method
+		                      // use inorder() that returns keys sorted
+	                          // O(n), v.data() - the array of keys(int) sorted
+		                      // clear root 
+		// root = buildAVL(v.data(), (int)v.size()); // O(n)
+	}
 	DPRINT(cout << "<reconstruct " << endl;);
-	return new_root;
+	return root;
 }
 
 // inserts a key into the AVL tree and rebalance it.
