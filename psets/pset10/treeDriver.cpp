@@ -363,10 +363,10 @@ int main(int argc, char **argv) {
 			break;
 
 		case 'l': // list nodes // BT/BST/AVL
-			cout << "\n\t   inorder: "; vec.clear(); inorder(root, vec); show_vector(vec);
-			cout << "\n\t  preorder: "; vec.clear(); preorder(root, vec); show_vector(vec);
-			cout << "\n\t postorder: "; vec.clear(); postorder(root, vec); show_vector(vec);
-			cout << "\n\tlevelorder: "; vec.clear(); levelorder(root, vec); show_vector(vec);
+			cout << "\n\t    inorder: "; vec.clear(); inorder(root, vec); show_vector(vec);
+			cout << "\n\t   preorder: "; vec.clear(); preorder(root, vec); show_vector(vec);
+			cout << "\n\t  postorder: "; vec.clear(); postorder(root, vec); show_vector(vec);
+			cout << "\n\t levelorder: "; vec.clear(); levelorder(root, vec); show_vector(vec);
 			cout << endl;
 			if (!BSTtree && !AVLtree) break;
 			node = pred(root);
