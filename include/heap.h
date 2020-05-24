@@ -26,6 +26,7 @@
 #ifndef HEAP_H
 #define HEAP_H
 
+#include <vector>
 #include "nowic.h"
 
 #ifdef DEBUG
@@ -33,6 +34,8 @@
 #else
 #define DPRINT(func) ;
 #endif
+
+enum showEnum { TREE_MODE, LEVEL_MODE, TASTY_MODE };
 
 struct Heap {						// heap or min/max priority queue
 	int *nodes;						// an array of nodes
@@ -85,6 +88,7 @@ heap newCBT(int *a, int size);		// makes a complete binary tree
 void growCBT(heap p, int key);		// grows a node next to the last
 void trimCBT(heap p);				// trims a node at the last
 
-void heapprint(heap p);
-void heapprint_level(heap p);
+void heapprint(heap p, int mode = TREE_MODE);   // prints heap using treeprint fucntions
+///////////////// helper functions /////////////////////////////////////////
+void show_vector(std::vector<int> vec, int show_n = 20);
 #endif
