@@ -84,6 +84,10 @@ void heapprint(heap p, int mode) {
 		mode = TASTY_MODE;
 	}
 
+	// TASTY_MODE: show just the first and last three levels each 
+	if ((height(p) + 1) < 7 && mode == TASTY_MODE)    // height + 1 = level
+		mode = LEVEL_MODE;
+
 	switch (mode) {
 	case TREE_MODE:
 		treeprint(root);
@@ -91,7 +95,7 @@ void heapprint(heap p, int mode) {
 	case LEVEL_MODE:
 		treeprint_levelorder(root);
 		break;
-	default: // TASTY_MODE: show the first and last few levels only
+	default: // TASTY_MODE: show just the first and last three levels each 
 		treeprint_levelorder_tasty(root);
 		cout << endl;
 	}

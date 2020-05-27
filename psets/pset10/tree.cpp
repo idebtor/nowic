@@ -341,7 +341,7 @@ tree LCA_BT(tree root, tree p, tree q) {  // recursive solution
 }
 
 // returns LCA(Least Common Ancestor) of a binary tree [BT]
-int LCA_BTiteration(tree root, tree p, tree q) {  // recursive solution
+int LCA_BTiteration(tree root, tree p, tree q) {  
 	DPRINT(cout << ">LCA_BTiteration" << endl;);
 
 	cout << "your code here\n";

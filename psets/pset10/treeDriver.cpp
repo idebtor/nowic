@@ -118,6 +118,11 @@ void treeprint_mode(tree root, int mode) {
 		cout << "\tThere are 1,000 nodes and more, the print mode goes into ...\n";
 		mode = TASTY_MODE;
 	}
+
+	// TASTY_MODE: show just the first and last three levels each
+	if ((height(root) + 1) < 7 && mode == TASTY_MODE)     // height + 1 = level, 
+		mode = LEVEL_MODE;
+
 	switch (mode) {
 	case TREE_MODE:
 		treeprint(root);
@@ -125,7 +130,7 @@ void treeprint_mode(tree root, int mode) {
 	case LEVEL_MODE:
 		treeprint_levelorder(root);
 		break;
-	default: // TASTY_MODE: show the fist and last few levels only
+	default: // TASTY_MODE: show just the fist and last three levels each
 		treeprint_levelorder_tasty(root);
 		cout << endl;
 	}
@@ -387,7 +392,7 @@ int main(int argc, char **argv) {
 			cout << "\tAVL: " << (isAVL(root) ? "true" : "false") << endl;
 			break;
 
-		case 's': // print mode
+		case 's': // show mode
 			showMode = ++showMode % (sizeof(showMenu) / sizeof(showMenu[0]));
 			break;
 
