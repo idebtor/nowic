@@ -172,12 +172,8 @@ int main(int argc, char* argv[]) {
 	cout << "   Recall that you are dealing with a maxheap neow!\n";
 	cout << "3. Add the code to trim '~' in the MAXHEAP and show the result.\n";
 	cout << "   Now make sure that the array is set as the MAXHEAP back.\n";
-	cout << "4. The number of comparisons during grow(~): YOUR ANSWER HERE\n";
-	cout << "5. The values of N in each function during grow(~) are shown below:\n";
-	cout << "   sink(N): YOUR ANSWER HERE \n";
-	cout << "   swim(N): YOUR ANSWER HERE \n";
-	cout << "   grow(N): YOUR ANSWER HERE \n";
-	cout << "   heapsort(N): YOUR ANSWER HERE \n";
+	cout << "4. The exact number of comparisons during grow(~): YOUR ANSWER HERE\n";
+	cout << "5. The exact number of comparisons during trim(~): YOUR ANSWER HERE\n";
 	cout << "6. Do the screen capture to submit.\n";
 
 	cout << "your code here\n";
