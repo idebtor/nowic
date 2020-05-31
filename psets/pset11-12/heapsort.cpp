@@ -88,7 +88,7 @@ void grow(char *a, char key, int& N) {
 }
 
 // pop a node in priority queue (or a heap)
-void trim(char *a, char key, int& N) {
+void trim(char *a, int& N) {
 	cout << "your code here\n";
 }
 
@@ -172,8 +172,8 @@ int main(int argc, char* argv[]) {
 	cout << "   Recall that you are dealing with a maxheap neow!\n";
 	cout << "3. Add the code to trim '~' in the MAXHEAP and show the result.\n";
 	cout << "   Now make sure that the array is set as the MAXHEAP back.\n";
-	cout << "4. The exact number of comparisons during grow(~): YOUR ANSWER HERE\n";
-	cout << "5. The exact number of comparisons during trim(~): YOUR ANSWER HERE\n";
+	cout << "4. The exact number of comp() calls during grow(~): YOUR ANSWER HERE\n";
+	cout << "5. The exact number of comp() calls during trim(~): YOUR ANSWER HERE\n";
 	cout << "6. Do the screen capture to submit.\n";
 
 	cout << "your code here\n";
