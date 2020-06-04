@@ -71,8 +71,8 @@ struct Graph {
 	bool *marked;		// marked[v], visited or not
 	int *parentDFS;		// parentDFS[v], v's parent is set during DFS
 	int *parentBFS;		// parentBFS[v], v's parent is set during BFS
-	int	*DFSx;			// DFS result at 0
-	int *BFSx;			// BFS result at 0
+	int	*DFS0;			// DFS result at 0
+	int *BFS0;			// BFS result at 0
 	int *CCID;			// CCID[v], Connected Component ID, set by DFS()
 	int *distTo;		// distTo[v], length of shortest s->v path
 	int *color;			// color[v] gives vertices on one side of bipartition
@@ -98,8 +98,8 @@ struct Graph {
 		marked = new bool[v]();		// array initialized with 0
 		parentDFS = new int[v]();	// path to parent during DFS
 		parentBFS = new int[v]();	// path to parent during BFS
-		DFSx = new int[v+v]();		// DFS result, 
-		BFSx = new int[v+v]();		// BFS result
+		DFS0 = new int[v+v]();		// DFS result, 
+		BFS0 = new int[v+v]();		// BFS result
 		CCID = new int[v]();		// Connected Component ID
 		distTo = new int[v]();		// Distance to
 		color = new int[v]();		// Color
@@ -133,8 +133,8 @@ void BFS(graph g, int v);					// BFS - find path & shortest distance
 void BFS_CCs(graph g);						// for all connected components
 void DFS(graph g, int v, queue<int>& q);	// DFS - at v, ccid
 void DFS_CCs(graph g);						// for all connected components
-void setBFSx(graph g, int v, queue<int>& q);// saves BFS result in BFSx[]
-void setDFSx(graph g, int v, queue<int>& q);// saves DFS result in DFSx[]
+void setBFS0(graph g, int v, queue<int>& q);// saves BFS result in BFS0[]
+void setDFS0(graph g, int v, queue<int>& q);// saves DFS result in DFS0[]
 
 // Find a path from s to v using the result of DFS or BFS's parent info.
 // It uses a stack to retrace the path back to the source.
@@ -151,10 +151,12 @@ bool hasSelfLoop(graph g, stack<int>& cy);
 bool hasParallelEdges(graph g, stack<int>& cy);
 
 ///////////////////////// bigraph ///////////////////////////////
-bool _bigraph(graph g, int v);					// using BFS
+bool bigraph(graph g, int v);					// using BFS  
 bool bigraph(graph g);							// using BFS
-bool _bigraph(graph g, int v, stack<int>& s);	// using DFS
+bool bigraph(graph g, int v, stack<int>& s);	// using recursion by DFS 
 bool bigraph(graph g, stack<int>& s);			// using DFS
+bool bigraphDFS2Coloring(graph g);
+bool bigraphBFS2Coloring(graph g);
 
 //////////////////////// print graph & results //////////////////////
 void print_graph(graph g);			// prints dotted lines read from graph file

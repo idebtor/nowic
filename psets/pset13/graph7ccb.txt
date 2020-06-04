@@ -1,0 +1,44 @@
+# Graph file format example:
+# To represent a graph: 
+# The number of vertex in the graph comes at the first line.
+# The number of edges comes In the following line, 
+# Then list a pair of vertices connected each other in each line.
+# The order of a pair of vertices should not be a matter.
+# Blank lines and the lines which begins with # or ; are ignored. 
+#
+# The lines that begins with . will be read into graph data structure
+# and displayed on request.
+#
+# create the graph (bipartite (0,3,4)(1,2,5,6) Example)
+#
+.  [0] ---------------[6]     [7]----[8]
+.   | \\---------[2]           |      |
+.   |  \       /  |            |      |
+.   |   [1]   /   |           [9]----[10]
+.   |     |  /    |    
+.   |    [3]       \        
+.   |               \  
+.  [5]---------------[4]
+#
+#              DFS0[0..10] =    0   6   2   4   5   3   1   7   9  10   8
+#              CCID[0..10] =    1   1   1   1   1   1   1   2   2   2   2
+#        DFS parent[0..10] =   -1   3   0   2   2   4   0  -1  10   7   9
+#              BFS0[0..10] =    0   6   2   1   5   4   3   7   9   8  10
+#            DistTo[0..10] =    0   1   1   2   2   1   1   0   1   1   2
+#        BFS parent[0..10] =   -1   0   0   2   2   0   0  -1   7   7   9
+11
+12
+0 5
+0 1
+0 2
+0 6
+1 3
+2 3
+2 4
+4 5
+7 8
+7 9
+8 10
+9 10
+
+
