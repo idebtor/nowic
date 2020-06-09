@@ -246,13 +246,7 @@ int main(int argc, const char **argv) {
 		case 't':
 			if (empty(g)) break;
 
-			cout << "\tBigraph BFS check: ";
-			if (bigraph(g))   // using bfs algorithm
-				cout << "True, two-colorability succeeded.\n";
-			else 
-				cout << "False, two-colorability failed.\n ";
-
-			cout << "\tBigraph DFS check: ";
+			cout << "\tDFS Bigraph check: ";
 			if (bigraph(g, cy)) {  // using dfs algorithm
 				cout << "True, no odd cycle is found.\n";
 			}
@@ -264,19 +258,28 @@ int main(int argc, const char **argv) {
 				}
 				cout << endl;
 			}
+
+			cout << "\tBFS Bigraph check: ";
+			if (bigraph(g))   // using bfs algorithm
+				cout << "True, two-colorability succeeded.\n";
+			else
+				cout << "False, two-colorability failed.\n ";
+
 			print_bigraph(g);
 			break;
 
 		case 'a':
-			cout << "\tBigraph or bipartite check using two-colorability:\n";
+			cout << "\tDFS two-colorable Check: ";
 			if (bigraphDFS2Coloring(g))
-				cout << "\tTrue, it is a bigraph by DFS2Coloing." << endl;
+				cout << "True, it is a bigraph." << endl;
 			else
-				cout << "\tFalse, it is not a bigraph by DFS2Coloring." << endl;
+				cout << "False, it is not a bigraph." << endl;
+
+			cout << "\tBFS two-colorable Check: ";
 			if (bigraphBFS2Coloring(g))
-				cout << "\tTrue, it is a bigraph by BFS2Coloring." << endl;
+				cout << "True, it is a bigraph." << endl;
 			else
-				cout << "\tFalse, it is not a bigraph by BFS2Coloring." << endl;
+				cout << "False, it is not a bigraph." << endl;
 			print_bigraph(g);
 			break;
 		}
