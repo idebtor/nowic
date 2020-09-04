@@ -15,5 +15,5 @@ The materials in this site have been collected from the numerous sources such as
 주 안에서(빚진자)<><
 
 idebtor@gmail.com
------------------------
+------------------
 _One thing I know, I was blind but now I see. John 9:25_
