@@ -33,14 +33,12 @@ void selectionSort(int *list, int n) {
 }
 
 #if 0
-void printList(int *list, int n) {
+void print_list(int *list, int n) {
 	for (int i = 0; i < n; i++)
 		cout << list[i] << " ";
 	cout << endl;
 }
-#endif
 
-#if 0
 int main() {
 	int list[] = { 3, 4, 1, 7, 0, 9, 6, 5, 2, 8};
 	int N = sizeof(list) / sizeof(list[0]);

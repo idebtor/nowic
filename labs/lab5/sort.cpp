@@ -3,15 +3,9 @@
 //
 // sort.cpp - This brute force version of bubble Sort that takes O(n^2).
 //
-// Compilation:
-// g++ bubble.cpp printList.cpp -o sort
-// g++ bubble.cpp printList.cpp -o sort -DDEBUG
-// To use DEBUG or test it, compile with -D option and turn #if 1 on.
-// To make the function included in other program, turn #if 0 off.
-//
 // To compile all sort files
 // g++ sort.cpp bubble.cpp insertion.cpp quicksort.cpp selection.cpp
-//     printList.cpp -I../../include -o sort -DDEBUG
+//     print_list.cpp -I../../include -o sort -DDEBUG
 
 #include <iostream>
 #include <cassert>
@@ -22,8 +16,6 @@ using namespace std;
 #else
 #define DPRINT(func) ;
 #endif
-
-void print_list(int *list, int n);
 
 int main(int argc, char *argv[]) {
 	int unsorted[] = { 3, 4, 1, 7, 0, 9, 6, 5, 2, 8};
@@ -37,7 +29,7 @@ int main(int argc, char *argv[]) {
 		// set a list to sort from unsorted.
 		for (int i = 0; i < N; i++) list[i] = unsorted[i];
 
-		// ask user to chhose a sorting algorithm
+		// ask user to choose a sort algorithm
 		char algo;
 		cout << "b for bubble, i for insertion, q for quick, s for selection \n";
 		cout << "Enter an algorithm to sort(x to exit): ";
@@ -53,14 +45,14 @@ int main(int argc, char *argv[]) {
 
 		switch(algo) {
 			case 'b':
-			case 'i':
+			case 'i': 
 			case 'q':
-			case 's': cout << "your code here";	break;
+			case 's': cout << "your code here";  break;
 			default: break;
 		}
 
 		cout << "SORTED(" << N << "):\n";
-	  print_list(list, N);
+	    print_list(list, N);
 	}
 
 	delete[] list;   // free resources

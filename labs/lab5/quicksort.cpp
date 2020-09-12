@@ -38,31 +38,27 @@ int partition(int list[], int lo, int hi) {
 // QuickSort helper function for recursive operation
 // list[]: array to be sorted, lo: Starting index, h: Ending index
 // N is added only for debugging or DPRINT
-void quickSort(int *list, int lo, int hi, int n) {
+void _quickSort(int *list, int lo, int hi, int n) {
 	if (lo < hi) 	{
 		int pi = partition(list, lo, hi); // Partitioning index
 		DPRINT(for(int x = 0; x < n; x++) cout << list[x] << " "; cout << endl);
-		quickSort(list, lo, pi - 1, n);
-		quickSort(list, pi + 1, hi, n);
+		_quickSort(list, lo, pi - 1, n);
+		_quickSort(list, pi + 1, hi, n);
 	}
 }
 
 void quickSort(int *a, int n) {
 	DPRINT(cout << "QUICK SORTING...\n");
-	quickSort(a, 0, n - 1, n);  // the last argument n is added only for DPRINT()
+	_quickSort(a, 0, n - 1, n);  // the last argument n is added only for DPRINT()
 }
 
-
-
 #if 0
-void print_list(int* list, int n) {
+void print_list(int *list, int n) {
 	for (int i = 0; i < n; i++)
 		cout << list[i] << " ";
 	cout << endl;
 }
-#endif
 
-#if 0
 int main() {
 	int list[] = { 3, 4, 1, 7, 0, 9, 6, 5, 2, 8};
 	int N = sizeof(list) / sizeof(list[0]);
