@@ -23,7 +23,7 @@ using namespace std;
 #define DPRINT(func) ;
 #endif
 
-void printList(int *list, int n);
+void print_list(int *list, int n);
 
 int main(int argc, char *argv[]) {
 	int unsorted[] = { 3, 4, 1, 7, 0, 9, 6, 5, 2, 8};
@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
 		}
 
 		cout << "UNSORTED(" << N << "):\n";
-		printList(list, N);
+		print_list(list, N);
 
 		switch(algo) {
 			case 'b':
@@ -60,7 +60,7 @@ int main(int argc, char *argv[]) {
 		}
 
 		cout << "SORTED(" << N << "):\n";
-	  printList(list, N);
+	  print_list(list, N);
 	}
 
 	delete[] list;   // free resources

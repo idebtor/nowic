@@ -1,6 +1,6 @@
 // quicksort.cpp by idebtor@gmail.com
 // A typical recursive implementation of quick sort
-// 2018.12.15 - Creation
+
 /*
 * Compilation:
 * g++ quicksort.cpp -o sort
@@ -8,7 +8,6 @@
 * To use DEBUG or test it, compile with -D option and turn #if 1 on.
 * To make the function included in other program, turn #if 0 off.
 */
-
 #include <iostream>
 using namespace std;
 
@@ -17,6 +16,8 @@ using namespace std;
 #else
 #define DPRINT(func) ;
 #endif
+
+void print_list(int *list, int n);
 
 /* This function takes last element as pivot, places the pivot element at its
 correct position in sorted array, and places all smaller (smaller than pivot)
@@ -52,17 +53,15 @@ void quickSort(int *a, int n) {
 	quickSort(a, 0, n - 1, n);  // the last argument n is added only for DPRINT()
 }
 
-
-
 #if 0
-void print_list(int* list, int n) {
+void print_list(int *list, int n) {
 	for (int i = 0; i < n; i++)
 		cout << list[i] << " ";
 	cout << endl;
 }
 #endif
 
-#if 0
+#if 1
 int main() {
 	int list[] = { 3, 4, 1, 7, 0, 9, 6, 5, 2, 8};
 	int N = sizeof(list) / sizeof(list[0]);

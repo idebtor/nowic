@@ -38,7 +38,9 @@ void printList(int *list, int n) {
 		cout << list[i] << " ";
 	cout << endl;
 }
+#endif
 
+#if 0
 int main() {
 	int list[] = { 3, 4, 1, 7, 0, 9, 6, 5, 2, 8};
 	int N = sizeof(list) / sizeof(list[0]);
