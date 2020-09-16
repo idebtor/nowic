@@ -30,7 +30,7 @@ int sumDigits(int n);
 int count8(int n);
 long long powerN(int base, int n);
 
-int main(int argc, char *argv[]) {
+int main() {
 	int option;
 	int N;
 
@@ -109,23 +109,75 @@ int main(int argc, char *argv[]) {
 				cout << "\tbunnyEars(" << N << ") = " << bunnyEars(N) << endl;
 			}
 			break;
-		case 5:
-			cout << "your code here\n";
-			break;
-		case 6:
-			cout << "your code here\n";
-			break;
-		case 7:
-			cout << "your code here\n";
-			break;
-		case 8:
-			cout << "your code here\n";
-			break;
-		case 9:
-			cout << "your code here\n";
-			break;
-		default:
-			break;
+			case 5:
+				cout << "\tfunnyEars(0) = 0\n";
+				cout << "\tfunnyEars(1) = 2\n";
+				cout << "\tfunnyEars(2) = 5\n";
+				cout << "\tfunnyEars(3) = 7\n";
+				cout << "\tfunnyEars(4) = 10\n";
+				cout << "\tfunnyEars(9) = 22\n";
+				while (1) {
+					N = GetInt("\tEnter a number of Funnies(0 to quit): ");
+					if (N <= 0) break;
+					cout << "\tfunnyEars(" << N << ") = " << funnyEars(N) << endl;
+				}
+				break;
+			case 6:
+				cout << "\tTriangle(0) = 0\n";
+				cout << "\tTriangle(1) = 1\n";
+				cout << "\tTriangle(2) = 3\n";
+				cout << "\tTriangle(3) = 6\n";
+				cout << "\tTriangle(4) = 10\n";
+				cout << "\tTriangle(7) = 28\n";
+				while (1) {
+					N = GetInt("\tEnter a row number for Triangle(0 to quit): ");
+					if (N <= 0) break;
+					cout << "\ttriangle(" << N << ") = " << triangle(N) << endl;
+				}
+				break;
+			case 7:
+				cout << "\tsumDigits(1) = 1\n";
+				cout << "\tsumDigits(12) = 3\n";
+				cout << "\tsumDigits(126) = 9\n";
+				cout << "\tsumDigits(235) = 10\n";
+				cout << "\tsumDigits(1000) = 1\n";
+				cout << "\tsumDigits(10110) = 3\n";
+				while (1) {
+					N = GetInt("\tEnter a number to sum digits(0 to quit): ");
+					if (N <= 0) break;
+					cout << "\tsumDigits(" << N << ") = " << sumDigits(N) << endl;
+				}
+				break;
+			case 8:
+				cout << "\tcount8(8) = 1\n";
+				cout << "\tcount8(9) = 0\n";
+				cout << "\tcount8(123) = 0\n";
+				cout << "\tcount8(881238) = 3\n";
+				cout << "\tcount8(48581) = 2\n";
+				cout << "\tcount8(888586198) = 5\n";
+				while (1) {
+					N = GetInt("\tEnter a number to count 8(0 to quit): ");
+					if (N <= 0) break;
+					cout << "\tcount8(" << N << ") = " << count8(N) << endl;
+				}
+				break;
+			case 9:
+				cout << "\tpowerN(2, 5) = 32\n";
+				cout << "\tpowerN(3, 1) = 3\n";
+				cout << "\tpowerN(3, 2) = 9\n";
+				cout << "\tpowerN(3, 3) = 27\n";
+				cout << "\tpowerN(10, 2) = 100\n";
+				cout << "\tpowerN(10, 3) = 1000\n";
+				while (1) {
+					int a = GetInt("\tEnter a base number(0 to quit): ");
+					if (a <= 0) break;
+					int b = GetInt("\tEnter a power number(0 to quit): ");
+					if (b <= 0) break;
+					cout << "\tpowerN(" << a << "," << b << ") = " << powerN(a, b) << endl;
+				}
+				break;
+			default:
+				break;
 		}
 	};
 
