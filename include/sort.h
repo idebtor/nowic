@@ -31,7 +31,7 @@ int ascending(int a, int b);
 int descending(int a, int b);
 
 // for initial samples 
-const int STARTING_SAMPLES = 500;
+const int STARTING_SAMPLES = 1000;
 
 // This is the end of the header guard
 #endif
