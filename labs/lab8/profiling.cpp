@@ -40,6 +40,7 @@
 #include <sstream>
 #include <cassert>
 #include <algorithm>
+#include <time.h>       /* clock_t, clock, CLOCKS_PER_SEC */
 #include "sort.h"
 using namespace std;
 
@@ -68,18 +69,22 @@ int getStep(int n) {
 	return step;
 }
 
-// rand() returns a random number between 0 and RAND_MAX which is defined in stdlib.h
-// RAND_MAX is surprisingly small(32767, not 1M nor 1B) and also depends
-// on the machine since RAND_MAX is defined as 0x7FFF (or 32767 = 2 ^ 15 - 1)
-// The following program will work for random values in the
-// range[0, (RAND_MAX + 1)*(RAND_MAX + 1)), providing there's no overflow.
-// returns an array filled with random numbers [0..size)
+// returns an extended random number of which the range is from 0
+// to (RAND_MAX + 1)^2 - 1. // We do this since rand() returns too 
+// small range [0..RAND_MAX) where RAND_MAX is usually defined as 
+// 32767 in cstdlib. Refer to the following link for details
+// https://stackoverflow.com/questions/9775313/extend-rand-max-range
+unsigned long rand_extended(int range) {
+	if (range < RAND_MAX) return rand();
+	return rand() * RAND_MAX + rand();
+}
+
 void randomize(int list[], int size) {
 	DPRINT(cout << "RAND_MAX = " << RAND_MAX << endl;);
 	srand((unsigned)time(nullptr));	    // initialize random seed
+	int size_minus_1 = size - 1;
 	for (int i = 0; i < size; i++) {
-		int x = (rand() * (RAND_MAX) + rand()) % size;     // for PC
-		// int x = rand() % size;                              // for mac
+		int x = rand_extended(size) % size_minus_1;
 		swap(list[x], list[i]);     // swap list[i] with randomly selected list[x]
 	}
 }
@@ -105,7 +110,7 @@ void profiling(void (*sortFunc)(int*, int), int* list, const int n, bool random=
 			repetitions++;                    // count the repetitions for one second
 			copy_n(saved, n, list);	          // get a copy of list from saved
 			sortFunc(list, i);                // sort
-		} while (clock() - start < 1000);     // run it over one sec
+		} while (clock() - start < CLOCKS_PER_SEC);     // run it over one sec
 
 		duration = (clock() - start) / (double)CLOCKS_PER_SEC;
 		duration /= repetitions;
@@ -115,6 +120,8 @@ void profiling(void (*sortFunc)(int*, int), int* list, const int n, bool random=
 			 << setw(12) << repetitions << "\t"
 			 << setw(12) << duration << endl;
 	}
+
+	delete[] saved;
 }
 
 #if 1
