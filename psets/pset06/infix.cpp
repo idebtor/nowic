@@ -24,8 +24,9 @@ using namespace std;
 
 void printStack(stack<char> orig) {
 
-	cout << "your code here: copy printStack() template version from postfix.cpp\n";
-
+	cout << "Step 2: your code here: copy printStack() template version from postfix.cpp\n";
+	cout << "Step 3: rewrite printStack() using recursion. refer to PDF file\n";
+	
 }
 
 // performs arithmetic operations.
