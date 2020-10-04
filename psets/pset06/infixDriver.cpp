@@ -24,7 +24,7 @@ int main() {
 	string expr;
 	while (true) {
 		cout << "\nEnter a fully parenthesized infix expr. w/ or w/o spaces." << endl;
-		cout << "e.g.: (1 + 3), ((12/6)+3), (((123 - 3)/20)*2)  (q to quit): ";
+		cout << "e.g.: 1 + 3, ((12/6) +3), (((123 - 3)/20)*2)  (q to quit): ";
 
 		getline(cin, expr);
 		if (expr[0] == 'q') break;

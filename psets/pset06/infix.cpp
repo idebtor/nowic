@@ -13,7 +13,6 @@
 //
 #include <iostream>
 #include <cassert>
-#include <stack>
 using namespace std;
 
 #ifdef DEBUG
@@ -22,12 +21,48 @@ using namespace std;
 #define DPRINT(func) ;
 #endif
 
-void printStack(stack<char> orig) {
+#if 0    //////////////////////////////////////////////////////////////////////
+// set #if 1, if you want to use this stack using vector instead of STL stack.
+// a basic stack functinality only provided for pedagogical purpose only.
+#include <vector>
+template <typename T>
+struct stack {
+	vector<T> item;
+
+	bool empty() const {
+		return item.empty();
+	}
+	auto size() const {
+		return item.size();
+	}
+	void push(T const& data) {
+		item.push_back(data);
+	}
+	void pop() {
+		if (item.empty())
+			throw out_of_range("stack<>::pop(): pop stack");
+		item.pop_back();
+	}
+	T top() const {
+		if (item.empty())
+			throw out_of_range("stack<>::top(): top stack");
+		return item.back();
+	}
+};
+#else  /////////////////////////// using STL stack //////////////////////////
+#include <stack>
+#endif ///////////////////////////////////////////////////////////////////////
+
+template <typename T>
+void printStack(stack<T> orig) {
 
 	cout << "Step 2: your code here: copy printStack() template version from postfix.cpp\n";
 	cout << "Step 3: rewrite printStack() using recursion. refer to PDF file\n";
-	
+
+	cout << endl;
 }
+#endif
+
 
 // performs arithmetic operations.
 double apply_op(double a, double b, char op) {
@@ -41,7 +76,7 @@ double apply_op(double a, double b, char op) {
 	return 0;
 }
 
-// there is a BUG...
+// there is a bug...
 int compute(stack<int>& va_stack, stack<char>& op_stack) {
 	double left  = va_stack.top(); va_stack.pop();     
 	double right = va_stack.top(); va_stack.pop();
