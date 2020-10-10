@@ -70,7 +70,7 @@ double apply_op(double a, double b, char op) {
 	case '*': return a * b;
 	case '/': return a / b;
 	}
-	cout << "Unsupported operator encountered: " + op << endl;
+	cout << "Unsupported operator encountered: " << op << endl;
 	return 0;
 }
 
@@ -88,7 +88,7 @@ double compute(stack<int>& va_stack, stack<char>& op_stack) {
 // returns value of expression after evaluation.
 double evaluate(string tokens) {
 	DPRINT(cout << ">evaluate: tokens=" << tokens << endl;);
-	stack<int>  va_stack;                 // stack to store operands or values
+	stack<double>  va_stack;              // stack to store operands or values
 	stack<char> op_stack;                 // stack to store operators.
 	double value = 0;
 
