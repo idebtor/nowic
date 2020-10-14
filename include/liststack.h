@@ -24,7 +24,7 @@ struct Node {
 	Node(const int i = 0, Node* n = nullptr) {
 	 	data = i, next = n;
 	}
-	// Node(int i, Node* n): item(i), next(n) {}
+	// Node(int i, Node* n): data(i), next(n) {}
 	~Node() {}
 };
 using pNode = Node*;
