@@ -76,7 +76,8 @@ int main() {
 			break;
 
 		case 'n':
-			show_n = GetInt("\tn items per line to show: ");
+			val = GetInt("\tn items per line to show: ");
+			if (val >= 1) show_n = val;
 			break;
 
 		case 'c':
