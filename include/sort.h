@@ -9,7 +9,7 @@
 // The second part is the actual content of the.h file, which
 // should be the declarations for all of the functions we want
 // other files to be able to see. Our header files should all
-// have a .h extension, so we��ll call our new header file sort.h:
+// have a .h extension, so we will call our new header file sort.h:
 //
 // Have the header guard, #ifndef, unless #pragma once
 // By the way, some compilers don't support #pragma.
@@ -30,8 +30,10 @@ void bubbleSort(int *list, int n, int *(comp)(int, int));
 int ascending(int a, int b);
 int descending(int a, int b);
 
+unsigned long rand_extended(int range); 
+void randomize(int list[], int size);  // Fisher-Yates shuffle algorithm - modern 
+
 // for initial samples 
 const int STARTING_SAMPLES = 1000;
 
-// This is the end of the header guard
 #endif
