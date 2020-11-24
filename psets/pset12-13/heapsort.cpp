@@ -35,7 +35,7 @@ a[11]: A C E H I L N O R S T
 * Author: Youngsup Kim, idebtor@gmail.com
 * 2014/04/30	YSK	Creation
 * 2019/05/15	C++ conversion
-* 2020/05/20	Using reference, command line.
+* 2020/10/20	Using a reference type of N, command line - strcspn()
 */
 
 #include <iostream>
@@ -82,22 +82,23 @@ void sink(char* a, int k, int N) {
 	cout << endl;
 }
 
-// push a node in prority queue (or a heap)
+// use swim() and push a node in prority queue (or a heap)
 void grow(char *a, char key, int& N) {
 	cout << "your code here\n";
 }
 
-// pop a node in priority queue (or a heap)
+// pop a node in priority queue (or a heap); use swap() and sink 
 void trim(char *a, int& N) {
 	cout << "your code here\n";
 }
 
-// construct a heap structure from a CBT.
+// use sink() and construct a heap structure from a CBT
 void heapify(char *a, int N) {
+
 	cout << "your code here\n";
 }
 
-// sort a heap using both heapify() and trim() only. 
+// sort a heap using both heapify() and trim() only.
 void heapsort(char* a, int N) {
 	int k;
 	// 1st pass: restore the max heap property
@@ -166,17 +167,22 @@ int main(int argc, char* argv[]) {
 	heapsort(a, N);
 	show(a, N);
 
-	cout << "\n\nTest grow() & trim(). Answer the following questions:\n";
+	cout << "\nTest the following with \"CHRISITIAN__\" with your initial at the end.\n";
 	cout << "1. Now the array is sorted in descending order or a MAXHEAP.\n";
-	cout << "2. Add the code to grow '~' in the MAXHEAP and show the result.\n";
-	cout << "   Recall that you are dealing with a maxheap neow!\n";
-	cout << "3. Add the code to trim '~' in the MAXHEAP and show the result.\n";
+	cout << "2. Add the code to grow 'Z' in the MAXHEAP and show the result.\n";
+	cout << "   Recall that you are dealing with a maxheap now!\n";
+	cout << "3. Add the code to trim 'Z' in the MAXHEAP and show the result.\n";
 	cout << "   Now make sure that the array is set as the MAXHEAP back.\n";
-	cout << "4. The exact number of comp() calls during grow(~): YOUR ANSWER HERE\n";
-	cout << "5. The exact number of comp() calls during trim(~): YOUR ANSWER HERE\n";
-	cout << "6. Do the screen capture to submit.\n";
 
-	cout << "your code here\n";
+	comp = ::less;
+	cout << "grow: Z \n";
+	grow(a, 'Z', N);
+	show(a, N);
 
-	cout << "\nHappy coding~~\n";
+	cout << "trim: Z \n";
+	trim(a, N);
+	show(a, N);
+
+	cout << "\nJoyful Coding~~\n";
+	return EXIT_SUCCESS;
 }
