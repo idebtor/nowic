@@ -55,7 +55,11 @@
 * 
 *	@author Youngsup Kim, idebtor@gmail.com
 *	2014/2016/	YSK	Creation
+*	2016/05/01	YSK Iteractive oprations, command-line option added
+*	2016/05/20	YSK File processing added
 *   2019/05/05  YSK using c++ and std
+*   2020/05/25  Two coloring scheme added(DFS/BFS)
+*   2020/06/01  Graph file handling, try-catch, blank lines permitted
 */
 
 #include <iostream>
@@ -128,12 +132,13 @@ int main(int argc, const char **argv) {
 		cout << "\tn - new graph file\t";		cout << "x - connected(v,w) \n";
 		cout << "\td - DFS(v=0)       \t";		cout << "e - distance(v,w)  \n";
 		cout << "\tb - BFS(v=0)       \t";		cout << "p - path(v,w)      \n";
-		cout << "\tm - print mode[adjList/graph]\n";						
+		cout << "\tc - cyclic(v=0)?   \t";		cout << "m - print mode[adjList/graph]\n";						
+		cout << "\tt - bigraph(v=0)?\t"; 		cout << "a - bigraph using two-colorability\n";
 												
 		c = GetChar("\tCommand(q to quit): ");
 		switch (c) {
 		case 'n':				
-			cout << "\n\tYou may use shell commands(e.g. ls, dir, pwd).\n";
+			cout << "\n\tYou may use shell commands (e.g. ls, dir *.txt, pwd, cat, type).\n";
 			while (true) {
 				string fname = GetString("\tEnter a graph filename(q to quit): ");
 				if (strcmp(fname.c_str(), "q") == 0 || strcmp(fname.c_str(), "Q") == 0)
@@ -221,6 +226,61 @@ int main(int argc, const char **argv) {
 				path.pop();
 			}
 			cout << endl;
+			break;
+
+		case 'c':
+			if (empty(g)) break;
+
+			cout << "\tCycle: ";
+			if (cyclic(g, cy)) {
+				while (!cy.empty()) {
+					cout << cy.top() << " ";
+					cy.pop();   
+				}
+			}
+			else 
+				cout << "acyclic";
+			cout << endl;
+			break;
+
+		case 't':
+			if (empty(g)) break;
+
+			cout << "\tDFS Bigraph check: ";
+			if (bigraph(g, cy)) {  // using dfs algorithm
+				cout << "True, no odd cycle is found.\n";
+			}
+			else {
+				cout << "False, an odd-length cycle found: ";
+				while (!cy.empty()) {
+					cout << cy.top() << " "; 
+					cy.pop();
+				}
+				cout << endl;
+			}
+
+			cout << "\tBFS Bigraph check: ";
+			if (bigraph(g))   // using bfs algorithm
+				cout << "True, two-colorability succeeded.\n";
+			else
+				cout << "False, two-colorability failed.\n ";
+
+			print_bigraph(g);
+			break;
+
+		case 'a':
+			cout << "\tDFS two-colorable Check: ";
+			if (bigraphDFS2Coloring(g))
+				cout << "True, it is a bigraph." << endl;
+			else
+				cout << "False, it is not a bigraph." << endl;
+
+			cout << "\tBFS two-colorable Check: ";
+			if (bigraphBFS2Coloring(g))
+				cout << "True, it is a bigraph." << endl;
+			else
+				cout << "False, it is not a bigraph." << endl;
+			print_bigraph(g);
 			break;
 		}
 	} while (c != 'q');
