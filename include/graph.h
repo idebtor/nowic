@@ -8,7 +8,7 @@
 *  the number of edges E. Parallel edges and self-loops are permitted.
 *
 *  This implementation uses an adjacency-lists representation, which
-*  is a vertex-indexed array of nodes or singly-linked list.
+*  is a vertex-indexed array of nodes or singly linked list.
 *  All operations take constant time (in the worst case) except
 *  iterating over the vertices adjacent to a given vertex, which takes
 *  time proportional to the number of such vertices.
@@ -27,9 +27,6 @@
 *
 *	2014/2016/	YSK	Creation
 *	2016/05/01	YSK Iteractive oprations, command-line option added
-*	2016/05/20	YSK File processing added
-*   2016/11/22  YSK scratch buffer concepts, BFS/DFS edgesTo[] 
-*	2016/11/28  YSK connected components processing (CC) 
 */
 
 #include <iostream>
@@ -150,11 +147,15 @@ bool DFScyclic(graph g, int u, int v, stack<int>& cy);  // DFS to find a cycle
 bool hasSelfLoop(graph g, stack<int>& cy);
 bool hasParallelEdges(graph g, stack<int>& cy);
 
-///////////////////////// bigraph ///////////////////////////////
-bool bigraph(graph g, int v);					// using BFS  
+///////////////////////// bigraph ///////////////////////////////////////////
+void init2colorability(graph g);		// initialize color[0]=BLACK, marked[] 
+
+bool bigraphBFS(graph g, int v);				// using BFS  
 bool bigraph(graph g);							// using BFS
-bool bigraph(graph g, int v, stack<int>& s);	// using recursion by DFS 
+
+bool bigraphDFS(graph g, int v, stack<int>& s);	// using recursion by DFS
 bool bigraph(graph g, stack<int>& s);			// using DFS
+
 bool bigraphDFS2Coloring(graph g);
 bool bigraphBFS2Coloring(graph g);
 
