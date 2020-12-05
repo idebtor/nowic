@@ -9,18 +9,8 @@
 *  2) iterate over all of the vertices adjacent to a vertex.
 *  It also provides functions for returning the number of vertices V and
 *  the number of edges E. Parallel edges and self-loops are permitted.
-*
-*  The cycle() implements a data type for determining whether
-*  an undirected graph has a cycle. If a cycle is found, it returns 
-*  a stack loaded with vertices, nullptr otherwise.
-*
-*  The bigraph() implements a data type for determining whether
-*  an undirected graph is bipartite or whether it has an odd-length cycle.
-*  If so, the color operation determines a bipartition; if not, the oddCycle
-*  operation determines a cycle with an odd number of edges.
 *  
 *  A graph file format (graph1.txt) is shown below:
-
 # To represent a graph:
 # The number of vertex in the graph comes at the first line.
 # The number of edges comes In the following line,
