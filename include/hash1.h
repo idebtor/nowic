@@ -30,17 +30,17 @@ struct Hash {                              // vector<list<string>> hashtable may
 	}
 };
 
-// Notice that ht is passed by reference only when its pointer may be changed inside.
-// Passing by reference has not been used for speed-up the code.
+// Notice that ht is passed by reference when its pointer may be changed inside 
+// except erase() and show(). Passing by reference may help to run the code faster. 
 int hashfunction(Hash* ht, int key);        // hash function for int key
 int hashfunction(Hash* ht, string key);     // hash function for string key
 void rehash(Hash*& ht);                     // rehashes - doubles its tablesize
-list<string> insert(Hash* &ht, string key); // inserts key & rehashes if loadfactor>threshold
-list<string> find(Hash* ht, string key);   // finds key in table
-int erase(Hash* ht, string key);            // erases key, returns 1 if successful 
+bool insert(Hash*& ht, string key);         // inserts key & rehashes if loadfactor >= threshold
+bool erase(Hash*& ht, string key);          // erases key, returns true if successful 
+list<string> find(Hash* ht, string key);    // finds key in table
 void clear(Hash* &ht);                      // clear the table
 
-void show(Hash* ht, bool show_empty=true);  // show the table
+void show(Hash*& ht, bool show_empty=false);  // show the table
 
 int nextprime(int x);                       // returns the next prime 
 int tablesize(Hash* ht);                    // returns hash table size
