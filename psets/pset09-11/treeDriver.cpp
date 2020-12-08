@@ -323,7 +323,7 @@ int main(int argc, char **argv) {
 			}
 			
 			node = LCA(root, x, y);          // LCA for BST recursive algorithm
-			cout << "\tLCA(" << p << ", " << q << ") = " << value(node) << " by redcursion"<< endl;
+			cout << "\tLCA(" << p << ", " << q << ") = " << value(node) << " by recursion"<< endl;
 
 			key = LCAiteration(root, x, y);  // LCA for BST iteration algorithm
 			cout << "\tLCA(" << p << ", " << q << ") = " << key << " by iteration" << endl;

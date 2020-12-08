@@ -38,6 +38,7 @@
 #include <iostream>
 #include <cassert>
 #include <climits>
+#include <ctime>
 #include <vector>
 #include <queue>
 #include <set>
@@ -437,6 +438,8 @@ unsigned long rand_extended() {
 void shuffle(int* arr, int N) {
 	DPRINT(cout << ">shuffle N=" << N << endl;);
 	if (N <= 1) return;
+
+	srand((unsigned int)time(nullptr));
 	DPRINT(srand(0));    // for the same sequence of rand() for debugging
 	for (int i = 0; i < N; i++) {
 		int x = rand_extended() % (N - 1);

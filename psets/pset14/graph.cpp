@@ -12,6 +12,16 @@
 *  All operations take constant time (in the worst case) except
 *  iterating over the vertices adjacent to a given vertex, which takes
 *  time proportional to the number of such vertices.
+
+*  The cycle() implements a data type for determining whether
+*  an undirected graph has a cycle. This implementation uses DFS.
+*  The cycle() takes time proportional to V + E (in the worst case),
+*  where V is the number of vertices and E is the number of edges.
+*
+*  The bigraph() implements a data type for determining whether
+*  an undirected graph is bipartite or whether it has an odd-length cycle.
+*  If so, the color operation determines a bipartition; if not, the oddCycle
+*  operation determines a cycle with an odd number of edges.
 *
 *	@author Youngsup Kim, idebtor@gmail.com
 *	2014/2016/	Creation

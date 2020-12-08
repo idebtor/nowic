@@ -6,8 +6,8 @@
 # The order of a pair of vertices should not be a matter.
 # Blank lines and the lines which begins with # or ; are ignored. 
 #
-# The lines that begins with . (a dot) will be read into graph data 
-# structure and displayed on request.
+# The lines that begins with . will be read into graph data structure
+# and displayed on request.
 #
 # create the graph (3 Connected Components, bipartite)                          
 .                                             
