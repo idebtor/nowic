@@ -146,11 +146,14 @@ int nextprime(int x) {
     return x;
 }
 
-// it simply calls rehash(Hash*& ht, int n) with twice of its size.
+// it calls rehash(Hash*& ht, int n) with twice of its size
+// until lf < max_lf repeatedly.
 void rehash(Hash*& ht) {
     DPRINT(cout << "rehash: " << endl);
-    int old_size = tablesize(ht);
-    rehash(ht, old_size * 2);
+
+    while (loadfactor(ht) >= threshold(ht)) {
+        rehash(ht, tablesize(ht) * 2);
+    }
 }
 
 // sets the number of buckets in the table to n or more (use the next prime of n).
