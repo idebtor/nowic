@@ -17,8 +17,8 @@
 * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License
 * http://creativecommons.org/licenses/by-nc-sa/3.0/
 ***************************************************************************/
-#ifndef NOWICEE_H
-#define NOWICEE_H
+#ifndef NOWIC_H
+#define NOWIC_H
 
 #include <iostream>
 #include <sstream>
@@ -77,4 +77,4 @@ string GetString(string prompt = "Enter a string: ");
 // It is the same as GetString(), but a different prompt. 
 string GetWord(string prompt = "Enter a word: ");
 
-#endif // NOWICEE_H
+#endif 
