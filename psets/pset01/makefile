@@ -12,12 +12,12 @@ endif
 CCFLAGS = -std=c++11 -ggdb -I$(INCDIR)
 
 EXE1 = hellowho
-OBJ1 = $(EXE1)x.o 
-SRCS = $(OBJ1:.o=.cpp) 
+SRCS = $(EXE1).cpp 
+OBJS = $(SRCS:.cpp=.o) 
 
-all: $(EXE1)x $(SRCS)
-$(EXE1)x: $(OBJ1)
-	$(GCC) $(OBJ1) -o $(EXE1)x 
+all: $(EXE1) $(SRCS)
+$(EXE1): $(OBJS)
+	$(GCC) $(OBJS) -o $(EXE1)
 
 .PHONY: all clean debug install 
 
@@ -26,9 +26,9 @@ clean:
 debug: GCC += -DDEBUG 
 install:
 ifeq ($(OS),Windows_NT)
-	cp hellowho.pdf names.txt makefile make.mac *.md *.exe ./deliverable
+	cp hellowho.pdf names.txt makefile *.md *.exe ./deliverable
 	cp -v ./deliverable/* ../../../nowic/psets/pset01
 else
-	cp $(EXE1)x ./deliverable
-	cp -v $(EXE1)x ../../../nowic/psets/pset01
+	cp $(EXE1) ./deliverable
+	cp -v $(EXE1) ../../../nowic/psets/pset01
 endif
