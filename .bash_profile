@@ -47,8 +47,10 @@ alias rm='rm -i'
 alias c='clear'
 alias h='history'
 alias x='cd /c/GitHub/nowicx'
-alias s='cd /c/GitHub/nowicx/src'
-alias p='cd /c/GitHub/nowicx/ppts'
+alias xp='cd /c/GitHub/nowicx/psets'
+alias n='cd /c/GitHub/nowic'
+alias np='cd /c/GitHub/nowic/psets'
+
 LS_COLORS=$LS_COLORS':no=00:di=36;01'
 LS_COLORS=$LS_COLORS':*.h=1;33:*.exe=31:*.o=1;32:*.md=1;33'
 export LS_COLORS
