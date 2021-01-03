@@ -35,11 +35,7 @@
 			"command": "${cwd}/hellowho.exe",
 			"label": "run hellowho",
 			"type": "shell",
-			"args": [
-				"john",
-				"kim",
-				"david"
-			],
+			"args": [ "john", "kim", "david" ],
 			"dependsOn": [ "build hellowho" ],
 			"group": {
 				"kind": "build",
