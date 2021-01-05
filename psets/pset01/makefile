@@ -7,7 +7,6 @@
 # $^ The names of all the prerequisite files (space separated)
 # $* The stem (the bit which matches the % wildcard in the rule definition.
 #
-
 CC = g++ $(CCFLAGS)
 
 LIBDIR = ../../lib
@@ -37,6 +36,7 @@ $(EXEC): $(OBJS)
 .PHONY: all clean install 
 clean:
 	rm -f $(EXEC) $(OBJS)
+
 install:
 ifeq ($(OS),Windows_NT)
 	cp hellowho.pdf names.txt makefile *.md $(EXEC).exe ./deliverable
