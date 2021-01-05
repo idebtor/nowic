@@ -9,19 +9,22 @@
 		},
 		{   // build hellowho
 			"type": "cppbuild",
-			"label": "build hellowho",
+			"label": "build hellowhox",
 			"command": "C:/msys64/mingw64/bin/g++.exe",
 			"args": [
-				"-g", "${cwd}/hellowho.cpp",
-				"-o", "${cwd}/hellowho.exe"
+				"-g", "${cwd}/hellowhox.cpp",
+				"-o", "${cwd}/hellowhox"
 			],
+			"options": {
+				"cwd": "C:/msys64/mingw64/bin"
+			},
 			"problemMatcher": [ "$gcc" ],
 			"group": "build",
 			"detail": "compiler: C:/msys64/mingw64/bin/g++.exe"
 		},
 		{   // run hellowho without arguments
-			"command": "${cwd}/hellowho.exe",
-			"label": "run hellowho",
+			"command": "${cwd}/hellowhox",
+			"label": "run hellowho without arguments",
 			"type": "shell",
 			"args": [],
 			"dependsOn": [ "build hellowho" ],
@@ -32,8 +35,8 @@
 			"problemMatcher": [ "$gcc" ]
 		}, 
 		{   // run hellowho with arguments
-			"command": "${cwd}/hellowho.exe",
-			"label": "run hellowho",
+			"command": "${cwd}/hellowhox",
+			"label": "run hellowho with arguments",
 			"type": "shell",
 			"args": [ "john", "kim", "david" ],
 			"dependsOn": [ "build hellowho" ],

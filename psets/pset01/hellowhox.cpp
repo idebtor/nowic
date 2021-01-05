@@ -41,9 +41,17 @@
 #include <string>
 using namespace std;
 
+#ifdef DEBUG 
+#define DPRINT(func) func;
+#else
+#define DPRINT(func) ;
+#endif
+
 int main(int argc, char *argv[]) {
 	// Use setvbuf() to prevent the output from buffered on console.
 	setvbuf(stdout, NULL, _IONBF, 0);
+
+	DPRINT(cout << "DEBUG is defined.............\n";);
 
 	if (argc > 1) {
 		for (int i = 1; i < argc; i++)

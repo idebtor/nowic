@@ -8,7 +8,7 @@
             "name": "g++.exe - 활성 파일 빌드 및 디버그",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${cwd}\\hellowho.exe",
+            "program": "${cwd}/hellowhox.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "C:\\msys64\\mingw64\\bin",
@@ -23,7 +23,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "build hellowho"
+            "preLaunchTask": "build hellowhox"
         }
     ]
 }
