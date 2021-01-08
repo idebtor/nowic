@@ -55,9 +55,10 @@ LS_COLORS=$LS_COLORS':no=00:di=36;01'
 LS_COLORS=$LS_COLORS':*.h=1;33:*.exe=31:*.o=1;32:*.md=1;33'
 export LS_COLORS
 export PATH=$PATH:"/c/msys64/mingw64/bin"
-export PATH=$PATH:"/C/msys64/usr/bin"
+export PATH=$PATH:"/c/msys64/usr/bin"
 export PATH=$PATH:"/c/Users/$USER/AppData/Local/atom/bin"
 export PATH=$PATH:"/c/Users/$USER/AppData/Local/Programs/Microsoft VS Code/bin"
+export PATH=$PATH:"/c/Program Files/Git/bin"
 
 echo c:/msys64/home/$USER/.bash_profile
 echo $PWD
