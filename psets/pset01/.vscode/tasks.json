@@ -3,17 +3,22 @@
 	"tasks": [
 		{   // print workspace folder name
 			"type": "shell",
-			"label": "print workspaceFolder",
-			"command": "${workspaceFolder}",
+			"label": "echo workspaceFolder",
+			"command": "echo ${workspaceFolder}",
+			"problemMatcher": []
+		},
+		{   // echo cwd 
+			"type": "shell",
+			"label": "echo cwd",
+			"command": "echo ${cwd}",
 			"problemMatcher": []
 		},
 		{   // build hellowho
 			"type": "cppbuild",
-			"label": "build hellowhox",
+			"label": "build hellowho",
 			"command": "C:/msys64/mingw64/bin/g++.exe",
 			"args": [
-				"-g", "${cwd}/hellowhox.cpp",
-				"-o", "${cwd}/hellowhox"
+				"-g", "-o", "${cwd}/hellowho", "${cwd}/hellowho.cpp", 
 			],
 			"options": {
 				"cwd": "C:/msys64/mingw64/bin"
@@ -23,7 +28,7 @@
 			"detail": "compiler: C:/msys64/mingw64/bin/g++.exe"
 		},
 		{   // run hellowho without arguments
-			"command": "${cwd}/hellowhox",
+			"command": "${cwd}/hellowho",
 			"label": "run hellowho without arguments",
 			"type": "shell",
 			"args": [],
@@ -34,17 +39,57 @@
 			},
 			"problemMatcher": [ "$gcc" ]
 		}, 
-		{   // run hellowho with arguments
-			"command": "${cwd}/hellowhox",
-			"label": "run hellowho with arguments",
+		{   // build helloargs
+			"type": "cppbuild",
+			"label": "build helloargs",
+			"command": "C:/msys64/mingw64/bin/g++.exe",
+			"args": [
+				"-g", "-o", "${cwd}/helloargs", "${cwd}/helloargs.cpp", 
+			],
+			"options": {
+				"cwd": "C:/msys64/mingw64/bin"
+			},
+			"problemMatcher": [ "$gcc" ],
+			"group": "build",
+			"detail": "compiler: C:/msys64/mingw64/bin/g++.exe"
+		},
+		{   // run helloargs with arguments
+			"command": "${cwd}/helloargs",
+			"label": "run helloargs with arguments",
 			"type": "shell",
-			"args": [ "john", "kim", "david" ],
-			"dependsOn": [ "build hellowho" ],
+			"args": [ "john", "Dr. Lee", "Handong Global University", "peter" ],
+			"dependsOn": [ "build helloargs" ],
 			"group": {
 				"kind": "build",
 				"isDefault": true
 			},
 			"problemMatcher": [ "$gcc" ]
-		}
+		},
+		{   // build hellofunc
+			"type": "cppbuild",
+			"label": "build hellofunc",
+			"command": "C:/msys64/mingw64/bin/g++.exe",
+			"args": [
+				"-g", "-o", "${cwd}/hellofunc", "${cwd}/hellofunc.cpp", "${cwd}/printfunc.cpp", 
+			],
+			"options": {
+				"cwd": "C:/msys64/mingw64/bin"
+			},
+			"problemMatcher": [ "$gcc" ],
+			"group": "build",
+			"detail": "compiler: C:/msys64/mingw64/bin/g++.exe"
+		},
+		{   // run hellofunc with arguments
+			"command": "${cwd}/hellofunc",
+			"label": "run hellofunc with arguments",
+			"type": "shell",
+			"args": [ "john", "Dr. Lee", "Handong Global University", "peter" ],
+			"dependsOn": [ "build hellofunc" ],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [ "$gcc" ]
+		},
 	]
 }

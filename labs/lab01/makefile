@@ -19,25 +19,19 @@ else
 	LDFLAGS = -L$(LIBDIR) -lnowic_mac
 endif
 
-SRC1 = hellowho.cpp
-SRC2 = helloargs.cpp
-SRC3 = hellofunc.cpp printfunc.cpp
+SRC1 = cprog.cpp
+SRC2 = cplus.cpp
 OBJ1 = $(SRC1:.cpp=.o) 
 OBJ2 = $(SRC2:.cpp=.o) 
-OBJ3 = $(SRC3:.cpp=.o) 
-EXE1 = hellowho
-EXE2 = helloargs
-EXE3 = hellofunc
+EXE1 = cprog
+EXE2 = cplus
 
 # rule for link
-all: $(EXE1) $(EXE2) $(EXE3)
+all: $(EXE1) $(EXE2) 
 $(EXE1): $(OBJ1)
 	$(CC) -o $@ $^     
 
 $(EXE2): $(OBJ2)
-	$(CC) -o $@ $^  
-
-$(EXE3): $(OBJ3)
 	$(CC) -o $@ $^  
 
 # rule for compilation
@@ -46,15 +40,14 @@ $(EXE3): $(OBJ3)
 
 .PHONY: all clean install 
 clean:
-	rm -f *.o $(EXE1) $(EXE2) $(EXE3)
+	rm -f *.o $(EXE1) $(EXE2) 
 
 install:
 ifeq ($(OS),Windows_NT)
-	cp pset01.pdf makefile names.txt argcargv.md getinputs.md ./deliverable
-	cp $(EXE3) ./deliverable
-	cp -v ./deliverable/* ../../../nowic/psets/pset01
-	xcopy .vscode ..\..\..\nowic\psets\pset01\.vscode //E //H //K //Y //I 
+	mkdir -p ./deliverable && \
+	cp "1-8 lab01.pdf" makefile $(EXE2) ./deliverable 
+	cp -v ./deliverable/* ../../../nowic/labs/lab01
 else
-	cp $(EXE3) ./deliverable
-	cp -v $(EXE3) ../../../nowic/psets/pset01
+	cp $(EXE2) ./deliverable
+	cp -v $(EXE2) ../../../nowic/labs/lab01
 endif
