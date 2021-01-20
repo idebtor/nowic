@@ -19,20 +19,14 @@ else
 	LDFLAGS = -L$(LIBDIR) -lnowic_mac
 endif
 
-SRC1 = cprog.cpp
-SRC2 = cplus.cpp
+SRC1 = cplus.cpp
 OBJ1 = $(SRC1:.cpp=.o) 
-OBJ2 = $(SRC2:.cpp=.o) 
-EXE1 = cprog
-EXE2 = cplus
+EXE1 = cplus
 
 # rule for link
 all: $(EXE1) $(EXE2) 
 $(EXE1): $(OBJ1)
 	$(CC) -o $@ $^     
-
-$(EXE2): $(OBJ2)
-	$(CC) -o $@ $^  
 
 # rule for compilation
 %.o: %.cpp
@@ -40,14 +34,16 @@ $(EXE2): $(OBJ2)
 
 .PHONY: all clean install 
 clean:
-	rm -f *.o $(EXE1) $(EXE2) 
+	rm -f *.o $(EXE1) 
 
 install:
 ifeq ($(OS),Windows_NT)
 	mkdir -p ./deliverable && \
-	cp "1-8 lab01.pdf" makefile $(EXE2) ./deliverable 
+	cp lab01.md makefile $(EXE1) ./deliverable 
+	rm ../../../nowic/labs/lab01/*
 	cp -v ./deliverable/* ../../../nowic/labs/lab01
+	xcopy .vscode ..\..\..\nowic\labs\lab01\.vscode //E //H //K //Y //I 
 else
-	cp $(EXE2) ./deliverable
-	cp -v $(EXE2) ../../../nowic/labs/lab01
+	cp $(EXE1) ./deliverable
+	cp -v $(EXE1) ../../../nowic/labs/lab01
 endif
