@@ -20,7 +20,7 @@ void print(int *list, int start, int end, int per_line) {
 			std::cout << std::endl;
 		}
 	}
-	std::cout << std::endl;
+	if (count % per_line != 0) std::cout << std::endl;
 }
 
 ///////////////////////////////////////////////////////////////////////////////

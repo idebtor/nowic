@@ -31,11 +31,11 @@
 // more() and less() are equivalent to greater<int>() and less<int>() in STL. 
 bool more(int x, int y) { return x > y; }   // for descending order
 bool less(int x, int y) { return x < y; }   // for ascending order 
-bool same(int x, int y) { return x == y; }  // for equality check
 
 // declare the function prototypes 
 void bubblesort(int *list, int n, bool (*comp)(int, int) = ::less);
 void insertionsort(int *list, int n, bool (*comp)(int, int) = ::less);
+void mergesort(int *a, int N, bool (*comp)(int, int) = ::less);
 void quicksort(int *a, int n, bool (*comp)(int, int) = ::less);
 void selectionsort(int *list, int n, bool (*comp)(int, int) = ::less);
 
