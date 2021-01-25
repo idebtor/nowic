@@ -12,7 +12,8 @@
 * > g++ -std=c++11 nowic.cpp -o nowic.o
 * > ar rcs libnowic.a nowic.o
 *
-* 2020/12/01 Created by idebtor@gmail.com
+* 2020/12/01 verion 2.0 created by idebtor@gmail.com
+* 2020/12/20 stopwatch and timer classes added
 *
 * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License
 * http://creativecommons.org/licenses/by-nc-sa/3.0/
@@ -26,6 +27,12 @@
 #include <regex>
 #include <stdexcept>
 using namespace std;
+
+#ifdef DEBUG
+#define DPRINT(func) func;
+#else
+#define DPRINT(func) ;
+#endif
 
 /*
  * Reads a line of text from standard input and returns it as an int in
@@ -76,5 +83,50 @@ string GetLine(string prompt = "Enter a line: ");
 string GetString(string prompt = "Enter a string: ");
 // It is the same as GetString(), but a different prompt. 
 string GetWord(string prompt = "Enter a word: ");
+
+#include <ctime>
+#include <chrono>
+/*
+ * Reliably measuring the exact running time of a given program can be difficult. 
+ * Fortunately, we are usually satisified with estimates. The following two classes 
+ * simply measures an elapsed time. To use a timer or stopwatch, instantiate an object 
+ * right before code that you want to measure an elapsed time. Then invoke elpasedTime() 
+ * method right after the code that you're timing.
+ * For example:
+ *    timer t;
+ *    ..... your code to measure an elapsed time......
+ *    cout << t.elapsedTime() << endl;
+ *
+ */
+
+class stopwatch {  // measures clock in Windows, processor time on Linux
+private:
+	clock_t begin;
+public:
+	stopwatch() { begin = clock(); }
+	double elapsedTime() {
+		return ((double)clock() - begin) / CLOCKS_PER_SEC;
+	}
+	void reset() { begin = clock(); }
+	void print(string prompt = "\ttime elapsed: ") {
+		cout << prompt << elapsedTime() << " sec\n";
+	}
+};
+
+using namespace std::chrono;;
+class timer {  // measures elapsed time
+private:
+	high_resolution_clock::time_point begin;
+public:
+	timer() { begin = high_resolution_clock::now(); }
+	double elapsedTime() {
+		high_resolution_clock::time_point end = high_resolution_clock::now();
+		return (double)duration_cast<milliseconds>(end - begin).count() / 1000;
+	}
+	void start() { begin = high_resolution_clock::now(); }
+	void print(string prompt = "\ttime elapsed: ") {
+		cout << prompt << elapsedTime() << " sec\n";
+	}
+};
 
 #endif 

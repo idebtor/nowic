@@ -39,13 +39,10 @@ void mergesort(int *a, int N, bool (*comp)(int, int) = ::less);
 void quicksort(int *a, int n, bool (*comp)(int, int) = ::less);
 void selectionsort(int *list, int n, bool (*comp)(int, int) = ::less);
 
-// prints all the values in the list if the list size is less than show_n * 2. 
-// If the list size is greater than (show_n * 2), then it shows only show_n 
+// prints all the values in the list if the list size N is less than show_n.
+// If the list size is greater than show_n, then it shows only show_n/2
 // values from the beginning part and the end part in the list, respectively.
 void printlist(int *list, int n, int show_n = 20, int per_line = 10);
-
-unsigned long rand_extended();         // rand() ranges is extended
-void randomize(int list[], int size);  // Fisher-Yates shuffle algorithm - modern 
 
 // for initial samples 
 const int STARTING_SAMPLES = 1000;
