@@ -54,12 +54,12 @@ void merge(int *a, int *aux, int lo, int mi, int hi) {
     assert(sorted(a, lo, hi));		// postcondition: a[lo..hi] sorted
 }
 
-void mergesort(int *a, int *aux, int N, int lo, int hi) {
+void mergesort(int *a, int *aux, int lo, int hi) {
     if (hi <= lo) return;
 
     int mi = lo + (hi - lo) / 2;
-    mergesort (a, aux, N, lo,     mi);
-    mergesort (a, aux, N, mi + 1, hi);
+    mergesort (a, aux, lo,     mi);
+    mergesort (a, aux, mi + 1, hi);
 	if (a[mi] < a[mi + 1]) return;  // already sorted
 
     merge(a, aux, lo, mi, hi);
@@ -69,7 +69,8 @@ void mergesort(int *a, int N) {
     int *aux = new (nothrow) int[N];
     assert(aux != nullptr);
 
-    mergesort(a, aux, N, 0, N - 1);
+    mergesort(a, aux, 0, N - 1);
+    delete[] aux;
 }
 
 #if 1
