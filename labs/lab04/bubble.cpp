@@ -52,7 +52,7 @@ void bubblesort(int *list, int n) {
 }
 
 // bubblesort using a comparator function passed as a function pointer.
-void bubblesort(int *list, int n, int (*comp)(int, int)) {
+void bubblesort(int *list, int n, bool (*comp)(int, int)) {
   DPRINT(cout << "BUBBLE SORTING...fp\n");
 
   cout << "your code here\n";

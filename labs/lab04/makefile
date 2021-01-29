@@ -11,8 +11,8 @@ CC = g++ $(CCFLAGS)
 
 LIBDIR = ../../lib
 INCDIR = ../../include
-CCFLAGS = -Wall -std=c++11 
-#CCFLAGS += -DDEBUG -Og        # uncomment for debugging
+CCFLAGS = -Wall -std=c++11 -g 
+#CCFLAGS += -DDEBUG         # uncomment for debugging
 ifeq ($(OS),Windows_NT)
 	LDFLAGS = -L$(LIBDIR) -lnowic
 else
