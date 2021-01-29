@@ -30,7 +30,8 @@ EXE2 = helloargs
 EXE3 = hellofunc
 
 # rule for link
-all: $(EXE1) $(EXE2) $(EXE3)
+all: $(EXE1) $(EXE2) $(EXE3) 
+
 $(EXE1): $(OBJ1)
 	$(CC) -o $@ $^     
 
@@ -46,15 +47,15 @@ $(EXE3): $(OBJ3)
 
 .PHONY: all clean install 
 clean:
-	rm -f *.o $(EXE1) $(EXE2) $(EXE3)
+	rm -f *.o $(EXE1) $(EXE2) $(EXE3) 
 
 install:
 ifeq ($(OS),Windows_NT)
-	cp pset01.pdf makefile names.txt argcargv.md getinputs.md ./deliverable
+	cp pset1.pdf makefile names.txt argcargv.md getinputs.md ./deliverable
 	cp $(EXE3) ./deliverable
-	cp -v ./deliverable/* ../../../nowic/psets/pset01
+	cp -v ./deliverable/* ../../../nowic/psets/pset1
 	xcopy .vscode ..\..\..\nowic\psets\pset01\.vscode //E //H //K //Y //I 
 else
 	cp $(EXE3) ./deliverable
-	cp -v $(EXE3) ../../../nowic/psets/pset01
+	cp -v $(EXE3) ../../../nowic/psets/pset1
 endif

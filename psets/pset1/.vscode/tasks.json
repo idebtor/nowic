@@ -1,14 +1,15 @@
 {
 	"version": "2.0.0",
 	"tasks": [
-		{   // echo $workspaceFolder}
+		{   // print workspace folder name
 			"type": "shell",
-			"label": "echo ${workspaceFolder} -> ",
+			"label": "echo workspaceFolder",
 			"command": "echo ${workspaceFolder}",
+			"problemMatcher": []
 		},
 		{   // echo cwd 
 			"type": "shell",
-			"label": "echo ${cwd} -> ",
+			"label": "echo cwd",
 			"command": "echo ${cwd}",
 			"problemMatcher": []
 		},
