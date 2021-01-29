@@ -35,13 +35,13 @@ all: $(TARGET)
 clean:
 	rm -f $(OBJS) $(TARGET)
 install:
-	cp $(TARGET) $(LIBDIR) 
+	cp -v $(TARGET) $(LIBDIR) 
 	cp -v $(TARGET) ../../nowic/lib
 ifeq ($(OS),Windows_NT)
-	cp sort.h $(INCDIR) 
-	cp -v sort.h    ../../nowic/include
+	cp -v sort.h  $(INCDIR) 
+	cp -v sort.h  ../../nowic/include
+	cp -v sort.h  printlist.cpp make.libsort ../../nowic/src
 	xcopy .vscode ..\..\nowic\src\.vscode //E //H //K //Y //I 
-	cp -v printlist.cpp sort.h make.libsort ../../nowic/src
 endif
 
 
