@@ -8,7 +8,7 @@
             "name": "g++.exe",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${cwd}/hellowhox.exe",
+            "program": "${cwd}/hellowho.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "C:\\msys64\\mingw64\\bin",
@@ -23,7 +23,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "build hellowhox"
+            "preLaunchTask": "build hellowho"
         }
     ]
 }
