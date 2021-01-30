@@ -13,7 +13,8 @@ LDFLAGS = -L$(LIBDIR)
 LIBDIR = ../lib
 INCDIR = ../include
 
-SRCS = bubble.cpp insertion.cpp merge.cpp quick.cpp selection.cpp printlist.cpp
+SRCS = bubble.cpp insertion.cpp merge.cpp quick.cpp selection.cpp \
+		comparator.cpp printlist.cpp 
 OBJS = $(SRCS:.cpp=.o)
 
 ifeq ($(OS),Windows_NT)
@@ -40,7 +41,7 @@ install:
 ifeq ($(OS),Windows_NT)
 	cp -v sort.h  $(INCDIR) 
 	cp -v sort.h  ../../nowic/include
-	cp -v sort.h  printlist.cpp make.libsort ../../nowic/src
+	cp -v sort.h  comparator.cpp printlist.cpp make.libsort ../../nowic/src
 	xcopy .vscode ..\..\nowic\src\.vscode //E //H //K //Y //I 
 endif
 

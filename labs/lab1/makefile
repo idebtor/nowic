@@ -11,26 +11,26 @@ CC = g++ $(CCFLAGS)
 
 LIBDIR = ../../lib
 INCDIR = ../../include
-CCFLAGS = -Wall -std=c++11 -g
-#CCFLAGS += -DDEBUG           # uncomment for debugging
+CCFLAGS = -Wall -std=c++11 -g 
+#CCFLAGS += -DDEBUG        # uncomment for debugging
 ifeq ($(OS),Windows_NT)
 	LDFLAGS = -L$(LIBDIR) -lnowic
 else
 	LDFLAGS = -L$(LIBDIR) -lnowic_mac
 endif
 
-SRC1 = selectionx.cpp printlist.cpp
+SRC1 = cplus.cpp
 OBJ1 = $(SRC1:.cpp=.o) 
-EXE1 = selectionx
+EXE1 = cplus
 
 # rule for link
-all: $(EXE1) 
+all: $(EXE1) $(EXE2) 
 $(EXE1): $(OBJ1)
-	$(CC) -o $@ $^ 
+	$(CC) -o $@ $^     
 
 # rule for compilation
 %.o: %.cpp
-	$(CC) -c $< 
+	$(CC) -c $<
 
 .PHONY: all clean install 
 clean:
@@ -39,10 +39,10 @@ clean:
 install:
 ifeq ($(OS),Windows_NT)
 	mkdir -p ./deliverable && \
-	cp lab05.md makefile $(EXE1) selection.cpp ./deliverable 
-	cp -v ./deliverable/* ../../../nowic/labs/lab05
-	xcopy .vscode ..\..\..\nowic\labs\lab05\.vscode //E //H //K //Y //I 
+	cp lab1.md makefile $(EXE1) ./deliverable 
+	cp -v ./deliverable/* ../../../nowic/labs/lab1
+	xcopy .vscode ..\..\..\nowic\labs\lab1\.vscode //E //H //K //Y //I 
 else
-	cp $(EXE1)  ./deliverable
-	cp -v $(EXE1)  ../../../nowic/labs/lab05
+	cp $(EXE1) ./deliverable
+	cp -v $(EXE1) ../../../nowic/labs/lab1
 endif

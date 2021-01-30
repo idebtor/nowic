@@ -19,54 +19,36 @@ else
 	LDFLAGS = -L$(LIBDIR) -lnowic_mac
 endif
 
-SRC1 = times.cpp
-SRC2 = setmax_val.cpp
-SRC3 = setmax_ptr.cpp
-SRC4 = setmax_ref.cpp
-SRC5 = setmax_ret.cpp
+SRC1 = args1x.cpp printfuncx.cpp
+SRC2 = args2x.cpp printfuncx.cpp
 OBJ1 = $(SRC1:.cpp=.o) 
 OBJ2 = $(SRC2:.cpp=.o) 
-OBJ3 = $(SRC3:.cpp=.o) 
-OBJ4 = $(SRC4:.cpp=.o) 
-OBJ5 = $(SRC5:.cpp=.o) 
-EXE1 = times
-EXE2 = setmax_val
-EXE3 = setmax_ptr
-EXE4 = setmax_ref
-EXE5 = setmax_ret
+EXE1 = args1x
+EXE2 = args2x
 
 # rule for link
-all: $(EXE1) $(EXE2) $(EXE3) $(EXE4) $(EXE5)  
+all: $(EXE1) $(EXE2) 
 $(EXE1): $(OBJ1)
 	$(CC) -o $@ $^ 
 
 $(EXE2): $(OBJ2)
 	$(CC) -o $@ $^ 
 
-$(EXE3): $(OBJ3)
-	$(CC) -o $@ $^ 
-
-$(EXE4): $(OBJ4)
-	$(CC) -o $@ $^ 
-
-$(EXE5): $(OBJ5)
-	$(CC) -o $@ $^ 
-
 # rule for compilation
 %.o: %.cpp
-	$(CC) -c $< 
+	$(CC) -c $< -I$(INCDIR)
 
 .PHONY: all clean install 
 clean:
-	rm -f *.o $(EXE1) $(EXE2) $(EXE3) $(EXE4) $(EXE5) 
+	rm -f *.o $(EXE1) $(EXE2) 
 
 install:
 ifeq ($(OS),Windows_NT)
 	mkdir -p ./deliverable && \
-	cp lab03.md makefile $(EXE1) $(EXE2) $(EXE3) ./deliverable 
-	cp -v ./deliverable/* ../../../nowic/labs/lab03
-	xcopy .vscode ..\..\..\nowic\labs\lab03\.vscode //E //H //K //Y //I 
+	cp lab2.md makefile $(EXE1) $(EXE2) args1.cpp printfunc.cpp ./deliverable 
+	cp -v ./deliverable/* ../../../nowic/labs/lab2
+	xcopy .vscode ..\..\..\nowic\labs\lab2\.vscode //E //H //K //Y //I 
 else
-	cp $(EXE1) $(EXE2) $(EXE3)  ./deliverable
-	cp -v $(EXE1) $(EXE2) $(EXE3)  ../../../nowic/labs/lab03
+	cp $(EXE1) $(EXE2) ./deliverable
+	cp -v $(EXE1) $(EXE2) ../../../nowic/labs/lab2
 endif

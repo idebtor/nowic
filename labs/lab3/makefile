@@ -11,7 +11,7 @@ CC = g++ $(CCFLAGS)
 
 LIBDIR = ../../lib
 INCDIR = ../../include
-CCFLAGS = -g -Wall -std=c++11 
+CCFLAGS = -Wall -std=c++11 
 #CCFLAGS += -DDEBUG -Og        # uncomment for debugging
 ifeq ($(OS),Windows_NT)
 	LDFLAGS = -L$(LIBDIR) -lnowic
@@ -19,54 +19,54 @@ else
 	LDFLAGS = -L$(LIBDIR) -lnowic_mac
 endif
 
-SRC1 = bubble.cpp
-SRC2 = insertion.cpp
-SRC3 = merge.cpp
-SRC4 = quick.cpp
-SRC5 = selection.cpp
+SRC1 = times.cpp
+SRC2 = setmax_val.cpp
+SRC3 = setmax_ptr.cpp
+SRC4 = setmax_ref.cpp
+SRC5 = setmax_ret.cpp
 OBJ1 = $(SRC1:.cpp=.o) 
 OBJ2 = $(SRC2:.cpp=.o) 
 OBJ3 = $(SRC3:.cpp=.o) 
 OBJ4 = $(SRC4:.cpp=.o) 
 OBJ5 = $(SRC5:.cpp=.o) 
-EXE1 = bubble
-EXE2 = insertion
-EXE3 = merge
-EXE4 = quick
-EXE5 = selection
+EXE1 = times
+EXE2 = setmax_val
+EXE3 = setmax_ptr
+EXE4 = setmax_ref
+EXE5 = setmax_ret
 
 # rule for link
-all: $(EXE1) $(EXE2) $(EXE3) $(EXE4) $(EXE5)
+all: $(EXE1) $(EXE2) $(EXE3) $(EXE4) $(EXE5)  
 $(EXE1): $(OBJ1)
-	$(CC) -o $@ $^     
+	$(CC) -o $@ $^ 
 
 $(EXE2): $(OBJ2)
-	$(CC) -o $@ $^  
+	$(CC) -o $@ $^ 
 
 $(EXE3): $(OBJ3)
-	$(CC) -o $@ $^  
+	$(CC) -o $@ $^ 
 
 $(EXE4): $(OBJ4)
-	$(CC) -o $@ $^  
+	$(CC) -o $@ $^ 
 
 $(EXE5): $(OBJ5)
-	$(CC) -o $@ $^  
+	$(CC) -o $@ $^ 
 
 # rule for compilation
 %.o: %.cpp
-	$(CC) -c $<
+	$(CC) -c $< 
 
 .PHONY: all clean install 
 clean:
-	rm -f *.o $(EXE1) $(EXE2) $(EXE3)  $(EXE4) $(EXE5)
+	rm -f *.o $(EXE1) $(EXE2) $(EXE3) $(EXE4) $(EXE5) 
 
 install:
 ifeq ($(OS),Windows_NT)
-	cp lab06.md makefile $(SRC1) $(SRC2) $(SRC3) $(SRC4) $(SRC5)  ./deliverable
-	cp $(EXE2) $(EXE3) $(EXE4) ./deliverable
-	cp -v ./deliverable/* ../../../nowic/labs/lab06
-	xcopy .vscode ..\..\..\nowic\labs\lab06\.vscode //E //H //K //Y //I 
+	mkdir -p ./deliverable && \
+	cp lab3.md makefile $(EXE1) $(EXE2) $(EXE3) ./deliverable 
+	cp -v ./deliverable/* ../../../nowic/labs/lab3
+	xcopy .vscode ..\..\..\nowic\labs\lab3\.vscode //E //H //K //Y //I 
 else
-	cp $(EXE2) $(EXE3) $(EXE4)  ./deliverable
-	cp -v $(EXE2) $(EXE3) $(EXE4)  ../../../nowic/labs/lab06
+	cp $(EXE1) $(EXE2) $(EXE3)  ./deliverable
+	cp -v $(EXE1) $(EXE2) $(EXE3)  ../../../nowic/labs/lab3
 endif

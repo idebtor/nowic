@@ -43,11 +43,11 @@ clean:
 
 install:
 ifeq ($(OS),Windows_NT)
-	cp lab07staticlib.pdf makefile $(SRC1) $(SRC2) ./deliverable
+	cp staticlib.pdf makefile ./deliverable
 	cp $(EXE1) $(EXE2) ./deliverable
-	cp -v ./deliverable/* ../../../nowic/labs/lab07
-	xcopy .vscode ..\..\..\nowic\labs\lab07\.vscode //E //H //K //Y //I 
+	cp -v ./deliverable/* ../../../nowic/labs/lab7
+	xcopy .vscode ..\..\..\nowic\labs\lab7\.vscode //E //H //K //Y //I 
 else
 	cp $(EXE1) $(EXE2)  ./deliverable
-	cp -v $(EXE1) $(EXE2)  ../../../nowic/labs/lab07
+	cp -v $(EXE1) $(EXE2)  ../../../nowic/labs/lab7
 endif

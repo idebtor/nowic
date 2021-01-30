@@ -25,12 +25,12 @@
 #define DPRINT(func) ;
 #endif
 
-// two comparator functions 
+// two comparator function prototypes
 // The value returned indicates whether the element passed as first argument
 // is considered to go before the second in the specific ordering.
 // more() and less() are equivalent to greater<int>() and less<int>() in STL. 
-bool more(int x, int y) { return x > y; }   // for descending order
-bool less(int x, int y) { return x < y; }   // for ascending order 
+bool more(int x, int y);   // for descending order
+bool less(int x, int y);   // for ascending order 
 
 // declare the function prototypes 
 void bubblesort(int *list, int n, bool (*comp)(int, int) = ::less);

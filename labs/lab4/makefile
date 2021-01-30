@@ -39,10 +39,10 @@ clean:
 install:
 ifeq ($(OS),Windows_NT)
 	mkdir -p ./deliverable && \
-	cp lab04.md makefile $(EXE1) bubble.cpp ./deliverable 
-	cp -v ./deliverable/* ../../../nowic/labs/lab04
-	xcopy .vscode ..\..\..\nowic\labs\lab04\.vscode //E //H //K //Y //I 
+	cp lab4.md makefile $(EXE1) bubble.cpp ./deliverable 
+	cp -v ./deliverable/* ../../../nowic/labs/lab4
+	xcopy .vscode ..\..\..\nowic\labs\lab4\.vscode //E //H //K //Y //I 
 else
 	cp $(EXE1)  ./deliverable
-	cp -v $(EXE1)  ../../../nowic/labs/lab04
+	cp -v $(EXE1)  ../../../nowic/labs/lab4
 endif
