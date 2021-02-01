@@ -81,7 +81,7 @@ $ ./times
 1. Create a source file, `setmax_val.cpp`, with the following code.
     - Use pass-by-value.
     - With a given list, find the max value, then set it to 99 in setmax().
-    - In main(), we do not observe the max value change that was made in setmax(), since functions are using pass-by-value on purpose. 
+    - Observe that the max value is not changed in main(0) even though the change was made in setmax(). The reason is that functions are using pass-by-value on purpose. 
 
 ```
 #include<iostream>
@@ -95,18 +95,15 @@ int getmax(vector<int> vec) {
     auto max = vec[0];
     size_t idx = 0;
     for (size_t i = 0; i < vec.size(); i++) {
-        if (max < vec[i]) {
-            max = vec[i];
-            idx = i;
-        }
+        cout << "your code here\n"; 
     }
     return idx;
 }
 
-// sets the max value in the lto 99
+// sets the max value in the list to 99
 void setmax(vector<int> vec) {
     size_t idx = getmax(vec);
-    vec[idx] = 99;
+    cout << "your code here\n"; 
 }
 
 // With a given list, find the max value, then set it to 99 in setmax()
@@ -159,10 +156,7 @@ int getmax(vector<int> vec) {
     auto max = vec[0];
     size_t idx = 0;
     for (size_t i = 0; i < vec.size(); i++) {
-        if (max < vec[i]) {
-            max = vec[i];
-            idx = i;
-        }
+        cout << "your code here\n"; 
     }
     return idx;
 }
@@ -217,10 +211,7 @@ int getmax(vector<int> vec) {
     auto max = vec[0];
     size_t idx = 0;
     for (size_t i = 0; i < vec.size(); i++) {
-        if (max < vec[i]) {
-            max = vec[i];
-            idx = i;
-        }
+        cout << "your code here\n"; 
     }
     return idx;
 }
