@@ -60,11 +60,11 @@ long long unsigned fibonacci(int n) {
  * We have a number of bunnies and each bunny has two big floppy ears. 
  * We want to compute the total number of ears across all the bunnies 
  * recursively (without loops or multiplication).
- *	bunnyEars(0) → 0
- *	bunnyEars(1) → 2
- *	bunnyEars(2) → 4
- *	bunnyEars(3) → 6
- *	bunnyEars(234) → 468 
+ *	bunnyEars(0) = 0
+ *	bunnyEars(1) = 2
+ *	bunnyEars(2) = 4
+ *	bunnyEars(3) = 6
+ *	bunnyEars(234) = 468 
  */
 int bunnyEars(int bunnies) {
 	if (bunnies == 0) return 0;
@@ -83,12 +83,12 @@ int bunnyEars(int bunnies) {
  * have a raised foot. Recursively return the number of "ears" in the 
  * bunny and funny line 1, 2, ... n (without loops or multiplication).
  * 
- funnyEars(0) → 0
- funnyEars(1) → 2
- funnyEars(2) → 5
- funnyEars(3) → 7
- funnyEars(4) → 10
- funnyEars(9) → 22
+ funnyEars(0) = 0
+ funnyEars(1) = 2
+ funnyEars(2) = 5
+ funnyEars(3) = 7
+ funnyEars(4) = 10
+ funnyEars(9) = 22
  *
  */
 int funnyEars(int funnies) {
@@ -103,12 +103,12 @@ int funnyEars(int funnies) {
  * and so on. Compute recursively (no loops or multiplication) 
  * the total number of blocks in such a triangle with the given 
  * number of rows.
- * triangle(0) → 0
- * triangle(1) → 1
- * triangle(2) → 3
- * triangle(3) → 6
- * triangle(4) → 10
- * triangle(7) → 28
+ * triangle(0) = 0
+ * triangle(1) = 1
+ * triangle(2) = 3
+ * triangle(3) = 6
+ * triangle(4) = 10
+ * triangle(7) = 28
  * 
  */
 
@@ -121,13 +121,13 @@ int triangle(int rows) {
 /*
  * Example 7: Sum of digits
  * Given a non - negative int n, return the sum of its digits recursively(no loops).Note that mod(%) by 10 yields the rightmost digit(126 % 10 is 6), while divide(/ ) by 10 removes the rightmost digit(126 / 10 is 12).
- * sumDigits(126) → 9
- * sumDigits(49) → 13
- * sumDigits(12) → 3
- * sumDigits(1) → 1
- * sumDigits(0) → 0
- * sumDigits(10110) → 3
- * sumDigits(235) → 10
+ * sumDigits(126) = 9
+ * sumDigits(49) = 13
+ * sumDigits(12) = 3
+ * sumDigits(1) = 1
+ * sumDigits(0) = 0
+ * sumDigits(10110) = 3
+ * sumDigits(235) = 10
  */
 int sumDigits(int n) {
 	std::cout << "your code here\n";
@@ -142,13 +142,13 @@ int sumDigits(int n) {
  * (126 % 10 is 6), while divide (/) by 10 removes the rightmost 
  * digit (126 / 10 is 12).
 
- * count8(818) → 2
- * count8(8) → 1
- * count8(123) → 0
- * count8(881238) → 3
- * count8(48581) → 2
- * count8(888586198) → 5
- * count8(99899) → 1
+ * count8(818) = 2
+ * count8(8) = 1
+ * count8(123) = 0
+ * count8(881238) = 3
+ * count8(48581) = 2
+ * count8(888586198) = 5
+ * count8(99899) = 1
  */
 
 int count8(int n) {
@@ -160,15 +160,15 @@ int count8(int n) {
  * Example 9: Power N
  * Given base and n that are both 1 or more, compute recursively(no loops) 
  * the value of base to the n power, so powerN(3, 2) is 9 (3 squared).
- * powerN(2, 5) → 32
- * powerN(3, 1) → 3
- * powerN(3, 2) → 9
- * powerN(3, 3) → 27
- * powerN(10, 2) → 100
- * powerN(10, 3) → 1000
+ * powerN(2, 5) = 32
+ * powerN(3, 1) = 3
+ * powerN(3, 2) = 9
+ * powerN(3, 3) = 27
+ * powerN(10, 2) = 100
+ * powerN(10, 3) = 1000
  */
 
-long long powerN(int base, int n) {
+long long unsigned powerN(int base, int n) {
 	std::cout << "your code here\n";
 	return n;
 }

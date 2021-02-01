@@ -7,17 +7,11 @@
 # $^ The names of all the prerequisite files (space separated)
 # $* The stem (the bit which matches the % wildcard in the rule definition.
 #
-CC = g++ $(CCFLAGS)
-
+CC = g++ 
 LIBDIR = ../../lib
 INCDIR = ../../include
-CCFLAGS = -Wall -std=c++11 -g 
+CCFLAGS = -std=c++11 -Wall -g 
 #CCFLAGS += -DDEBUG        # uncomment for debugging
-ifeq ($(OS),Windows_NT)
-	LDFLAGS = -L$(LIBDIR) -lnowic
-else
-	LDFLAGS = -L$(LIBDIR) -lnowic_mac
-endif
 
 SRC1 = cplus.cpp
 OBJ1 = $(SRC1:.cpp=.o) 
@@ -30,11 +24,11 @@ $(EXE1): $(OBJ1)
 
 # rule for compilation
 %.o: %.cpp
-	$(CC) -c $<
+	$(CC) $(CCFLAGS) -c $<
 
 .PHONY: all clean install 
 clean:
-	rm -f *.o $(EXE1) 
+	rm -f *.o *.exe $(EXE1) 
 
 install:
 ifeq ($(OS),Windows_NT)

@@ -11,8 +11,8 @@
 CC = g++
 LIBDIR = ../../lib
 INCDIR = ../../include
-CCFLAGS = -Wall -std=c++11
-#CCFLAGS += -DDEBUG -ggdb        # uncomment for debugging
+CCFLAGS = -std=c++11 -Wall -g
+#CCFLAGS += -DDEBUG        # uncomment for debugging
 ifeq ($(OS),Windows_NT)
 	LDFLAGS = -L$(LIBDIR) -lnowic -lrand
 else
@@ -37,14 +37,14 @@ $(EXEx): $(OBJx)
 
 # rule for compilation
 %.o: %.cpp
-	$(CC) -c -I$(INCDIR) $<
+	$(CC) $(CCFLAGS) -c -I$(INCDIR) $<
 
 .PHONY: all clean install
 clean:
-	rm -f $(OBJ1) $(EXE1) $(OBJx) $(EXEx) 
+	rm -f *.o *.exe $(OBJ1) $(EXE1) $(OBJx) $(EXEx) 
 install:
 ifeq ($(OS),Windows_NT)
-	cp pset2a.pdf makefile $(EXEx).exe    ./deliverable
+	cp pset2a.pdf makefile $(EXEx)  ./deliverable
 	cp recursionDriver.cpp recursion.cpp  ./deliverable
 	cp -v deliverable/* ../../../nowic/psets/pset2a
 	xcopy .vscode ..\..\..\nowic\psets\pset2a\.vscode //E //H //K //Y //I 

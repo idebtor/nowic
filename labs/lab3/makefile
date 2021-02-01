@@ -7,11 +7,10 @@
 # $^ The names of all the prerequisite files (space separated)
 # $* The stem (the bit which matches the % wildcard in the rule definition.
 #
-CC = g++ $(CCFLAGS)
-
+CC = g++
 LIBDIR = ../../lib
 INCDIR = ../../include
-CCFLAGS = -Wall -std=c++11 
+CCFLAGS = -std=c++11 -Wall -g
 #CCFLAGS += -DDEBUG -Og        # uncomment for debugging
 ifeq ($(OS),Windows_NT)
 	LDFLAGS = -L$(LIBDIR) -lnowic
@@ -54,7 +53,7 @@ $(EXE5): $(OBJ5)
 
 # rule for compilation
 %.o: %.cpp
-	$(CC) -c $< 
+	$(CC) $(CCFLAGS) -c $< 
 
 .PHONY: all clean install 
 clean:

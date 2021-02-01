@@ -1,5 +1,4 @@
 //
-// Author:		Youngsup Kim
 // Description:	This program is written to run and test some recursion algorithms.
 //
 // On my honour, I pledge that I have neither received nor provided improper
@@ -9,10 +8,8 @@
 //  g++ recursionDriver.cpp recursion.cpp -I../../include -L../../lib -lnowic -o recursion
 //
 // History:
-// 2018/02/10	Created
-// 2020/03/02	C++ Conversion
-// 2020/09/12	Simplified
-//
+// 2018/02/10	created by idebtor@gmail.com
+// 2021/02/01	a set of test cases added for each function
 
 #include <iostream>
 #include <cassert>
@@ -20,14 +17,8 @@
 using namespace std;
                    
 long long unsigned factorial(int n);
-long long unsigned fibonacci(int n);
-int gcd(int a, int b);
-int bunnyEars(int a);
-int funnyEars(int a);
-int triangle(int a);
-int sumDigits(int n);
-int count8(int n);
-long long powerN(int base, int n);
+int gcd(int x, int y);
+// your function prototypes here
 
 int main() {
 	int option;
@@ -53,12 +44,11 @@ int main() {
 			break;
 		case 1:
 			cout << "\tFactorial Examples:\n";
-			cout << "\tfactorial(1) = 1\n";
-			cout << "\tfactorial(2) = 2\n";
-			cout << "\tfactorial(3) = 6\n";
-			cout << "\tfactorial(5) = 120\n";
-			cout << "\tfactorial(8) = 40320\n";
-			cout << "\tfactorial(12) = 479001600\n";
+			{
+				int nlist1[] = {1, 2, 3, 4, 5, 8, 12, 15, 20};
+				for (auto x: nlist1)
+					cout << "\tfactorial(" << x << ") = " << factorial(x) << endl;
+			}
 
 			while (1) {
 				N = GetInt("\tEnter a number to compute N factorial(0 to quit): ");
@@ -68,8 +58,14 @@ int main() {
 			break;
 		case 2:
 			cout << "\tGCD Examples:\n";
-			cout << "\tgcd(27, 9) = 9\n";
-			cout << "\tgcd(111, 259) = 37\n";
+			{
+			pair<int, int> nlist2[] = {make_pair(9, 10), make_pair(27, 9), make_pair(54, 24), 
+									   make_pair(48, 180), make_pair(111, 259),
+									   make_pair(1701, 3768)};
+			for (auto x: nlist2) 
+				cout << "\tGCD(" << x.first << "," << x.second << ") = " 
+								 << gcd(x.first, x.second) << endl;
+			}
 
 			while (1) {
 				int x = GetInt("\tEnter 1st number to compute GCD(0 to quit): ");
@@ -82,100 +78,63 @@ int main() {
 
 		case 3:
 			cout << "\tFibonacci Examples:\n";
-			cout << "\tfibonacci(0) = 0\n";
-			cout << "\tfibonacci(1) = 1\n";
-			cout << "\tfibonacci(2) = 1\n";
-			cout << "\tfibonacci(3) = 2\n";
-			cout << "\tfibonacci(4) = 3\n";
-			cout << "\tfibonacci(5) = 5\n";
-			cout << "\tfibonacci(6) = 8\n";
-			while (1) {
-				N = GetInt("\tEnter a number to compute N fibonacci(0 to quit): ");
-				if (N <= 0) break;
-				cout << "\tfibonacci(" << N << ") = " << fibonacci(N) << endl;
-			}
+			// int nlist3[] = {0, 1, 2, 3, 4, 5, 6, 7, 8};
+
+			cout << "\tyour code here\n";
+			
 			break;
+
 		case 4:
-			cout << "\tbunnyEars(0) = 0\n";
-			cout << "\tbunnyEars(1) = 2\n";
-			cout << "\tbunnyEars(2) = 4\n";
-			cout << "\tbunnyEars(3) = 6\n";
-			cout << "\tbunnyEars(234) = 468\n";
-			while (1) {
-				N = GetInt("\tEnter a number of bunnies(0 to quit): ");
-				if (N <= 0) break;
-				cout << "\tbunnyEars(" << N << ") = " << bunnyEars(N) << endl;
-			}
+			cout << "\tBunnyEars Examples:\n";
+			
+			cout << "\tyour code here\n";
+			// int nlist4[] = {0, 1, 2, 3, 4, 5, 9, 123};
+			
+
 			break;
-			case 5:
-				cout << "\tfunnyEars(0) = 0\n";
-				cout << "\tfunnyEars(1) = 2\n";
-				cout << "\tfunnyEars(2) = 5\n";
-				cout << "\tfunnyEars(3) = 7\n";
-				cout << "\tfunnyEars(4) = 10\n";
-				cout << "\tfunnyEars(9) = 22\n";
-				while (1) {
-					N = GetInt("\tEnter a number of Funnies(0 to quit): ");
-					if (N <= 0) break;
-					cout << "\tfunnyEars(" << N << ") = " << funnyEars(N) << endl;
-				}
-				break;
-			case 6:
-				cout << "\tTriangle(0) = 0\n";
-				cout << "\tTriangle(1) = 1\n";
-				cout << "\tTriangle(2) = 3\n";
-				cout << "\tTriangle(3) = 6\n";
-				cout << "\tTriangle(4) = 10\n";
-				cout << "\tTriangle(7) = 28\n";
-				while (1) {
-					N = GetInt("\tEnter a row number for Triangle(0 to quit): ");
-					if (N <= 0) break;
-					cout << "\ttriangle(" << N << ") = " << triangle(N) << endl;
-				}
-				break;
-			case 7:
-				cout << "\tsumDigits(1) = 1\n";
-				cout << "\tsumDigits(12) = 3\n";
-				cout << "\tsumDigits(126) = 9\n";
-				cout << "\tsumDigits(235) = 10\n";
-				cout << "\tsumDigits(1000) = 1\n";
-				cout << "\tsumDigits(10110) = 3\n";
-				while (1) {
-					N = GetInt("\tEnter a number to sum digits(0 to quit): ");
-					if (N <= 0) break;
-					cout << "\tsumDigits(" << N << ") = " << sumDigits(N) << endl;
-				}
-				break;
-			case 8:
-				cout << "\tcount8(8) = 1\n";
-				cout << "\tcount8(9) = 0\n";
-				cout << "\tcount8(123) = 0\n";
-				cout << "\tcount8(881238) = 3\n";
-				cout << "\tcount8(48581) = 2\n";
-				cout << "\tcount8(888586198) = 5\n";
-				while (1) {
-					N = GetInt("\tEnter a number to count 8(0 to quit): ");
-					if (N <= 0) break;
-					cout << "\tcount8(" << N << ") = " << count8(N) << endl;
-				}
-				break;
-			case 9:
-				cout << "\tpowerN(2, 5) = 32\n";
-				cout << "\tpowerN(3, 1) = 3\n";
-				cout << "\tpowerN(3, 2) = 9\n";
-				cout << "\tpowerN(3, 3) = 27\n";
-				cout << "\tpowerN(10, 2) = 100\n";
-				cout << "\tpowerN(10, 3) = 1000\n";
-				while (1) {
-					int a = GetInt("\tEnter a base number(0 to quit): ");
-					if (a <= 0) break;
-					int b = GetInt("\tEnter a power number(0 to quit): ");
-					if (b <= 0) break;
-					cout << "\tpowerN(" << a << "," << b << ") = " << powerN(a, b) << endl;
-				}
-				break;
-			default:
-				break;
+
+		case 5:
+			cout << "\tFunnyEars Examples:\n";
+			
+			cout << "\tyour code here\n";
+			// int nlist4[] = {0, 1, 2, 3, 4, 5, 9, 123};
+			
+			break;
+
+		case 6:
+			cout << "\tTriangle Examples:\n";
+			
+			cout << "\tyour code here\n";
+			// int nlist6[] = {0, 1, 2, 3, 4, 5, 9, 123};
+			
+			break;
+
+		case 7:
+			cout << "\tSum Digits Examples:\n";
+			
+			cout << "\tyour code here\n";
+				// int nlist7[] = {1, 12, 126, 235, 1000, 10110, 654321};
+			
+			break;
+
+		case 8:
+			cout << "\tCount 8 Examples:\n";
+			
+			cout << "\tyour code here\n";
+				// int nlist8[] = {8, 9, 123, 881238, 485810, 888586198};
+			
+			break;
+
+		case 9:
+			cout << "\tPower N Examples:\n";
+			
+			cout << "\tyour code here\n";
+			cout << "\tuse pair in C++ for (2,5), (3,1), (3,3), (10,3), (4,16), (2,32)\n";
+
+			break;
+
+		default:
+			break;
 		}
 	} while(option != 0);
 
