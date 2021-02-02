@@ -6,11 +6,10 @@
 # $^ The names of all the prerequisite files (space separated)
 # $* The stem (the bit which matches the % wildcard in the rule definition.
 #
-CC = g++ $(CCFLAGS)
-
+CC = g++
 LIBDIR = ../../lib
 INCDIR = ../../include
-CCFLAGS = -g -Wall -std=c++11 
+CCFLAGS = -std=c++11 -Wall -g
 #CCFLAGS += -DDEBUG -Og        # uncomment for debugging
 ifeq ($(OS),Windows_NT)
 	LDFLAGS = -L$(LIBDIR) -lnowic -lsort
@@ -22,8 +21,8 @@ SRC1 = sortDriver.cpp
 SRC2 = nowicDriver.cpp
 OBJ1 = $(SRC1:.cpp=.o) 
 OBJ2 = $(SRC2:.cpp=.o) 
-EXE1 = sort
-EXE2 = nowic
+EXE1 = sortDriver
+EXE2 = nowicDriver
 
 # rule for link
 all: $(EXE1) $(EXE2) 
@@ -35,11 +34,11 @@ $(EXE2): $(OBJ2)
 
 # rule for compilation
 %.o: %.cpp
-	$(CC) -c $< -I$(INCDIR)
+	$(CC) $(CCFLAGS) -c $< -I$(INCDIR)
 
 .PHONY: all clean install 
 clean:
-	rm -f *.o $(EXE1) $(EXE2) 
+	rm -f *.o *.exe $(EXE1) $(EXE2) 
 
 install:
 ifeq ($(OS),Windows_NT)
