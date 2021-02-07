@@ -5,15 +5,15 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "run profiling",
+            "name": "g++.exe - 활성 파일 빌드 및 디버그",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${cwd}/profiling.exe",
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "C:\\msys64\\mingw64\\bin",
             "environment": [],
-            "externalConsole": false,
+            "console": "externalTerminal",
             "MIMode": "gdb",
             "miDebuggerPath": "C:\\msys64\\mingw64\\bin\\gdb.exe",
             "setupCommands": [
@@ -23,7 +23,7 @@
                     "ignoreFailures": true
                 }
             ],
-            "preLaunchTask": "Build profiling"
+            "preLaunchTask": "build ${fileBasenameNoExtension}"
         }
     ]
 }

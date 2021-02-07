@@ -1,7 +1,8 @@
-// Author:		Youngsup Kim
+// Topic: Performance Analysis - profiling
+//
 // Description:	This program profiles the complexity of sorting algorithms.
-// It uses a for loop to control the size of the array. At each iteration, a
-// new randomly ordered array of n numbers is created. In order to do more
+// It uses a for loop to control the size of the array. At each iteration,
+// a new randomly ordered array of n numbers is created. In order to do more
 // accurate timing, for each n, it do the sort as many times as needed to
 // bring the total time up to 1 second (1000 ticks).
 // This program uses clock(), not difftime() and time().
@@ -11,11 +12,16 @@
 // and O(n log n) of Quick Sort.  When it computes the elapsed time of O(n^2)
 // and O(n log n), you may use Math functions as necessary. It assumes that the
 // elapsed times for all three cases are exactly the same to begin with for
-// STARTING_SAMPLES 500.  Once the elapsed time of the selection sort for
+// STARTING_SAMPLES 1000.  Once the elapsed time of the selection sort for
 // STARTING_SAMPLES is got, it is set to those for O(n^2) and O(n log n).
 //
 // History:
 // 2021/01/29:		Created
+// 2021/02/10:		Using an array of function pointers
+//
+// Compilation:	
+// $ g++ profiling.cpp -I../../include -L../../lib -lsort -o profiling
+// $ ./profiling 50000
 //
 // Compilation:	
 // $ g++ profiling.cpp -I../../include -L../../lib -lsort -o profiling
@@ -26,8 +32,10 @@
 #include <sstream>
 #include <cassert>
 #include <algorithm>
+#include <vector>
 #include <time.h>       /* clock_t, clock, CLOCKS_PER_SEC */
 #include "sort.h"
+#include "rand.h"
 using namespace std;
 
 #ifdef DEBUG
@@ -67,10 +75,10 @@ void profiling(void (*sort_fp)(int*, int, bool (*comp)(int, int)), int* list, co
 		long repetitions = 0;
 		clock_t start = clock();
 		do {
-			repetitions++;                    // count the repetitions for one second
-			copy_n(saved, n, list);	          // get a copy of list from saved
-			sort_fp(list, i, comp_fp);           // sort
-		} while (clock() - start < CLOCKS_PER_SEC);     // run it over one sec
+			repetitions++;                    		// count the repetitions for one second
+			copy_n(saved, n, list);	          		// get a copy of list from saved
+			sort_fp(list, i, comp_fp);          	// sort
+		} while (clock() - start < CLOCKS_PER_SEC); // run it over one sec
 
 		double duration = (clock() - start) / (double)CLOCKS_PER_SEC;
 		duration /= repetitions;
@@ -84,11 +92,10 @@ void profiling(void (*sort_fp)(int*, int, bool (*comp)(int, int)), int* list, co
 	delete[] saved;
 }
 
-#if 0
+#if 1
 int main(int argc, char *argv[]) {
 	int N = 0;
-	// Use setvbuf() to prevent the output from buffered on console.
-	setvbuf(stdout, nullptr, _IONBF, 0);
+	setvbuf(stdout, nullptr, _IONBF, 0); // prevent the output from buffered on console.
 
 	if (argc == 1) {
 		string str;
@@ -106,29 +113,59 @@ int main(int argc, char *argv[]) {
 	}
 
 	if (N <= STARTING_SAMPLES) {
-		cout << "Enter a number much larger than " << STARTING_SAMPLES << ".\n";
+		cout << "Enter a number greater than " << STARTING_SAMPLES << ".\n";
 		exit(EXIT_FAILURE);
 	}
 
 	cout << "The maximum sample data size is " << N << endl;
-
+	
 	int *list = new (nothrow) int[N];
 	assert(list != nullptr);
-	for (int i = 0; i < N; i++) list[i] = i;   // unsorted data ready
 
-	cout << "\n\tinsertionsort(): already sorted - best case." << endl;
-	profiling(insertionsort, list, N, ::less);  // keep the data sorted
+	///////////// rewrite this part for DRY and MNN ////////////////////////
 
-	cout << "\n\tinsertionsort(): randomized - average case." << endl;
-	profiling(insertionsort, list, N, ::less);         // randomized by default
+	cout << "\n\tinsertionsort(): sorted" << endl;
+	for (int i = 0; i < N; i++) list[i] = i;   			// sorted data ready
+	profiling(insertionsort, list, N, ::less);  		
 
-	cout << "\n\tinsertionsort(): sorted reversed - worst case." << endl;
+	cout << "\n\tinsertionsort(): randomized" << endl;
+	randomize(list, N);
+	profiling(insertionsort, list, N, ::less);         	// randomized 
+
+	cout << "\n\tinsertionsort(): reversed" << endl;
 	int j = N - 1;
-	for (int i = 0; i < N; i++) list[i] = j--;	// reversed sequence
-	profiling(insertionsort, list, N, ::less);   // keep the data sorted
+	for (int i = 0; i < N; i++) list[i] = j--;			// reversed sequence
+	profiling(insertionsort, list, N, ::less);   		
 
-	cout << "\n\tquicksort(): randomized - average case." << endl;
-	profiling(quicksort, list, N, ::less);              // randomized - avg case
+
+	cout << "\n\tmergesort(): sorted" << endl;
+	for (int i = 0; i < N; i++) list[i] = i;   			// sorted data ready
+	profiling(mergesort, list, N, ::less);  		
+
+	cout << "\n\tmergesort(): randomized" << endl;
+	randomize(list, N);
+	profiling(mergesort, list, N, ::less);         		// randomized
+
+	cout << "\n\tmergesort(): reversed" << endl;
+	j = N - 1;
+	for (int i = 0; i < N; i++) list[i] = j--;			// reversed sequence
+	profiling(mergesort, list, N, ::less);   	
+
+	cout << "\n\tquicksort(): sorted" << endl;
+	for (int i = 0; i < N; i++) list[i] = i;   			// sorted data ready
+	randomize(list, N);
+	profiling(quicksort, list, N, ::less);              
+
+	cout << "\n\tquicksort(): randomized" << endl;
+	randomize(list, N);
+	profiling(quicksort, list, N, ::less);              // randomized 
+
+	cout << "\n\tquicksort(): reversed" << endl;
+	j = N - 1;
+	for (int i = 0; i < N; i++) list[i] = j--;			// reversed sequence
+	profiling(quicksort, list, N, ::less);   
+
+	///////////// rewrite this part for DRY and MNN ////////////////////////
 
 	delete [] list;
 	return EXIT_SUCCESS;
