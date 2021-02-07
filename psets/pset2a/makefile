@@ -19,11 +19,11 @@ else
 	LDFLAGS = -L$(LIBDIR) -lnowic_mac 
 endif
 
-SRC1 = recursionDriver.cpp recursion.cpp
+SRC1 = driver.cpp recursion.cpp
 OBJ1 = $(SRC1:.cpp=.o)
 EXE1 = recursion
 
-SRCx = recursionDriver.cpp recursionx.cpp
+SRCx = driver.cpp recursionx.cpp
 OBJx = $(SRCx:.cpp=.o)
 EXEx = recursionx
 
@@ -45,7 +45,7 @@ clean:
 install:
 ifeq ($(OS),Windows_NT)
 	cp pset2a.pdf makefile $(EXEx)  ./deliverable
-	cp recursionDriver.cpp recursion.cpp  ./deliverable
+	cp driver.cpp recursion.cpp  ./deliverable
 	cp -v deliverable/* ../../../nowic/psets/pset2a
 	xcopy .vscode ..\..\..\nowic\psets\pset2a\.vscode //E //H //K //Y //I 
 else

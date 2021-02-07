@@ -6,9 +6,9 @@
             "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
             "args": [
                 "-g",
-                "${file}",
+                "${cwd}/factorial.cpp",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}"
+                "${cwd}/factorial"
             ],
             "options": {
                 "cwd": "C:\\msys64\\mingw64\\bin"
@@ -28,7 +28,7 @@
             "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
             "args": [
                 "-g",
-                "${cwd}/recursion.cpp", "${cwd}/recursionDriver.cpp",
+                "${cwd}/recursion.cpp", "${cwd}/driver.cpp",
                 "-I${cwd}/../../include",
                 "-L${cwd}/../../lib",
                 "-lnowic",
@@ -53,7 +53,7 @@
             "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
             "args": [
                 "-g",
-                "${cwd}/recursionx.cpp", "${cwd}/recursionDriverx.cpp",
+                "${cwd}/recursionx.cpp", "${cwd}/driverx.cpp",
                 "-I${cwd}/../../include",
                 "-L${cwd}/../../lib",
                 "-lnowic",
@@ -61,7 +61,7 @@
                 "${cwd}/recursionx"
             ],
             "options": {
-                "cwd": "C:\\msys64\\mingw64\\bin"
+                "cwd": "${workspaceFolder}"
             },
             "problemMatcher": [
                 "$gcc"
