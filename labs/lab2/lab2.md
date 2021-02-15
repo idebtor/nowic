@@ -1,7 +1,7 @@
 # C++ for C Coders & Data Structures
 Lecture Notes by idebtor@gmail.com
 -------------------
-# Lab02
+# Lab2
 ## Subjects
   1. Learning to use `vector` class objects in C++
   2. ranged-for loop
@@ -81,7 +81,7 @@ __Sample Run:__
     - Do NOT USE `usng namespace std;`.
 
     ```
-    // lab02 - printfunc.h
+    // lab2 - printfunc.h
     #ifndef PRINTFUNC_H
     #define PRINTFUNC_H
 
@@ -89,7 +89,7 @@ __Sample Run:__
 
     #endif 
     ```
-  - Duplicate `args1.cpp` and name it `args2.cpp`.
+  - Copy (Overwrite)`args1.cpp` into `args2.cpp` which is a dummy skeleton code.
   - Modify `args2.cpp` as instructed below:
     - Add the header file `printfunc.h` in `args2.cpp`.
     - Remove two `printfunc()` prototypes in `args2.cpp` since they are defined in the header file `printfunc.h`.

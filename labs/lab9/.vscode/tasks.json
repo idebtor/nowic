@@ -90,11 +90,11 @@
         },
         {
             "type": "cppbuild",
-            "label": "build clockx",
+            "label": "build clock",
             "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
             "args": [
                 "-g",
-                "${cwd}/clockx.cpp", "${cwd}/clockDriver.cpp", 
+                "${cwd}/clock.cpp", "${cwd}/clockDriver.cpp", 
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],

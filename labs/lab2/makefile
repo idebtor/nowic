@@ -18,12 +18,12 @@ else
 	LDFLAGS = -L$(LIBDIR) -lnowic_mac
 endif
 
-SRC1 = args1x.cpp printfuncx.cpp
-SRC2 = args2x.cpp printfuncx.cpp
+SRC1 = args1.cpp printfunc.cpp
+SRC2 = args2.cpp printfunc.cpp
 OBJ1 = $(SRC1:.cpp=.o) 
 OBJ2 = $(SRC2:.cpp=.o) 
-EXE1 = args1x
-EXE2 = args2x
+EXE1 = args1
+EXE2 = args2
 
 # rule for link
 all: $(EXE1) $(EXE2) 
@@ -39,15 +39,13 @@ $(EXE2): $(OBJ2)
 
 .PHONY: all clean install 
 clean:
-	rm -f *.o $(EXE1) $(EXE2) 
+	rm -f *.o *.exe $(EXE1) $(EXE2) 
 
 install:
 ifeq ($(OS),Windows_NT)
 	mkdir -p ./deliverable && \
-	cp lab2.md makefile $(EXE1) $(EXE2) args1.cpp printfunc.cpp ./deliverable 
+	cp lab2.md makefile ./deliverable 
+	cp args1.cpp args2.cpp printfunc.cpp ./deliverable 
 	cp -v ./deliverable/* ../../../nowic/labs/lab2
 	xcopy .vscode ..\..\..\nowic\labs\lab2\.vscode //E //H //K //Y //I 
-else
-	cp $(EXE1) $(EXE2) ./deliverable
-	cp -v $(EXE1) $(EXE2) ../../../nowic/labs/lab2
 endif

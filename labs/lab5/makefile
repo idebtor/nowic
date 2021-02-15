@@ -18,9 +18,9 @@ else
 	LDFLAGS = -L$(LIBDIR) -lnowic_mac
 endif
 
-SRC1 = selectionx.cpp printlist.cpp
+SRC1 = selection.cpp printlist.cpp
 OBJ1 = $(SRC1:.cpp=.o) 
-EXE1 = selectionx
+EXE1 = selection
 
 # rule for link
 all: $(EXE1) 
@@ -38,11 +38,8 @@ clean:
 install:
 ifeq ($(OS),Windows_NT)
 	mkdir -p ./deliverable && \
-	cp lab5.md makefile $(EXE1) ./deliverable 
+	cp lab5.md makefile ./deliverable 
 	cp selection.cpp printlist.cpp ./deliverable 
 	cp -v ./deliverable/* ../../../nowic/labs/lab5
 	xcopy .vscode ..\..\..\nowic\labs\lab5\.vscode //E //H //K //Y //I 
-else
-	cp $(EXE1)  ./deliverable
-	cp -v $(EXE1)  ../../../nowic/labs/lab5
 endif

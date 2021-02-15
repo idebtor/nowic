@@ -19,6 +19,14 @@ else
 	LDFLAGS = -L$(LIBDIR) -lnowic_mac
 endif
 
+SRC1 = clock1.cpp 
+OBJ1 = $(SRC1:.cpp=.o)
+EXE1 = clock1
+
+SRC2 = clock2.cpp 
+OBJ2 = $(SRC2:.cpp=.o)
+EXE2 = clock2
+
 SRC3 = clock3.cpp 
 OBJ3 = $(SRC3:.cpp=.o)
 EXE3 = clock3
@@ -27,12 +35,18 @@ SRC4 = clock4.cpp
 OBJ4 = $(SRC4:.cpp=.o)
 EXE4 = clock4
 
-SRCx = clockx.cpp clockDriver.cpp
-OBJx = $(SRCx:.cpp=.o)
-EXEx = clockx
+SRC = clock.cpp clockDriver.cpp
+OBJ = $(SRC:.cpp=.o)
+EXE = clock
 
 # rule for link
-all: $(EXE3) $(EXE4) $(EXEx)
+all: $(EXE1) $(EXE2) $(EXE3) $(EXE4) $(EXE)
+
+$(EXE1): $(OBJ1)
+	$(CC) -o $@ $^ $(LDFLAGS) 
+
+$(EXE2): $(OBJ2)
+	$(CC) -o $@ $^ $(LDFLAGS) 
 
 $(EXE3): $(OBJ3)
 	$(CC) -o $@ $^ $(LDFLAGS) 
@@ -40,7 +54,7 @@ $(EXE3): $(OBJ3)
 $(EXE4): $(OBJ4)
 	$(CC) -o $@ $^ $(LDFLAGS) 
 
-$(EXEx): $(OBJx)
+$(EXE): $(OBJ)
 	$(CC) -o $@ $^ $(LDFLAGS)  
 
 # rule for compilation
@@ -49,13 +63,10 @@ $(EXEx): $(OBJx)
 
 .PHONY: all clean install
 clean:
-	rm -f *.o  $(EXE3) $(EXE4) $(EXEx)
+	rm -f *.o *.exe $(EXE1) $(EXE2) $(EXE3) $(EXE4) $(EXE)
 install:
 ifeq ($(OS),Windows_NT)
-	cp makefile lab9clock.pdf $(EXE3) $(EXE4)  $(EXEx) ./deliverable
+	cp makefile lab9clock.pdf ./deliverable
 	cp -v deliverable/* ../../../nowic/labs/lab9
 	xcopy .vscode ..\..\..\nowic\labs\lab9\.vscode //E //H //K //Y //I 
-else
-	cp $(EXE3) $(EXE4)  $(EXEx) ./deliverable
-	cp -v $(EXE3) $(EXE4)  $(EXEx) ../../../nowic/labs/lab9
 endif

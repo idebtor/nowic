@@ -116,14 +116,9 @@ void reverse(pList p);
 // returns shuffled list in O(n), ex)1234567890 returns 6172839405.
 void shuffle(pList p);
 
-///////////////////////// sort //////////////////////////////////
-// returns the node of which value is larger or smaller than x found
-pNode more(pList p, int x);
-pNode less(pList p, int x);
-
-// returns true if sorted either by either ascending or descending
-bool sorted(pList p);
-bool sorted(pList p, int (*comp)(int a, int b));
+//////////////////////////// sort //////////////////////////////////
+bool sorted(pList p);    /// true if either ascending or descending
+bool sorted(pList p, bool (*comp)(int a, int b));
 
 // inserts a node with value in sorted in the "sorted" list, O(n)
 void push_sorted(pList p, int value); 
@@ -135,11 +130,11 @@ void push_sortedN(pList p, int N);
 void push_sortedNlog(pList p, int N);
 
 // algorithm specific sort functions, refer to listsort.cpp for detail.
-void bubbleSort(pList p, int(*comp)(int, int) = ascending);
-void insertionSort(pList p, int(*comp)(int, int) = ascending);
-void selectionSort(pList p, int(*comp)(int, int) = ascending);
-void quickSort(pList p, int(*comp)(int, int) = ascending);
-void quickSort(int* a, int n, int(*comp)(int, int) = ascending);
+void bubblesort(pList p, bool (*comp)(int, int) = ::less);
+void insertionsort(pList p, bool (*comp)(int, int) = ::less);
+void selectionsort(pList p, bool (*comp)(int, int) = ::less);
+void mergesort(pList p, bool (*comp)(int, int) = ::less);
+void quicksort(pList p, bool (*comp)(int, int) = ::less);
 
 ///////////////////////// show ///////////////////////////////////////
 // if all is true, show all nodes; otherwise, show_n * 2 nodes at front & back. 

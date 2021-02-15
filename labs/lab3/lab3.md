@@ -303,13 +303,18 @@ $ ./setmax_ptr
 <list2: 33 13 99 19 39 22
 ```
 
+## Step 6. touppers.cpp 
+C++ does offer a function, `toupper()` to convert a character to an uppercase  word into uppercases, but not for a word or a string. Write a function called `touppers()` that converts a string to all uppercases in place where it does not require extra memory. You must use a reference variable and `toupper()`, but not functions in <algorithm>.
+
+
 ----------------------------
-# File(s) to submit for this Lab:
+# Files to submit for this Lab:
   - times.cpp
   - setmax_val.cpp
   - setmax_ptr.cpp
   - setmax_ref.cpp
   - setmax_ret.cpp
+  - touppers.cpp
 
 ----------------------------
 _One thing I know, I was blind but now I see. John 9:25_

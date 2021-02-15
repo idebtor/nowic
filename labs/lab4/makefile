@@ -18,9 +18,9 @@ else
 	LDFLAGS = -L$(LIBDIR) -lnowic_mac
 endif
 
-SRC1 = bubblex.cpp
+SRC1 = bubble.cpp
 OBJ1 = $(SRC1:.cpp=.o) 
-EXE1 = bubblex
+EXE1 = bubble
 
 # rule for link
 all: $(EXE1) 
@@ -38,10 +38,8 @@ clean:
 install:
 ifeq ($(OS),Windows_NT)
 	mkdir -p ./deliverable && \
-	cp lab4.md makefile $(EXE1) bubble.cpp ./deliverable 
+	cp lab4.md makefile ./deliverable 
+	cp bubble.cpp ./deliverable 
 	cp -v ./deliverable/* ../../../nowic/labs/lab4
 	xcopy .vscode ..\..\..\nowic\labs\lab4\.vscode //E //H //K //Y //I 
-else
-	cp $(EXE1)  ./deliverable
-	cp -v $(EXE1)  ../../../nowic/labs/lab4
 endif

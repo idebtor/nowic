@@ -3,12 +3,12 @@
 	"tasks": [
 		{
 			"type": "cppbuild",
-			"label": "build args1x",
+			"label": "build args1",
 			"command": "C:\\msys64\\mingw64\\bin\\g++.exe",
 			"args": [
-				"-g", "${cwd}/args1x.cpp", "${cwd}/printfuncx.cpp",  
+				"-g", "${cwd}/args1.cpp", "${cwd}/printfunc.cpp",  
 				"-I../../include", 
-				"-o", "${cwd}/args1x"
+				"-o", "${cwd}/args1"
 			],
 			"options": { "cwd": "C:\\msys64\\mingw64\\bin" },
 			"problemMatcher": [ "$gcc" ],
@@ -17,12 +17,12 @@
 		},
 		{
 			"type": "cppbuild",
-			"label": "build args2x",
+			"label": "build args2",
 			"command": "C:\\msys64\\mingw64\\bin\\g++.exe",
 			"args": [
-				"-g", "${cwd}/args2x.cpp", "${cwd}/printfuncx.cpp",  
+				"-g", "${cwd}/args2.cpp", "${cwd}/printfunc.cpp",  
 				"-I${cwd}/../../include", 
-				"-o", "${cwd}/args2x"
+				"-o", "${cwd}/args2"
 			],
 			"options": { "cwd": "C:\\msys64\\mingw64\\bin" },
 			"problemMatcher": [ "$gcc" ],
