@@ -1,7 +1,7 @@
 # C++ for C Coders & Data Structures
 Lecture Notes by idebtor@gmail.com
 -------------------
-# Lab01 - C/C++ code conversion
+# Lab1 - C/C++ code conversion
 ## Subjects
 1. C vs C++
 2. #define vs const
@@ -120,7 +120,7 @@ The total is 780
 ```
 
 ----------------------------
-# File(s) to submit for this Lab:
+# File(s) to submit at Piazza lab1 folder:
   - cplus.cpp
 
 ----------------------------
