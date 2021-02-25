@@ -137,35 +137,6 @@ This method fails when the user uses __KoreanUserName__. For MinGW-w64, follow t
   - To use Mintty or MSYS2 console, follow instructions in ["UsingMintty.md" file](https://github.com/idebtor/nowic/blob/master/02UsingMintty.md) stored in this folder.
 
 -----------------------------------
-## Install Atom.
-1. Atom is a text editor that most professional programmers love nowadays.
-2. Start Atom.
-3. Install some of essential packages recommended for C/C++ programmers listed below:
-
-    - Platformio-ide-terminal
-      - On successful installation, you will see a +sign at the bottom-left corner of the editor. Click + sign to open a console.
-    - atom-file-icons
-    - minimap
-    - Markdown-preview
-      - Open a rendered version of the Markdown in the current editor with `ctrl-shift-m`.
-    - Autosave
-      - It automatically saves files when the editors loses focus, are destroyed, or when the window is closed.
-      - Believe or not, it is disabled by default. __You must check `enabled`__ in config setting or from the Autosave section of the Settings view.
-
-    __Themes of my personal preference__:
-      - UI Theme - Atom Dark,
-      - Syntax Theme - Oceanic Next
-
-    __Note for Multi-screen users:__ If Atom is displayed off-screen, do the following:
-      1. Alt + Tab to choose the atom window
-      2. Alt + Space to open the context menu
-      3. Press 'm' to select move
-      4. Press any arrow key once
-      5. Move your mouse (The misplaced window will follow your cursor.)
-
-    __Problem in platformio-ide-terminal:__ If the prompt does not show up in the terminal, you may look Issues #765 and #760 at github/platformio/platformio-atom-ide-terminal.
-      1. #760 is a solution for Windows users.
-      2. #765 includes a comment I posted. What I found is to follow the #760 solution except one item. Use apm instead of npm.
 
 ## Install "GitHub Desktop" and "Git"
 - Install __git__ from [this site](https://git-scm.com/downloads) for your computer.
