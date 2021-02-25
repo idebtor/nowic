@@ -199,22 +199,22 @@ After installation of GitHub Desktop, be a member if already not.
 ## Are ready for 'Hello World!' program in C++?
   - Open a console. (may use cmd or powershell)  
     - You may use cmd or powershell at this point. Sooner or later, however, we are going to use a different kind of console called mintty. You may read __UsingMinttyInMinGW.md__ for the Mintty installation at `nowic` folder.
-  - Open hello.cpp file with Atom
+  - Open hello.cpp file with Code
     ```
-    Atom hello.cpp
+    Code hello.cpp
     ```
   - Build an executable. The output name depends on your OS: hello.exe, a.exe for windows; hello.out, a.out for linux and macOS. Mac users may need to add -std=c++11 option to compile as shown below:
     ```
     g++ hello.cpp -o hello            # hello.exe
     g++ -std=c++11 hello.cpp -o hello # hello.out for macOS
-    g++ hello.cpp                     # a.exe or a.out
+    g++ hello.cpp                     # a.exe or a
     ```
   - Run the executable.
     ```
     ./hello                           # PowerShell
     ./a                               # PowerShell
-    hello                             # Cmd, Linux, OSX
-    a                                 # Cmd, Linux, OSX
+    hello                             # Cmd, Linux, macOS
+    a                                 # Cmd, Linux, macOS
     ```
 
 ## Write `Hello World!` program
@@ -246,31 +246,31 @@ int main() {
 Observe two versions `Hello World!` program to see the difference. The difference is whether you are using the namespace or not.
 
 ## Run hello.cpp program
-To run the program, you must make an executable from the source code file, `hello.cpp`. We use the compiler to generate an __executable__ (or runnable) file from the code in the source file.  The executable file ends with `.exe` or `.out` extension as our source file ends with `.cpp` extension. We might compile the file as follows:
+To run the program, you must make an executable from the source code file, `hello.cpp`. We use the compiler to generate an __executable__ (or runnable) file from the code in the source file.  The executable file ends with `.exe` or `.out` extension, or __without__ it as our source file ends with `.cpp` extension. We might compile the file as follows:
 
 - On the console, type the following line (without $) and press `Enter` key.
 - Mac users may need to add -std=c++11 option to compile as shown below:
 ```
-$ g++ hello.cpp              # generates a.exe, a.out
+$ g++ hello.cpp              # generates a.exe, a
 $ g++ -std=c++11 hello.cpp   # for macOS
 $ ./a.exe                    # runs a.exe            for PowerShell
-$ ./a                        # runs a.exe, a.out     for PowerShell and macOS
+$ ./a                        # runs a.exe or a       for PowerShell and macOS
 $ a                          # for Cmd Windows
 ```
-- The line above compiles (and links) the source code and generates an executable called `a.exe` or `a.out`.
+- The line above compiles (and links) the source code and generates an executable called `a.exe` or `a`.
 - `$` is a console prompt. (You don't need to enter it.)
 - The line above compiles (and links) the source code and generates an executable called `a.exe`  
-- `g++` is the name of our compiler, and `#` begins a command-line comment.  We can run the executable file, `a.exe` or `a.out`, which will run our main function. If you want to name the executable, you may provide the file name with `-.o` option as follows:
+- `g++` is the name of our compiler, and `#` begins a command-line comment.  We can run the executable file, `a.exe` or `a`, which will run our main function. If you want to name the executable, you may provide the file name with `-.o` option as follows:
 
 ```
 $ g++ hello.cpp -o hello        # generates hello.exe
 $ ./hello.exe                   # runs hello.exe
-$ ./hello                       # runs hello.exe, hello.out for macOS & PS
+$ ./hello                       # runs hello.exe, hello for macOS & PS
 $ hello                         # for Cmd Windows
 ```
 
   __JoyNote:__
-  - Run `hello.exe` or `hello.out` without `./` in front, when you run it at Linux, OSX and mintty console^^.
+  - Run `hello.exe` or `hello` without `./` in front, when you run it at Linux, macOS and mintty console^^.
 
 ## Are ready to study more?
 For further study of C or C++ basics, the following two video lectures in YouTube are recommended.  A solid background in C will do good for C++ study in this course.
