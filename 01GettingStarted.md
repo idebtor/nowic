@@ -118,7 +118,7 @@ There are two ways to join Piazza, go the www.piazza.com.
     - Don't forget adding the path `C:/mingw64/bin` to your __PATH__ environment variable.
 
 #### This is another way to install MinGW-w64. (Not recommended)
-This method fails when the user uses __KoreanUserName__. For MinGW-w64, follow this [good installation guide](https://brunch.co.kr/@mystoryg/56) available.
+    This method fails when the user uses __KoreanUserName__. For MinGW-w64, follow this [good installation guide](https://brunch.co.kr/@mystoryg/56) available.
     - __IMPORTANT NOTE__ During the installation, select the following option:
     ```
       Architecture  x86_64
@@ -157,15 +157,16 @@ After installation of GitHub Desktop, be a member if already not.
     ~/nowic/include           # include files
     ~/nowic/labs              # labs
     ~/nowic/lib               # nowic.lib, libnowic.a, libnowic_mac.a
-    ~/nowic/src               # all source files except labs
+    ~/nowic/src               # source files 
     ~/nowic/psets             # problem sets - homework
+    ~/nowic/tools             # about tools - Code, GCC, Git, GitHub, Visual Stuido etc.
     ```
 
-    - __For example:__ The pset01(problem set 01) folder provides you with a few files for your first homework assignment.
+    - __For example:__ The pset1(problem set 1) folder provides you with a few files for your first homework assignment.
     ```
-    ~/pset01/pset01.pdf       # this file
-    ~/pset01/hellox.exe       # a solution to compare your work
-    ~/pset01/names.txt        # a list of names used in Step 5.
+    ~/pset1/pset1.pdf        # this file
+    ~/pset1/hellox.exe       # a solution to compare your work
+    ~/pset1/names.txt        # a list of names used in Step 5.
     ```
       __Note for Multi-screen users:__ Remove the following file if GitHub Desktop is displayed off-screen. Restart Desktop GitHub. (`user` below may be different in your system.)
       ```
