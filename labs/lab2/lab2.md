@@ -24,7 +24,7 @@ Lecture Notes by idebtor@gmail.com
   - Print `names` using for-loop and `names`.
     - Do not use `argc`, `argv` and ranged-for loop. 
     - Use `size()` method of the `vector` class to go through all elements in `names`.
-  - Build an executable `names.exe`, and run it. 
+  - Build an executable `args1.exe`, and run it. 
 
 __Sample Run:__
   ```
