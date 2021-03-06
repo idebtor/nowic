@@ -246,7 +246,7 @@ int main(int argc, char *argv[]) {
 #### Sample Run:
 ```
 $ g++ setmax_ref.cpp -o setmax_ref
-$ ./setmax_ptr
+$ ./setmax_ref
 >list1: 43 10 20 75 22 33
 <list1: 43 10 20 99 22 33
 
@@ -295,7 +295,7 @@ int main(int argc, char *argv[]) {
 #### Sample Run:
 ```
 $ g++ setmax_ret.cpp -o setmax_ret
-$ ./setmax_ptr
+$ ./setmax_ret
 >list1: 43 10 20 75 22 33
 <list1: 43 10 20 99 22 33
 
