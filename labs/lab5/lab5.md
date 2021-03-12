@@ -14,7 +14,7 @@ Lecture Notes by idebtor@gmail.com
 ## Step 1: NMN and DRY - Better coding in C++
 Let us convert this C code into a better C++ code.
 
-1. Read the code provided with `selection.cpp` first. There are so many sorting algorithms available. Naming a function such as `sort()` is undesirable in this file. Replace `sort()` with an appropriate name. 
+1. Read the code provided with `selection.cpp` first. There are so many sorting algorithms available. Naming a function such as `sort()` in this file is undesirable since there are so many different sort algorithms. Replace `sort()` with an appropriate name. 
 
 2. Replace <stdio.h> which comes from C with <iostream> and `using namespace std;`. For example, replace `printf` with `cout`. 
 
