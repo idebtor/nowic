@@ -50,6 +50,7 @@ Lecture Notes by idebtor@gmail.com
   ```
   ...
   ...
+  ...
     // Uncomment the next line and modify the code above to make it work. 
     // quicksort(list, N, more);
     cout << "QUICK SORTED using more fp): " << endl;
@@ -75,7 +76,7 @@ Lecture Notes by idebtor@gmail.com
   17  20  26  31  44  54  55  77  93
 
   QUICK SORTED using more fp):
-  17  20  26  31  44  54  55  77  93
+  93  77  55  54  44  31  26  20  17
 
   Happy Coding~~
 ```

@@ -1,5 +1,5 @@
 // mergesort.cpp by idebtor@gmail.com
-// A typical recursive implementation of mergesort using function template in C++.
+// A typical recursive implementation of mergesort in C++.
 //
 // 2020/02/02: Created by idebtor@gmail.com
 // 2021/01/20: comparator default argument added 
@@ -57,11 +57,9 @@ void merge(int *a, int *aux, int lo, int mi, int hi) {
 void mergesort(int *a, int *aux, int lo, int hi) {
     if (hi <= lo) return;
 
-    int mi = lo + (hi - lo) / 2;
-    mergesort (a, aux, lo,     mi);
-    mergesort (a, aux, mi + 1, hi);
-	if (a[mi] < a[mi + 1]) return;  // already sorted
-
+    int mi = lo + (hi - lo) / 2;   // mi = (lo + hi) / 2
+    mergesort(a, aux, lo,     mi);
+    mergesort(a, aux, mi + 1, hi);
     merge(a, aux, lo, mi, hi);
 }
 
