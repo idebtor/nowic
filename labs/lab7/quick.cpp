@@ -90,7 +90,7 @@ int main() {
 
     // Uncomment the next line and modify the code above to make it work. 
 	quicksort(list, N, more);
-	cout << "QUICK SORTED using more fp): " << endl;
+	cout << "QUICK SORTED using more fp: " << endl;
 	// Using printlist()
 	printlist(list, N);
 	// for (auto x: list) cout << x << "  "; 

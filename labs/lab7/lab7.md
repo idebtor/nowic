@@ -25,7 +25,7 @@ Lecture Notes by idebtor@gmail.com
   ```
 ----------------------------
 ## File(s) to submit for this Lab:
-  Submit the script that works as expected. Some penality may apply if you submit the script that does not work. 
+    Submit the following files. Some penality may apply if you submit the script that does not work. 
     - makefile
     - make.1
     - make.2
