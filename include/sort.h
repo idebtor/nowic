@@ -33,6 +33,7 @@ bool more(int x, int y);   // for descending order
 bool less(int x, int y);   // for ascending order 
 
 // declare the sort function prototypes 
+// declare the function prototypes 
 void bubblesort(int *list, int n, bool (*comp)(int, int) = ::less);
 void insertionsort(int *list, int n, bool (*comp)(int, int) = ::less);
 void mergesort(int *a, int N, bool (*comp)(int, int) = ::less);
