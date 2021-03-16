@@ -13,8 +13,7 @@ LDFLAGS = -L$(LIBDIR)
 LIBDIR = ../lib
 INCDIR = ../include
 
-SRCS = bubble.cpp insertion.cpp merge.cpp quick.cpp selection.cpp \
-		comparator.cpp printlist.cpp 
+SRCS = bubble.cpp insertion.cpp merge.cpp quick.cpp selection.cpp comparator.cpp printlist.cpp 
 OBJS = $(SRCS:.cpp=.o)
 
 ifeq ($(OS),Windows_NT)
