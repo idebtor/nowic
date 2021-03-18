@@ -35,6 +35,7 @@ $(EXE1): $(OBJ1)
 .PHONY: all clean install
 clean:
 	rm -f *.o *.exe $(OBJ1) $(EXE1)
+	
 install:
 ifeq ($(OS),Windows_NT)
 	mkdir -p ./deliverable && \
