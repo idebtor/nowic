@@ -1,0 +1,55 @@
+# a makefile example using multiple libraries and include 
+# 
+# 2020/03/05 Created by idebtor@gmail.com
+# 2021/01/02 proflie.cpp - updated for macOS and DEBUG options
+#
+# $@ The name of the EXEC file (the one before the colon)
+# $< The name of the first (or only) prerequisite file (the first one after the colon)
+# $^ The names of all the prerequisite files (space separated)
+# $* The stem (the bit which matches the % wildcard in the rule definition.
+#
+CC = g++
+LIBDIR = ../../lib
+INCDIR = ../../include
+CCFLAGS = -std=c++11 -Wall -g 
+#CCFLAGS += -DDEBUG        # uncomment for debugging
+ifeq ($(OS),Windows_NT)
+	LDFLAGS = -L$(LIBDIR) -lnowic -lsort -lrand
+else
+	LDFLAGS = -L$(LIBDIR) -lnowic_mac -lsort_mac -lrand_mac
+endif
+
+$(info )
+$(info To use main() in driver.cpp with profilie.cpp or profiling.cpp,)
+$(info turn off, set #if 0, just above main() in profile.cpp or profiling.cpp)
+$(info )
+SRC3 = profile.cpp driver.cpp 
+OBJ3 = $(SRC3:.cpp=.o)
+EXE3 = driver
+
+# rule for link
+all: $(EXE3) 
+
+$(EXE3): $(OBJ3)
+	$(CC) -o $@ $^ $(LDFLAGS)
+
+# rule for compilation
+%.o: %.cpp
+	$(CC) $(CCFLAGS) -c -I$(INCDIR) $<
+
+.PHONY: all clean install
+clean:
+	rm -f *.o *.exe $(OBJ3) $(EXE3)
+install:
+ifeq ($(OS),Windows_NT)
+	mkdir -p ./deliverable && \
+	cp profiling.pdf makefile make.driver $(EXE3).exe ./deliverable
+	cp profiling.cpp ./deliverable
+	mkdir -p ../../../nowic/psets/pset4 && \
+	cp -v deliverable/* ../../../nowic/psets/pset4
+	xcopy .vscode ..\..\..\nowic\psets\pset4\.vscode //E //H //K //Y //I 
+else
+	cp $(EXE3) ./deliverable
+	cp -v $(EXE3) ../../../nowic/psets/pset4
+endif
+
