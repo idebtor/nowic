@@ -1,4 +1,4 @@
-# a makefile example using multiple libraries and include 
+# a makefile example using two libraries and include 
 # 
 # 2020/03/05 Created by idebtor@gmail.com
 # 2021/01/02 Updated for macOS and DEBUG options
@@ -11,21 +11,28 @@
 CC = g++
 LIBDIR = ../../lib
 INCDIR = ../../include
-CCFLAGS = -std=c++11 -Wall -g 
+CCFLAGS = -std=c++11 -Wall -g
 #CCFLAGS += -DDEBUG        # uncomment for debugging
 ifeq ($(OS),Windows_NT)
-	LDFLAGS = -L$(LIBDIR) -lsort -lnowic -lrand
+	LDFLAGS = -L$(LIBDIR) -lnowic
 else
-	LDFLAGS = -L$(LIBDIR) -lsort_mac -lnowic_mac -lrand_mac
+	LDFLAGS = -L$(LIBDIR) -lnowic_mac 
 endif
 
-SRC1 = sorting.cpp 
+SRC1 = factorial.cpp
 OBJ1 = $(SRC1:.cpp=.o)
-EXE1 = sorting
+EXE1 = factorial
+
+SRC2 = driver.cpp recursion.cpp
+OBJ2 = $(SRC2:.cpp=.o)
+EXE2 = recursion
 
 # rule for link
-all: $(EXE1)  
+all: $(EXE1) $(EXE2) 
 $(EXE1): $(OBJ1)
+	$(CC) -o $@ $^ $(LDFLAGS)
+
+$(EXE2): $(OBJ2)
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 # rule for compilation
@@ -34,13 +41,12 @@ $(EXE1): $(OBJ1)
 
 .PHONY: all clean install
 clean:
-	rm -f *.o *.exe $(OBJ1) $(EXE1)
-	
+	rm -f *.o *.exe $(OBJ1) $(EXE1) $(OBJ2) $(EXE2) 
 install:
 ifeq ($(OS),Windows_NT)
 	mkdir -p ./deliverable && \
-	cp pset2b.pdf random.pdf makefile ./deliverable
-	cp sorting.cpp ./deliverable
-	cp -v deliverable/* ../../../nowic/psets/pset2b
-	xcopy .vscode ..\..\..\nowic\psets\pset2b\.vscode //E //H //K //Y //I 
+	cp pset3a.pdf makefile ./deliverable
+	cp driver.cpp recursion.cpp  ./deliverable
+	cp -v deliverable/* ../../../nowic/psets/pset3a
+	xcopy .vscode ..\..\..\nowic\psets\pset3a\.vscode //E //H //K //Y //I 
 endif
