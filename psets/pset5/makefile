@@ -35,9 +35,9 @@ SRC4 = clock4.cpp
 OBJ4 = $(SRC4:.cpp=.o)
 EXE4 = clock4
 
-SRC = clock.cpp clockDriver.cpp
-OBJ = $(SRC:.cpp=.o)
-EXE = clock
+#SRC = clock.cpp clockDriver.cpp
+#OBJ = $(SRC:.cpp=.o)
+#EXE = clock
 
 # rule for link
 all: $(EXE1) $(EXE2) $(EXE3) $(EXE4) $(EXE)
@@ -63,10 +63,11 @@ $(EXE): $(OBJ)
 
 .PHONY: all clean install
 clean:
-	rm -f *.o *.exe $(EXE1) $(EXE2) $(EXE3) $(EXE4) $(EXE)
+	rm -f *.o *.exe $(EXE1) $(EXE2) $(EXE3) $(EXE4) 
 install:
 ifeq ($(OS),Windows_NT)
 	cp makefile pset-clock.pdf ./deliverable
 	cp -v deliverable/* ../../../nowic/psets/pset5
 	xcopy .vscode ..\..\..\nowic\psets\pset5\.vscode //E //H //K //Y //I 
 endif
+
