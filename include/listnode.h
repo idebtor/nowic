@@ -54,11 +54,12 @@ Node* pop_back(Node* p);			// pops the last node in the list
 Node* pop(Node* p, int val);	    // pops the node with the val
 Node* pop_N(Node* p, int N, Node* (*pop_fp)(Node*));  // pops N nodes
 
+pair<Node*, Node*> cut_in_two_halves(Node* p); // cut the list in two halves
+Node* keep_second_half(Node* p);	// keeps the second half
 Node* reverse_using_stack(Node* p); // reverses list using stack
 Node* reverse_in_place(Node* p);	// reverses list in-place
-Node* keep_second_half(Node* p);	// keeps the second half
 Node* zap_duplicates(Node* p);      // zap duplicates 
 
 // if all is true, show all nodes; otherwise, show_n * 2 nodes from front & back. 
-void show(Node* p, bool all = true, int show_n = 12);  // 12: a default magic number
+void show(Node* p, bool all = true, int show_n = 10);  // 10: a default magic number
 #endif

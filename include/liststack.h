@@ -52,5 +52,5 @@ pNode top(pNode p);
 
 // shows all the list elements, show_n items per line  if all is true.
 // shows the first and the last show_n items in the list if all is false.
-void show(pNode p, bool all = true, int show_n = 12);
+void show(pNode p, bool all = true, int show_n = 10);
 #endif
