@@ -46,7 +46,7 @@ install:
 ifeq ($(OS),Windows_NT)
 	mkdir -p ./deliverable && \
 	cp dial.pdf minstack.pdf makefile ./deliverable
-	cp dial800.cpp ./deliverable
+	cp dial800.cpp dialmap.cpp ./deliverable
 	mkdir -p ../../../nowic/psets/pset-midterm && \
 	cp -v deliverable/* ../../../nowic/psets/pset-midterm
 	xcopy .vscode ..\..\..\nowic\psets\pset-midterm\.vscode //E //H //K //Y //I 
