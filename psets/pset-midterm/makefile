@@ -14,9 +14,9 @@ INCDIR = ../../include
 CCFLAGS = -Wall -std=c++11 -g 
 #CCFLAGS += -DDEBUG        # uncomment for debugging
 ifeq ($(OS),Windows_NT)
-	LDFLAGS = 
+	LDFLAGS = -L../../lib -lnowic
 else
-	LDFLAGS = 
+	LDFLAGS = -L../../lib -lnowic_mac
 endif
 
 SRC1 = dial800.cpp
@@ -27,12 +27,19 @@ SRC2 = dialmap.cpp
 OBJ2 = $(SRC2:.cpp=.o)
 EXE2 = dialmap
 
+SRC3 = driverminx.cpp liststackx.cpp 
+OBJ3 = $(SRC3:.cpp=.o)
+EXE3 = driverminx
+
 # rule for link
-all: $(EXE1)  
+all: $(EXE1) $(EXE2) $(EXE3)  
 $(EXE1): $(OBJ1)
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 $(EXE2): $(OBJ2)
+	$(CC) -o $@ $^ $(LDFLAGS)
+	
+$(EXE3): $(OBJ3)
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 # rule for compilation
@@ -41,7 +48,7 @@ $(EXE2): $(OBJ2)
 
 .PHONY: all clean install
 clean:
-	rm -f *.o *.exe $(OBJ1) $(EXE1) 
+	rm -f *.o *.exe $(OBJ1) $(EXE1) $(OBJ2) $(EXE2) $(OBJ3) $(EXE3) 
 install:
 ifeq ($(OS),Windows_NT)
 	mkdir -p ./deliverable && \
