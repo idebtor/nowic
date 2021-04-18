@@ -23,15 +23,9 @@ SRC1 = liststack.cpp driver.cpp
 OBJ1 = $(SRC1:.cpp=.o)
 EXE1 = liststack
 
-SRC2 = liststack.cpp drivermin.cpp
-OBJ2 = $(SRC2:.cpp=.o)
-EXE2 = drivermin
-
 # rule for link
-all: $(EXE1)  $(EXE2) 
+all: $(EXE1)  
 $(EXE1): $(OBJ1) 
-	$(CC) -o $@ $^ $(LDFLAGS)
-$(EXE2): $(OBJ2) 
 	$(CC) -o $@ $^ $(LDFLAGS)
 
 # rule for compilation
@@ -40,12 +34,12 @@ $(EXE2): $(OBJ2)
 
 .PHONY: all clean install
 clean:
-	rm -f *.o *.exe $(OBJ1) $(OBJ2) $(EXE1) $(EXE2) 
+	rm -f *.o *.exe $(OBJ1) $(EXE1) 
 install:
 ifeq ($(OS),Windows_NT)
 	mkdir -p ./deliverable && \
 	cp liststack.pdf makefile ./deliverable
-	cp liststack.cpp driver.cpp drivermin.cpp ./deliverable
+	cp liststack.cpp driver.cpp ./deliverable
 	mkdir -p ../../../nowic/psets/pset8a && \
 	cp -v deliverable/* ../../../nowic/psets/pset8a
 	xcopy .vscode ..\..\..\nowic\psets\pset8a\.vscode //E //H //K //Y //I 
