@@ -53,6 +53,7 @@ bool empty(pNode p) {
 pNode push(pNode p, int val, int N) {
 	DPRINT(cout << ">push val=" << val << " N="<< N << endl;);
 
+	cout << "your code here\n";
 	p = new Node{ val, p };
 
 	DPRINT(cout << "<push size=" << size(p) << endl;);
