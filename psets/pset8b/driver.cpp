@@ -166,6 +166,8 @@ int main() {
 				head = two_heads.second;	// sets the second half as head
 				show(two_heads.first, show_all, show_n);
 				cout << endl;
+
+				clear(two_heads.first); // discard
 			}
 			break;
 

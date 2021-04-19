@@ -264,7 +264,7 @@ pair<Node*, Node*> cut_in_two_halves(Node* p) {
 
 	cout << "your code here\n";
 
-	return make_pair(p, p);  
+	return make_pair(p, p);  // p's are just place-holders.
 }
 
 // removes consecutive items in the list, and leaves its neighbors unique.
