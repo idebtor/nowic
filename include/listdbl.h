@@ -127,16 +127,16 @@ void push_sorted(pList p, int value);
 void push_sortedN(pList p, int N);
 
 // inserts N number of nodes in sorted in the sorted list. O(nlogn)
-void push_sortedNlog(pList p, int N);
+// void push_sortedNlog(pList p, int N);
 
 // algorithm specific sort functions, refer to listsort.cpp for detail.
-void bubblesort(pList p, bool (*comp)(int, int) = ::less);
-void insertionsort(pList p, bool (*comp)(int, int) = ::less);
-void selectionsort(pList p, bool (*comp)(int, int) = ::less);
-void mergesort(pList p, bool (*comp)(int, int) = ::less);
-void quicksort(pList p, bool (*comp)(int, int) = ::less);
+// void bubblesort(pList p, bool (*comp)(int, int) = ::less);
+// void insertionsort(pList p, bool (*comp)(int, int) = ::less);
+// void selectionsort(pList p, bool (*comp)(int, int) = ::less);
+// void mergesort(pList p, bool (*comp)(int, int) = ::less);
+// void quicksort(pList p, bool (*comp)(int, int) = ::less);
 
 ///////////////////////// show ///////////////////////////////////////
 // if all is true, show all nodes; otherwise, show_n * 2 nodes at front & back. 
-void show(pList p, bool all=true, int show_n=12);  // 12: a default magic number
+void show(pList p, bool all=true, int show_n=10);  // 10: a default magic number
 #endif // LISTDBL_H
