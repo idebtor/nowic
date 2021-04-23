@@ -117,24 +117,18 @@ void reverse(pList p);
 void shuffle(pList p);
 
 //////////////////////////// sort //////////////////////////////////
-bool sorted(pList p);    /// true if either ascending or descending
+
+bool less(int x, int y);  // for ascending order 
+bool more(int x, int y);  // for descending order
+
+// returns true if pList is sorted in either ascending or descending
+bool sorted(pList p);
+
+// returns true if sorted according to the compare function provided
 bool sorted(pList p, bool (*comp)(int a, int b));
 
 // inserts a node with value in sorted in the "sorted" list, O(n)
 void push_sorted(pList p, int value); 
-
-// inserts N number of nodes in sorted in the sorted list. O(n^2)
-void push_sortedN(pList p, int N);
-
-// inserts N number of nodes in sorted in the sorted list. O(nlogn)
-// void push_sortedNlog(pList p, int N);
-
-// algorithm specific sort functions, refer to listsort.cpp for detail.
-// void bubblesort(pList p, bool (*comp)(int, int) = ::less);
-// void insertionsort(pList p, bool (*comp)(int, int) = ::less);
-// void selectionsort(pList p, bool (*comp)(int, int) = ::less);
-// void mergesort(pList p, bool (*comp)(int, int) = ::less);
-// void quicksort(pList p, bool (*comp)(int, int) = ::less);
 
 ///////////////////////// show ///////////////////////////////////////
 // if all is true, show all nodes; otherwise, show_n * 2 nodes at front & back. 
