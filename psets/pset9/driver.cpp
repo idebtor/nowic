@@ -57,14 +57,15 @@ int main() {
 		cout << "\ti - push             O(n)";  cout << "\td - pop         O(n)\n";
 		cout << "\tz - push sorted*     O(n)";	cout << "\te - pop all*    O(n)\n";
 		cout << endl;
+		cout << "\ts - sorted?          O(n)";  cout << "\tr - reverse     O(n)\n";
+		cout << "\tx - perfect shuffle* O(n)";  cout << "\ta - randomize   O(n)\n";
 		cout << "\tu - unique*          O(n)";  cout << "\tw - swap pairs  O(n)\n";
-		cout << "\ta - randomize        O(n)";  cout << "\tr - reverse     O(n)\n";
-		cout << "\tx - perfect shuffle* O(n)";  cout << "\tc - clear       O(n)\n";
 		if (show_all)
 			cout << "\tt - show [HEAD/TAIL]\t";
 		else
 			cout << "\tt - show [ALL]\t\t";
 		cout << "\tn - n nodes per line\n";
+		cout << "\tc - clear       O(n)\n";
 		  
 		c = GetChar("\tCommand[q to quit]: ");
 
@@ -92,7 +93,6 @@ int main() {
 				cout << "\tThe operation works in sorted list only.\n";
 				break;
 			}
-
 			value = GetInt("\tEnter a number to push: ");
 			begin = clock();
 			push_sorted(p, value);
@@ -110,6 +110,7 @@ int main() {
 			if (empty(p)) break;
 			pop_back(p);
 			break;
+
 		case 'd':  // deletes one node with the value
 			if (empty(p)) break;
 			value = GetInt("\tEnter a number to pop: ");
@@ -127,9 +128,8 @@ int main() {
 			break;
 
 		case 'u':  // unique
-			if (empty(p)) break;
-			if (!sorted(p)) {
-				cout << "\n\tSort first and try it again\n";
+			if (!empty(p) && !sorted(p)) {
+				cout << "\tThe operation works in sorted list only.\n";
 				break;
 			}
 			begin = clock();
@@ -165,6 +165,16 @@ int main() {
 			show_timeit(begin);
 			break;
 
+		case 's':  // push_sorted
+			if (empty(p)) break;
+
+			if (sorted(p, ::less))
+				cout << "\tSorted in ascending order\n";
+			else if (sorted(p, more))
+				cout << "\tSorted in descending order\n";
+			else
+				cout << "\tIt is unsorted.\n";
+			break;
 
 		case 't': // toggle the way of showing
 			show_all ? show_all = false : show_all = true;
