@@ -418,7 +418,7 @@ bool sorted(pList p) {
 // returns true if p: 7 7 2 1 1, comp: more
 bool sorted(pList p, bool (*comp)(int a, int b)) {
 	DPRINT(cout << ">sorted? " << endl;);
-	if (size(p) <= 2) return true;  // since ascending or descending
+	if (size(p) <= 1) return true;  // since ascending or descending
 
 	cout << "your code here\n";
 
