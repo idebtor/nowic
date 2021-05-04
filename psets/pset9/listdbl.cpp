@@ -113,6 +113,11 @@ pNode find_by_index(pList p, int n_th) {
 	return curr;
 }
 // randomizes the list nodes in O(n^2). 
+// This code randomizes the list nodes in O(n^2) 
+// since it calls another O(n) algorithm inside while loop. 
+// Your job is to change the following code such that its time complexity becomes O(n). 
+// Hint: You may reference the Fisher-Yates shuffle "inside-out" algorithm defined 
+// in nowic/src/rand.cpp
 void randomize(pList p) {
 	int N = size(p);
 	if (N <= 1) return;
@@ -129,11 +134,12 @@ void randomize(pList p) {
 	}
 }  ////////// this part shown above is added for padagogical reason //////////////
 #else 
-/// randomizes the list nodes in a naive method. It goes through the list twice.
-/// This naive method of swapping each element with another element chosen randomly from all 
-/// elements is biased and fundamentally broken. However, it is acceptable at this point.
-/// To enhance further, you may reference the Fisher-Yates shuffle "inside-out" and 
-/// modern version algorithms implemented in random.cpp.
+/// You may use your own alorithm, but the following is just showing one way of coding.
+/// Hint: You may go through the list twice of which the time complexity is O(n).
+/// In 1st loop, randomize the list while saving the result in another memory aux[], 
+/// just like in the Fisher-Yates shuffle "inside-out" algorithm defined in nowic/src/rand.cpp.
+/// In 2nd loop, overwrite each value in the list with the one in aux[] which is shuffled. 
+/// In this algorithm, links in the linked-list are neither changed nor relinked.
 void randomize(pList p) {
 	int N = size(p);
 	if (N <= 1) return;
@@ -418,7 +424,7 @@ bool sorted(pList p) {
 // returns true if p: 7 7 2 1 1, comp: more
 bool sorted(pList p, bool (*comp)(int a, int b)) {
 	DPRINT(cout << ">sorted? " << endl;);
-	if (size(p) <= 2) return true;  // since ascending or descending
+	if (size(p) <= 1) return true;  // since ascending or descending
 
 	cout << "your code here\n";
 
