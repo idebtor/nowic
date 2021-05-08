@@ -277,7 +277,7 @@ int main(int argc, char **argv) {
 				cout << "\tThe key(" << key << ") already exists." << endl;
 				break;
 			}
-			growBT(root, key);
+			root = growBT(root, key);
 			// after adding a node, check and reset the tree status flag.
 			BSTtree = isBST(root);
 			AVLtree = isAVL(root);
