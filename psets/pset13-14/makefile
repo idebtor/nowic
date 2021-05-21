@@ -46,7 +46,7 @@ install:
 ifeq ($(OS),Windows_NT)
 	mkdir -p ./deliverable && \
 	cp heap.pdf makefile ./deliverable
-	cp heap.cpp driver.cpp ./deliverable
+	cp heap.cpp heapsort.cpp driver.cpp ./deliverable
 	cp heapprint.cpp treeprint.cpp ./deliverable
 	cp ../../include/heap.h ../../../nowic/include
 	mkdir -p ../../../nowic/psets/pset13-14 && \
