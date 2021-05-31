@@ -32,7 +32,6 @@ struct Hash {                              // vector<list<string>> hashtable may
 
 // Notice that ht is passed by reference when its pointer may be changed inside 
 // except erase() and show(). Passing by reference may help to run the code faster. 
-int hashfunction(Hash* ht, int key);        // hash function for int key
 int hashfunction(Hash* ht, string key);     // hash function for string key
 void rehash(Hash*& ht);                     // rehashes - doubles its tablesize
 bool insert(Hash*& ht, string key);         // inserts key & rehashes if loadfactor >= threshold
