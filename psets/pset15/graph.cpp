@@ -326,7 +326,7 @@ void print_result(graph g){
 	cout << "\t     color[0.." + to_string(V(g) - 1) + "] = ";
 
 	for (int i = 0; i < V(g); i++) {
-		cout << setw(4) << g->color[i]; cout << endl;
+		cout << setw(4) << g->color[i]; 
 	}
 	cout << endl;
 	print_DFS(g);	
