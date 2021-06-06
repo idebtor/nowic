@@ -41,8 +41,8 @@ struct Hash {
 // except erase() and show(). Passing by reference may help to run the code faster. 
 int hashfunction(Hash* ht, int key);           // hash function for int key
 int hashfunction(Hash* ht, string key);        // hash function for string key
-void rehash(Hash*& ht);                        // rehashes - doubles its tablesize
-void rehash(Hash*& ht, int usersize);          // rehashes using user-specified tablesize  
+void rehash(Hash*& ht);                        // doubles its tablesize and rehashes repeatedly if needed
+void rehash(Hash*& ht, int usersize);          // resets the table by usersize passed and rehashes
 bool insert(Hash*& ht, string key);            // inserts key & rehashes if loadfactor >= threshold
 bool erase(Hash*& ht, string key);             // erases key and returns true if successful
 list<wordcount> find(Hash* ht, string key);    // returns its bucket list if found
@@ -53,6 +53,7 @@ void show(Hash*& ht, bool show_empty=false, int show_n=10); // show the table
 
 int nextprime(int x);                          // returns the next prime 
 int tablesize(Hash* ht);                       // returns the table size
+void tablesize(Hash*& ht, int size);           // sets the tablesize and rehashes if needed
 int nelements(Hash* ht);                       // returns number of elements in the table
 double loadfactor(Hash* ht);                   // returns nelements/tablesize
 double threshold(Hash* ht);                    // returns threshold(or max_loadfactor)
