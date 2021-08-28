@@ -1,0 +1,87 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{   // echo $workspaceFolder}
+			"type": "shell",
+			"label": "echo ${workspaceFolder} -> ",
+			"command": "echo ${workspaceFolder}",
+		},
+		{   // echo cwd 
+			"type": "shell",
+			"label": "echo ${cwd} -> ",
+			"command": "echo ${cwd}",
+		},
+		{   // build hellowho
+			"type": "cppbuild",
+			"label": "build hellowho",
+			"command": "C:/msys64/mingw64/bin/g++.exe",
+			"args": [
+				"-g", "${cwd}/hellowho.cpp", 
+				"-o", "${cwd}/hellowho"
+			],
+			"options": {
+				"cwd": "C:/msys64/mingw64/bin"
+			},
+			"problemMatcher": [ "$gcc" ],
+			"group": "build",
+			"detail": "compiler: C:/msys64/mingw64/bin/g++.exe"
+		},
+		{   // build helloargs
+			"type": "cppbuild",
+			"label": "build helloargs",
+			"command": "C:/msys64/mingw64/bin/g++.exe",
+			"args": [
+				"-g", "${cwd}/helloargs.cpp", 
+				"-o", "${cwd}/helloargs"
+			],
+			"options": {
+				"cwd": "C:/msys64/mingw64/bin"
+			},
+			"problemMatcher": [ "$gcc" ],
+			"group": "build",
+			"detail": "compiler: C:/msys64/mingw64/bin/g++.exe"
+		},
+		{   // build hellofunc
+			"type": "cppbuild",
+			"label": "build hellofunc",
+			"command": "C:/msys64/mingw64/bin/g++.exe",
+			"args": [
+				"-g", "${cwd}/hellofunc.cpp", "${cwd}/printfunc.cpp", 
+				"-o", "${cwd}/hellofunc", 
+			],
+			"options": {
+				"cwd": "C:/msys64/mingw64/bin"
+			},
+			"problemMatcher": [ "$gcc" ],
+			"group": "build",
+			"detail": "compiler: C:/msys64/mingw64/bin/g++.exe"
+		},
+		{   // build hellowhox
+			"type": "cppbuild",
+			"label": "build hellowhox",
+			"command": "C:/msys64/mingw64/bin/g++.exe",
+			"args": [
+				"-g", "${cwd}/hellowhox.cpp", 
+				"-o", "${cwd}/hellowhox"
+			],
+			"options": {
+				"cwd": "C:/msys64/mingw64/bin"
+			},
+			"problemMatcher": [ "$gcc" ],
+			"group": "build",
+			"detail": "compiler: C:/msys64/mingw64/bin/g++.exe"
+		},
+		{   // run helloargs with arguments
+			"type": "shell",
+			"label": "run helloargs with arguments",
+			"command": "${cwd}/helloargs",
+			"args": [ "john", "Dr. Lee", "Handong Global University", "peter" ],
+			"dependsOn": [ "build helloargs" ],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [ "$gcc" ]
+		},
+	]
+}
