@@ -1,7 +1,5 @@
 # 
-# 2020/03/05 Created by idebtor@gmail.com
-# 2021/01/02 Updated for macOS and DEBUG options
-#
+# Created by idebtor@gmail.com
 # $@ The name of the EXEC file (the one before the colon)
 # $< The name of the first (or only) prerequisite file (the first one after the colon)
 # $^ The names of all the prerequisite files (space separated)
@@ -38,8 +36,11 @@ clean:
 install:
 ifeq ($(OS),Windows_NT)
 	mkdir -p ./deliverable && \
-	cp lab4.md makefile ./deliverable 
+	cp lab4.md makefile $(EXE1).exe ./deliverable 
 	cp bubble.cpp ./deliverable 
 	cp -v ./deliverable/* ../../../nowic/labs/lab4
 	xcopy .vscode ..\..\..\nowic\labs\lab4\.vscode //E //H //K //Y //I 
+else
+	cp $(EXE1)  ./deliverable
+	cp -v $(EXE1)  ../../../nowic/labs/lab3
 endif

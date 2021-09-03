@@ -1,6 +1,5 @@
 # 
-# 2020/03/05 Created by idebtor@gmail.com
-# 2021/01/02 Updated for macOS and DEBUG options
+# Created by idebtor@gmail.com
 #
 # $@ The name of the EXEC file (the one before the colon)
 # $< The name of the first (or only) prerequisite file (the first one after the colon)
@@ -20,7 +19,7 @@ endif
 
 SRC1 = selection.cpp printlist.cpp
 OBJ1 = $(SRC1:.cpp=.o) 
-EXE1 = selection
+EXE1 = selectionx
 
 # rule for link
 all: $(EXE1) 
@@ -38,8 +37,12 @@ clean:
 install:
 ifeq ($(OS),Windows_NT)
 	mkdir -p ./deliverable && \
-	cp lab5.md makefile ./deliverable 
+	cp lab5.md makefile $(EXE1).exe ./deliverable 
 	cp selection.cpp printlist.cpp ./deliverable 
 	cp -v ./deliverable/* ../../../nowic/labs/lab5
 	xcopy .vscode ..\..\..\nowic\labs\lab5\.vscode //E //H //K //Y //I 
+else
+	cp $(EXE1)  ./deliverable
+	cp -v $(EXE1)  ../../../nowic/labs/lab5
 endif
+

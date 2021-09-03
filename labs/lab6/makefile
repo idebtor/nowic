@@ -1,6 +1,5 @@
 # 
-# 2020/03/05 Created by idebtor@gmail.com
-# 2021/01/02 Updated for macOS and DEBUG options
+# Created by idebtor@gmail.com
 #
 # $@ The name of the EXEC file (the one before the colon)
 # $< The name of the first (or only) prerequisite file (the first one after the colon)
@@ -61,7 +60,10 @@ clean:
 
 install:
 ifeq ($(OS),Windows_NT)
-	cp lab6.md makefile $(SRC1) $(SRC2) $(SRC3) $(SRC4) $(SRC5)  ./deliverable
+	cp lab6.md makefile $(SRC2) $(SRC3) $(SRC4)  ./deliverable
 	cp -v ./deliverable/* ../../../nowic/labs/lab6
 	xcopy .vscode ..\..\..\nowic\labs\lab6\.vscode //E //H //K //Y //I 
+else
+	cp $(EXE2) $(EXE3) $(EXE4)  ./deliverable
+	cp -v $(EXE2) $(EXE3) $(EXE4) ../../../nowic/labs/lab6
 endif
