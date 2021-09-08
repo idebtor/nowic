@@ -80,7 +80,7 @@ int main() {
   cout << endl << endl;
 
   cout << "your code here\n";
-  cout << "[3]BUBBLE SORTED - ascendingg using fp: " << endl;
+  cout << "[3]BUBBLE SORTED - ascending using fp: " << endl;
   for (auto x: list) cout << x << "  "; 
   cout << endl << endl;
 }
