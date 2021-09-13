@@ -18,9 +18,11 @@ Lecture notes by idebtor@gmail.com
 idebtor@gmail.com  
 
 ## Three ways to view markdown(.md) files
+
 ### GitHub 
-  0. View them always in github website automatically and better.
+  1. View them always in github website automatically and better.
   1. GitHub does not support `LaTex` yet. You may not see the well-formatted math equations.
+   
 ### Web browser
   1. Install `Markdown Preview Plus` extension in your browser(Chrome, Edge).
   2. Go to `extensions, 도구 더보기 혹은 확장` in the browser's setting 
@@ -29,9 +31,11 @@ idebtor@gmail.com
   5. Drag and drop ~.md file in your brower.
   6. For `LaTex`, check the math option in `Markdown Preview Plus` icon in your brower top menubar'. 
   7. Enjoy nicely formatted HTML!
-### MS `Code` 
+   
+### Visual Studio `Code` 
   1. Install `Markdown All in One` & `Auto-Open Preview` extensions in your `Code`.
   2. Enjoy nicely formatted HTML!
+   
 ### Refer to my tutorial: <https://youtu.be/sS1viPcXDIo> 
 
 ----
