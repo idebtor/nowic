@@ -1,6 +1,12 @@
-# C++ for C Coders & Data Structures
-Lecture Notes by idebtor@gmail.com
--------------------
+그런즉 너희가 먹든지 마시든지 무엇을 하든지 다 하나님의 영광을 위하여 하라 (고전10:31)
+
+-------
+<img src="https://github.com/idebtor/nowic/blob/c4d8ad9a5a51d14744e3e5b66da376c8bef15292/images/cplus_ds_title.jpg?raw=true" width=1000>
+
+__NOTE:__ The following materials have been compiled and adapted from the numerous sources including my own. Please help me to keep this tutorial up-to-date by reporting any issues or questions. Send any comments or criticisms to `idebtor@gmail.com` Your assistances and comments will be appreciated.
+Lecture notes by idebtor@gmail.com
+
+-----
 ## Function Overloading
 Two or more functions having same name but different argument(s) are known as overloaded functions. In C++ programming, two functions can have same name if number and/or type of arguments passed are different.
 
