@@ -37,7 +37,7 @@ $(EXE1): $(OBJ1)
 
 # rule for compilation
 %.o: %.cpp
-	$(CC) -c -I$(INCDIR) $<
+	$(CC) $(CCFLAGS)  -c -I$(INCDIR) $<
 
 .PHONY: all clean install
 clean:
