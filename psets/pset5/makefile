@@ -66,7 +66,7 @@ clean:
 	rm -f *.o *.exe $(EXE1) $(EXE2) $(EXE3) $(EXE4) 
 install:
 ifeq ($(OS),Windows_NT)
-	cp makefile pset-clock.pdf ./deliverable
+	cp makefile pset-clock.pdf clockDriver.cpp ./deliverable
 	cp -v deliverable/* ../../../nowic/psets/pset5
 	xcopy .vscode ..\..\..\nowic\psets\pset5\.vscode //E //H //K //Y //I 
 endif
