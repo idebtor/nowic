@@ -1,4 +1,4 @@
-그런즉 너희가 먹든지 마시든지 무엇을 하든지 다 하나님의 영광을 위하여 하라 (고전10:31)
+그런즉 너희가 먹든지 마시든지 무엇을 하든지 다 하나님의 영광을 위하여 하라 (고전10:31) 
 
 -------
 <img src="https://github.com/idebtor/nowic/blob/c4d8ad9a5a51d14744e3e5b66da376c8bef15292/images/cplus_ds_title.jpg?raw=true" width=1000>

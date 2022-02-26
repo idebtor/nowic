@@ -1,0 +1,33 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "build args1",
+			"command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+			"args": [
+				"-g", "${cwd}/args1.cpp", "${cwd}/printfunc.cpp",  
+				"-I../../include", 
+				"-o", "${cwd}/args1"
+			],
+			"options": { "cwd": "C:\\msys64\\mingw64\\bin" },
+			"problemMatcher": [ "$gcc" ],
+			"group": "build",
+			"detail": "compiler: C:\\msys64\\mingw64\\bin\\g++.exe"
+		},
+		{
+			"type": "cppbuild",
+			"label": "build args2",
+			"command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+			"args": [
+				"-g", "${cwd}/args2.cpp", "${cwd}/printfunc.cpp",  
+				"-I${cwd}/../../include", 
+				"-o", "${cwd}/args2"
+			],
+			"options": { "cwd": "C:\\msys64\\mingw64\\bin" },
+			"problemMatcher": [ "$gcc" ],
+			"group": "build",
+			"detail": "compiler: C:\\msys64\\mingw64\\bin\\g++.exe"
+		}
+	]
+}

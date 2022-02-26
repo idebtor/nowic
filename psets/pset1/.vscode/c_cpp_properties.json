@@ -1,0 +1,16 @@
+{
+    // https://code.visualstudio.com/docs/cpp/c-cpp-properties-schema-reference
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [ "${workspaceFolder}/**" ],
+            "defines": [ "_DEBUG", "UNICODE", "_UNICODE", "DEBUG" ],
+            "windowsSdkVersion": "10.0.18362.0",
+            "compilerPath": "C:/msys64/mingw64/bin/g++.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}
