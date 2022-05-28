@@ -229,7 +229,7 @@ void heapsort(heap p) {
 // instantiates a complete binary tree with given data and its size.
 heap newCBT(int *a, int n) {
 	DPRINT(cout << ">newCBT n=" << n << endl;);
-	int capacity = (int) exp2((double)height(n));
+	int capacity = (int) exp2((double)height(n) + 1);  // bug fixed: +1 
 	heap p = new Heap{ capacity };
 	p->N = n;
 	for (int i = 0; i < n; i++)
