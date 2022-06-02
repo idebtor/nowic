@@ -37,18 +37,18 @@
 
 enum showEnum { TREE_MODE, LEVEL_MODE, TASTY_MODE };
 
-struct Heap {						// heap or min/max priority queue
-	int *nodes;						// an array of nodes
-	int capacity;					// array size of node
-	int N;							// number of nodes in the heap
-	bool (*comp)(Heap*, int, int);  // less() for maxheap, more() for minheap
+struct Heap {							// heap or min/max priority queue
+	int *nodes;							// an array of nodes
+	int capacity;						// array size of node
+	int N;								// number of nodes in the heap
+	bool (*comp)(Heap*, int, int);  	// less() for maxheap, more() for minheap
 
 	Heap(int capa = 2) {
 		capacity = capa;
 		nodes = (int *)malloc(capa * sizeof(int)); // works with realloc() & free()
 		//nodes = new int[capacity]; // unsafe use with realloc() & free()        
 		N = 0;
-		comp = nullptr;
+		comp = nullptr;					
 	};
 	~Heap() {};
 };
@@ -91,4 +91,5 @@ void trimCBT(heap p);				// trims a node at the last
 void heapprint(heap p, int mode = TREE_MODE);   // prints heap using treeprint fucntions
 ///////////////// helper functions /////////////////////////////////////////
 void show_vector(std::vector<int> vec, int show_n = 20);
+void randomN(int start, int N, int *arr);
 #endif
