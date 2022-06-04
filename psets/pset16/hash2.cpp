@@ -102,7 +102,7 @@ void rehash(Hash*& ht) {
 
 // resets the table size by the new_size passed and rehashes once.
 // there are two ways to implement this part. 
-// 1. create a new table with the new_size, 
+// 1. create a new table of the new_size, 
 // 2. replace the old hashtable (or list) with the new list only and 
 //    keep the original Hash structure.
 void rehash(Hash*& ht, int new_size) {  
@@ -111,7 +111,7 @@ void rehash(Hash*& ht, int new_size) {
     int old_size = tablesize(ht);
     if (old_size == new_size) return;
 
-    // create new double-sized and emtpy table, use nextprime()
+    // create a new table of the new_size.
     cout << "your code here\n";
 
     // rehashing 
