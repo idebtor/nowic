@@ -15,6 +15,9 @@ __NOTE:__ The following materials have been compiled and adapted from the numero
   5. not using `using namespace std;`
 
 ## Instructions
+
+Follow a few steps of coding as instructed. Then submit only the source files completed at the last step, but not ones in the previous steps. 
+
 ### Step 1. Using vector<string> data types 
   - Study about `vector` class in your own.
     -  It is one of the most used classes in C++.
