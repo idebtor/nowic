@@ -16,7 +16,7 @@ __NOTE:__ The following materials have been compiled and adapted from the numero
 
 ## Instructions
 
-Follow a few steps of coding as instructed. Then submit only the source files completed at the last step, but not ones in the previous steps. 
+Follow a few steps of coding as instructed. Then submit only the source files that you completed at the last step, but not the ones in the previous steps. 
 
 ### Step 1. Using vector<string> data types 
   - Study about `vector` class in your own.
@@ -30,9 +30,9 @@ Follow a few steps of coding as instructed. Then submit only the source files co
     - Copy them to a `vector<string> names` using `push_back()`.
     - To use `vector<string>`, add the `<vector>` header file.
   - Print `names` using for-loop and `names`.
-    - Do not change for loop index (int i = 0).
-    - Do not use `argc`, `argv` and ranged-for loop. 
-    - Use `size()` method of the `vector` class to go through all elements in `names`.
+    - Use the the traditional for-loop (int i = 0 ...), but not a ranged-for loop. 
+    - Use `size()` method of the `vector` class to go through all elements in `names`. 
+    - Do not use `argc` and `argv`, but use `names`. 
   - Build an executable `args1.exe`, and run it. 
 
 __Sample Run:__
