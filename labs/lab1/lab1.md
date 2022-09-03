@@ -62,7 +62,7 @@ C++ reference allows you to create a second name (or __alias__) for the a variab
             data[i] = i;
         
         sum(data, N, &total);  // total - pass-by-pointer
-        printf("Total is %d\n", total);
+        printf("The total is %d\n", total);
         return 0;
     }
     #else 
@@ -106,7 +106,7 @@ The total is 780
     ```
 2. While converting it, keep some guidelines instructed below: 
     - Use `const`, but not `#define`.
-    - Use a reference operator, but not a pointer.
+    - Use a reference operator, but not a pointer when passing to the function.
     - Use `new` and `delete` operators.
     - Use `cout` & `endl` instead of `printf()`.
     - Do not use `using namespace std;`.

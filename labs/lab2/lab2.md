@@ -25,14 +25,14 @@ Follow a few steps of coding as instructed. Then submit only the source files th
   - Use two skeleton source files provided:
     - args1.cpp 
     - printfunc.cpp
-  - Follow and code the instructions in skeleton files.
+  - **Follow and code the instructions in skeleton files.**
     - Print the command-line arguments except the first one.
-    - Copy them to a `vector<string> names` using `push_back()`.
-    - To use `vector<string>`, add the `<vector>` header file.
-  - Print `names` using for-loop and `names`.
-    - Use the the traditional for-loop (int i = 0 ...), but not a ranged-for loop. 
-    - Use `size()` method of the `vector` class to go through all elements in `names`. 
-    - Do not use `argc` and `argv`, but use `names`. 
+    - Copy them to a `vector<string> names` **using** `push_back()`.
+      - To use `vector<string>`, add the `<vector>` header file.
+    - Print `names` using for-loop and `names`.
+      - Use the the traditional for-loop (int i = 0 ...), but not a ranged-for loop. 
+      - Use `size()` method of the `vector` class to go through all elements in `names`. 
+      - Do not use `argc` and `argv`, but use `names`. 
   - Build an executable `args1.exe`, and run it. 
 
 __Sample Run:__
@@ -60,6 +60,7 @@ __Sample Run:__
   - Now, we have two `printfunc()` functions in `printfunc.cpp`.
       - The name of two functions are the same, but have different arguments.
       - This kind of capability is called a __method overloading__.
+        - More about method overloading [here](https://www.programiz.com/cpp-programming/function-overloading)
   - Add the prototype of the newly added function in `args1.cpp`.
   - Build an executable and test it.
   
