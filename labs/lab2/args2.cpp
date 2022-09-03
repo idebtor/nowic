@@ -11,13 +11,12 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
 
 int main(int argc, char **argv) {
 
-	cout << "\tthis file is just a placeholder.\n" << endl;
-	cout << "\tcopy your args1.cpp here and use it as a skeleton code.\n" << endl;
-	cout << "\tyour code here\n" << endl;
+	std::cout << "\tthis file is just a placeholder.\n" << std::endl;
+	std::cout << "\tcopy your args1.cpp here and use it as a skeleton code.\n" << std::endl;
+	std::cout << "\tyour code here\n" << std::endl;
 
 	return 0;
 }
