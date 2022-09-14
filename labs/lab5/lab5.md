@@ -73,8 +73,8 @@ Instead of using a static array for sorting, we want to allocate a dynamic array
     ```
 #### Sample Run:
   ```
-  $ g++ selectionx.cpp printlist.cpp -o selectionx
-  $ ./selectionx
+  $ g++ selection.cpp printlist.cpp -o selection
+  $ ./selection
   Enter a number of samples to sort(q to quit): abcd
   Retry -
   Enter a number of samples to sort(q to quit): -1000
@@ -103,7 +103,7 @@ Instead of using a static array for sorting, we want to allocate a dynamic array
 
 #### Sample Run:
 ```
-  $ ./selectionx
+  $ ./selection
   Enter a number of samples to sort(q to quit): 1000
   UNSORTED(1000):
          41      467      334      500      169      724      478      358      962      464
@@ -153,7 +153,7 @@ As you experienced in `bubblesort.cpp`, add an third parameter to `selectionsort
 
 #### Sample Run:
 ```
-$ ./selectionx
+$ ./selection
 Enter a number of samples to sort(q to quit): 100
 UNSORTED(100):
        41       67       34        0       69       24       78       58       62       64
