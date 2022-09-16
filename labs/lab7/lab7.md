@@ -37,11 +37,14 @@ __NOTE:__ The following materials have been compiled and adapted from the numero
     - makefile               # same as in the lecture ppt
     - make.1                 # same as in the lecture ppt without using rules
     - make.2                 # same as in the lecture ppt using rules
-    - make.libsort           # use this name instead of make.3 in the lecture ppt
+    - make.libsort           # to build libsort.a 
     - sortDriver.exe         # descending should work here  
     - qsort.exe              # descending should work here
     - libsort.a              # windows users only
     - libsort_mac.a          # mac users only          
+
+    This part is optional^^ this time.
+    - make.3                 # same as make.2 but using libsort.a
 ----------------------------
 _One thing I know, I was blind but now I see. John 9:25_
 ----------------------------
