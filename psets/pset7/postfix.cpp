@@ -38,7 +38,8 @@ string evaluate(string tokens) {
 		if (isspace(token)) continue;  // if token is a whitespace, skip it.
 		DPRINT(cout << "token: " << token << endl;);
 
-		// current token is a value(or operand), push it to st.
+		// current token is a operator, 
+		// pop two operands and evaluate them and push the result to st.
 		if (token == '+' || token == '-' || token == '*' || token == '/') {
 
 			cout << "your code here" << endl;
