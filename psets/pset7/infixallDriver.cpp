@@ -8,8 +8,6 @@
 //   1 + (12 * 2) / 4 - 1
 //
 // Author: idebtor@gmail.com
-// 2019.09.20	Creation
-// 2020.10.03	Use stack<double> to handle division
 //
 #include <iostream>
 #include <string>

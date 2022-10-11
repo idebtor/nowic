@@ -9,7 +9,6 @@
 //   1 + (((12 * 2) / 4) - 1)
 //
 // Author: idebtor@gmail.com
-// 2020.04.05	created and assert() added
 //
 #include <iostream>
 #include <cassert>

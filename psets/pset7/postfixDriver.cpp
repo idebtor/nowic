@@ -5,8 +5,6 @@
 // The postfix can be evaluated if it is expressed numerically.
 //
 // Author: idebtor@gmail.com
-// 2020.04.05	Creation
-// 2020.10.03	evaluation of numerical postfix expressions
 //
 #include <iostream>
 #include <string>

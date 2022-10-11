@@ -10,8 +10,6 @@
 //   1 + (((12 * 2) / 4) - 1)
 //
 // Author: idebtor@gmail.com
-// 2020.04.02	Creation
-// 2020.10.03	Use stack<double> to handle division
 //
 #include <iostream>
 #include <string>
@@ -42,7 +40,7 @@ int main() {
 #if 1
 	double value;
 	cout << "\nStep 1: Simple cases[-2, -9, 6]" << endl;
-	string infix1[] = {"1 - 3", "1 - (2 * 5)", "( ( 3 - 1 ) * 5 ) - 4)"};
+	string infix1[] = {"1 - 3", "1 - (2 * 5)", "( ( ( 3 - 1 ) * 5 ) - 4)"};
 	for (auto expr: infix1) {
 		value = evaluate(expr);
 		cout << " infix: " << expr << endl;
