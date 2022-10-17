@@ -1,5 +1,5 @@
 //  liststack.h
-//  Created by idebtor@gmail.com on Oct.7, 2019.
+//  author: idebtor@gmail.com
 //  This header file contains a stack using singly linked list of nodes.
 
 #ifndef LISTSTACK_H

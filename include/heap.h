@@ -17,11 +17,7 @@
 *  as the nodes get removed. A one - based and one dimensional array
 *  is used to simplify parent and child calculations.
 *
-*  @author Youngsup Kim, idebtor@gmail.com
-*  2014/04/01	Creation
-*  2016/05/05	Added heapprint(), treeprint(), growN, trimN()
-*  2016/11/15	command-line arguments available for initial heap
-*  2016/11/20	use function pointer to handle minheap and maxheap
+*  author: idebtor@gmail.com
 */
 #ifndef HEAP_H
 #define HEAP_H

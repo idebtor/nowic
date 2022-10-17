@@ -17,12 +17,7 @@
 *   insertionor deletion, then it returns the root node as a
 *   returned value.
 *
-* 04/20/2014	Creation	Youngsup Kim, idebtor@gmail.com
-* 04/15/2016	treeprint() added for clearer visualization of tree
-* 05/01/2016	Added AVL tree
-* 10/20/2016    Switching from/to BST and AVL tree
-* 11/01/2016    Added stress tests
-* 04/02/2019	C++ version 
+* authour: idebtor@gmail.com
 *
 * Usage:
 *	tree root = nullptr;

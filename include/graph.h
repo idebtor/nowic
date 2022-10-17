@@ -23,10 +23,8 @@
 *  If so, the color operation determines a bipartition; if not, the oddCycle
 *  operation determines a cycle with an odd number of edges.
 *
-*	@author Youngsup Kim, idebtor@gmail.com
+*  author: idebtor@gmail.com
 *
-*	2014/2016/	YSK	Creation
-*	2016/05/01	YSK Iteractive oprations, command-line option added
 */
 
 #include <iostream>

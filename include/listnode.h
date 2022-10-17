@@ -2,8 +2,8 @@
 // listnode.h
 // contains structures and functions for a simply-linked list of nodes.
 // 
-// 2018.12.12 Created by idebtor@gmail.com 
-// 2020.04.15 Added reverse functions and push_N()
+// author: idebtor@gmail.com 
+// 
 
 #ifndef LISTNODE_H
 #define LISTNODE_H
