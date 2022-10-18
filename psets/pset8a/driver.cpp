@@ -21,7 +21,7 @@ int main() {
 	int val, N = 0;
 	clock_t begin = 0;
 	Node* stack = nullptr;
-	int min = 0, max = 0;
+	int min = INT_MAX, max = INT_MIN;
 	bool show_all = true;	// toggle the way of showing values
 	int show_n = 10;		// the number of items to show per line
 	string show_menu[] = { "HEAD/TAIL", "ALL" };
