@@ -3,7 +3,10 @@
  *       implements a doubly linked list with sentinel nodes
  *       and test it interactively
  *
- * author: idebtor@gmail.com
+ * 04/13/16:	Created by idebtor@gmail.com
+ * 02/10/19:	C++ conversion, doubly linked list
+ * 04/20/20:	sort and merge added
+ * 10/20/20:	randomize() - added for quicksort, swap_nodes() added
  *
  * 1. This implements a doubly linked list with two sentinel nodes which
  *    provide with benifits of coding consistency and easy maintenance.
