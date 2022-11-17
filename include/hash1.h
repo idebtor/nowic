@@ -1,5 +1,6 @@
-/// Author Youngsup Kim, idebtor@gmail.com
-/// 2020/11/20	Creation
+/// 
+/// author: idebtor@gmail.com
+/// 
 #ifndef HASH_H
 #define HASH_H
 
