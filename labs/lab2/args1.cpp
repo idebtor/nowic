@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
 	// print names using printfunc(vector<string>)
 	// use ranged-for loop in printfunc(vector<string>)
 	// do not use `using namespace std;` in printfunc.cpp 
-	// cout << "Print names using printfunc(vector<string>)\n";
+	// std::cout << "Print names using printfunc(vector<string>)\n";
 	// printfunc(names);
 
 	return 0;
