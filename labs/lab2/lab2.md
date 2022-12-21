@@ -68,12 +68,12 @@ __Sample Run:__
   ```
   $ g++ -std=c++11 args1.cpp printfunc.cpp -o args1
   $ ./args1 David John Lee
-  Print using printfunc(**argv)
+  Print **argv using printfunc(**argv) except 1st one
   Hello David!
   Hello John!
   Hello Lee!
-  Copy using vector<string>
-  Print using indexing, but not ranged-for
+  Copy **argv using vector<string> except 1st one
+  Print names using for-loop, but not argc/argv, ranged-for
   Hello David!
   Hello John!
   Hello Lee!
@@ -110,12 +110,12 @@ __Sample Run:__
   ```
   $ g++ -std=c++11 args2.cpp printfunc.cpp -I../../include -o args2
   $ ./args2 David John Lee
-  Print using printfunc(**argv)
+  Print **argv using printfunc(**argv) except 1st one
   Hello David!
   Hello John!
   Hello Lee!
-  Copy using vector<string>
-  Print using indexing, but not ranged-for
+  Copy **argv using vector<string> except 1st one
+  Print names using for-loop, but not argc/argv, ranged-for
   Hello David!
   Hello John!
   Hello Lee!
