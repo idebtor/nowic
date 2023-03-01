@@ -30,13 +30,15 @@ $(EXE1): $(OBJ1)
 clean:
 	rm -f *.o *.exe $(EXE1) 
 
+TARGET_FOLDER = ../../../nowic/labs/lab1
 install:
 ifeq ($(OS),Windows_NT)
 	mkdir -p ./deliverable && \
 	cp lab1.md lab1.pdf makefile $(EXE1).exe ./deliverable 
-	cp -v ./deliverable/* ../../../nowic/labs/lab1
+	mkdir -p $(TARGET_FOLDER)
+	cp -v ./deliverable/* $(TARGET_FOLDER)
 	xcopy .vscode ..\..\..\nowic\labs\lab1\.vscode //E //H //K //Y //I 
 else
 	cp $(EXE1) ./deliverable
-	cp -v $(EXE1) ../../../nowic/labs/lab1
+	cp -v $(EXE1) $(TARGET_FOLDER)
 endif
