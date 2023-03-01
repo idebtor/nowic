@@ -33,7 +33,7 @@ clean:
 install:
 ifeq ($(OS),Windows_NT)
 	mkdir -p ./deliverable && \
-	cp lab1.md makefile $(EXE1).exe ./deliverable 
+	cp lab1.md lab1.pdf makefile $(EXE1).exe ./deliverable 
 	cp -v ./deliverable/* ../../../nowic/labs/lab1
 	xcopy .vscode ..\..\..\nowic\labs\lab1\.vscode //E //H //K //Y //I 
 else
