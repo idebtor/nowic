@@ -53,7 +53,6 @@ install:
 ifeq ($(OS),Windows_NT)
 	mkdir -p ./deliverable && \
 	cp pset1.pdf makefile names.txt argcargv.md getinputs.md ./deliverable
-	cp $(EXE3) ./deliverable
 	cp -v ./deliverable/* ../../../nowic/psets/pset1
 	xcopy .vscode ..\..\..\nowic\psets\pset1\.vscode //E //H //K //Y //I 
 else
