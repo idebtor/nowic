@@ -1,8 +1,8 @@
 /**
- * @file main.c
+ * @file main.cpp
  * @author Seongbin Kim (seongbin10209@gmail.com)
  * @brief This code is used to test functions with implications from the preprocessor of gcc.
- * @version 1.0
+ * @version 1.1
  * @date 2023-02-15
  * 
  * Note:
@@ -21,14 +21,14 @@
  * @link https://gcc.gnu.org/onlinedocs/cpp/
  * 
  * Usage:
- * 	step(1). $ gcc -E main.c > main.i
- *  - This redirects the output of the preprocessed main.c to the main.i file.
+ * 	step(1). $ g++ -E main.cpp > main.i
+ *  - This redirects the output of the preprocessed main.cpp to the main.i file.
  *      - More about output redirection: @link https://www.guru99.com/linux-redirection.html
  *  - Take a screenshot of the contents of main.i
  *      - $ cat main.i
  *          - To view the contents.
  * 
- *  step(2). gcc -o filename main.c
+ *  step(2). g++ -o filename main.cpp
  *  - To create an executable file with a desirable name.
  * 	- Then follow the instructions printed!
  * 	- Have fun!
