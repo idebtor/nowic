@@ -15,17 +15,12 @@
 // STARTING_SAMPLES 1000.  Once the elapsed time of the selection sort for
 // STARTING_SAMPLES is got, it is set to those for O(n^2) and O(n log n).
 //
-// History:
-// 2021/01/29:	Created
-// 2021/01/02:	proflie.cpp - updated for macOS and DEBUG options
+// Author: idebtor@gmail.com
 //
-// Compilation:	
+// Compilation & Execution:	
 // $ g++ profiling.cpp -I../../include -L../../lib -lsort -o profiling
 // $ ./profiling 50000
 //
-// Compilation:	
-// $ g++ profiling.cpp -I../../include -L../../lib -lsort -o profiling
-// $ ./profiling 50000
 
 #include <iostream>
 #include <iomanip>
