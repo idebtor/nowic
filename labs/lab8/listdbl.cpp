@@ -323,7 +323,7 @@ void unique(pList p) {
 
 // reverses the order of the nodes in the list. 
 // The entire operation does not involve the construction and
-// destruction of any element. Nodes are not moved, but poiters
+// destruction of any element. Nodes are not moved, but pointers
 // are moved within the list. O(n)
 void reverse(pList p) {
 	DPRINT(cout << ">reverse\n";);
