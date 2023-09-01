@@ -48,7 +48,7 @@ Just like returning pointers from functions, we can also __return references fro
     using namespace std;
 
     #if 1
-    // mulitply even number elements in the list by 10
+    // multiply each element in the list by 10 if it is an even number
     // without using reference variable.
     int main(int argc, char *argv[]) {
         vector<int> list = { 0, 1, 2, 2, 4, 5, 6, 7, 8, 8, 10 };
@@ -61,7 +61,7 @@ Just like returning pointers from functions, we can also __return references fro
         return 0;
     }
     #else 
-    // mulitply even number elements in the list by 10
+    // multiply each element in the list by 10 if it is an even number
     // using reference variable.
     int main(int argc, char *argv[]) {
         vector<int> list = { 0, 1, 2, 2, 4, 5, 6, 7, 8, 8, 10 };
