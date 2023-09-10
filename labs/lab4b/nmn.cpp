@@ -15,7 +15,7 @@
  * 
  * Usage:
  * 	step(1). $ gcc -o "filename" nmn.cpp
- * 	- Compile the nmn.c file to produce a "filename".exe executable file.
+ * 	- Compile the nmn.cpp file to produce a "filename".exe executable file.
  * 	- Run the .exe file to see how the program works.
  * 
  *  step(2). Switch #if 0 to 1
