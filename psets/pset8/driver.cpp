@@ -229,6 +229,7 @@ int main() {
 	} while (c != 'q');
 
 	clear(p);
+	delete(p);
 	cout << "\n\tJoyful Coding~~\n";
 	return EXIT_SUCCESS;
 }
