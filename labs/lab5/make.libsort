@@ -1,0 +1,39 @@
+# make.sort - makefile to build a static lib
+# Created by idebtor@gmail.com
+#
+# $@ The filename of the EXEC file (the one before the colon)
+# $< The filename of the first (or only) prerequisite file (the first one after the colon)
+# $^ The filenames of all the prerequisite files (space separated)
+# $* The stem of the target filename. A stem is typically a filename without its suffix.
+# $+ Same as $^ except that $+ includes duplicates
+# $% The filename element of an archive member specification.
+# 
+CC = g++
+CCFLAGS = -Wall -std=c++11
+LDFLAGS = -L$(LIBDIR)
+LIBDIR = ../../lib
+INCDIR = ../../include
+
+SRCS = bubble.cpp insertion.cpp merge.cpp quick.cpp selection.cpp \
+		comparator.cpp printlist.cpp
+OBJS = $(SRCS:.cpp=.o)
+
+ifeq ($(OS),Windows_NT)
+	TARGET = libsort.a
+else 
+	TARGET = libsort_mac.a
+endif
+
+# https://stackoverflow.com/questions/31421616/
+$(TARGET): $(OBJS)
+	ar cr $@ $+
+	ranlib $@
+
+%.o: %.cpp
+	$(CC) -c $(CCFLAGS) $< 
+
+.PHONY: all clean
+all: $(TARGET)
+clean:
+	rm -f $(OBJS) $(TARGET)
+
