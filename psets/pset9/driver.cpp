@@ -34,15 +34,23 @@
 #include <iostream>
 #include <sstream>
 #include <cassert>
+#include <string>
 #include <vector>
 #include <ctime>
 #include "nowic.h"
 #include "tree.h"
 using namespace std;
 
-void treeprint(tree root);				// print tree on console graphically
-void treeprint_levelorder(tree root);	// print tree in levelorder
+void treeprint(tree root);				    // print tree on console graphically
+void treeprint_levelorder(tree root);	    // print tree in levelorder
 void treeprint_levelorder_tasty(tree root);	// print tree in levelorder
+
+inline bool isint(const std::string & s) {
+   if(s.empty() || ((!isdigit(s[0])) && (s[0] != '-') && (s[0] != '+'))) return false;
+   char * p;
+   strtol(s.c_str(), &p, 10);
+   return (*p == 0);
+}
 
 // returns a tree built by command-line arguments, for example 5 7 3 8 2 6 4 
 tree build_tree_by_args(int argc, char *argv[], int& tree_type) {
@@ -183,9 +191,26 @@ int main(int argc, char **argv) {
 		
 		switch (c) {
 		case 'g': // grow
+			#if 0
 			if (!BSTtree && !AVLtree) break;
 			item = GetInt("\tEnter a key to grow: ");
 			root = AVLtree ? growAVL(root, item) : grow(root, item);
+			#else
+			{ // now it accepts multiple key(s)
+				string token, line;
+				cout << "\tEnter node key(s) to grow: ";
+				getline(cin, line);
+				istringstream iss(line);
+				while (getline(iss, token, ' ')) {
+					if (token.size() && isint(token)) {
+						if (BSTtree || AVLtree) 
+							root = AVLtree ? growAVL(root, stoi(token)) : grow(root,stoi(token));
+						else // BT case 
+							root = growBT(root, stoi(token));
+					}
+				}
+			}
+			#endif 
 			break;
 
 		case 'a': // add a child (it may become an invalid BST/AVL tree)
@@ -327,8 +352,22 @@ int main(int argc, char **argv) {
 		case 't':  // trim
 			if (empty(root)) break;
 			if (!BSTtree && !AVLtree) break;
+
+			#if 0
 			item = GetInt("\tEnter a node to trim: ");
 			root = AVLtree ? trimAVL(root, item) : trim(root, item);
+			#endif
+			{ // now it accepts multiple key(s)
+				string token, line;
+				cout << "\tEnter node key(s) to trim: ";
+				getline(cin, line);
+				istringstream iss(line);
+				while (getline(iss, token, ' ')) {
+					if (token.size() && isint(token)) {
+						root = AVLtree ? trimAVL(root, stoi(token)) : trim(root,stoi(token));
+					}
+				}
+			}
 			break;
 
 		case 'f':  // find a node - contrainsBT/contains
@@ -454,7 +493,12 @@ int main(int argc, char **argv) {
 			BSTtree = isBST(root);  
 			AVLtree = false;       
 			break;
-
+		#if 0  // only for testing
+		case 'x': 
+			foo(root);
+			cout << endl;
+			break;
+		#endif
 		case 'q':
 			break;
 		}
